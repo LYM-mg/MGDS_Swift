@@ -8,20 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		C07070FB1E1E1461002C42D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07070FA1E1E1461002C42D0 /* AppDelegate.swift */; };
-		C07070FD1E1E1461002C42D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07070FC1E1E1461002C42D0 /* ViewController.swift */; };
 		C07071001E1E1461002C42D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07070FE1E1E1461002C42D0 /* Main.storyboard */; };
 		C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C07071011E1E1461002C42D0 /* Assets.xcassets */; };
-		C07071051E1E1461002C42D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07071031E1E1461002C42D0 /* LaunchScreen.storyboard */; };
+		C07071221E1E16C4002C42D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07071211E1E16C4002C42D0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C07070F71E1E1461002C42D0 /* MGDS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07070FA1E1E1461002C42D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C07070FC1E1E1461002C42D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C07070FF1E1E1461002C42D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C07071011E1E1461002C42D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C07071041E1E1461002C42D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C07071061E1E1461002C42D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C07071211E1E16C4002C42D0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +52,181 @@
 		C07070F91E1E1461002C42D0 /* MGDS_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				C070710C1E1E14F0002C42D0 /* Class */,
 				C07070FA1E1E1461002C42D0 /* AppDelegate.swift */,
-				C07070FC1E1E1461002C42D0 /* ViewController.swift */,
 				C07070FE1E1E1461002C42D0 /* Main.storyboard */,
+				C07071211E1E16C4002C42D0 /* LaunchScreen.storyboard */,
 				C07071011E1E1461002C42D0 /* Assets.xcassets */,
-				C07071031E1E1461002C42D0 /* LaunchScreen.storyboard */,
 				C07071061E1E1461002C42D0 /* Info.plist */,
 			);
 			path = MGDS_Swift;
+			sourceTree = "<group>";
+		};
+		C070710C1E1E14F0002C42D0 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C070710D1E1E14F0002C42D0 /* Discover */,
+				C07071121E1E14F0002C42D0 /* Home */,
+				C07071171E1E14F0002C42D0 /* Main */,
+				C070711C1E1E14F0002C42D0 /* Mine */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		C070710D1E1E14F0002C42D0 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				C070710E1E1E14F0002C42D0 /* Controller */,
+				C070710F1E1E14F0002C42D0 /* Model */,
+				C07071101E1E14F0002C42D0 /* View */,
+				C07071111E1E14F0002C42D0 /* ViewModel */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		C070710E1E1E14F0002C42D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C070710F1E1E14F0002C42D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C07071101E1E14F0002C42D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C07071111E1E14F0002C42D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C07071121E1E14F0002C42D0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C07071131E1E14F0002C42D0 /* Controller */,
+				C07071141E1E14F0002C42D0 /* Model */,
+				C07071151E1E14F0002C42D0 /* View */,
+				C07071161E1E14F0002C42D0 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C07071131E1E14F0002C42D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C07071141E1E14F0002C42D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C07071151E1E14F0002C42D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C07071161E1E14F0002C42D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C07071171E1E14F0002C42D0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C07071181E1E14F0002C42D0 /* Controller */,
+				C07071191E1E14F0002C42D0 /* Model */,
+				C070711A1E1E14F0002C42D0 /* View */,
+				C070711B1E1E14F0002C42D0 /* ViewModel */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C07071181E1E14F0002C42D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C07071191E1E14F0002C42D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C070711A1E1E14F0002C42D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C070711B1E1E14F0002C42D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C070711C1E1E14F0002C42D0 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				C070711D1E1E14F0002C42D0 /* Controller */,
+				C070711E1E1E14F0002C42D0 /* Model */,
+				C070711F1E1E14F0002C42D0 /* View */,
+				C07071201E1E14F0002C42D0 /* ViewModel */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		C070711D1E1E14F0002C42D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C070711E1E1E14F0002C42D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C070711F1E1E14F0002C42D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C07071201E1E14F0002C42D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C07071051E1E1461002C42D0 /* LaunchScreen.storyboard in Resources */,
+				C07071221E1E16C4002C42D0 /* LaunchScreen.storyboard in Resources */,
 				C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */,
 				C07071001E1E1461002C42D0 /* Main.storyboard in Resources */,
 			);
@@ -137,7 +302,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C07070FD1E1E1461002C42D0 /* ViewController.swift in Sources */,
 				C07070FB1E1E1461002C42D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,14 +315,6 @@
 				C07070FF1E1E1461002C42D0 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C07071031E1E1461002C42D0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C07071041E1E1461002C42D0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -259,8 +415,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = H54L47S422;
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGDS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,8 +430,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = H54L47S422;
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGDS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
