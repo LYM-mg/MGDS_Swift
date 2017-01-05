@@ -1,0 +1,6 @@
+framework module Pods_MGDS_Swift {
+  umbrella header "Pods-MGDS_Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -11,15 +11,68 @@
 		C07071001E1E1461002C42D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07070FE1E1E1461002C42D0 /* Main.storyboard */; };
 		C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C07071011E1E1461002C42D0 /* Assets.xcassets */; };
 		C07071221E1E16C4002C42D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07071211E1E16C4002C42D0 /* LaunchScreen.storyboard */; };
+		C07071241E1E19D3002C42D0 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071231E1E19D3002C42D0 /* MainTabBarViewController.swift */; };
+		C07071261E1E1A1C002C42D0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071251E1E1A1C002C42D0 /* HomeViewController.swift */; };
+		C07071281E1E1A2C002C42D0 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071271E1E1A2C002C42D0 /* DiscoverViewController.swift */; };
+		C070712A1E1E1A42002C42D0 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071291E1E1A42002C42D0 /* MineViewController.swift */; };
+		C070713D1E1E1B86002C42D0 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070712D1E1E1B86002C42D0 /* Array+Extension.swift */; };
+		C070713E1E1E1B86002C42D0 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070712E1E1E1B86002C42D0 /* NSObject+Extension.swift */; };
+		C070713F1E1E1B86002C42D0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070712F1E1E1B86002C42D0 /* String+Extension.swift */; };
+		C07071401E1E1B86002C42D0 /* UIBUtton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071301E1E1B86002C42D0 /* UIBUtton+Extension.swift */; };
+		C07071411E1E1B86002C42D0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071311E1E1B86002C42D0 /* UIColor+Extension.swift */; };
+		C07071421E1E1B86002C42D0 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071321E1E1B86002C42D0 /* UIImage+Extension.swift */; };
+		C07071431E1E1B86002C42D0 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071331E1E1B86002C42D0 /* UIImageView+Extension.swift */; };
+		C07071441E1E1B86002C42D0 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071341E1E1B86002C42D0 /* UILabel+Extension.swift */; };
+		C07071451E1E1B86002C42D0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071351E1E1B86002C42D0 /* UIView+Extension.swift */; };
+		C07071461E1E1B86002C42D0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071361E1E1B86002C42D0 /* UIViewController+Extension.swift */; };
+		C07071471E1E1B86002C42D0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071371E1E1B86002C42D0 /* Constant.swift */; };
+		C07071481E1E1B86002C42D0 /* CornersLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071391E1E1B86002C42D0 /* CornersLabel.swift */; };
+		C07071491E1E1B86002C42D0 /* MGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713A1E1E1B86002C42D0 /* MGButton.swift */; };
+		C070714A1E1E1B86002C42D0 /* MoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713B1E1E1B86002C42D0 /* MoreButton.swift */; };
+		C070714B1E1E1B86002C42D0 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713C1E1E1B86002C42D0 /* TitleButton.swift */; };
+		C070714D1E1E1F7A002C42D0 /* HomeTitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070714C1E1E1F7A002C42D0 /* HomeTitlesView.swift */; };
+		C070714F1E1E2038002C42D0 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070714E1E1E2038002C42D0 /* HomeContentView.swift */; };
+		C07071511E1E21FF002C42D0 /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071501E1E21FF002C42D0 /* VideoTableViewController.swift */; };
+		C07071541E1E2314002C42D0 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071521E1E2314002C42D0 /* VideoCell.swift */; };
+		C07071551E1E2314002C42D0 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07071531E1E2314002C42D0 /* VideoCell.xib */; };
+		DFB4E0B8595614ACAE126B5B /* Pods_MGDS_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 899208F26CCBE9818DD0C9FB /* Pods_MGDS_Swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50F2BFEF9040444F5CC43E5B /* Pods-MGDS_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGDS_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGDS_Swift/Pods-MGDS_Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		899208F26CCBE9818DD0C9FB /* Pods_MGDS_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGDS_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE52BAD1BA24BC5566571829 /* Pods-MGDS_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGDS_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGDS_Swift/Pods-MGDS_Swift.release.xcconfig"; sourceTree = "<group>"; };
 		C07070F71E1E1461002C42D0 /* MGDS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07070FA1E1E1461002C42D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C07070FF1E1E1461002C42D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C07071011E1E1461002C42D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C07071061E1E1461002C42D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C07071211E1E16C4002C42D0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C07071231E1E19D3002C42D0 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		C07071251E1E1A1C002C42D0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C07071271E1E1A2C002C42D0 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		C07071291E1E1A42002C42D0 /* MineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		C070712D1E1E1B86002C42D0 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		C070712E1E1E1B86002C42D0 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		C070712F1E1E1B86002C42D0 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		C07071301E1E1B86002C42D0 /* UIBUtton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBUtton+Extension.swift"; sourceTree = "<group>"; };
+		C07071311E1E1B86002C42D0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		C07071321E1E1B86002C42D0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		C07071331E1E1B86002C42D0 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		C07071341E1E1B86002C42D0 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		C07071351E1E1B86002C42D0 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C07071361E1E1B86002C42D0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		C07071371E1E1B86002C42D0 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		C07071391E1E1B86002C42D0 /* CornersLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornersLabel.swift; sourceTree = "<group>"; };
+		C070713A1E1E1B86002C42D0 /* MGButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGButton.swift; sourceTree = "<group>"; };
+		C070713B1E1E1B86002C42D0 /* MoreButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreButton.swift; sourceTree = "<group>"; };
+		C070713C1E1E1B86002C42D0 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		C070714C1E1E1F7A002C42D0 /* HomeTitlesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTitlesView.swift; sourceTree = "<group>"; };
+		C070714E1E1E2038002C42D0 /* HomeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
+		C07071501E1E21FF002C42D0 /* VideoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
+		C07071521E1E2314002C42D0 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		C07071531E1E2314002C42D0 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		C07071581E1E2523002C42D0 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +80,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFB4E0B8595614ACAE126B5B /* Pods_MGDS_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		094DA83F1804A49D8EFC387B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50F2BFEF9040444F5CC43E5B /* Pods-MGDS_Swift.debug.xcconfig */,
+				BE52BAD1BA24BC5566571829 /* Pods-MGDS_Swift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		421C91FD2D2C83F3F14BBE5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				899208F26CCBE9818DD0C9FB /* Pods_MGDS_Swift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C07070EE1E1E1461002C42D0 = {
 			isa = PBXGroup;
 			children = (
 				C07070F91E1E1461002C42D0 /* MGDS_Swift */,
 				C07070F81E1E1461002C42D0 /* Products */,
+				094DA83F1804A49D8EFC387B /* Pods */,
+				421C91FD2D2C83F3F14BBE5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,10 +127,7 @@
 			children = (
 				C070710C1E1E14F0002C42D0 /* Class */,
 				C07070FA1E1E1461002C42D0 /* AppDelegate.swift */,
-				C07070FE1E1E1461002C42D0 /* Main.storyboard */,
-				C07071211E1E16C4002C42D0 /* LaunchScreen.storyboard */,
-				C07071011E1E1461002C42D0 /* Assets.xcassets */,
-				C07071061E1E1461002C42D0 /* Info.plist */,
+				C07071591E1E2538002C42D0 /* Support File */,
 			);
 			path = MGDS_Swift;
 			sourceTree = "<group>";
@@ -65,10 +135,11 @@
 		C070710C1E1E14F0002C42D0 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				C07071171E1E14F0002C42D0 /* Main */,
 				C070710D1E1E14F0002C42D0 /* Discover */,
 				C07071121E1E14F0002C42D0 /* Home */,
-				C07071171E1E14F0002C42D0 /* Main */,
 				C070711C1E1E14F0002C42D0 /* Mine */,
+				C070712B1E1E1B86002C42D0 /* Extesion */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -87,6 +158,7 @@
 		C070710E1E1E14F0002C42D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C07071271E1E1A2C002C42D0 /* DiscoverViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -126,6 +198,8 @@
 		C07071131E1E14F0002C42D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C07071251E1E1A1C002C42D0 /* HomeViewController.swift */,
+				C07071501E1E21FF002C42D0 /* VideoTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -140,6 +214,10 @@
 		C07071151E1E14F0002C42D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C070714C1E1E1F7A002C42D0 /* HomeTitlesView.swift */,
+				C070714E1E1E2038002C42D0 /* HomeContentView.swift */,
+				C07071521E1E2314002C42D0 /* VideoCell.swift */,
+				C07071531E1E2314002C42D0 /* VideoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,6 +243,7 @@
 		C07071181E1E14F0002C42D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C07071231E1E19D3002C42D0 /* MainTabBarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,6 +283,7 @@
 		C070711D1E1E14F0002C42D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C07071291E1E1A42002C42D0 /* MineViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -229,6 +309,56 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C070712B1E1E1B86002C42D0 /* Extesion */ = {
+			isa = PBXGroup;
+			children = (
+				C070712C1E1E1B86002C42D0 /* Category(扩展) */,
+				C07071371E1E1B86002C42D0 /* Constant.swift */,
+				C07071381E1E1B86002C42D0 /* Inherit(继承) */,
+			);
+			path = Extesion;
+			sourceTree = "<group>";
+		};
+		C070712C1E1E1B86002C42D0 /* Category(扩展) */ = {
+			isa = PBXGroup;
+			children = (
+				C070712D1E1E1B86002C42D0 /* Array+Extension.swift */,
+				C070712E1E1E1B86002C42D0 /* NSObject+Extension.swift */,
+				C070712F1E1E1B86002C42D0 /* String+Extension.swift */,
+				C07071301E1E1B86002C42D0 /* UIBUtton+Extension.swift */,
+				C07071311E1E1B86002C42D0 /* UIColor+Extension.swift */,
+				C07071321E1E1B86002C42D0 /* UIImage+Extension.swift */,
+				C07071331E1E1B86002C42D0 /* UIImageView+Extension.swift */,
+				C07071341E1E1B86002C42D0 /* UILabel+Extension.swift */,
+				C07071351E1E1B86002C42D0 /* UIView+Extension.swift */,
+				C07071361E1E1B86002C42D0 /* UIViewController+Extension.swift */,
+			);
+			path = "Category(扩展)";
+			sourceTree = "<group>";
+		};
+		C07071381E1E1B86002C42D0 /* Inherit(继承) */ = {
+			isa = PBXGroup;
+			children = (
+				C07071391E1E1B86002C42D0 /* CornersLabel.swift */,
+				C070713A1E1E1B86002C42D0 /* MGButton.swift */,
+				C070713B1E1E1B86002C42D0 /* MoreButton.swift */,
+				C070713C1E1E1B86002C42D0 /* TitleButton.swift */,
+			);
+			path = "Inherit(继承)";
+			sourceTree = "<group>";
+		};
+		C07071591E1E2538002C42D0 /* Support File */ = {
+			isa = PBXGroup;
+			children = (
+				C07070FE1E1E1461002C42D0 /* Main.storyboard */,
+				C07071211E1E16C4002C42D0 /* LaunchScreen.storyboard */,
+				C07071011E1E1461002C42D0 /* Assets.xcassets */,
+				C07071061E1E1461002C42D0 /* Info.plist */,
+				C07071581E1E2523002C42D0 /* BridgeHeader.h */,
+			);
+			name = "Support File";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,9 +366,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C07071091E1E1461002C42D0 /* Build configuration list for PBXNativeTarget "MGDS_Swift" */;
 			buildPhases = (
+				102F90207B7E0ED829A6A1E0 /* [CP] Check Pods Manifest.lock */,
 				C07070F31E1E1461002C42D0 /* Sources */,
 				C07070F41E1E1461002C42D0 /* Frameworks */,
 				C07070F51E1E1461002C42D0 /* Resources */,
+				12F40069A33AB72FEC8DF62D /* [CP] Embed Pods Frameworks */,
+				BEC6B9288CEBDBDAE981DB20 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -290,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C07071221E1E16C4002C42D0 /* LaunchScreen.storyboard in Resources */,
+				C07071551E1E2314002C42D0 /* VideoCell.xib in Resources */,
 				C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */,
 				C07071001E1E1461002C42D0 /* Main.storyboard in Resources */,
 			);
@@ -297,12 +431,83 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		102F90207B7E0ED829A6A1E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		12F40069A33AB72FEC8DF62D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGDS_Swift/Pods-MGDS_Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEC6B9288CEBDBDAE981DB20 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGDS_Swift/Pods-MGDS_Swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C07070F31E1E1461002C42D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C070713F1E1E1B86002C42D0 /* String+Extension.swift in Sources */,
+				C07071481E1E1B86002C42D0 /* CornersLabel.swift in Sources */,
 				C07070FB1E1E1461002C42D0 /* AppDelegate.swift in Sources */,
+				C07071281E1E1A2C002C42D0 /* DiscoverViewController.swift in Sources */,
+				C07071471E1E1B86002C42D0 /* Constant.swift in Sources */,
+				C07071461E1E1B86002C42D0 /* UIViewController+Extension.swift in Sources */,
+				C070714A1E1E1B86002C42D0 /* MoreButton.swift in Sources */,
+				C07071241E1E19D3002C42D0 /* MainTabBarViewController.swift in Sources */,
+				C070713D1E1E1B86002C42D0 /* Array+Extension.swift in Sources */,
+				C07071261E1E1A1C002C42D0 /* HomeViewController.swift in Sources */,
+				C07071491E1E1B86002C42D0 /* MGButton.swift in Sources */,
+				C07071431E1E1B86002C42D0 /* UIImageView+Extension.swift in Sources */,
+				C070712A1E1E1A42002C42D0 /* MineViewController.swift in Sources */,
+				C07071451E1E1B86002C42D0 /* UIView+Extension.swift in Sources */,
+				C070713E1E1E1B86002C42D0 /* NSObject+Extension.swift in Sources */,
+				C07071401E1E1B86002C42D0 /* UIBUtton+Extension.swift in Sources */,
+				C07071421E1E1B86002C42D0 /* UIImage+Extension.swift in Sources */,
+				C07071541E1E2314002C42D0 /* VideoCell.swift in Sources */,
+				C070714F1E1E2038002C42D0 /* HomeContentView.swift in Sources */,
+				C07071441E1E1B86002C42D0 /* UILabel+Extension.swift in Sources */,
+				C07071511E1E21FF002C42D0 /* VideoTableViewController.swift in Sources */,
+				C070714B1E1E1B86002C42D0 /* TitleButton.swift in Sources */,
+				C070714D1E1E1F7A002C42D0 /* HomeTitlesView.swift in Sources */,
+				C07071411E1E1B86002C42D0 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +618,7 @@
 		};
 		C070710A1E1E1461002C42D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50F2BFEF9040444F5CC43E5B /* Pods-MGDS_Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -422,12 +628,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGDS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/MGDS_Swift/BridgeHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		C070710B1E1E1461002C42D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE52BAD1BA24BC5566571829 /* Pods-MGDS_Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -437,6 +645,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGDS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/MGDS_Swift/BridgeHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -460,6 +669,7 @@
 				C070710B1E1E1461002C42D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

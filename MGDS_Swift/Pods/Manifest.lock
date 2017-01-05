@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.2.0)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.12)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.2.0)
+  - MBProgressHUD (~> 0.9.2)
+  - MJRefresh (~> 3.1.12)
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+
+PODFILE CHECKSUM: ea3ec8d34b1555c757beb79e4baa388d1988b928
+
+COCOAPODS: 1.2.0.beta.1
