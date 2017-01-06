@@ -9,7 +9,7 @@
 import UIKit
 
 
-private let kTitlesViewH : CGFloat = 30
+private let kTitlesViewH : CGFloat = 40
 
 class HomeViewController: UIViewController {
     /// 是否第一次打开
@@ -18,16 +18,16 @@ class HomeViewController: UIViewController {
 
     // MARK: - lazy
     fileprivate lazy var homeTitlesView: HomeTitlesView = { [weak self] in
-        let titleFrame = CGRect(x: 0, y: MGStatusHeight + MGNavHeight, width: MGScreenW, height: kTitlesViewH)
-        let titles = ["热门", "精华", "娱乐"]
+        let titleFrame = CGRect(x: 0, y: MGNavHeight, width: MGScreenW, height: kTitlesViewH)
+        let titles = ["推荐","精华","热门"]
         let tsView = HomeTitlesView(frame: titleFrame, titles: titles)
         tsView.deledate = self
         return tsView
     }()
     fileprivate lazy var homeContentView: HomeContentView = { [weak self] in
         // 1.确定内容的frame
-        let contentH = MGScreenH - MGStatusHeight - MGNavHeight - kTitlesViewH - MGTabBarHeight
-        let contentFrame = CGRect(x: 0, y: MGStatusHeight + MGNavHeight+kTitlesViewH, width: MGScreenW, height: contentH)
+        let contentH = MGScreenH - MGNavHeight - kTitlesViewH - MGTabBarHeight
+        let contentFrame = CGRect(x: 0, y: MGNavHeight+kTitlesViewH, width: MGScreenW, height: contentH)
         
         // 2.确定所有的子控制器
         var childVcs = [UIViewController]()

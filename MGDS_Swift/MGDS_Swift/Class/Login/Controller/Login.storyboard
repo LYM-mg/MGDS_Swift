@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i2L-7o-Q0R">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,7 +51,7 @@
                                     <constraint firstAttribute="height" constant="1" id="6FI-Gx-nQR"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4GC-cF-6zk" customClass="HoshiTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4GC-cF-6zk" customClass="HoshiTextField" customModule="TextFieldEffects">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="qiW-e4-hN6"/>
                                 </constraints>
@@ -74,7 +75,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6H-Bx-SJf" customClass="HoshiTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="c6H-Bx-SJf" customClass="HoshiTextField" customModule="TextFieldEffects">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="FH3-Ls-962"/>
                                 </constraints>
@@ -120,9 +121,7 @@
                                     <color key="titleColor" red="0.89975961540000005" green="0.40024902849999999" blue="0.30407172059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yIY-z2-qhu" kind="show" id="WjD-5Q-J3F">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="yIY-z2-qhu" kind="show" id="ZJn-V0-9WQ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZb-NL-O4P">
@@ -267,8 +266,8 @@
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="NSW-OK-RKs"/>
                                         <exclude reference="94R-Sb-KRc"/>
+                                        <exclude reference="NSW-OK-RKs"/>
                                         <exclude reference="lDM-RH-Scx"/>
                                     </mask>
                                 </variation>
@@ -347,8 +346,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="jtv-Q3-9ye"/>
                                 <exclude reference="YUq-4g-q12"/>
+                                <exclude reference="jtv-Q3-9ye"/>
                             </mask>
                         </variation>
                     </view>

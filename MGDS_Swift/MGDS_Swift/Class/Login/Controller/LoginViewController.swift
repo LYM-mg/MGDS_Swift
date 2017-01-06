@@ -9,6 +9,15 @@
 import UIKit
 import  Validator
 
+struct ValidationError: Error {
+    
+    public let message: String
+    
+    public init(message m: String) {
+        message = m
+    }
+}
+
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginBtn: UIButton!
@@ -24,8 +33,7 @@ class LoginViewController: UIViewController {
         pwdTextField.delegate = self
         
         
-        phoneTextField.addTarget(self, action: Selector(("textFieldDidReChange:")), for: UIControlEvents.editingChanged)
-        
+        phoneTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidReChange(textField:)), for: UIControlEvents.editingChanged)
         pwdTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidReChange(textField:)), for: UIControlEvents.editingChanged)
         
         
@@ -44,30 +52,28 @@ extension LoginViewController: UITextFieldDelegate {
      - parameter textField: textField description
      */
     @objc fileprivate func textFieldDidReChange(textField: UITextField) {
-        let phoneRule = ValidationRuleLength(min: 3, max: 15, error: NSKeyValueValidationError as! Error)
-        let pwdRule = ValidationRuleLength(min: 3, max: 10, error: NSKeyValueValidationError as! Error)
-//        let phoneRule = ValidationRuleLength(min: 11, max: 11, error: ValidationRule(message: "😫"))
-//        let pwdRule = ValidationRuleLength(min: 8, failureError: ValidationError(message: "😫"))
+        let phoneRule = ValidationRuleLength(min: 3, max: 15, error: ValidationError(message: "😫"))
+        let pwdRule = ValidationRuleLength(min: 3, max: 10, error:ValidationError(message: "😫"))
+
         let result: ValidationResult
         
-        
         switch textField.tag{
-        case 1://手机号
-            result = textField.text!.validate(rule: phoneRule)
-            if result.isValid {
-                phoneResultUILabel.text = "😀"
-            }else{
-                phoneResultUILabel.text = "😫"
-            }
-        case 2://密码
-            result = textField.text!.validate(rule: pwdRule)
-            if result.isValid {
-                pwdResultUILabel.text = "😀"
-            }else{
-                pwdResultUILabel.text = "😫"
-            }
-        default:
-            break
+            case 1://手机号
+                result = textField.text!.validate(rule: phoneRule)
+                if result.isValid {
+                    phoneResultUILabel.text = "😀"
+                }else{
+                    phoneResultUILabel.text = "😫"
+                }
+            case 2://密码
+                result = textField.text!.validate(rule: pwdRule)
+                if result.isValid {
+                    pwdResultUILabel.text = "😀"
+                }else{
+                    pwdResultUILabel.text = "😫"
+                }
+            default:
+                break
         }
         
         //        //判断状态OK 恢复登录按钮点击时间
