@@ -51,22 +51,10 @@ extension Date {
 // MARK: - 设置UI
 extension QRCodeViewController {
     fileprivate func setUpMainView() {
-        let backBtn = UIButton(type: .custom)
-        backBtn.showsTouchWhenHighlighted = true
-        backBtn.setTitle("❎", for: .normal)
-        backBtn.sizeToFit()
-        backBtn.frame.origin = CGPoint(x: 20, y: 80)
-        backBtn.addTarget(self, action: #selector(QRCodeViewController.backBtnClick), for: .touchUpInside)
-        view.addSubview(backBtn)
-    
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
         imageView.center = self.view.center
         imageView.image = creatQRCByString(QRCStr: "http://www.jianshu.com/writer#/notebooks/2919817/notes/5502741", QRCImage: "doushi_icony512")
         self.view.addSubview(imageView)
-    }
-    
-    @objc fileprivate func backBtnClick() {
-        self.dismiss(animated: true, completion: nil)
     }
     
     /// 生成一张二维码图片

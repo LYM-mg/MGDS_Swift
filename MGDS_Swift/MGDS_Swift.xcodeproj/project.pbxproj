@@ -39,6 +39,7 @@
 		C07071551E1E2314002C42D0 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07071531E1E2314002C42D0 /* VideoCell.xib */; };
 		C0D4EF4B1E1F7ED800043A6B /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */; };
 		C0D4EF4D1E1F883A00043A6B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4EF4C1E1F883A00043A6B /* QRCodeViewController.swift */; };
+		C0D4EF4F1E1F8D7100043A6B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4EF4E1E1F8D7100043A6B /* RegisterViewController.swift */; };
 		DFB4E0B8595614ACAE126B5B /* Pods_MGDS_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 899208F26CCBE9818DD0C9FB /* Pods_MGDS_Swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		C07071581E1E2523002C42D0 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		C0D4EF4C1E1F883A00043A6B /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		C0D4EF4E1E1F8D7100043A6B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				C004C6641E1E7C1800EC712E /* Login.storyboard */,
 				C004C6621E1E7C0C00EC712E /* LoginViewController.swift */,
+				C0D4EF4E1E1F8D7100043A6B /* RegisterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0D4EF4F1E1F8D7100043A6B /* RegisterViewController.swift in Sources */,
 				C070713F1E1E1B86002C42D0 /* String+Extension.swift in Sources */,
 				C07071481E1E1B86002C42D0 /* CornersLabel.swift in Sources */,
 				C0D4EF4D1E1F883A00043A6B /* QRCodeViewController.swift in Sources */,
