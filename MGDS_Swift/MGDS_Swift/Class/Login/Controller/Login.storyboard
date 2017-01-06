@@ -208,24 +208,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wzv-O0-zlq">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="4C3-7t-tC2"/>
-                                    <constraint firstAttribute="width" constant="100" id="b9U-tc-Zjb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="sendCodeBtnClick:" destination="yIY-z2-qhu" eventType="touchUpInside" id="EQD-IY-U6r"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-user" translatesAutoresizingMaskIntoConstraints="NO" id="dUr-TU-yWd">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="94R-Sb-KRc"/>
@@ -300,6 +282,24 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wzv-O0-zlq">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="4C3-7t-tC2"/>
+                                    <constraint firstAttribute="width" constant="100" id="b9U-tc-Zjb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendCodeBtnClick:" destination="yIY-z2-qhu" eventType="touchUpInside" id="EQD-IY-U6r"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVl-fP-anT">
                                 <state key="normal">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -355,8 +355,10 @@
                         <outlet property="passwordTextField" destination="2J1-ej-ebN" id="ABt-D5-qPO"/>
                         <outlet property="phoneTextField" destination="WXC-rV-4ea" id="Ok9-PG-ZeB"/>
                         <outlet property="pwdResultUILabel" destination="z59-lY-p29" id="W08-Xr-NIo"/>
+                        <outlet property="registerBtn" destination="sVl-fP-anT" id="zdp-Yn-EiB"/>
                         <outlet property="registerUserButton" destination="sVl-fP-anT" id="oJp-aw-2Nb"/>
                         <outlet property="resultUILabel" destination="O7s-Lr-uUA" id="pFI-sM-f18"/>
+                        <outlet property="sendCodeBtn" destination="Wzv-O0-zlq" id="yd3-m0-xW4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a03-Km-yE9" userLabel="First Responder" sceneMemberID="firstResponder"/>

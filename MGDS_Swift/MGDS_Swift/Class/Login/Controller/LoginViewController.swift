@@ -52,8 +52,8 @@ extension LoginViewController: UITextFieldDelegate {
      - parameter textField: textField description
      */
     @objc fileprivate func textFieldDidReChange(textField: UITextField) {
-        let phoneRule = ValidationRuleLength(min: 3, max: 15, error: ValidationError(message: "😫"))
-        let pwdRule = ValidationRuleLength(min: 3, max: 10, error:ValidationError(message: "😫"))
+        let phoneRule = ValidationRuleLength(min: 11, max: 11, error: ValidationError(message: "😫"))
+        let pwdRule = ValidationRuleLength(min: 3, max: 15, error:ValidationError(message: "😫"))
 
         let result: ValidationResult
         
