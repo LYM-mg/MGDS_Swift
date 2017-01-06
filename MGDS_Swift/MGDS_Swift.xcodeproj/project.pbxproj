@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C004C6631E1E7C0C00EC712E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C004C6621E1E7C0C00EC712E /* LoginViewController.swift */; };
+		C004C6651E1E7C1800EC712E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C004C6641E1E7C1800EC712E /* Login.storyboard */; };
 		C07070FB1E1E1461002C42D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07070FA1E1E1461002C42D0 /* AppDelegate.swift */; };
 		C07071001E1E1461002C42D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07070FE1E1E1461002C42D0 /* Main.storyboard */; };
 		C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C07071011E1E1461002C42D0 /* Assets.xcassets */; };
@@ -35,6 +37,7 @@
 		C07071511E1E21FF002C42D0 /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071501E1E21FF002C42D0 /* VideoTableViewController.swift */; };
 		C07071541E1E2314002C42D0 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071521E1E2314002C42D0 /* VideoCell.swift */; };
 		C07071551E1E2314002C42D0 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07071531E1E2314002C42D0 /* VideoCell.xib */; };
+		C0D4EF4B1E1F7ED800043A6B /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */; };
 		DFB4E0B8595614ACAE126B5B /* Pods_MGDS_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 899208F26CCBE9818DD0C9FB /* Pods_MGDS_Swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,8 @@
 		50F2BFEF9040444F5CC43E5B /* Pods-MGDS_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGDS_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGDS_Swift/Pods-MGDS_Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		899208F26CCBE9818DD0C9FB /* Pods_MGDS_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGDS_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE52BAD1BA24BC5566571829 /* Pods-MGDS_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGDS_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGDS_Swift/Pods-MGDS_Swift.release.xcconfig"; sourceTree = "<group>"; };
+		C004C6621E1E7C0C00EC712E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C004C6641E1E7C1800EC712E /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C07070F71E1E1461002C42D0 /* MGDS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07070FA1E1E1461002C42D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C07070FF1E1E1461002C42D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 		C07071521E1E2314002C42D0 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		C07071531E1E2314002C42D0 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		C07071581E1E2523002C42D0 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
+		C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,31 @@
 				899208F26CCBE9818DD0C9FB /* Pods_MGDS_Swift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C004C65F1E1E7BEA00EC712E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C004C6601E1E7BEA00EC712E /* Controller */,
+				C004C6611E1E7BEA00EC712E /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C004C6601E1E7BEA00EC712E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C004C6621E1E7C0C00EC712E /* LoginViewController.swift */,
+				C004C6641E1E7C1800EC712E /* Login.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C004C6611E1E7BEA00EC712E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C07070EE1E1E1461002C42D0 = {
@@ -135,6 +166,7 @@
 		C070710C1E1E14F0002C42D0 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				C004C65F1E1E7BEA00EC712E /* Login */,
 				C07071171E1E14F0002C42D0 /* Main */,
 				C070710D1E1E14F0002C42D0 /* Discover */,
 				C07071121E1E14F0002C42D0 /* Home */,
@@ -283,6 +315,7 @@
 		C070711D1E1E14F0002C42D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */,
 				C07071291E1E1A42002C42D0 /* MineViewController.swift */,
 			);
 			path = Controller;
@@ -425,6 +458,8 @@
 				C07071221E1E16C4002C42D0 /* LaunchScreen.storyboard in Resources */,
 				C07071551E1E2314002C42D0 /* VideoCell.xib in Resources */,
 				C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */,
+				C0D4EF4B1E1F7ED800043A6B /* Mine.storyboard in Resources */,
+				C004C6651E1E7C1800EC712E /* Login.storyboard in Resources */,
 				C07071001E1E1461002C42D0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +532,7 @@
 				C07071491E1E1B86002C42D0 /* MGButton.swift in Sources */,
 				C07071431E1E1B86002C42D0 /* UIImageView+Extension.swift in Sources */,
 				C070712A1E1E1A42002C42D0 /* MineViewController.swift in Sources */,
+				C004C6631E1E7C0C00EC712E /* LoginViewController.swift in Sources */,
 				C07071451E1E1B86002C42D0 /* UIView+Extension.swift in Sources */,
 				C070713E1E1E1B86002C42D0 /* NSObject+Extension.swift in Sources */,
 				C07071401E1E1B86002C42D0 /* UIBUtton+Extension.swift in Sources */,
@@ -624,11 +660,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = H54L47S422;
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGDS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/MGDS_Swift/BridgeHeader.h";
+				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDS_Swift/BridgeHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -641,11 +677,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = H54L47S422;
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGDS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/MGDS_Swift/BridgeHeader.h";
+				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDS_Swift/BridgeHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -15,9 +15,9 @@
                 <frame key="frameInset" width="375" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pPX-Kn-Gq5">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doushi_icon" translatesAutoresizingMaskIntoConstraints="NO" id="pPX-Kn-Gq5">
                         <constraints>
-                            <constraint firstAttribute="width" constant="118" id="tmZ-Ta-e8E"/>
+                            <constraint firstAttribute="width" constant="110" id="tmZ-Ta-e8E"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGk-Ly-BFO">
@@ -37,9 +37,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="pPX-Kn-Gq5" firstAttribute="centerY" secondItem="sCx-wR-2k6" secondAttribute="centerY" id="39L-Yk-IZJ"/>
-                    <constraint firstItem="jGk-Ly-BFO" firstAttribute="leading" secondItem="pPX-Kn-Gq5" secondAttribute="trailing" constant="8" symbolic="YES" id="4CX-xt-Ma2"/>
+                    <constraint firstItem="jGk-Ly-BFO" firstAttribute="leading" secondItem="VOy-pz-5p5" secondAttribute="leading" id="9Yz-ql-Z5p"/>
                     <constraint firstAttribute="bottomMargin" secondItem="jGk-Ly-BFO" secondAttribute="bottom" constant="0.5" id="BCS-Tm-FGc"/>
-                    <constraint firstItem="VOy-pz-5p5" firstAttribute="leading" secondItem="pPX-Kn-Gq5" secondAttribute="trailing" constant="8" symbolic="YES" id="JtT-mK-cNt"/>
+                    <constraint firstItem="VOy-pz-5p5" firstAttribute="leading" secondItem="pPX-Kn-Gq5" secondAttribute="trailing" constant="10" id="JtT-mK-cNt"/>
                     <constraint firstItem="pPX-Kn-Gq5" firstAttribute="leading" secondItem="sCx-wR-2k6" secondAttribute="leadingMargin" constant="10" id="MUq-YC-BKu"/>
                     <constraint firstItem="jGk-Ly-BFO" firstAttribute="top" secondItem="VOy-pz-5p5" secondAttribute="bottom" constant="8" id="Zp7-on-iOg"/>
                     <constraint firstItem="pPX-Kn-Gq5" firstAttribute="top" secondItem="VOy-pz-5p5" secondAttribute="top" id="q6r-ke-2Zp"/>
@@ -54,4 +54,7 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="doushi_icon" width="171" height="171"/>
+    </resources>
 </document>

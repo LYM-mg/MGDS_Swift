@@ -28,7 +28,7 @@ extension MainTabBarViewController {
         let discoverVC = DiscoverViewController()
         setUpNavRootViewControllers(vc: discoverVC, title: "发现", image: "find", selImage: "")
         
-        let mineVC = MineViewController()
+        let mineVC = UIStoryboard(name: "Mine", bundle: nil).instantiateInitialViewController() as! MineViewController
         setUpNavRootViewControllers(vc: mineVC, title: "我的", image: "user", selImage: "")
     }
     

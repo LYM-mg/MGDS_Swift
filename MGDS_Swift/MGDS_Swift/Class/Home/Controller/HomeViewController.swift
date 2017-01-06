@@ -9,7 +9,7 @@
 import UIKit
 
 
-private let kTitlesViewH : CGFloat = 40
+private let kTitlesViewH : CGFloat = 30
 
 class HomeViewController: UIViewController {
     /// 是否第一次打开
