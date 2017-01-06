@@ -14,25 +14,8 @@ class MineViewController: UITableViewController {
     @IBOutlet weak var loginStatusLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /**
-     跳转登录页面
-     */
-    func toLoginView(){
-        let loginVc = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
-        self.navigationController?.pushViewController(loginVc!, animated: true)
         
-        print("点击了登录")
     }
-
 }
 
 
@@ -54,9 +37,6 @@ extension MineViewController {
                     self.loginStatusLabel.text = "立即登录"
                     self.loginStatusLabel.textColor = UIColor.green
                     UserDefaults.standard.removeObject(forKey: "userInfo")
-//                    DataCenter.shareDataCenter.user = User()
-//                    self.setHeadImage()
-                    
                 }
                 alertController.addAction(cancelAction)
                 alertController.addAction(OKAction)
@@ -70,5 +50,18 @@ extension MineViewController {
                 toLoginView()
             }
         }
+    }
+}
+
+// MARK: - 方法封装
+extension MineViewController {
+    /**
+     跳转登录页面
+     */
+    func toLoginView(){
+        let loginVc = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+        self.navigationController?.pushViewController(loginVc!, animated: true)
+        
+        print("点击了登录")
     }
 }

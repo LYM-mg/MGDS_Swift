@@ -114,7 +114,7 @@
                             </tableViewSection>
                             <tableViewSection id="3od-Wp-sJ9">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zzN-xL-i5Z" imageView="9AN-AE-iNP" rowHeight="45" style="IBUITableViewCellStyleDefault" id="q8X-U1-C0B">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zzN-xL-i5Z" imageView="9AN-AE-iNP" rowHeight="45" style="IBUITableViewCellStyleDefault" id="q8X-U1-C0B">
                                         <rect key="frame" x="0.0" y="291" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q8X-U1-C0B" id="YOC-dc-PVv">
