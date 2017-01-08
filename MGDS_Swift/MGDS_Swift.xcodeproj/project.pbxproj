@@ -16,9 +16,6 @@
 		C017ACB41E1FC6F1000F4B60 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = C017ACB01E1FC6F1000F4B60 /* PushConfig.plist */; };
 		C017ACB51E1FC6F1000F4B60 /* libPushSDK-1.8.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACB21E1FC6F1000F4B60 /* libPushSDK-1.8.8.a */; };
 		C017ACBA1E1FC709000F4B60 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACB71E1FC709000F4B60 /* libMobClickLibrary.a */; };
-		C017ACEF1E1FC718000F4B60 /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C017ACBC1E1FC718000F4B60 /* SMS_SDKLocalizable.strings */; };
-		C017ACF01E1FC718000F4B60 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACBE1E1FC718000F4B60 /* MOBFoundation.framework */; };
-		C017ACF11E1FC718000F4B60 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACBF1E1FC718000F4B60 /* SMS_SDK.framework */; };
 		C017ACF21E1FC718000F4B60 /* libUMessage_Sdk_1.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACC21E1FC718000F4B60 /* libUMessage_Sdk_1.2.0.a */; };
 		C017ACF31E1FC718000F4B60 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C017ACC51E1FC718000F4B60 /* UMSocialLocalizable.strings */; };
 		C017ACF41E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACD31E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a */; };
@@ -103,10 +100,6 @@
 		C017ACB71E1FC709000F4B60 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		C017ACB81E1FC709000F4B60 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		C017ACB91E1FC709000F4B60 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
-		C017ACBD1E1FC718000F4B60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
-		C017ACBE1E1FC718000F4B60 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
-		C017ACBF1E1FC718000F4B60 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
-		C017ACC01E1FC718000F4B60 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
 		C017ACC21E1FC718000F4B60 /* libUMessage_Sdk_1.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.2.0.a; sourceTree = "<group>"; };
 		C017ACC31E1FC718000F4B60 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		C017ACC61E1FC718000F4B60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
@@ -214,12 +207,10 @@
 				C017AD0A1E1FC864000F4B60 /* CoreTelephony.framework in Frameworks */,
 				C017ACFF1E1FC718000F4B60 /* libSocialQQ.a in Frameworks */,
 				C017ACF21E1FC718000F4B60 /* libUMessage_Sdk_1.2.0.a in Frameworks */,
-				C017ACF01E1FC718000F4B60 /* MOBFoundation.framework in Frameworks */,
 				C017ACFE1E1FC718000F4B60 /* libSocialSina.a in Frameworks */,
 				C017AD031E1FC718000F4B60 /* libWeChatSDK.a in Frameworks */,
 				C017ACBA1E1FC709000F4B60 /* libMobClickLibrary.a in Frameworks */,
 				C017ACF41E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a in Frameworks */,
-				C017ACF11E1FC718000F4B60 /* SMS_SDK.framework in Frameworks */,
 				C017ACB51E1FC6F1000F4B60 /* libPushSDK-1.8.8.a in Frameworks */,
 				DFB4E0B8595614ACAE126B5B /* Pods_MGDS_Swift.framework in Frameworks */,
 				C017AD021E1FC718000F4B60 /* libSocialWechat.a in Frameworks */,
@@ -293,7 +284,6 @@
 		C017AC5A1E1FC690000F4B60 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
-				C017ACBB1E1FC718000F4B60 /* SMS_SDK */,
 				C017ACC11E1FC718000F4B60 /* UMessage_Sdk_1.2.0 */,
 				C017ACC41E1FC718000F4B60 /* UMSocial_Sdk_4.3 */,
 				C017ACB61E1FC709000F4B60 /* UMAnalytics_Sdk_3.6.6 */,
@@ -312,16 +302,6 @@
 				C017ACB91E1FC709000F4B60 /* MobClickSocialAnalytics.h */,
 			);
 			path = UMAnalytics_Sdk_3.6.6;
-			sourceTree = "<group>";
-		};
-		C017ACBB1E1FC718000F4B60 /* SMS_SDK */ = {
-			isa = PBXGroup;
-			children = (
-				C017ACBC1E1FC718000F4B60 /* SMS_SDKLocalizable.strings */,
-				C017ACBE1E1FC718000F4B60 /* MOBFoundation.framework */,
-				C017ACBF1E1FC718000F4B60 /* SMS_SDK.framework */,
-			);
-			path = SMS_SDK;
 			sourceTree = "<group>";
 		};
 		C017ACC11E1FC718000F4B60 /* UMessage_Sdk_1.2.0 */ = {
@@ -757,7 +737,6 @@
 			files = (
 				C017ACF81E1FC718000F4B60 /* UMSCommentInputControlleriPad.xib in Resources */,
 				C017ACFC1E1FC718000F4B60 /* UMSnsAccountViewController.xib in Resources */,
-				C017ACEF1E1FC718000F4B60 /* SMS_SDKLocalizable.strings in Resources */,
 				C07071221E1E16C4002C42D0 /* LaunchScreen.storyboard in Resources */,
 				C07071551E1E2314002C42D0 /* VideoCell.xib in Resources */,
 				C017ACB41E1FC6F1000F4B60 /* PushConfig.plist in Resources */,
@@ -871,15 +850,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C017ACBC1E1FC718000F4B60 /* SMS_SDKLocalizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C017ACBD1E1FC718000F4B60 /* en */,
-				C017ACC01E1FC718000F4B60 /* zh-Hans */,
-			);
-			name = SMS_SDKLocalizable.strings;
-			sourceTree = "<group>";
-		};
 		C017ACC51E1FC718000F4B60 /* UMSocialLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

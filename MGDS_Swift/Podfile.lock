@@ -4,6 +4,8 @@ PODS:
   - Kingfisher (3.2.1)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.12)
+  - MOBFoundation_IDFA (2.2.3)
+  - SMSSDK (2.0.8)
   - SnapKit (3.0.2)
   - Validator (2.1.1)
 
@@ -13,6 +15,8 @@ DEPENDENCIES:
   - Kingfisher (~> 3.2.1)
   - MBProgressHUD (~> 0.9.2)
   - MJRefresh (~> 3.1.12)
+  - MOBFoundation_IDFA (~> 2.2.3)
+  - SMSSDK (~> 2.0.8)
   - SnapKit (~> 3.0.2)
   - Validator (~> 2.1.1)
 
@@ -22,9 +26,11 @@ SPEC CHECKSUMS:
   Kingfisher: 64ef28c6d3d6f344e3ae2d7f5c9da80439505d99
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MOBFoundation_IDFA: bdc119aa1dd48c741d913695dcecfbef350555df
+  SMSSDK: 1fc8500bec6bc36b524e4de7fac4acdb784e0217
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: 225f4c6e4c6515e4c81459ef6f7173b9a7596723
+PODFILE CHECKSUM: 40774ef4367d6b9ce5d5957fefcae92e70680b48
 
 COCOAPODS: 1.2.0.beta.1

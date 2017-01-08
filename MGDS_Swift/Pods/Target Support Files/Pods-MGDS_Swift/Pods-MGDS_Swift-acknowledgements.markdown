@@ -123,6 +123,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## MOBFoundation_IDFA
+
+Copyright © 2012-2015 mob
+
+## SMSSDK
+
+Copyright © 2012-2015 mob.com
+
 ## SnapKit
 
 Copyright (c) 2011-Present SnapKit Team - https://github.com/SnapKit

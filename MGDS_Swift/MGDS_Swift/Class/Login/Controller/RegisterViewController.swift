@@ -188,24 +188,7 @@ extension RegisterViewController {
             return
         }
         
-        SMSSDK.getVerificationCode(by: SMSGetCodeMethod(rawValue: UInt32(0)), phoneNumber: self.phoneTextField.text!, zone: "+86", customIdentifier: "nino") { (err) in
-            print("woowowo")
-            
-        }
-        
-        SMSSDK.getVerificationCode(by: SMSGetCodeMethodSMS, phoneNumber: self.phoneTextField?.text, zone: "86", customIdentifier: nil) { (error) in
-            
-            if (error != nil) {
-                
-                print("请求验证码错误信息--->>>\(error)");
-                
-            }else {
-                
-                print("请求验证码成功");
-            }
-        }
 
-        
         //    __block SMSGetCodeMethod method = SMSGetCodeMethodVoice;
         let alertVC = UIAlertController(title: "验证类型", message: nil, preferredStyle: .actionSheet)
         // 语音
@@ -244,19 +227,6 @@ extension RegisterViewController {
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RegisterViewController.updateTimer(_:)), userInfo: nil, repeats: true)
             weakSelf!.showHint(hint: "验证码发送成功")
         }
-        
-        SMSSDK.getVerificationCode(by: SMSGetCodeMethodSMS, phoneNumber: self.phoneTextField?.text, zone: "86", customIdentifier: nil) { (error) in
-            
-            if (error != nil) {
-                
-                print("请求验证码错误信息--->>>\(error)");
-                
-            }else {
-                
-                print("请求验证码成功");
-            }
-        }
-
     }
     
     @objc fileprivate func updateTimer(_ timer: Timer) {

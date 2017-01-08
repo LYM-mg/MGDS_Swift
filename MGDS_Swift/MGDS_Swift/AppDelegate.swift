@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //键盘扩展
         IQKeyboardManager.sharedManager().enable = true
         
+        // 友盟以、短信验证、以及激光推送
         setUpUMSocial(launchOptions: launchOptions)
         
         return true
@@ -58,12 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-// MARK: - 友盟
+// MARK: - 友盟以、短信验证、以及激光推送
 extension AppDelegate {
     fileprivate func setUpUMSocial(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         // Share
         //        SMSSDK.registerApp("1a9f73be2f6ce", withSecret: "990c4bc75c8d27ba3fe88403ad722ff8")
-        //  SMS
+        //  SMS 1a9fafc4d4a6c 8f8b196fb408ebe54b53c0b60ea0cf12
         SMSSDK.registerApp("1a9fafc4d4a6c", withSecret: "8f8b196fb408ebe54b53c0b60ea0cf12")
         
         // 友盟
@@ -73,9 +74,7 @@ extension AppDelegate {
         UMSocialQQHandler.setSupportWebView(true)
         UMSocialSinaHandler.openSSO(withRedirectURL: "http://sns.whalecloud.com/sina2/callback")
         UMSocialWechatHandler.setWXAppId("wxfd23fac852a54c97", appSecret: "d4624c36b6795d1d99dcf0547af5443d", url: "www.doushi.me")
-        
 
-        
         
         // Required
 //        APService.register(forRemoteNotificationTypes: UIUserNotificationType.badge.rawValue | UIUserNotificationType.sound.rawValue | UIUserNotificationType.alert.rawValue , categories: nil)
