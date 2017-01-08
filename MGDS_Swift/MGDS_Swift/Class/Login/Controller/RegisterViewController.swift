@@ -217,15 +217,28 @@ extension RegisterViewController {
     func sendVerification(method: SMSGetCodeMethod, phoneNumber: String) {
         weak var weakSelf = self
         // 必须要输入正确的手机号码才能来到下面的代码
-        SMSSDK.getVerificationCode(by: method, phoneNumber: phoneNumber, zone: "86", customIdentifier: nil, result: { (err) -> Void in
-//            if err != nil { // 有错误
-//                weakSelf!.showHint(hint: "验证码发送失败")
-//                return
-//            }
+        SMSSDK.getVerificationCode(by: method, phoneNumber: phoneNumber, zone: "86", customIdentifier: nil) { (err) -> Void in
+            if err != nil { // 有错误
+                weakSelf!.showHint(hint: "验证码发送失败")
+                return
+            }
             weakSelf!.sendCodeBtn.isUserInteractionEnabled = false
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RegisterViewController.updateTimer(_:)), userInfo: nil, repeats: true)
             weakSelf!.showHint(hint: "验证码发送成功")
-        })
+        }
+        
+        SMSSDK.getVerificationCode(by: SMSGetCodeMethodSMS, phoneNumber: self.phoneTextField?.text, zone: "86", customIdentifier: nil) { (error) in
+            
+            if (error != nil) {
+                
+                print("请求验证码错误信息--->>>\(error)");
+                
+            }else {
+                
+                print("请求验证码成功");
+            }
+        }
+
     }
     
     @objc fileprivate func updateTimer(_ timer: Timer) {
@@ -259,7 +272,7 @@ extension RegisterViewController {
             return
         }
         
-        SMSSDK.commitVerificationCode(self.code.text, phoneNumber: phoneTextField.text!, zone:  "86") { (err) in
+        SMSSDK.commitVerificationCode(self.code.text, phoneNumber: phoneTextField.text!, zone:  "+86") { (err) in
             if err == nil {
                 print("验证成功")
             } else {

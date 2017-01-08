@@ -135,9 +135,6 @@
                             <constraint firstItem="bZb-NL-O4P" firstAttribute="centerY" secondItem="c6H-Bx-SJf" secondAttribute="centerY" id="uhA-vk-Nvc"/>
                             <constraint firstItem="c6H-Bx-SJf" firstAttribute="leading" secondItem="ds8-9Y-9oI" secondAttribute="leading" constant="40" id="yii-4e-4i6"/>
                         </constraints>
-                        <connections>
-                            <action selector="closeKeyBoard" destination="i2L-7o-Q0R" eventType="touchUpInside" id="5hE-Df-G8r"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="73E-FU-pNv"/>
                     <connections>

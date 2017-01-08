@@ -144,8 +144,7 @@ extension LoginViewController {
                 //用户头像
                 user.headImage = qqUser.iconURL
                 UserDefaults.standard.setValue(qqUser.iconURL, forKey: "userHeadImage")
-                
-                
+                SaveTools.mg_Archiver(user, path:  MGUserPath)
                 //注册用户
                 //用户参数
                 let urlStr = "https://api.ds.itjh.net/v1/rest/user/registerUser"

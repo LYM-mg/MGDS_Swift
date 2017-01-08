@@ -51,6 +51,7 @@
 		C017AD1D1E22062C000F4B60 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017AD1C1E22062C000F4B60 /* JavaScriptCore.framework */; };
 		C017AD1F1E220641000F4B60 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C017AD1E1E220641000F4B60 /* libstdc++.tbd */; };
 		C017AD211E22065A000F4B60 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017AD201E22065A000F4B60 /* AdSupport.framework */; };
+		C017AD231E2219E8000F4B60 /* UserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C017AD221E2219E8000F4B60 /* UserHeaderView.swift */; };
 		C07070FB1E1E1461002C42D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07070FA1E1E1461002C42D0 /* AppDelegate.swift */; };
 		C07071001E1E1461002C42D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07070FE1E1E1461002C42D0 /* Main.storyboard */; };
 		C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C07071011E1E1461002C42D0 /* Assets.xcassets */; };
@@ -156,6 +157,7 @@
 		C017AD1C1E22062C000F4B60 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		C017AD1E1E220641000F4B60 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		C017AD201E22065A000F4B60 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		C017AD221E2219E8000F4B60 /* UserHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserHeaderView.swift; path = MGDS_Swift/Class/Login/Model/UserHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		C07070F71E1E1461002C42D0 /* MGDS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07070FA1E1E1461002C42D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C07070FF1E1E1461002C42D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -627,6 +629,7 @@
 		C070711F1E1E14F0002C42D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C017AD221E2219E8000F4B60 /* UserHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 				C017AD151E1FDD83000F4B60 /* User.swift in Sources */,
 				C07070FB1E1E1461002C42D0 /* AppDelegate.swift in Sources */,
 				C07071281E1E1A2C002C42D0 /* DiscoverViewController.swift in Sources */,
+				C017AD231E2219E8000F4B60 /* UserHeaderView.swift in Sources */,
 				C07071471E1E1B86002C42D0 /* Constant.swift in Sources */,
 				C07071461E1E1B86002C42D0 /* UIViewController+Extension.swift in Sources */,
 				C070714A1E1E1B86002C42D0 /* MoreButton.swift in Sources */,
