@@ -188,6 +188,24 @@ extension RegisterViewController {
             return
         }
         
+        SMSSDK.getVerificationCode(by: SMSGetCodeMethod(rawValue: UInt32(0)), phoneNumber: self.phoneTextField.text!, zone: "+86", customIdentifier: "nino") { (err) in
+            print("woowowo")
+            
+        }
+        
+        SMSSDK.getVerificationCode(by: SMSGetCodeMethodSMS, phoneNumber: self.phoneTextField?.text, zone: "86", customIdentifier: nil) { (error) in
+            
+            if (error != nil) {
+                
+                print("请求验证码错误信息--->>>\(error)");
+                
+            }else {
+                
+                print("请求验证码成功");
+            }
+        }
+
+        
         //    __block SMSGetCodeMethod method = SMSGetCodeMethodVoice;
         let alertVC = UIAlertController(title: "验证类型", message: nil, preferredStyle: .actionSheet)
         // 语音

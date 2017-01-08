@@ -163,6 +163,7 @@ extension LoginViewController {
                 })
             }
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.navigationController?.popViewController(animated: true)
         })
     }
 }

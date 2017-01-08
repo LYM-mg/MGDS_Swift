@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
+
 //import Fabric
 //import Answers
 
@@ -60,6 +61,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - 友盟
 extension AppDelegate {
     fileprivate func setUpUMSocial(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        // Share
+        //        SMSSDK.registerApp("1a9f73be2f6ce", withSecret: "990c4bc75c8d27ba3fe88403ad722ff8")
+        //  SMS
+        SMSSDK.registerApp("1a9fafc4d4a6c", withSecret: "8f8b196fb408ebe54b53c0b60ea0cf12")
         
         // 友盟
         UMSocialData.setAppKey("563b6bdc67e58e73ee002acd")
@@ -70,10 +75,6 @@ extension AppDelegate {
         UMSocialWechatHandler.setWXAppId("wxfd23fac852a54c97", appSecret: "d4624c36b6795d1d99dcf0547af5443d", url: "www.doushi.me")
         
 
-        // Share
-//        SMSSDK.registerApp("1a9f73be2f6ce", withSecret: "990c4bc75c8d27ba3fe88403ad722ff8")
-        //  SMS
-        SMSSDK.registerApp("1a9fafc4d4a6c", withSecret: "8f8b196fb408ebe54b53c0b60ea0cf12")
         
         
         // Required
