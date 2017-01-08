@@ -4,7 +4,6 @@
 //
 //  Created by i-Techsys.com on 17/1/5.
 //  Copyright © 2017年 i-Techsys. All rights reserved.
-//
 
 import UIKit
 import  Validator
@@ -89,7 +88,7 @@ extension LoginViewController: UITextFieldDelegate {
 extension LoginViewController {
     // 登录按钮的点击
     @IBAction func loginBtnClick(_ sender: UIButton) {
-        
+//        NetWorkTools.defManager.request("https://api.ds.itjh.net/v1/rest/user/loginUser\(phone)/\(password)", method: .get, parameters: <#T##Parameters?#>)
     }
     
     /**
@@ -98,15 +97,73 @@ extension LoginViewController {
      - parameter sender: 按钮
      */
     @IBAction func qqLogin(sender: UIButton) {
-        
+        self.view.endEditing(true)
+        loginWithSocialPlatform(name: UMShareToQQ, platformName: "QQ")
     }
-    
+
+
+
+
+
     /**
      微博登录
-     
+ 
      - parameter sender: 按钮
      */
     @IBAction func weiboLogin(sender: UIButton) {
+         self.view.endEditing(true)
+        loginWithSocialPlatform(name: UMShareToSina, platformName: "WeiBo")
+    }
+    
+    /**
+        第三方登录的方法
+        - parameter name: 平台
+        - parameter platformName: 平台名字
+     */
+    fileprivate func loginWithSocialPlatform(name: String,platformName: String) {
+        //授权
+        let snsPlatform = UMSocialSnsPlatformManager.getSocialPlatform(withName: name)
         
+        snsPlatform?.loginClickHandler(self, UMSocialControllerService.default(), true, {response in
+            if response?.responseCode == UMSResponseCodeSuccess {
+                
+                guard var snsAccount = UMSocialAccountManager.socialAccountDictionary() else {return}
+                
+                let qqUser: UMSocialAccountEntity =  snsAccount[name] as! UMSocialAccountEntity
+                print("微博用户数据\(qqUser)")
+                
+                let user = User()
+                user.phone = ""
+                user.password = ""
+                user.gender = 1
+                //用户id
+                user.platformId = qqUser.usid
+                user.platformName = platformName
+                //微博昵称
+                user.nickName = qqUser.userName
+                //用户头像
+                user.headImage = qqUser.iconURL
+                UserDefaults.standard.setValue(qqUser.iconURL, forKey: "userHeadImage")
+                
+                
+                //注册用户
+                //用户参数
+                let urlStr = "https://api.ds.itjh.net/v1/rest/user/registerUser"
+                let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
+                
+                SysNetWorkTools.httpsRequest(url: urlStr, methodType: .post, parameters: parameters, successed: { (result, err) in
+                    print(result)
+                    }, failure: { (err) in
+                        print(err)
+                })
+                
+                NetWorkTools.registRequest(type: .post, urlString: urlStr, parameters: parameters, succeed: { (result, err) in
+                    print(result)
+                    }, failure: { (err) in
+                        print(err)
+                })
+            }
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        })
     }
 }

@@ -15,4 +15,24 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
+#import <MJRefresh/MJRefresh.h>
+
+
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialSinaHandler.h"
+#import "UMSocialControllerService.h"
+#import "UMSocialSnsPlatformManager.h"
+#import "UMSocialQQHandler.h"
+#import "UMessage.h"
+#import "MobClick.h"
+
+
+#import <SMS_SDK/SMSSDK.h>
+//#import <Qiniu/QiniuSDK.h>
+
+#import "APService.h"
+
+//#import <GoogleMobileAds/GoogleMobileAds.h>
+
 #endif /* BridgeHeader_h */

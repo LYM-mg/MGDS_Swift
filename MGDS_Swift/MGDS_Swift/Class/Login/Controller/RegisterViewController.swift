@@ -8,6 +8,7 @@
 
 import UIKit
 import Validator
+import MobileCoreServices
 
 class RegisterViewController: UIViewController {
     
@@ -88,14 +89,81 @@ extension RegisterViewController: UITextFieldDelegate {
 }
 
 // MARK: - Upload headImage
-extension RegisterViewController {
+extension RegisterViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     /**
      上传头像
      
      - parameter sender: 点按手势
      */
     func uploadHeadImage(_ tap: UITapGestureRecognizer) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in }
+        let OKAction = UIAlertAction(title: "拍照", style: .default) { (action) in
+             self.openCamera(.camera)
+            
+        }
+        let destroyAction = UIAlertAction(title: "从相册上传", style: .default) { (action) in
+            print(action)
+            self.openCamera(.photoLibrary)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(OKAction)
+        alertController.addAction(destroyAction)
+        
+        // 判断是否为pad 弹出样式
+        if let popPresenter = alertController.popoverPresentationController {
+            popPresenter.sourceView = tap.view;
+            popPresenter.sourceRect = (tap.view?.bounds)!
+        }
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    /**
+     *  打开照相机/打开相册
+     */
+    
+    func openCamera(_ type: UIImagePickerControllerSourceType,title: String? = "") {
+        if !UIImagePickerController.isSourceTypeAvailable(type) {
+            self.showInfo(info: "Camera不可用")
+            return
+        }
+        let ipc = UIImagePickerController()
+        ipc.sourceType = type
+        ipc.allowsEditing = true
+        ipc.delegate = self
+        
+        if title == "录像" {
+            ipc.videoMaximumDuration = 60 * 3
+            ipc.videoQuality = .type640x480
+            ipc.mediaTypes = [(kUTTypeMovie as String)]
+            // 可选，视频最长的录制时间，这里是20秒，默认为10分钟（600秒）
+            ipc.videoMaximumDuration = 20
+            // 可选，设置视频的质量，默认就是TypeMedium
+//            ipc.videoQuality = UIImagePickerControllerQualityType.typeMedium
+        }
+        present(ipc, animated: true,  completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        
+        //判读是否是视频还是图片
+        if mediaType == kUTTypeMovie as String {
+            let moviePath = info[UIImagePickerControllerMediaURL] as? URL
+            //获取路径
+            let moviePathString = moviePath!.relativePath
+            if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(moviePathString){
+                UISaveVideoAtPathToSavedPhotosAlbum(moviePathString, nil, nil, nil)
+            }
+            print("视频")
+        } else {
+            print("图片")
+            let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+            headImageView.image = image
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -121,6 +189,7 @@ extension RegisterViewController {
      */
     
     @IBAction func registerBtnClick(_ sender: UIButton) {
-        
+        //用户参数
+//        let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
     }
 }

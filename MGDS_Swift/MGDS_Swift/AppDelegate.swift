@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+
+//import Fabric
+//import Answers
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MainTabBarViewController()
         window?.makeKeyAndVisible()
+        
+        
+        //键盘扩展
+        IQKeyboardManager.sharedManager().enable = true
+        
+        setUpUMSocial(launchOptions: launchOptions)
         
         return true
     }
@@ -34,7 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        UIApplication.shared.applicationIconBadgeNumber = 1
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -44,7 +55,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
+// MARK: - 友盟
+extension AppDelegate {
+    fileprivate func setUpUMSocial(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        
+        // 友盟
+        UMSocialData.setAppKey("563b6bdc67e58e73ee002acd")
+        
+        UMSocialQQHandler.setQQWithAppId("1104864621", appKey: "AQKpnMRxELiDWHwt", url: "www.itjh.net")
+        
+        UMSocialQQHandler.setSupportWebView(true)
+        
+        UMSocialSinaHandler.openSSO(withRedirectURL: "http://sns.whalecloud.com/sina2/callback")
+        
+        UMSocialWechatHandler.setWXAppId("wxfd23fac852a54c97", appSecret: "d4624c36b6795d1d99dcf0547af5443d", url: "www.doushi.me")
+        
 
+        //Share SMS
+        SMSSDK.registerApp("c06e0d3b9ec2", withSecret: "ad02d765bad19681273e61a5c570a145")
+        
+        
+        
+        // Required
+//        APService.register(forRemoteNotificationTypes: UIUserNotificationType.badge.rawValue | UIUserNotificationType.sound.rawValue | UIUserNotificationType.alert.rawValue , categories: nil)
+//        // Required
+//        APService.setup(withOption: launchOptions)
+//        APService.setLogOFF()
+    }
 }
 

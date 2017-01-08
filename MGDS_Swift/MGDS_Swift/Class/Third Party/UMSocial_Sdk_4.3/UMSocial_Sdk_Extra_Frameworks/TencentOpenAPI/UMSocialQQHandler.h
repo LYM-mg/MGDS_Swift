@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+//#import "QQApiInterface.h"
 #import <TencentOpenAPI/QQApiInterface.h>       //QQ互联 SDK
 #import <TencentOpenAPI/TencentOAuth.h>
 

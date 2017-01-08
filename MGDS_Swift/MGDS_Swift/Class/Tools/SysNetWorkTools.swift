@@ -68,6 +68,8 @@ class SysNetWorkTools: NSObject {
                     successed(dict, nil)
                     return
                 }
+                let dict = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                successed(dict, nil)
             }
         }
         

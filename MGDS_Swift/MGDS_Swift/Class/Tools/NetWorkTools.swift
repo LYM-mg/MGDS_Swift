@@ -65,6 +65,7 @@ class NetWorkTools: NSObject {
 extension NetWorkTools {
     /// 通用请求方法
     /**
+      注册的请求
       - parameter type: 请求方式
       - parameter urlString: 请求网址
       - parameter parameters: 请求参数
@@ -73,19 +74,19 @@ extension NetWorkTools {
       - parameter failure: 请求失败回调
       - parameter error: 错误信息
      */
-    /// 备注：通用请求方法,增加失败回调，参考系统闭包
-    static func requestJSON(type: MethodType,urlString: String, parameters: [String : Any]? = nil ,succeed:@escaping ((_ result : Any?, _ error: Error?) -> Swift.Void), failure:@escaping ((_ error: Error?)  -> Swift.Void)) {
+    static func registRequest(type: MethodType,urlString: String, parameters: [String : Any]? = nil ,succeed:@escaping ((_ result : Any?, _ error: Error?) -> Swift.Void), failure:@escaping ((_ error: Error?)  -> Swift.Void)) {
         // 1.获取类型
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         let headers: HTTPHeaders = [
             "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
             "Accept": "text/html",
-            "application/x-www-form-urlencoded": "charset=utf-8"
+            "application/x-www-form-urlencoded": "charset=utf-8",
+            "Content-Type": "application/json"
         ]
 
         let start = CACurrentMediaTime()
-        // 2.发送网络数据请求
-        NetWorkTools.defManager.request(urlString, method: method, parameters: parameters, encoding: URLEncoding.default,headers: headers).responseJSON { (response) in
+        // 2.发送网络数据请求 encoding: URLEncoding.default,
+        NetWorkTools.defManager.request(urlString, method: method, parameters: parameters, headers: headers).responseJSON { (response) in
             
             let end = CACurrentMediaTime()
             let elapsedTime = end - start
@@ -128,13 +129,8 @@ extension NetWorkTools {
         // 1.获取类型
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         
-        let start = CACurrentMediaTime()
         // 2.发送网络数据请求
         NetWorkTools.defManager.request(urlString, method: method, parameters: parameters).responseJSON { (response) in
-            
-            let end = CACurrentMediaTime()
-            let elapsedTime = end - start
-            print("请求时间 = \(elapsedTime)")
             
             // 请求失败
             if response.result.isFailure {
