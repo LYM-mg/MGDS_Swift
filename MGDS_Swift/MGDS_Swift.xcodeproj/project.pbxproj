@@ -46,6 +46,11 @@
 		C017AD111E1FCDF2000F4B60 /* TencentOpenApi_IOS_Bundle.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACE51E1FC718000F4B60 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		C017AD121E1FCDF2000F4B60 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACE41E1FC718000F4B60 /* TencentOpenAPI.framework */; };
 		C017AD151E1FDD83000F4B60 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C017AD141E1FDD83000F4B60 /* User.swift */; };
+		C017AD191E220606000F4B60 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C017AD181E220606000F4B60 /* libicucore.tbd */; };
+		C017AD1B1E220617000F4B60 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017AD1A1E220617000F4B60 /* MessageUI.framework */; };
+		C017AD1D1E22062C000F4B60 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017AD1C1E22062C000F4B60 /* JavaScriptCore.framework */; };
+		C017AD1F1E220641000F4B60 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C017AD1E1E220641000F4B60 /* libstdc++.tbd */; };
+		C017AD211E22065A000F4B60 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017AD201E22065A000F4B60 /* AdSupport.framework */; };
 		C07070FB1E1E1461002C42D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07070FA1E1E1461002C42D0 /* AppDelegate.swift */; };
 		C07071001E1E1461002C42D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07070FE1E1E1461002C42D0 /* Main.storyboard */; };
 		C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C07071011E1E1461002C42D0 /* Assets.xcassets */; };
@@ -146,6 +151,11 @@
 		C017AD0F1E1FC89A000F4B60 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		C017AD141E1FDD83000F4B60 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C017AD161E21F6DD000F4B60 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C017AD181E220606000F4B60 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		C017AD1A1E220617000F4B60 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C017AD1C1E22062C000F4B60 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		C017AD1E1E220641000F4B60 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		C017AD201E22065A000F4B60 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C07070F71E1E1461002C42D0 /* MGDS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07070FA1E1E1461002C42D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C07070FF1E1E1461002C42D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -187,6 +197,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C017AD211E22065A000F4B60 /* AdSupport.framework in Frameworks */,
+				C017AD1F1E220641000F4B60 /* libstdc++.tbd in Frameworks */,
+				C017AD1D1E22062C000F4B60 /* JavaScriptCore.framework in Frameworks */,
+				C017AD1B1E220617000F4B60 /* MessageUI.framework in Frameworks */,
+				C017AD191E220606000F4B60 /* libicucore.tbd in Frameworks */,
 				C017AD111E1FCDF2000F4B60 /* TencentOpenApi_IOS_Bundle.bundle in Frameworks */,
 				C017AD121E1FCDF2000F4B60 /* TencentOpenAPI.framework in Frameworks */,
 				C017AD101E1FC89A000F4B60 /* libc++.tbd in Frameworks */,
@@ -225,6 +240,11 @@
 		421C91FD2D2C83F3F14BBE5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C017AD201E22065A000F4B60 /* AdSupport.framework */,
+				C017AD1E1E220641000F4B60 /* libstdc++.tbd */,
+				C017AD1C1E22062C000F4B60 /* JavaScriptCore.framework */,
+				C017AD1A1E220617000F4B60 /* MessageUI.framework */,
+				C017AD181E220606000F4B60 /* libicucore.tbd */,
 				C017AD161E21F6DD000F4B60 /* MobileCoreServices.framework */,
 				C017AD0F1E1FC89A000F4B60 /* libc++.tbd */,
 				C017AD0D1E1FC882000F4B60 /* libz.tbd */,

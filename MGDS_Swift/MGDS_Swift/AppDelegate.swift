@@ -74,8 +74,8 @@ extension AppDelegate {
         
 
         //Share SMS
-        SMSSDK.registerApp("c06e0d3b9ec2", withSecret: "ad02d765bad19681273e61a5c570a145")
-        
+        SMSSDK.registerApp("1a9f73be2f6ce", withSecret: "990c4bc75c8d27ba3fe88403ad722ff8")
+//        SMSSDK.registerApp("1611c80d9edc0", withSecret: "ed8256cf1d354ca20772486ee2f2016b")
         
         
         // Required

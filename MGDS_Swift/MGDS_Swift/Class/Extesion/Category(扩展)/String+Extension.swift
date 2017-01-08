@@ -69,10 +69,10 @@ extension String {
 // MARK: - 判断手机号  隐藏手机中间四位  正则匹配用户身份证号15或18位  正则RegexKitLite框架
 extension String {
     // 利用正则表达式判断是否是手机号码
-    mutating func checkTelNumber(telNumber: String) -> Bool {
+    mutating func checkTelNumber() -> Bool {
         let pattern = "^((13[0-9])|(147)|(15[0-3,5-9])|(18[0,0-9])|(17[0-3,5-9]))\\d{8}$"
         let pred      = NSPredicate(format: "SELF MATCHES %@", pattern)
-        return pred.evaluate(with: telNumber)
+        return pred.evaluate(with: self)
     }
     
     // 正则匹配用户身份证号15或18位
