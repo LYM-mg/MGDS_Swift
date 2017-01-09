@@ -4,6 +4,7 @@
     Swift 3.0封装 URLSession 的GET/SET方法代替 Alamofire
 */
 
+//import Foundation
 import UIKit
 import Alamofire
 
@@ -81,7 +82,8 @@ extension NetWorkTools {
             "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
             "Accept": "text/html",
             "application/x-www-form-urlencoded": "charset=utf-8",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Content-Length": "12130"
         ]
 
         let start = CACurrentMediaTime()
@@ -128,9 +130,16 @@ extension NetWorkTools {
         
         // 1.获取类型
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
+        let headers: HTTPHeaders = [
+            "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
+            "Accept": "text/html",
+            "application/x-www-form-urlencoded": "charset=utf-8",
+            "Content-Type": "application/json",
+            "Content-Length": "12130"
+        ]
         
         // 2.发送网络数据请求
-        NetWorkTools.defManager.request(urlString, method: method, parameters: parameters).responseJSON { (response) in
+        NetWorkTools.defManager.request(urlString, method: method, parameters: parameters, headers: headers).responseJSON { (response) in
             
             // 请求失败
             if response.result.isFailure {
@@ -148,6 +157,42 @@ extension NetWorkTools {
                 }
                 // 4.将结果回调出去
                 succeed(result, nil)
+            }
+        }
+    }
+    
+    
+    // 注册代码
+    static func test(type: MethodType,urlString: String, parameters: [String : Any]? = nil ,succeed:@escaping ((_ result : Any?, _ error: Error?) -> Swift.Void), failure: @escaping ((_ error: Error?)  -> Swift.Void)) {
+        // 1.获取类型
+        let method = type == .get ? HTTPMethod.get : HTTPMethod.post
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json"
+//            "Content-Length": "12130"
+        ]
+        //用户参数
+        
+        // 2.发送网络数据请求
+        NetWorkTools.defManager.request(urlString, method: method, parameters: parameters,encoding: JSONEncoding.default, headers: headers).responseData { (response) in
+            
+            // 请求失败
+            if response.result.isFailure {
+                print(response.result.error)
+                failure(response.result.error)
+                return
+            }
+            
+            // 请求成功
+            if response.result.isSuccess {
+                // 3.获取结果
+                guard let result = response.result.value else {
+                    succeed(nil, response.result.error)
+                    return
+                }
+                // 4.将结果回调出去
+                let dict = try? JSONSerialization.jsonObject(with: result, options: JSONSerialization.ReadingOptions.allowFragments)
+
+                succeed(dict, nil)
             }
         }
     }
@@ -239,4 +284,62 @@ extension NetWorkTools {
     }
 }
 
+// MARK: - 逗视抄袭代码
+// 创建HttpClient User结构体
+//struct HttpClientByUser {
+//    
+//    // 创建逗视网络请求 Alamofire 路由
+//    enum DSRouter: URLRequestConvertible {
+//      
+//        // 逗视API地址
+//        static let baseURLString = "https://api.ds.itjh.net/v1/rest/user/"
+//        
+//        // 请求方法
+//        case registerUser(User) //注册用户
+//        case loginUser(String,String) //用户登录
+//        
+//        
+//        // 不同请求，对应不同请求类型
+//        var method: Alamofire.HTTPMethod {
+//            switch self {
+//            case .registerUser:
+//                return .post
+//            case .loginUser:
+//                return .get
+//            }
+//        }
+//        
+//        var URLRequest: NSMutableURLRequest {
+//            
+//            let (path) : (String) = {
+//                switch self {
+//                case .registerUser(_):
+//                    return "registerUser"
+//                case .loginUser(let phone,let password):
+//                    return "loginUser/\(phone)/\(password)"
+//                }
+//                
+//            }()
+//            
+//            let URL = Foundation.URL(string: DSRouter.baseURLString)
+//            let URLRequest = NSMutableURLRequest(url: URL!.appendingPathComponent(path))
+//            URLRequest.httpMethod = method.hashValue
+//            
+//            switch self {
+//                case .registerUser(let user):
+//                    URLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//                    //用户参数
+//                    let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
+//                    do {
+//                        URLRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: JSONSerialization.WritingOptions())
+//                    } catch {
+//                    }
+//                default: break
+//                
+//            }
+//            
+//            return encoding.encoding(URLRequest as! URLRequestConvertible, with: nil).0
+//        }
+//    }
+//}
 

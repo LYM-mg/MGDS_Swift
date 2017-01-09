@@ -7,6 +7,7 @@ PODS:
   - MOBFoundation_IDFA (2.2.3)
   - SMSSDK (2.0.8)
   - SnapKit (3.0.2)
+  - SwiftyJSON (3.1.3)
   - Validator (2.1.1)
 
 DEPENDENCIES:
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - MOBFoundation_IDFA (~> 2.2.3)
   - SMSSDK (~> 2.0.8)
   - SnapKit (~> 3.0.2)
+  - SwiftyJSON (~> 3.1.3)
   - Validator (~> 2.1.1)
 
 SPEC CHECKSUMS:
@@ -29,8 +31,9 @@ SPEC CHECKSUMS:
   MOBFoundation_IDFA: bdc119aa1dd48c741d913695dcecfbef350555df
   SMSSDK: 1fc8500bec6bc36b524e4de7fac4acdb784e0217
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: 40774ef4367d6b9ce5d5957fefcae92e70680b48
+PODFILE CHECKSUM: db6f42557ad609cacbaec7e9e871274bd9daa443
 
 COCOAPODS: 1.2.0.beta.1

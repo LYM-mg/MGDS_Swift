@@ -130,7 +130,7 @@ extension LoginViewController {
                 guard var snsAccount = UMSocialAccountManager.socialAccountDictionary() else {return}
                 
                 let qqUser: UMSocialAccountEntity =  snsAccount[name] as! UMSocialAccountEntity
-                print("微博用户数据\(qqUser)")
+                print("用户数据\(qqUser)")
                 
                 let user = User()
                 user.phone = ""
@@ -150,17 +150,30 @@ extension LoginViewController {
                 let urlStr = "https://api.ds.itjh.net/v1/rest/user/registerUser"
                 let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
                 
-                SysNetWorkTools.httpsRequest(url: urlStr, methodType: .post, parameters: parameters, successed: { (result, err) in
-                    print(result)
-                    }, failure: { (err) in
-                        print(err)
-                })
+//                NetWorkTools.test(type: .post, urlString: urlStr, parameters: parameters, succeed: { (result, err) in
+//                     print(result)
+//                }, failure: { (err) in
+//                        print(err)
+//                })
                 
                 NetWorkTools.registRequest(type: .post, urlString: urlStr, parameters: parameters, succeed: { (result, err) in
                     print(result)
-                    }, failure: { (err) in
-                        print(err)
+                }, failure: { (err) in
+                    print(err)
                 })
+
+                
+//                NetWorkTools.defManager.request(HttpClientByUser.DSRouter.registerUser(user)).responseJSON(completionHandler: { response -> Void in
+//                    switch response.result {
+//                        case .success:
+//                            let JSON = response.result.value
+//                            let userDict = (JSON as! NSDictionary).value(forKey: "content") as! [String: Any]
+//                        print(userDict)
+//                        //将用户信息保存到内存中
+//                        case .failure(let error):
+//                            print(error)
+//                    }
+//                })
             }
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.navigationController?.popViewController(animated: true)
