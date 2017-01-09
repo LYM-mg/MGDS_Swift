@@ -14,7 +14,7 @@ import CoreImage
 extension UIImage {
     
     /**
-         返回一张处理过的模糊图片
+         返回一张处理过的模糊图片 越大越模糊
          - parameter value: 模糊程度 0 ~ 无限大 （一开始误认为0~1）
      */
     public func blurImage(value: NSNumber) -> UIImage? {

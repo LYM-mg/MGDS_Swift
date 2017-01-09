@@ -163,17 +163,17 @@ extension LoginViewController {
                 })
 
                 
-//                NetWorkTools.defManager.request(HttpClientByUser.DSRouter.registerUser(user)).responseJSON(completionHandler: { response -> Void in
-//                    switch response.result {
-//                        case .success:
-//                            let JSON = response.result.value
-//                            let userDict = (JSON as! NSDictionary).value(forKey: "content") as! [String: Any]
-//                        print(userDict)
-//                        //将用户信息保存到内存中
-//                        case .failure(let error):
-//                            print(error)
-//                    }
-//                })
+                NetWorkTools.defManager.request(HttpClientByUser.DSRouter.registerUser(user)).responseJSON(completionHandler: { response -> Void in
+                    switch response.result {
+                        case .success:
+                            let JSON = response.result.value
+                            let userDict = (JSON as! NSDictionary).value(forKey: "content") as! [String: Any]
+                        print(userDict)
+                        //将用户信息保存到内存中
+                        case .failure(let error):
+                            print(error)
+                    }
+                })
             }
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.navigationController?.popViewController(animated: true)

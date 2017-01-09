@@ -264,44 +264,6 @@ struct HttpClientByUser {
     
     // 创建逗视网络请求 Alamofire 路由
     enum DSRouter: URLRequestConvertible {
-        /// Returns a URL request or throws if an `Error` was encountered.
-        ///
-        /// - throws: An `Error` if the underlying `URLRequest` is `nil`.
-        ///
-        /// - returns: A URL request.
-        public func asURLRequest() throws -> URLRequest {
-            let (path) : (String) = {
-                switch self {
-                case .registerUser(_):
-                    return "registerUser"
-                case .loginUser(let phone,let password):
-                    return "loginUser/\(phone)/\(password)"
-                }
-                
-            }()
-            
-            let URL = Foundation.URL(string: DSRouter.baseURLString)
-            let URLRequest = NSMutableURLRequest(url: URL!.appendingPathComponent(path))
-            URLRequest.httpMethod = method.rawValue
-            
-            switch self {
-            case .registerUser(let user):
-                URLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                //用户参数
-                let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
-                do {
-                    URLRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: JSONSerialization.WritingOptions())
-                } catch {
-                }
-                default: break
-                
-            }
-            
-           let encodedURLRequest = try URLEncoding.queryString.encode(URLRequest as! URLRequestConvertible, with: nil)
-            return encodedURLRequest
-        }
-
-        
         // 逗视API地址
         static let baseURLString = "https://api.ds.itjh.net/v1/rest/user/"
         
@@ -319,12 +281,43 @@ struct HttpClientByUser {
                 return .get
             }
         }
+
         
-//        var URLRequest: NSMutableURLRequest {
-//            
-//            
-//            
-//        }
+        /// Returns a URL request or throws if an `Error` was encountered.
+        ///
+        /// - throws: An `Error` if the underlying `URLRequest` is `nil`.
+        ///
+        /// - returns: A URL request.
+         // MARK: URLRequestConvertible
+        
+        func asURLRequest() throws -> URLRequest {
+            let (path) : (String) = {
+                switch self {
+                case .registerUser(_):
+                    return "registerUser"
+                case .loginUser(let phone,let password):
+                    return "loginUser/\(phone)/\(password)"
+                }
+                
+            }()
+
+            
+            let url = try DSRouter.baseURLString.asURL()
+            var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+            urlRequest.httpMethod = method.rawValue
+            
+            switch self {
+                case .registerUser(let user):
+                    urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                    //用户参数
+                    let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
+                    urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
+                default:
+                    break
+            }
+            
+            return urlRequest
+        }
     }
 }
 
