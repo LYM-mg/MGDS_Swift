@@ -15,10 +15,13 @@ target 'MGDS_Swift' do
     # OC
     pod 'MJRefresh', '~> 3.1.12'          # 刷新数据
     pod 'MBProgressHUD', '~> 0.9.2'       # 蒙版提示
+    pod 'ZFPlayer', '~> 2.0.3'            # 视频播放
   
 #    // Mob产品公共库
     pod 'MOBFoundation_IDFA', '~> 2.2.3'
 #    // SMSSDK必须
     pod 'SMSSDK', '~> 2.0.8'
+    
+    
   
 end

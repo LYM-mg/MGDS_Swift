@@ -35,4 +35,7 @@
 
 //#import <GoogleMobileAds/GoogleMobileAds.h>
 
+
+#import "ZFPlayer.h"
+
 #endif /* BridgeHeader_h */
