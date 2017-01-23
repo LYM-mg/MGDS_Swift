@@ -38,6 +38,6 @@ extension MainTabBarViewController {
         vc.tabBarItem.image = UIImage(named: image)
 //        vc.tabBarItem.selectedImage = UIImage.mg_RenderModeOriginal(imageName: selImage)
         
-        self.addChildViewController(UINavigationController(rootViewController: vc))
+        self.addChildViewController(BaseNavigationController(rootViewController: vc))
     }
 }

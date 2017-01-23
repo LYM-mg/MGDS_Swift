@@ -76,6 +76,28 @@ class SysNetWorkTools: NSObject {
         // 5.开始请求
         dataTask.resume()
     }
+    
+     static func getVideoList(withURLString URLString: String, listID ID: String, success:@escaping ((_ listArray : Any?, _ sidArray: Any?) -> ()), failure: @escaping ((_ error: Error?)  -> ())) {
+//        let config = URLSessionConfiguration.default
+//        let session = URLSession(configuration: config)
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: URL(string: URLString)!) { (data, response, error) in
+            if error != nil {
+                print("错误\(error)")
+                failure(error)
+            } else {
+                var  listArray: [VideoList] = []
+                let dict: [String: Any] =  try!  JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : Any]
+                guard let videoList: [[String: Any]] = dict[ID] as? [[String: Any]] else {return}
+                for video in videoList {
+                    let model = VideoList(dict: video)
+                    listArray.append(model)
+                }
+                success(listArray, nil)
+            }
+        }
+        dataTask.resume()
+    }
 }
 
 // MARK: - AFError

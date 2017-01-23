@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MGPlayerViewController" customModule="MGDS_Swift" customModuleProvider="target">
+            <connections>
+                <outlet property="backBtn" destination="XwQ-vK-h74" id="NAB-vI-Pih"/>
+                <outlet property="giftBtn" destination="ved-gt-Jxb" id="XSw-4B-4Ew"/>
+                <outlet property="imgBackground" destination="0Re-hc-wLt" id="8AY-IR-zDl"/>
+                <outlet property="likeBtn" destination="VRt-8g-hdg" id="fn6-Ss-fCP"/>
+                <outlet property="view" destination="3x2-xl-PSY" id="qWM-SE-Nys"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="3x2-xl-PSY">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Re-hc-wLt"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRt-8g-hdg">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Buu-Uy-PKe"/>
+                        <constraint firstAttribute="width" constant="40" id="KPX-dm-QMJ"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="uad-YG-IeE"/>
+                    </constraints>
+                    <state key="normal" image="like"/>
+                    <connections>
+                        <action selector="like:" destination="-1" eventType="touchUpInside" id="ole-Nb-KOb"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwQ-vK-h74">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="nlK-1I-7sy"/>
+                        <constraint firstAttribute="height" constant="40" id="ykW-1M-ZoQ"/>
+                    </constraints>
+                    <state key="normal" image="goback"/>
+                    <connections>
+                        <action selector="goBack:" destination="-1" eventType="touchUpInside" id="CbO-ml-eGA"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5D-UJ-QeT">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="101" id="9At-WQ-jHO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ved-gt-Jxb">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Sid-Vt-dNu"/>
+                        <constraint firstAttribute="width" constant="50" id="gQT-Y8-mjK"/>
+                    </constraints>
+                    <state key="normal" image="gift"/>
+                    <connections>
+                        <action selector="giftBtnTap:" destination="-1" eventType="touchUpInside" id="cat-2K-g0N"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ved-gt-Jxb" firstAttribute="bottom" secondItem="VRt-8g-hdg" secondAttribute="bottom" id="0K0-S6-VnC"/>
+                <constraint firstAttribute="bottom" secondItem="0Re-hc-wLt" secondAttribute="bottom" id="AvT-l1-PZV"/>
+                <constraint firstItem="VRt-8g-hdg" firstAttribute="trailing" secondItem="3x2-xl-PSY" secondAttribute="trailingMargin" id="Bfn-LB-6IR"/>
+                <constraint firstItem="O5D-UJ-QeT" firstAttribute="centerX" secondItem="3x2-xl-PSY" secondAttribute="centerX" id="Dpq-HR-4nL"/>
+                <constraint firstItem="XwQ-vK-h74" firstAttribute="leading" secondItem="3x2-xl-PSY" secondAttribute="leadingMargin" id="GK4-Vi-xaM"/>
+                <constraint firstItem="O5D-UJ-QeT" firstAttribute="centerY" secondItem="3x2-xl-PSY" secondAttribute="centerY" id="J38-62-dhr"/>
+                <constraint firstItem="XwQ-vK-h74" firstAttribute="top" secondItem="3x2-xl-PSY" secondAttribute="top" constant="20" id="OE0-lW-d8R"/>
+                <constraint firstAttribute="bottom" secondItem="VRt-8g-hdg" secondAttribute="bottom" constant="20" symbolic="YES" id="Ukc-Fu-wSO"/>
+                <constraint firstItem="0Re-hc-wLt" firstAttribute="top" secondItem="3x2-xl-PSY" secondAttribute="top" id="XYm-Py-oo0"/>
+                <constraint firstAttribute="trailing" secondItem="0Re-hc-wLt" secondAttribute="trailing" id="Z01-cs-PJJ"/>
+                <constraint firstItem="ved-gt-Jxb" firstAttribute="leading" secondItem="XwQ-vK-h74" secondAttribute="leading" id="vsq-67-uox"/>
+                <constraint firstItem="0Re-hc-wLt" firstAttribute="leading" secondItem="3x2-xl-PSY" secondAttribute="leading" id="zgF-rc-dg1"/>
+            </constraints>
+            <point key="canvasLocation" x="-15" y="51"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gift" width="65" height="63"/>
+        <image name="goback" width="64" height="64"/>
+        <image name="like" width="66" height="64"/>
+    </resources>
+</document>

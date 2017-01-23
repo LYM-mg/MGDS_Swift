@@ -9,6 +9,7 @@
 import UIKit
 
 // MARK:- 全局参数
+let MGScreenBounds = UIScreen.main.bounds
 let MGScreenW = UIScreen.main.bounds.size.width
 let MGScreenH = UIScreen.main.bounds.size.height
 

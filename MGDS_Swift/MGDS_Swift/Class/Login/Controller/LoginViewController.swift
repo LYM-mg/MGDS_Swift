@@ -88,7 +88,11 @@ extension LoginViewController: UITextFieldDelegate {
 extension LoginViewController {
     // 登录按钮的点击
     @IBAction func loginBtnClick(_ sender: UIButton) {
-//        NetWorkTools.defManager.request("https://api.ds.itjh.net/v1/rest/user/loginUser\(phone)/\(password)", method: .get, parameters: <#T##Parameters?#>)
+        self.showHudInViewWithMode(view: view, hint: "正在登陆", mode: .determinate, imageName: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.showHint(hint: "你输入的账号和密码不正确", imageName: "wink")
+        }
     }
     
     /**
@@ -100,9 +104,6 @@ extension LoginViewController {
         self.view.endEditing(true)
         loginWithSocialPlatform(name: UMShareToQQ, platformName: "QQ")
     }
-
-
-
 
 
     /**
@@ -157,26 +158,14 @@ extension LoginViewController {
 //                })
                 
                 NetWorkTools.registRequest(type: .post, urlString: urlStr, parameters: parameters, succeed: { (result, err) in
+                    let userDict = (result as! NSDictionary).value(forKey: "content") as! [String: Any]
                     print(result)
                 }, failure: { (err) in
                     print(err)
                 })
-
-                
-                NetWorkTools.defManager.request(HttpClientByUser.DSRouter.registerUser(user)).responseJSON(completionHandler: { response -> Void in
-                    switch response.result {
-                        case .success:
-                            let JSON = response.result.value
-                            let userDict = (JSON as! NSDictionary).value(forKey: "content") as! [String: Any]
-                        print(userDict)
-                        //将用户信息保存到内存中
-                        case .failure(let error):
-                            print(error)
-                    }
-                })
             }
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            self.navigationController?.popViewController(animated: true)
+            let _ = self.navigationController?.popViewController(animated: true)
         })
     }
 }

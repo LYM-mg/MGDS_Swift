@@ -67,13 +67,13 @@
 		C017AD1F1E220641000F4B60 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C017AD1E1E220641000F4B60 /* libstdc++.tbd */; };
 		C017AD211E22065A000F4B60 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C017AD201E22065A000F4B60 /* AdSupport.framework */; };
 		C017AD231E2219E8000F4B60 /* UserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C017AD221E2219E8000F4B60 /* UserHeaderView.swift */; };
-		C03033931E2274B9002AA96C /* DSHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03033921E2274B9002AA96C /* DSHttpClient.swift */; };
+		C05A8E801E358C1B00996FFE /* LivekyCycleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A8E7F1E358C1B00996FFE /* LivekyCycleHeader.swift */; };
+		C05A8E821E358CCC00996FFE /* CycleHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A8E811E358CCC00996FFE /* CycleHeaderModel.swift */; };
 		C07070FB1E1E1461002C42D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07070FA1E1E1461002C42D0 /* AppDelegate.swift */; };
 		C07071001E1E1461002C42D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07070FE1E1E1461002C42D0 /* Main.storyboard */; };
 		C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C07071011E1E1461002C42D0 /* Assets.xcassets */; };
 		C07071221E1E16C4002C42D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07071211E1E16C4002C42D0 /* LaunchScreen.storyboard */; };
 		C07071241E1E19D3002C42D0 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071231E1E19D3002C42D0 /* MainTabBarViewController.swift */; };
-		C07071261E1E1A1C002C42D0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071251E1E1A1C002C42D0 /* HomeViewController.swift */; };
 		C07071281E1E1A2C002C42D0 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071271E1E1A2C002C42D0 /* DiscoverViewController.swift */; };
 		C070712A1E1E1A42002C42D0 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071291E1E1A42002C42D0 /* MineViewController.swift */; };
 		C070713D1E1E1B86002C42D0 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070712D1E1E1B86002C42D0 /* Array+Extension.swift */; };
@@ -91,11 +91,64 @@
 		C07071491E1E1B86002C42D0 /* MGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713A1E1E1B86002C42D0 /* MGButton.swift */; };
 		C070714A1E1E1B86002C42D0 /* MoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713B1E1E1B86002C42D0 /* MoreButton.swift */; };
 		C070714B1E1E1B86002C42D0 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713C1E1E1B86002C42D0 /* TitleButton.swift */; };
-		C070714D1E1E1F7A002C42D0 /* HomeTitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070714C1E1E1F7A002C42D0 /* HomeTitlesView.swift */; };
-		C070714F1E1E2038002C42D0 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070714E1E1E2038002C42D0 /* HomeContentView.swift */; };
-		C07071511E1E21FF002C42D0 /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071501E1E21FF002C42D0 /* VideoTableViewController.swift */; };
-		C07071541E1E2314002C42D0 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07071521E1E2314002C42D0 /* VideoCell.swift */; };
-		C07071551E1E2314002C42D0 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07071531E1E2314002C42D0 /* VideoCell.xib */; };
+		C08E3E691E2E4A17005A2835 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3E681E2E4A17005A2835 /* BaseNavigationController.swift */; };
+		C08E3E971E2F0C39005A2835 /* clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E891E2F0C39005A2835 /* clear@2x.png */; };
+		C08E3E981E2F0C39005A2835 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E8A1E2F0C39005A2835 /* close@2x.png */; };
+		C08E3E991E2F0C39005A2835 /* found@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E8B1E2F0C39005A2835 /* found@2x.png */; };
+		C08E3E9A1E2F0C39005A2835 /* found_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E8C1E2F0C39005A2835 /* found_s@2x.png */; };
+		C08E3E9B1E2F0C39005A2835 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E8D1E2F0C39005A2835 /* logo.png */; };
+		C08E3E9C1E2F0C39005A2835 /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E8E1E2F0C39005A2835 /* message@2x.png */; };
+		C08E3E9D1E2F0C39005A2835 /* message_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E8F1E2F0C39005A2835 /* message_s@2x.png */; };
+		C08E3E9E1E2F0C39005A2835 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E901E2F0C39005A2835 /* play.png */; };
+		C08E3E9F1E2F0C39005A2835 /* playcount.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E911E2F0C39005A2835 /* playcount.png */; };
+		C08E3EA01E2F0C39005A2835 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E921E2F0C39005A2835 /* share@2x.png */; };
+		C08E3EA11E2F0C39005A2835 /* share_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E931E2F0C39005A2835 /* share_s@2x.png */; };
+		C08E3EA21E2F0C39005A2835 /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E941E2F0C39005A2835 /* time.png */; };
+		C08E3EA31E2F0C39005A2835 /* video_play_btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E951E2F0C39005A2835 /* video_play_btn_bg@2x.png */; };
+		C08E3EFF1E304B5A005A2835 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EE01E304B5A005A2835 /* HomeViewController.swift */; };
+		C08E3F001E304B5A005A2835 /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EE11E304B5A005A2835 /* VideoTableViewController.swift */; };
+		C08E3F011E304B5A005A2835 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EE31E304B5A005A2835 /* HomeContentView.swift */; };
+		C08E3F021E304B5A005A2835 /* HomeTitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EE41E304B5A005A2835 /* HomeTitlesView.swift */; };
+		C08E3F031E304B5A005A2835 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EE51E304B5A005A2835 /* VideoCell.swift */; };
+		C08E3F041E304B5A005A2835 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C08E3EE61E304B5A005A2835 /* VideoCell.xib */; };
+		C08E3F051E304B5A005A2835 /* emmitParticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EE81E304B5A005A2835 /* emmitParticles.swift */; };
+		C08E3F061E304B5A005A2835 /* DMHeartFlyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EEB1E304B5A005A2835 /* DMHeartFlyView.m */; };
+		C08E3F071E304B5A005A2835 /* LiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EEC1E304B5A005A2835 /* LiveCell.swift */; };
+		C08E3F081E304B5A005A2835 /* Liveky.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08E3EED1E304B5A005A2835 /* Liveky.storyboard */; };
+		C08E3F091E304B5A005A2835 /* LiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EEE1E304B5A005A2835 /* LiveTableViewCell.swift */; };
+		C08E3F0A1E304B5A005A2835 /* LiveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EEF1E304B5A005A2835 /* LiveTableViewController.swift */; };
+		C08E3F0B1E304B5A005A2835 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EF01E304B5A005A2835 /* PlayerViewController.swift */; };
+		C08E3F0C1E304B5A005A2835 /* YKCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EF11E304B5A005A2835 /* YKCreator.swift */; };
+		C08E3F0D1E304B5A005A2835 /* YKLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EF21E304B5A005A2835 /* YKLive.swift */; };
+		C08E3F0E1E304B5A005A2835 /* YKLiveList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EF31E304B5A005A2835 /* YKLiveList.swift */; };
+		C08E3F0F1E304B5A005A2835 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EF51E304B5A005A2835 /* BaseModel.swift */; };
+		C08E3F101E304B5A005A2835 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EF61E304B5A005A2835 /* BaseTableViewController.swift */; };
+		C08E3F111E304B5A005A2835 /* MGNetEaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EF71E304B5A005A2835 /* MGNetEaseViewController.swift */; };
+		C08E3F121E304B5A005A2835 /* MGSinaNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EF81E304B5A005A2835 /* MGSinaNewsViewController.swift */; };
+		C08E3F131E304B5A005A2835 /* MGTencentNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EF91E304B5A005A2835 /* MGTencentNewsViewController.swift */; };
+		C08E3F141E304B5A005A2835 /* Tencent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08E3EFA1E304B5A005A2835 /* Tencent.storyboard */; };
+		C08E3F151E304B5A005A2835 /* TencentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EFB1E304B5A005A2835 /* TencentCell.swift */; };
+		C08E3F161E304B5A005A2835 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EFC1E304B5A005A2835 /* VideoList.swift */; };
+		C08E3F171E304B5A005A2835 /* VideoSidList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EFD1E304B5A005A2835 /* VideoSidList.swift */; };
+		C08E3F181E304B5A005A2835 /* VideoTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EFE1E304B5A005A2835 /* VideoTopic.swift */; };
+		C08E3F2C1E304CFC005A2835 /* MGHotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F2B1E304CFC005A2835 /* MGHotViewController.swift */; };
+		C08E3F2F1E304E2E005A2835 /* MGHotLiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F2D1E304E2E005A2835 /* MGHotLiveCell.swift */; };
+		C08E3F301E304E2E005A2835 /* MGHotLiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C08E3F2E1E304E2E005A2835 /* MGHotLiveCell.xib */; };
+		C08E3F321E30516B005A2835 /* MGHotAD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F311E30516B005A2835 /* MGHotAD.swift */; };
+		C08E3F341E305326005A2835 /* MGHotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F331E305326005A2835 /* MGHotModel.swift */; };
+		C08E3F361E3054A4005A2835 /* MGHotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F351E3054A4005A2835 /* MGHotViewModel.swift */; };
+		C08E3F381E30590A005A2835 /* MGHotADCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F371E30590A005A2835 /* MGHotADCell.swift */; };
+		C08E3F3D1E305950005A2835 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3F3A1E305950005A2835 /* placeholder.png */; };
+		C08E3F3E1E305950005A2835 /* XRCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F3C1E305950005A2835 /* XRCarouselView.m */; };
+		C08E3F401E308A9B005A2835 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F3F1E308A9B005A2835 /* WebViewController.swift */; };
+		C08E3F421E3092D4005A2835 /* MGNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F411E3092D4005A2835 /* MGNewViewController.swift */; };
+		C08E3F441E30935B005A2835 /* MGNewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F431E30935B005A2835 /* MGNewFlowLayout.swift */; };
+		C08E3F461E309417005A2835 /* MGAnchorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F451E309417005A2835 /* MGAnchorCell.swift */; };
+		C08E3F481E309755005A2835 /* MGAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F471E309755005A2835 /* MGAnchor.swift */; };
+		C08E3F4A1E309A98005A2835 /* MGNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F491E309A98005A2835 /* MGNewViewModel.swift */; };
+		C08E3F4C1E30A772005A2835 /* MGPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3F4B1E30A772005A2835 /* MGPlayerViewController.swift */; };
+		C08E3F4E1E30B412005A2835 /* MGPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C08E3F4D1E30B412005A2835 /* MGPlayerView.xib */; };
+		C091B4D21E330BA100F908A4 /* MGWaterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C091B4D11E330BA100F908A4 /* MGWaterFlowLayout.swift */; };
 		C0D4EF4B1E1F7ED800043A6B /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */; };
 		C0D4EF4D1E1F883A00043A6B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4EF4C1E1F883A00043A6B /* QRCodeViewController.swift */; };
 		C0D4EF4F1E1F8D7100043A6B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4EF4E1E1F8D7100043A6B /* RegisterViewController.swift */; };
@@ -202,7 +255,8 @@
 		C017AD1E1E220641000F4B60 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		C017AD201E22065A000F4B60 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C017AD221E2219E8000F4B60 /* UserHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserHeaderView.swift; path = MGDS_Swift/Class/Login/Model/UserHeaderView.swift; sourceTree = SOURCE_ROOT; };
-		C03033921E2274B9002AA96C /* DSHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSHttpClient.swift; sourceTree = "<group>"; };
+		C05A8E7F1E358C1B00996FFE /* LivekyCycleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivekyCycleHeader.swift; sourceTree = "<group>"; };
+		C05A8E811E358CCC00996FFE /* CycleHeaderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleHeaderModel.swift; sourceTree = "<group>"; };
 		C07070F71E1E1461002C42D0 /* MGDS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07070FA1E1E1461002C42D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C07070FF1E1E1461002C42D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -210,7 +264,6 @@
 		C07071061E1E1461002C42D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C07071211E1E16C4002C42D0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C07071231E1E19D3002C42D0 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
-		C07071251E1E1A1C002C42D0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C07071271E1E1A2C002C42D0 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		C07071291E1E1A42002C42D0 /* MineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		C070712D1E1E1B86002C42D0 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
@@ -228,12 +281,67 @@
 		C070713A1E1E1B86002C42D0 /* MGButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGButton.swift; sourceTree = "<group>"; };
 		C070713B1E1E1B86002C42D0 /* MoreButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreButton.swift; sourceTree = "<group>"; };
 		C070713C1E1E1B86002C42D0 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
-		C070714C1E1E1F7A002C42D0 /* HomeTitlesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTitlesView.swift; sourceTree = "<group>"; };
-		C070714E1E1E2038002C42D0 /* HomeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
-		C07071501E1E21FF002C42D0 /* VideoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
-		C07071521E1E2314002C42D0 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
-		C07071531E1E2314002C42D0 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		C07071581E1E2523002C42D0 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
+		C08E3E681E2E4A17005A2835 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		C08E3E891E2F0C39005A2835 /* clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clear@2x.png"; sourceTree = "<group>"; };
+		C08E3E8A1E2F0C39005A2835 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		C08E3E8B1E2F0C39005A2835 /* found@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "found@2x.png"; sourceTree = "<group>"; };
+		C08E3E8C1E2F0C39005A2835 /* found_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "found_s@2x.png"; sourceTree = "<group>"; };
+		C08E3E8D1E2F0C39005A2835 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		C08E3E8E1E2F0C39005A2835 /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
+		C08E3E8F1E2F0C39005A2835 /* message_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message_s@2x.png"; sourceTree = "<group>"; };
+		C08E3E901E2F0C39005A2835 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		C08E3E911E2F0C39005A2835 /* playcount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playcount.png; sourceTree = "<group>"; };
+		C08E3E921E2F0C39005A2835 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
+		C08E3E931E2F0C39005A2835 /* share_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_s@2x.png"; sourceTree = "<group>"; };
+		C08E3E941E2F0C39005A2835 /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
+		C08E3E951E2F0C39005A2835 /* video_play_btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_play_btn_bg@2x.png"; sourceTree = "<group>"; };
+		C08E3EE01E304B5A005A2835 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C08E3EE11E304B5A005A2835 /* VideoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
+		C08E3EE31E304B5A005A2835 /* HomeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
+		C08E3EE41E304B5A005A2835 /* HomeTitlesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTitlesView.swift; sourceTree = "<group>"; };
+		C08E3EE51E304B5A005A2835 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		C08E3EE61E304B5A005A2835 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		C08E3EE81E304B5A005A2835 /* emmitParticles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emmitParticles.swift; sourceTree = "<group>"; };
+		C08E3EEA1E304B5A005A2835 /* DMHeartFlyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMHeartFlyView.h; sourceTree = "<group>"; };
+		C08E3EEB1E304B5A005A2835 /* DMHeartFlyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMHeartFlyView.m; sourceTree = "<group>"; };
+		C08E3EEC1E304B5A005A2835 /* LiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveCell.swift; sourceTree = "<group>"; };
+		C08E3EED1E304B5A005A2835 /* Liveky.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Liveky.storyboard; sourceTree = "<group>"; };
+		C08E3EEE1E304B5A005A2835 /* LiveTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveTableViewCell.swift; sourceTree = "<group>"; };
+		C08E3EEF1E304B5A005A2835 /* LiveTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveTableViewController.swift; sourceTree = "<group>"; };
+		C08E3EF01E304B5A005A2835 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		C08E3EF11E304B5A005A2835 /* YKCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YKCreator.swift; sourceTree = "<group>"; };
+		C08E3EF21E304B5A005A2835 /* YKLive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YKLive.swift; sourceTree = "<group>"; };
+		C08E3EF31E304B5A005A2835 /* YKLiveList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YKLiveList.swift; sourceTree = "<group>"; };
+		C08E3EF51E304B5A005A2835 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		C08E3EF61E304B5A005A2835 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		C08E3EF71E304B5A005A2835 /* MGNetEaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGNetEaseViewController.swift; sourceTree = "<group>"; };
+		C08E3EF81E304B5A005A2835 /* MGSinaNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSinaNewsViewController.swift; sourceTree = "<group>"; };
+		C08E3EF91E304B5A005A2835 /* MGTencentNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTencentNewsViewController.swift; sourceTree = "<group>"; };
+		C08E3EFA1E304B5A005A2835 /* Tencent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tencent.storyboard; sourceTree = "<group>"; };
+		C08E3EFB1E304B5A005A2835 /* TencentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TencentCell.swift; sourceTree = "<group>"; };
+		C08E3EFC1E304B5A005A2835 /* VideoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
+		C08E3EFD1E304B5A005A2835 /* VideoSidList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSidList.swift; sourceTree = "<group>"; };
+		C08E3EFE1E304B5A005A2835 /* VideoTopic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTopic.swift; sourceTree = "<group>"; };
+		C08E3F2B1E304CFC005A2835 /* MGHotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGHotViewController.swift; sourceTree = "<group>"; };
+		C08E3F2D1E304E2E005A2835 /* MGHotLiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGHotLiveCell.swift; sourceTree = "<group>"; };
+		C08E3F2E1E304E2E005A2835 /* MGHotLiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGHotLiveCell.xib; sourceTree = "<group>"; };
+		C08E3F311E30516B005A2835 /* MGHotAD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGHotAD.swift; sourceTree = "<group>"; };
+		C08E3F331E305326005A2835 /* MGHotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGHotModel.swift; sourceTree = "<group>"; };
+		C08E3F351E3054A4005A2835 /* MGHotViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGHotViewModel.swift; sourceTree = "<group>"; };
+		C08E3F371E30590A005A2835 /* MGHotADCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGHotADCell.swift; sourceTree = "<group>"; };
+		C08E3F3A1E305950005A2835 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		C08E3F3B1E305950005A2835 /* XRCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRCarouselView.h; sourceTree = "<group>"; };
+		C08E3F3C1E305950005A2835 /* XRCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRCarouselView.m; sourceTree = "<group>"; };
+		C08E3F3F1E308A9B005A2835 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		C08E3F411E3092D4005A2835 /* MGNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGNewViewController.swift; sourceTree = "<group>"; };
+		C08E3F431E30935B005A2835 /* MGNewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGNewFlowLayout.swift; sourceTree = "<group>"; };
+		C08E3F451E309417005A2835 /* MGAnchorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGAnchorCell.swift; sourceTree = "<group>"; };
+		C08E3F471E309755005A2835 /* MGAnchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGAnchor.swift; sourceTree = "<group>"; };
+		C08E3F491E309A98005A2835 /* MGNewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGNewViewModel.swift; sourceTree = "<group>"; };
+		C08E3F4B1E30A772005A2835 /* MGPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGPlayerViewController.swift; sourceTree = "<group>"; };
+		C08E3F4D1E30B412005A2835 /* MGPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGPlayerView.xib; sourceTree = "<group>"; };
+		C091B4D11E330BA100F908A4 /* MGWaterFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGWaterFlowLayout.swift; sourceTree = "<group>"; };
 		C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		C0D4EF4C1E1F883A00043A6B /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		C0D4EF4E1E1F8D7100043A6B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -384,7 +492,6 @@
 		C017AC4E1E1FC449000F4B60 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				C03033921E2274B9002AA96C /* DSHttpClient.swift */,
 				C017AC501E1FC449000F4B60 /* NetWorkTools.swift */,
 				C017AC511E1FC449000F4B60 /* Reachability.h */,
 				C017AC521E1FC449000F4B60 /* Reachability.m */,
@@ -524,6 +631,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C05A8E7E1E358BC200996FFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3EE81E304B5A005A2835 /* emmitParticles.swift */,
+				C08E3EEE1E304B5A005A2835 /* LiveTableViewCell.swift */,
+				C05A8E7F1E358C1B00996FFE /* LivekyCycleHeader.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		C07070EE1E1E1461002C42D0 = {
 			isa = PBXGroup;
 			children = (
@@ -596,46 +713,12 @@
 		C07071121E1E14F0002C42D0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C07071131E1E14F0002C42D0 /* Controller */,
-				C07071141E1E14F0002C42D0 /* Model */,
-				C07071151E1E14F0002C42D0 /* View */,
-				C07071161E1E14F0002C42D0 /* ViewModel */,
+				C08E3F261E304C6E005A2835 /* Miao */,
+				C08E3EDF1E304B5A005A2835 /* Home */,
+				C08E3EE71E304B5A005A2835 /* Liveky */,
+				C08E3EF41E304B5A005A2835 /* Tencent */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		C07071131E1E14F0002C42D0 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				C07071251E1E1A1C002C42D0 /* HomeViewController.swift */,
-				C07071501E1E21FF002C42D0 /* VideoTableViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		C07071141E1E14F0002C42D0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		C07071151E1E14F0002C42D0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C070714C1E1E1F7A002C42D0 /* HomeTitlesView.swift */,
-				C070714E1E1E2038002C42D0 /* HomeContentView.swift */,
-				C07071521E1E2314002C42D0 /* VideoCell.swift */,
-				C07071531E1E2314002C42D0 /* VideoCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C07071161E1E14F0002C42D0 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C07071171E1E14F0002C42D0 /* Main */ = {
@@ -652,6 +735,7 @@
 		C07071181E1E14F0002C42D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C08E3E681E2E4A17005A2835 /* BaseNavigationController.swift */,
 				C07071231E1E19D3002C42D0 /* MainTabBarViewController.swift */,
 			);
 			path = Controller;
@@ -762,6 +846,7 @@
 		C07071591E1E2538002C42D0 /* Support File */ = {
 			isa = PBXGroup;
 			children = (
+				C08E3E881E2F0C39005A2835 /* Resource */,
 				C00478581E2E40A500393BF8 /* videoData.json */,
 				C07070FE1E1E1461002C42D0 /* Main.storyboard */,
 				C07071211E1E16C4002C42D0 /* LaunchScreen.storyboard */,
@@ -770,6 +855,188 @@
 				C07071581E1E2523002C42D0 /* BridgeHeader.h */,
 			);
 			name = "Support File";
+			sourceTree = "<group>";
+		};
+		C08E3E881E2F0C39005A2835 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3E891E2F0C39005A2835 /* clear@2x.png */,
+				C08E3E8A1E2F0C39005A2835 /* close@2x.png */,
+				C08E3E8B1E2F0C39005A2835 /* found@2x.png */,
+				C08E3E8C1E2F0C39005A2835 /* found_s@2x.png */,
+				C08E3E8D1E2F0C39005A2835 /* logo.png */,
+				C08E3E8E1E2F0C39005A2835 /* message@2x.png */,
+				C08E3E8F1E2F0C39005A2835 /* message_s@2x.png */,
+				C08E3E901E2F0C39005A2835 /* play.png */,
+				C08E3E911E2F0C39005A2835 /* playcount.png */,
+				C08E3E921E2F0C39005A2835 /* share@2x.png */,
+				C08E3E931E2F0C39005A2835 /* share_s@2x.png */,
+				C08E3E941E2F0C39005A2835 /* time.png */,
+				C08E3E951E2F0C39005A2835 /* video_play_btn_bg@2x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		C08E3EDF1E304B5A005A2835 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3EE01E304B5A005A2835 /* HomeViewController.swift */,
+				C08E3EE11E304B5A005A2835 /* VideoTableViewController.swift */,
+				C08E3EE21E304B5A005A2835 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C08E3EE21E304B5A005A2835 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3EE31E304B5A005A2835 /* HomeContentView.swift */,
+				C08E3EE41E304B5A005A2835 /* HomeTitlesView.swift */,
+				C08E3EE51E304B5A005A2835 /* VideoCell.swift */,
+				C08E3EE61E304B5A005A2835 /* VideoCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C08E3EE71E304B5A005A2835 /* Liveky */ = {
+			isa = PBXGroup;
+			children = (
+				C05A8E7E1E358BC200996FFE /* View */,
+				C08E3F1B1E304BDE005A2835 /* Controler */,
+				C08E3EE91E304B5A005A2835 /* HeartFlyView */,
+				C08E3F1C1E304C00005A2835 /* Model */,
+			);
+			path = Liveky;
+			sourceTree = "<group>";
+		};
+		C08E3EE91E304B5A005A2835 /* HeartFlyView */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3EEA1E304B5A005A2835 /* DMHeartFlyView.h */,
+				C08E3EEB1E304B5A005A2835 /* DMHeartFlyView.m */,
+			);
+			path = HeartFlyView;
+			sourceTree = "<group>";
+		};
+		C08E3EF41E304B5A005A2835 /* Tencent */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3F1A1E304BCF005A2835 /* Controller */,
+				C08E3F191E304BC3005A2835 /* Model */,
+			);
+			path = Tencent;
+			sourceTree = "<group>";
+		};
+		C08E3F191E304BC3005A2835 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3EF51E304B5A005A2835 /* BaseModel.swift */,
+				C08E3EFC1E304B5A005A2835 /* VideoList.swift */,
+				C08E3EFD1E304B5A005A2835 /* VideoSidList.swift */,
+				C08E3EFE1E304B5A005A2835 /* VideoTopic.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C08E3F1A1E304BCF005A2835 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3EFA1E304B5A005A2835 /* Tencent.storyboard */,
+				C08E3EF61E304B5A005A2835 /* BaseTableViewController.swift */,
+				C08E3EF91E304B5A005A2835 /* MGTencentNewsViewController.swift */,
+				C08E3EF71E304B5A005A2835 /* MGNetEaseViewController.swift */,
+				C08E3EF81E304B5A005A2835 /* MGSinaNewsViewController.swift */,
+				C08E3EFB1E304B5A005A2835 /* TencentCell.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C08E3F1B1E304BDE005A2835 /* Controler */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3EED1E304B5A005A2835 /* Liveky.storyboard */,
+				C08E3EEF1E304B5A005A2835 /* LiveTableViewController.swift */,
+				C08E3EF01E304B5A005A2835 /* PlayerViewController.swift */,
+			);
+			name = Controler;
+			sourceTree = "<group>";
+		};
+		C08E3F1C1E304C00005A2835 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3EEC1E304B5A005A2835 /* LiveCell.swift */,
+				C08E3EF11E304B5A005A2835 /* YKCreator.swift */,
+				C08E3EF21E304B5A005A2835 /* YKLive.swift */,
+				C08E3EF31E304B5A005A2835 /* YKLiveList.swift */,
+				C05A8E811E358CCC00996FFE /* CycleHeaderModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C08E3F261E304C6E005A2835 /* Miao */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3F271E304C6E005A2835 /* Controller */,
+				C08E3F281E304C6E005A2835 /* Model */,
+				C08E3F291E304C6E005A2835 /* View */,
+				C08E3F2A1E304C6E005A2835 /* ViewModel */,
+			);
+			path = Miao;
+			sourceTree = "<group>";
+		};
+		C08E3F271E304C6E005A2835 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3F2B1E304CFC005A2835 /* MGHotViewController.swift */,
+				C08E3F411E3092D4005A2835 /* MGNewViewController.swift */,
+				C08E3F3F1E308A9B005A2835 /* WebViewController.swift */,
+				C08E3F4B1E30A772005A2835 /* MGPlayerViewController.swift */,
+				C08E3F4D1E30B412005A2835 /* MGPlayerView.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C08E3F281E304C6E005A2835 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3F311E30516B005A2835 /* MGHotAD.swift */,
+				C08E3F331E305326005A2835 /* MGHotModel.swift */,
+				C08E3F471E309755005A2835 /* MGAnchor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C08E3F291E304C6E005A2835 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3F391E305950005A2835 /* XRCarouselView */,
+				C08E3F371E30590A005A2835 /* MGHotADCell.swift */,
+				C08E3F2D1E304E2E005A2835 /* MGHotLiveCell.swift */,
+				C08E3F2E1E304E2E005A2835 /* MGHotLiveCell.xib */,
+				C08E3F431E30935B005A2835 /* MGNewFlowLayout.swift */,
+				C08E3F451E309417005A2835 /* MGAnchorCell.swift */,
+				C091B4D11E330BA100F908A4 /* MGWaterFlowLayout.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C08E3F2A1E304C6E005A2835 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3F351E3054A4005A2835 /* MGHotViewModel.swift */,
+				C08E3F491E309A98005A2835 /* MGNewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C08E3F391E305950005A2835 /* XRCarouselView */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3F3A1E305950005A2835 /* placeholder.png */,
+				C08E3F3B1E305950005A2835 /* XRCarouselView.h */,
+				C08E3F3C1E305950005A2835 /* XRCarouselView.m */,
+			);
+			path = XRCarouselView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -836,27 +1103,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08E3E991E2F0C39005A2835 /* found@2x.png in Resources */,
 				C017ACF81E1FC718000F4B60 /* UMSCommentInputControlleriPad.xib in Resources */,
+				C08E3E9B1E2F0C39005A2835 /* logo.png in Resources */,
 				C017ACFC1E1FC718000F4B60 /* UMSnsAccountViewController.xib in Resources */,
 				C07071221E1E16C4002C42D0 /* LaunchScreen.storyboard in Resources */,
-				C07071551E1E2314002C42D0 /* VideoCell.xib in Resources */,
+				C08E3EA31E2F0C39005A2835 /* video_play_btn_bg@2x.png in Resources */,
 				C00478541E2E3D7E00393BF8 /* ZFPlayer.bundle in Resources */,
+				C08E3E9D1E2F0C39005A2835 /* message_s@2x.png in Resources */,
 				C017ACB41E1FC6F1000F4B60 /* PushConfig.plist in Resources */,
 				C017AD011E1FC718000F4B60 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				C08E3F141E304B5A005A2835 /* Tencent.storyboard in Resources */,
 				C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */,
+				C08E3F041E304B5A005A2835 /* VideoCell.xib in Resources */,
+				C08E3E9E1E2F0C39005A2835 /* play.png in Resources */,
+				C08E3E971E2F0C39005A2835 /* clear@2x.png in Resources */,
 				C017ACFA1E1FC718000F4B60 /* UMShareEditViewControlleriPad.xib in Resources */,
 				C017ACFD1E1FC718000F4B60 /* UMSShareListController.xib in Resources */,
 				C017ACF31E1FC718000F4B60 /* UMSocialLocalizable.strings in Resources */,
 				C00478591E2E40A500393BF8 /* videoData.json in Resources */,
 				C004782D1E2E3D5D00393BF8 /* TableViewCell.xib in Resources */,
 				C017ACF61E1FC718000F4B60 /* UMSCommentDetailController.xib in Resources */,
+				C08E3E981E2F0C39005A2835 /* close@2x.png in Resources */,
 				C017ACF71E1FC718000F4B60 /* UMSCommentInputController.xib in Resources */,
+				C08E3F081E304B5A005A2835 /* Liveky.storyboard in Resources */,
 				C0D4EF4B1E1F7ED800043A6B /* Mine.storyboard in Resources */,
 				C017AD041E1FC718000F4B60 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				C004C6651E1E7C1800EC712E /* Login.storyboard in Resources */,
+				C08E3EA21E2F0C39005A2835 /* time.png in Resources */,
+				C08E3EA11E2F0C39005A2835 /* share_s@2x.png in Resources */,
+				C08E3F3D1E305950005A2835 /* placeholder.png in Resources */,
 				C017ACF91E1FC718000F4B60 /* UMShareEditViewController.xib in Resources */,
+				C08E3F4E1E30B412005A2835 /* MGPlayerView.xib in Resources */,
+				C08E3E9C1E2F0C39005A2835 /* message@2x.png in Resources */,
 				C07071001E1E1461002C42D0 /* Main.storyboard in Resources */,
+				C08E3EA01E2F0C39005A2835 /* share@2x.png in Resources */,
+				C08E3F301E304E2E005A2835 /* MGHotLiveCell.xib in Resources */,
+				C08E3E9F1E2F0C39005A2835 /* playcount.png in Resources */,
 				C017ACFB1E1FC718000F4B60 /* UMSLoginViewController.xib in Resources */,
+				C08E3E9A1E2F0C39005A2835 /* found_s@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,54 +1200,89 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08E3F481E309755005A2835 /* MGAnchor.swift in Sources */,
+				C08E3F441E30935B005A2835 /* MGNewFlowLayout.swift in Sources */,
 				C0D4EF4F1E1F8D7100043A6B /* RegisterViewController.swift in Sources */,
+				C08E3F171E304B5A005A2835 /* VideoSidList.swift in Sources */,
+				C08E3F361E3054A4005A2835 /* MGHotViewModel.swift in Sources */,
+				C08E3F0A1E304B5A005A2835 /* LiveTableViewController.swift in Sources */,
 				C070713F1E1E1B86002C42D0 /* String+Extension.swift in Sources */,
+				C05A8E801E358C1B00996FFE /* LivekyCycleHeader.swift in Sources */,
+				C08E3F341E305326005A2835 /* MGHotModel.swift in Sources */,
+				C08E3F011E304B5A005A2835 /* HomeContentView.swift in Sources */,
+				C08E3F4C1E30A772005A2835 /* MGPlayerViewController.swift in Sources */,
+				C08E3EFF1E304B5A005A2835 /* HomeViewController.swift in Sources */,
+				C08E3F2C1E304CFC005A2835 /* MGHotViewController.swift in Sources */,
 				C07071481E1E1B86002C42D0 /* CornersLabel.swift in Sources */,
-				C03033931E2274B9002AA96C /* DSHttpClient.swift in Sources */,
 				C0D4EF4D1E1F883A00043A6B /* QRCodeViewController.swift in Sources */,
+				C05A8E821E358CCC00996FFE /* CycleHeaderModel.swift in Sources */,
+				C08E3F151E304B5A005A2835 /* TencentCell.swift in Sources */,
 				C00478291E2E3D5100393BF8 /* MGVideoResolution.swift in Sources */,
+				C08E3F401E308A9B005A2835 /* WebViewController.swift in Sources */,
 				C017AD151E1FDD83000F4B60 /* User.swift in Sources */,
 				C00478531E2E3D7E00393BF8 /* ZFBrightnessView.m in Sources */,
 				C07070FB1E1E1461002C42D0 /* AppDelegate.swift in Sources */,
 				C07071281E1E1A2C002C42D0 /* DiscoverViewController.swift in Sources */,
 				C017AD231E2219E8000F4B60 /* UserHeaderView.swift in Sources */,
 				C00478521E2E3D7E00393BF8 /* MMMaterialDesignSpinner.m in Sources */,
+				C08E3F051E304B5A005A2835 /* emmitParticles.swift in Sources */,
 				C07071471E1E1B86002C42D0 /* Constant.swift in Sources */,
+				C08E3F111E304B5A005A2835 /* MGNetEaseViewController.swift in Sources */,
+				C08E3E691E2E4A17005A2835 /* BaseNavigationController.swift in Sources */,
+				C08E3F091E304B5A005A2835 /* LiveTableViewCell.swift in Sources */,
+				C08E3F001E304B5A005A2835 /* VideoTableViewController.swift in Sources */,
 				C00478281E2E3D5100393BF8 /* MGVideoModel.swift in Sources */,
 				C00478551E2E3D7E00393BF8 /* ZFPlayerControlView.m in Sources */,
+				C08E3F181E304B5A005A2835 /* VideoTopic.swift in Sources */,
+				C08E3F0E1E304B5A005A2835 /* YKLiveList.swift in Sources */,
 				C07071461E1E1B86002C42D0 /* UIViewController+Extension.swift in Sources */,
 				C070714A1E1E1B86002C42D0 /* MoreButton.swift in Sources */,
 				C004784E1E2E3D7E00393BF8 /* UINavigationController+ZFPlayerRotation.m in Sources */,
 				C017AC591E1FC449000F4B60 /* SysNetWorkTools.swift in Sources */,
+				C08E3F2F1E304E2E005A2835 /* MGHotLiveCell.swift in Sources */,
 				C017AC581E1FC449000F4B60 /* SaveTools.swift in Sources */,
 				C07071241E1E19D3002C42D0 /* MainTabBarViewController.swift in Sources */,
 				C070713D1E1E1B86002C42D0 /* Array+Extension.swift in Sources */,
-				C07071261E1E1A1C002C42D0 /* HomeViewController.swift in Sources */,
+				C08E3F101E304B5A005A2835 /* BaseTableViewController.swift in Sources */,
+				C08E3F071E304B5A005A2835 /* LiveCell.swift in Sources */,
+				C091B4D21E330BA100F908A4 /* MGWaterFlowLayout.swift in Sources */,
+				C08E3F131E304B5A005A2835 /* MGTencentNewsViewController.swift in Sources */,
+				C08E3F021E304B5A005A2835 /* HomeTitlesView.swift in Sources */,
 				C07071491E1E1B86002C42D0 /* MGButton.swift in Sources */,
 				C07071431E1E1B86002C42D0 /* UIImageView+Extension.swift in Sources */,
 				C070712A1E1E1A42002C42D0 /* MineViewController.swift in Sources */,
+				C08E3F0C1E304B5A005A2835 /* YKCreator.swift in Sources */,
+				C08E3F161E304B5A005A2835 /* VideoList.swift in Sources */,
 				C004C6631E1E7C0C00EC712E /* LoginViewController.swift in Sources */,
 				C004784B1E2E3D7E00393BF8 /* ASValuePopUpView.m in Sources */,
+				C08E3F421E3092D4005A2835 /* MGNewViewController.swift in Sources */,
 				C017AC561E1FC449000F4B60 /* NetWorkTools.swift in Sources */,
 				C004784F1E2E3D7E00393BF8 /* UITabBarController+ZFPlayerRotation.m in Sources */,
 				C00478571E2E3D7E00393BF8 /* ZFPlayerView.m in Sources */,
+				C08E3F461E309417005A2835 /* MGAnchorCell.swift in Sources */,
 				C07071451E1E1B86002C42D0 /* UIView+Extension.swift in Sources */,
+				C08E3F4A1E309A98005A2835 /* MGNewViewModel.swift in Sources */,
+				C08E3F061E304B5A005A2835 /* DMHeartFlyView.m in Sources */,
+				C08E3F0D1E304B5A005A2835 /* YKLive.swift in Sources */,
 				C070713E1E1E1B86002C42D0 /* NSObject+Extension.swift in Sources */,
+				C08E3F0F1E304B5A005A2835 /* BaseModel.swift in Sources */,
+				C08E3F0B1E304B5A005A2835 /* PlayerViewController.swift in Sources */,
 				C004784D1E2E3D7E00393BF8 /* UIImageView+ZFCache.m in Sources */,
+				C08E3F3E1E305950005A2835 /* XRCarouselView.m in Sources */,
 				C00478501E2E3D7E00393BF8 /* UIView+CustomControlView.m in Sources */,
 				C07071401E1E1B86002C42D0 /* UIBUtton+Extension.swift in Sources */,
 				C017AC571E1FC449000F4B60 /* Reachability.m in Sources */,
 				C07071421E1E1B86002C42D0 /* UIImage+Extension.swift in Sources */,
 				C004782C1E2E3D5D00393BF8 /* TableViewCell.swift in Sources */,
-				C07071541E1E2314002C42D0 /* VideoCell.swift in Sources */,
 				C004784C1E2E3D7E00393BF8 /* ASValueTrackingSlider.m in Sources */,
 				C00478561E2E3D7E00393BF8 /* ZFPlayerModel.m in Sources */,
-				C070714F1E1E2038002C42D0 /* HomeContentView.swift in Sources */,
 				C07071441E1E1B86002C42D0 /* UILabel+Extension.swift in Sources */,
+				C08E3F321E30516B005A2835 /* MGHotAD.swift in Sources */,
+				C08E3F121E304B5A005A2835 /* MGSinaNewsViewController.swift in Sources */,
+				C08E3F031E304B5A005A2835 /* VideoCell.swift in Sources */,
+				C08E3F381E30590A005A2835 /* MGHotADCell.swift in Sources */,
 				C00478511E2E3D7E00393BF8 /* UIViewController+ZFPlayerRotation.m in Sources */,
-				C07071511E1E21FF002C42D0 /* VideoTableViewController.swift in Sources */,
 				C070714B1E1E1B86002C42D0 /* TitleButton.swift in Sources */,
-				C070714D1E1E1F7A002C42D0 /* HomeTitlesView.swift in Sources */,
 				C07071411E1E1B86002C42D0 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1033,6 +1353,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Just\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1075,6 +1403,14 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Just\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -1088,12 +1424,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = H54L47S422;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/SMS_SDK",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/SMS_SDK",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/MGDS_Swift",
+					"$(PROJECT_DIR)/MGDS_Swift/lib&IJKFW",
 				);
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1109,6 +1448,7 @@
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/MGDS_Swift/lib&IJKFW",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1128,6 +1468,7 @@
 					"\"Validator\"",
 					"-ObjC",
 					"-licucore",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGDS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1143,12 +1484,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = H54L47S422;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/SMS_SDK",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/SMS_SDK",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/MGDS_Swift",
+					"$(PROJECT_DIR)/MGDS_Swift/lib&IJKFW",
 				);
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1164,6 +1508,7 @@
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/MGDS_Swift/lib&IJKFW",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1183,6 +1528,7 @@
 					"\"Validator\"",
 					"-ObjC",
 					"-licucore",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "i-Techsys.com.MGDS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";

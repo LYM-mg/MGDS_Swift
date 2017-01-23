@@ -27,7 +27,7 @@
                             <constraint firstAttribute="height" constant="40" id="zSh-Ry-2Vy"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZFPlayer就是好用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKS-8O-mJY">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="嘿嘿，感觉下载来试试，给个✨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKS-8O-mJY">
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -78,7 +78,9 @@
             <connections>
                 <outlet property="avatarImageView" destination="U5l-V5-Uqx" id="0yQ-f9-rsU"/>
                 <outlet property="picView" destination="Qm1-x7-ojl" id="R4A-xI-pxb"/>
-                <outlet property="titleLabel" destination="ltE-UI-Imz" id="t0l-V1-PqY"/>
+                <outlet property="timeLabel" destination="24S-eu-ll0" id="ck9-cP-TI2"/>
+                <outlet property="titleLabel" destination="wKS-8O-mJY" id="mCe-nj-RWs"/>
+                <outlet property="videoDescription" destination="ltE-UI-Imz" id="9yE-kO-101"/>
             </connections>
             <point key="canvasLocation" x="59.5" y="8"/>
         </tableViewCell>

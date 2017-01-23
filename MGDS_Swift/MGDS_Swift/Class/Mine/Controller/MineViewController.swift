@@ -15,7 +15,14 @@ class MineViewController: UITableViewController {
     @IBOutlet weak var userHeaderView: UserHeaderView!  // 用户头部信息View
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let blurEccect = UIBlurEffect(style: .light)
+//        let effectView = UIVisualEffectView(effect: blurEccect)
+//        effectView.frame = tableView.frame
+//        view.addSubview(effectView)
         
+//        let blurEffect = UIBlurEffect(style: .light)
+//        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+//        self.tableView.separatorEffect = vibrancyEffect
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,7 +103,8 @@ extension MineViewController {
     
     /// 盆友需要
     fileprivate func shareToFriend() {
-        let share = "https://itunes.apple.com/cn/app/id1044917946"
+        //  https://itunes.apple.com/cn/app/id1044917946
+        let share = "https://github.com/LYM-mg"
         UMSocialData.default().extConfig.title = "搞笑,恶搞视频全聚合,尽在逗视App"
         UMSocialWechatHandler.setWXAppId("wxfd23fac852a54c97", appSecret: "d4624c36b6795d1d99dcf0547af5443d", url: "\(share)")
         UMSocialQQHandler.setQQWithAppId("1104864621", appKey: "AQKpnMRxELiDWHwt", url: "\(share)")

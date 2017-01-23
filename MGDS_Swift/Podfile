@@ -5,6 +5,7 @@ use_frameworks!
 target 'MGDS_Swift' do
     # Swift
     pod 'Alamofire', '~> 4.2.0'           # 网络请求
+    pod 'Just', '~> 0.5.7'
     pod 'Kingfisher', '~> 3.2.1'          # 图片加载
     pod 'SnapKit', '~> 3.0.2'             # 约束布局
 

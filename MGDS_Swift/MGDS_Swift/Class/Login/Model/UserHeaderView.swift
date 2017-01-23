@@ -17,10 +17,11 @@ class UserHeaderView: UIView {
     
     var user: User? {
         didSet {
-            let url = URL(string: user?.headImage ?? "")!
-            userIcon.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "default-user"))
-//                userIcon.kf.setImage(with: user?.headImage as! Resource?)
             userName.text = user?.nickName ?? "明明就是你"
+            if user?.headImage != nil {
+                let url = URL(string: user?.headImage ?? "")!
+                userIcon.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "default-user"))
+            }
         }
     }
 }

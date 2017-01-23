@@ -38,4 +38,10 @@
 
 #import "ZFPlayer.h"
 
+#import <IJKMediaFramework/IJKMediaFramework.h>
+#import "DMHeartFlyView.h"
+
+
+#import "XRCarouselView.h"
+
 #endif /* BridgeHeader_h */

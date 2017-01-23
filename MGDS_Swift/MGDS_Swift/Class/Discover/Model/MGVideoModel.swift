@@ -12,13 +12,14 @@ class MGVideoModel: NSObject {
     /** 标题 */
     var title: String?
     /** 描述 */
-    var video_description: String?
+    var videoDescription: String?
     /** 视频地址 */
-   var playUrl: String?
+    var playUrl: String?
     /** 封面图 */
-   var coverForFeed: String?
+    var coverForFeed: String?
     /** 视频分辨率的数组 */
-   var playInfo: [MGVideoResolution] = [MGVideoResolution]()
+    var playInfo: [MGVideoResolution] = [MGVideoResolution]()
+    var date: NSNumber?
     
     override init() {
         super.init()
@@ -30,6 +31,9 @@ class MGVideoModel: NSObject {
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
+        if key == "description" {
+            self.videoDescription = value as! String?
+        }
     }
     override func setValue(_ value: Any?, forKey key: String) {
         // 1.判断当前取出的key是否是用户
@@ -41,6 +45,11 @@ class MGVideoModel: NSObject {
             playInfo = models
             return
         }
+        
+        if key == "date" {
+            date = value as! NSNumber?
+        }
+
         
         super.setValue(value, forKey: key)
     }

@@ -132,10 +132,10 @@ extension NetWorkTools {
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         let headers: HTTPHeaders = [
             "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
-            "Accept": "text/html",
-            "application/x-www-form-urlencoded": "charset=utf-8",
-            "Content-Type": "application/json",
-            "Content-Length": "12130"
+//            "Accept": "text/html",
+//            "application/x-www-form-urlencoded": "charset=utf-8",
+//            "Content-Type": "application/json",
+//            "Content-Length": "12130"
         ]
         
         // 2.发送网络数据请求
@@ -168,7 +168,6 @@ extension NetWorkTools {
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
-//            "Content-Length": "12130"
         ]
         //用户参数
         

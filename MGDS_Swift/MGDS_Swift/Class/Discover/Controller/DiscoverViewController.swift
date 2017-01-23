@@ -15,7 +15,7 @@ class DiscoverViewController: UITableViewController {
         playerView.cellPlayerOnCenter = true
         
         // 当cell划出屏幕的时候停止播放
-        playerView.stopPlayWhileCellNotVisable = true
+        playerView.stopPlayWhileCellNotVisable = false
         //（可选设置）可以设置视频的填充模式，默认为（等比例填充，直到一个维度到达区域边界）
         playerView.playerLayerGravity = .resizeAspect
         // 静音
@@ -34,6 +34,11 @@ class DiscoverViewController: UITableViewController {
         
         loadData()
         self.view.layoutIfNeeded()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        playerView.resetPlayer()
     }
     
 }
@@ -55,7 +60,7 @@ extension DiscoverViewController {
 }
 
 
-// MARK: - 数据源
+// MARK: - tableView 数据源
 extension DiscoverViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -82,14 +87,14 @@ extension DiscoverViewController {
     }
 }
 
-// MARK: - TableViewCellProtocol
+// MARK: - TableViewCellProtocol -- 播放视频
 extension DiscoverViewController: TableViewCellProtocol {
     /// 点击播放
     func playBtnClick(cell: TableViewCell ,model: MGVideoModel) {
         // 分辨率字典（key:分辨率名称，value：分辨率url)
         let dic = NSMutableDictionary()
         for resolution in model.playInfo {
-            dic.setValue(resolution.url, forKey: resolution.url)
+            dic.setValue(resolution.url, forKey: resolution.name)
         }
         // 取出字典中的第一视频URL
         let videoURL = URL(string: dic.allValues.first! as! String)!
