@@ -14,7 +14,6 @@ class MGPlayerViewController: UIViewController {
     var live : MGHotModel!
     var ijplayer: IJKMediaPlayback!
     var playerView: UIView!
-    fileprivate lazy var p918 = UIImageView(image: #imageLiteral(resourceName: "porsche"))
     
     // MARK: SB拖拽属性
     @IBOutlet weak var giftBtn: UIButton!
@@ -115,26 +114,27 @@ extension MGPlayerViewController {
 extension MGPlayerViewController {
     // 点击礼物🎁
     @IBAction func giftBtnTap(_ sender: UIButton) {
+        sender.isEnabled = false
+        
+        let carImageView = UIImageView(image: #imageLiteral(resourceName: "porsche"))
         let duration = 3.0
-        
-        
-        p918.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        view.addSubview(p918)
+        carImageView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        view.addSubview(carImageView)
         
         let widthP918:CGFloat = 240
         let heightP918:CGFloat = 120
         
         UIView.animate(withDuration: duration) {
-            self.p918.frame =
+            carImageView.frame =
                 CGRect(x: self.view.center.x - widthP918/2, y: self.view.center.y - heightP918/2, width: widthP918, height: heightP918)
         }
         
         //主线程延时一个完整动画后,再让礼物图片逐渐透明,完全透明后从父视图移除
         DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
             UIView.animate(withDuration: duration, animations: {
-                self.p918.alpha = 0
+                    carImageView.alpha = 0
                 }, completion: { (completed) in
-                    self.p918.removeFromSuperview()
+                    carImageView.removeFromSuperview()
             })
         }
         
@@ -145,6 +145,7 @@ extension MGPlayerViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + duration * 2) {
             layerFw.removeFromSuperlayer()
+            sender.isEnabled = true
         }
     }
     

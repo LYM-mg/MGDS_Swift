@@ -36,7 +36,7 @@ extension BaseNavigationController {
             let popBtn = UIButton(imageName: "goback", title: "", target: self, action: #selector(BaseNavigationController.popClick(sender:)))
             
             // 设置popBtn的属性
-            popBtn.mg_size = CGSize(width: 30, height: 30)
+            popBtn.mg_size = CGSize(width: 23, height: 30)
             popBtn.setTitleColor(UIColor.white, for: .normal)
             popBtn.setTitleColor(UIColor.colorWithCustom(r: 60, g: 60, b: 60), for: .highlighted)
             

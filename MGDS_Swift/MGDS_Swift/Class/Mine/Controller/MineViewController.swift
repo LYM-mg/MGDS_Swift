@@ -77,8 +77,12 @@ extension MineViewController {
         let urlStr = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1044917946&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"
         guard let url = URL(string: urlStr) else { return }
         if UIApplication.shared.canOpenURL(url){
-            let options = [UIApplicationOpenURLOptionUniversalLinksOnly : true]
-            UIApplication.shared.open(url, options: options, completionHandler: nil)
+            if #available(iOS 10.0, *) {
+                let options = [UIApplicationOpenURLOptionUniversalLinksOnly : true]
+                UIApplication.shared.open(url, options: options, completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
         }
     }
     /// 意见反馈

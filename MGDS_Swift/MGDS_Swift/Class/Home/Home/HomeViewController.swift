@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     // MARK: - lazy
     fileprivate lazy var homeTitlesView: HomeTitlesView = { [weak self] in
         let titleFrame = CGRect(x: 0, y: MGNavHeight, width: MGScreenW, height: kTitlesViewH)
-        let titles = ["推荐","精华","热门","逗视","娱乐","乐翻天"]
+        let titles = ["推荐","精华","热门","斗鱼","娱乐","逗视"]
         let tsView = HomeTitlesView(frame: titleFrame, titles: titles)
         tsView.deledate = self
         return tsView
@@ -32,17 +32,19 @@ class HomeViewController: UIViewController {
         // 2.确定所有的子控制器
         var childVcs = [UIViewController]()
         
+        // 映客直播
         let livekySearchVC = UIStoryboard(name: "Liveky", bundle: nil).instantiateInitialViewController() as! LiveTableViewController
         livekySearchVC.topicType = LivekyTopicType.search
         childVcs.append(livekySearchVC)
         
+        // 喵播
         let hotVC = MGHotViewController()
         childVcs.append(hotVC)
         let newVC = MGNewViewController()
         childVcs.append(newVC)
+        childVcs.append(AnchorViewController())
         
-        
-        childVcs.append(VideoTableViewController())
+        // 腾讯
         let tencentVC = UIStoryboard(name: "Tencent", bundle: nil).instantiateInitialViewController() as! MGTencentNewsViewController
 //        let sinaNewsVC = UIStoryboard(name: "Tencent", bundle: nil).instantiateViewController(withIdentifier: "KTrunToSinaNewsVC") as! MGSinaNewsViewController
         childVcs.append(tencentVC)

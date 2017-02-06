@@ -99,12 +99,14 @@ extension AppDelegate {
      - parameter shortcutItem:      item
      - parameter completionHandler: handler
      */
+    @available(iOS 9.0, *)
     @objc(application:performActionForShortcutItem:completionHandler:) func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         let handledShortCutItem = handleShortCutItem(shortcutItem)
         completionHandler(handledShortCutItem)
     }
     
     
+    @available(iOS 9.0, *)
     func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
         var handled = false
         //Get type string from shortcutItem
