@@ -19,6 +19,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!     // 手机号
     @IBOutlet weak var code: UITextField!               // 验证码
     @IBOutlet weak var passwordTextField: UITextField!  // 密码
+    @IBOutlet weak var emailTextField: UITextField!     // 邮箱
     @IBOutlet weak var registerBtn: UIButton!           // 注册按钮
     @IBOutlet weak var sendCodeBtn: UIButton!           // 发送验证码按钮
     fileprivate var timer: Timer?
@@ -41,7 +42,11 @@ class RegisterViewController: UIViewController {
         // 3.设置注册按钮一开始为不可点击
         registerBtn.isEnabled = false
         registerBtn.alpha = 0.6
-        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
     }
 }
 
@@ -252,7 +257,6 @@ extension RegisterViewController {
      
      - parameter sender: 注册按钮的点击
      */
-    
     @IBAction func registerBtnClick(_ sender: UIButton) {
         // 判断是否是正确的手机号!
         if !phoneTextField.text!.checkTelNumber() {
@@ -260,15 +264,13 @@ extension RegisterViewController {
             return
         }
         
-        SMSSDK.commitVerificationCode(self.code.text, phoneNumber: phoneTextField.text!, zone:  "+86") { (err) in
+        SMSSDK.commitVerificationCode(self.code.text!, phoneNumber: phoneTextField.text!, zone: "86") { (info, err) in
             if err == nil {
                 print("验证成功")
             } else {
                 self.showHint(hint: "错误信息:\(err)")
-                return
             }
         }
-        
         
         // 注册成功后要恢复获取验证码按钮的可交互性  还有注册按钮
         sender.isUserInteractionEnabled = true
@@ -278,7 +280,27 @@ extension RegisterViewController {
         timer?.invalidate()
         timer = nil;
 
-        //用户参数
-//        let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
+        /// 注册用户
+        let user = AVUser()
+        user.username = phoneTextField.text
+        user.password = passwordTextField.text
+        user.email = emailTextField.text
+    
+        user.signUpInBackground { (successed, error) in
+            if successed {
+                self.showHint(hint: "注册成功，请验证邮箱")
+            }else {
+                let err = error as! NSError
+                if err.code == 125 {
+                    self.showHint(hint: "邮箱不合法")
+                }else if err.code == 203 {
+                    self.showHint(hint: "该邮箱已注册")
+                }else if err.code == 202 {
+                    self.showHint(hint: "用户名已存在")
+                }else{
+                    self.showHint(hint: "注册失败")
+                }
+            }
+        }
     }
 }

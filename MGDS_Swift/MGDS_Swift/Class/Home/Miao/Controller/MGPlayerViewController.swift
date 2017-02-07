@@ -47,7 +47,7 @@ class MGPlayerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         if !self.ijplayer.isPlaying() {
             ijplayer.prepareToPlay()
         } else {
@@ -55,14 +55,14 @@ class MGPlayerViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         if ((ijplayer) != nil) {
             ijplayer.shutdown()
             ijplayer.view.removeFromSuperview()
             ijplayer = nil
         }
-//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 
@@ -84,7 +84,6 @@ extension MGPlayerViewController  {
         pv.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         playerView.insertSubview(pv, at: 1)
         ijplayer.scalingMode = .aspectFill
-        
     }
 }
 
@@ -151,7 +150,7 @@ extension MGPlayerViewController {
     
     @IBAction func goBack(_ sender: UIButton) {
 //        ijplayer.shutdown()
-        let _ = dismiss(animated: true, completion: nil)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     

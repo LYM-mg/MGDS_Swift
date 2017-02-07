@@ -171,6 +171,7 @@
 		C0B3C6C71E46FC58005F7634 /* CollectionCycleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B3C6C51E46FC58005F7634 /* CollectionCycleCell.xib */; };
 		C0B3C6C91E46FEDC005F7634 /* BaseGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3C6C81E46FEDC005F7634 /* BaseGameModel.swift */; };
 		C0B3C6CB1E47017D005F7634 /* RecommendGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B3C6CA1E47017D005F7634 /* RecommendGameView.xib */; };
+		C0B3C6E01E484AE9005F7634 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B3C6DF1E484AE9005F7634 /* AVOSCloud.framework */; };
 		C0D4EF4B1E1F7ED800043A6B /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */; };
 		C0D4EF4D1E1F883A00043A6B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4EF4C1E1F883A00043A6B /* QRCodeViewController.swift */; };
 		C0D4EF4F1E1F8D7100043A6B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4EF4E1E1F8D7100043A6B /* RegisterViewController.swift */; };
@@ -386,6 +387,7 @@
 		C0B3C6C51E46FC58005F7634 /* CollectionCycleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCycleCell.xib; sourceTree = "<group>"; };
 		C0B3C6C81E46FEDC005F7634 /* BaseGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGameModel.swift; sourceTree = "<group>"; };
 		C0B3C6CA1E47017D005F7634 /* RecommendGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendGameView.xib; sourceTree = "<group>"; };
+		C0B3C6DF1E484AE9005F7634 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
 		C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		C0D4EF4C1E1F883A00043A6B /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		C0D4EF4E1E1F8D7100043A6B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				DFB4E0B8595614ACAE126B5B /* Pods_MGDS_Swift.framework in Frameworks */,
 				C017AD021E1FC718000F4B60 /* libSocialWechat.a in Frameworks */,
 				C017ACF51E1FC718000F4B60 /* libUMSocial_Sdk_Comment_4.3.a in Frameworks */,
+				C0B3C6E01E484AE9005F7634 /* AVOSCloud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +520,7 @@
 		C004C65F1E1E7BEA00EC712E /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				C0B3C6DD1E484AE9005F7634 /* release-v3.1.6.7 */,
 				C004C6601E1E7BEA00EC712E /* Controller */,
 				C017AD131E1FDD58000F4B60 /* Model */,
 			);
@@ -925,8 +929,7 @@
 		C08E3EDF1E304B5A005A2835 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C08E3EE01E304B5A005A2835 /* HomeViewController.swift */,
-				C08E3EE11E304B5A005A2835 /* VideoTableViewController.swift */,
+				C0A9BC2B1E4869AE006E2275 /* Controller */,
 				C08E3EE21E304B5A005A2835 /* View */,
 			);
 			path = Home;
@@ -1084,6 +1087,15 @@
 			path = XRCarouselView;
 			sourceTree = "<group>";
 		};
+		C0A9BC2B1E4869AE006E2275 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C08E3EE01E304B5A005A2835 /* HomeViewController.swift */,
+				C08E3EE11E304B5A005A2835 /* VideoTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		C0B3C69B1E46C742005F7634 /* DouYu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1143,6 +1155,22 @@
 				C0B3C6A21E46C858005F7634 /* AnchorViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C0B3C6DD1E484AE9005F7634 /* release-v3.1.6.7 */ = {
+			isa = PBXGroup;
+			children = (
+				C0B3C6DE1E484AE9005F7634 /* Static */,
+			);
+			path = "release-v3.1.6.7";
+			sourceTree = "<group>";
+		};
+		C0B3C6DE1E484AE9005F7634 /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				C0B3C6DF1E484AE9005F7634 /* AVOSCloud.framework */,
+			);
+			path = Static;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1562,6 +1590,7 @@
 					"$(PROJECT_DIR)/MGDS_Swift",
 					"$(PROJECT_DIR)/MGDS_Swift/lib&IJKFW",
 					"$(PROJECT_DIR)/lib&IJKFW",
+					"$(PROJECT_DIR)/MGDS_Swift/Class/Login/release-v3.1.6.7/Static",
 				);
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1624,6 +1653,7 @@
 					"$(PROJECT_DIR)/MGDS_Swift",
 					"$(PROJECT_DIR)/MGDS_Swift/lib&IJKFW",
 					"$(PROJECT_DIR)/lib&IJKFW",
+					"$(PROJECT_DIR)/MGDS_Swift/Class/Login/release-v3.1.6.7/Static",
 				);
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

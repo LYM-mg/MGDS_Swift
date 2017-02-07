@@ -126,7 +126,7 @@ extension MGHotViewController {
         let playerVC = MGPlayerViewController(nibName: "MGPlayerView", bundle: nil)
         let hotModel = self.hotLiveVM.lives[indexPath.row-1]
         playerVC.live = hotModel
-        present(playerVC, animated: true, completion: nil)
+        navigationController?.pushViewController(playerVC, animated: true)
     }
 }
 
@@ -146,6 +146,6 @@ extension MGHotViewController: UIViewControllerPreviewingDelegate {
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        present(viewControllerToCommit, animated: true, completion: nil)
+        show(viewControllerToCommit, sender: self)
     }
 }

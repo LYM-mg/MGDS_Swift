@@ -118,7 +118,7 @@ extension MGNewViewController: UICollectionViewDelegate {
         hotModel.flv = anchor.flv
         playerVC.live = hotModel
         
-        present(playerVC, animated: true, completion: nil)
+        show(playerVC, sender: self)
     }
 
     
@@ -247,7 +247,7 @@ extension MGNewViewController: UIViewControllerPreviewingDelegate {
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        present(viewControllerToCommit, animated: true, completion: nil)
+        show(viewControllerToCommit, sender: self)
     }
 }
 

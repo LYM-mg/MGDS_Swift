@@ -10,14 +10,15 @@
 #define BridgeHeader_h
 
 // MARK: - 头文件
-//#import "Reachability.h"
+#import "Reachability.h"
 
+// 加密
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
-#import <MJRefresh/MJRefresh.h>
+#import <MJRefresh/MJRefresh.h> // 刷新框架
 
-
+// 友盟
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialSinaHandler.h"
@@ -28,20 +29,19 @@
 #import "MobClick.h"
 
 
-#import <SMS_SDK/SMSSDK.h>
+#import <SMS_SDK/SMSSDK.h>  // 短信验证
+#import "APService.h" // 推送
+
+#import "ZFPlayer.h"       // 播放器
+#import <IJKMediaFramework/IJKMediaFramework.h>      // 直播播放
+#import "DMHeartFlyView.h"        // 爱心💕
+
+
+#import "XRCarouselView.h"       // 轮播器
+#import <AVOSCloud/AVOSCloud.h>  // leancloud
+
+
 //#import <Qiniu/QiniuSDK.h>
-
-#import "APService.h"
-
 //#import <GoogleMobileAds/GoogleMobileAds.h>
-
-
-#import "ZFPlayer.h"
-
-#import <IJKMediaFramework/IJKMediaFramework.h>
-#import "DMHeartFlyView.h"
-
-
-#import "XRCarouselView.h"
 
 #endif /* BridgeHeader_h */

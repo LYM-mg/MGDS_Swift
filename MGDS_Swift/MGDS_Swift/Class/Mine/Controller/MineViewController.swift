@@ -29,7 +29,9 @@ class MineViewController: UITableViewController {
         super.viewWillAppear(animated)
         let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User
         loginStatusLabel.text = (user != nil) ? "退出当前用户" : "立即登录"
-        userHeaderView.user = user
+        if (user != nil){
+           userHeaderView.user = user
+        }
     }
 }
 

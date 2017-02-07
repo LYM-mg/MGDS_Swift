@@ -35,12 +35,15 @@ class LoginViewController: UIViewController {
         phoneTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidReChange(textField:)), for: UIControlEvents.editingChanged)
         pwdTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidReChange(textField:)), for: UIControlEvents.editingChanged)
         
-        
         //设置登录按钮一开始为不可点击
         loginBtn.isEnabled = false
         loginBtn.alpha = 0.6
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
+    }
 }
 
 // MARK: - 
@@ -90,8 +93,28 @@ extension LoginViewController {
     @IBAction func loginBtnClick(_ sender: UIButton) {
         self.showHudInViewWithMode(view: view, hint: "正在登陆", mode: .determinate, imageName: nil)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.showHint(hint: "你输入的账号和密码不正确", imageName: "wink")
+        AVUser.logInWithUsername(inBackground: self.phoneTextField.text, password: self.pwdTextField.text) { (user, error) -> Void in
+            if error == nil {
+                let user1 = User()
+                user1.nickName = user!.username
+                user1.password = user!.password
+                SaveTools.mg_Archiver(user1, path:  MGUserPath)
+                let _ = self.navigationController?.popViewController(animated: true)
+            } else {
+                let err = error as! NSError
+                if err.code == 210 {
+                    self.showHint(hint: "用户名或密码错误")
+                }else if err.code == 211 {
+                    self.showHint(hint: "不存在该用户")
+                }else if err.code == 216 {
+                    self.showHint(hint: "未验证邮箱")
+                }else if err.code == 1{
+                     self.showHint(hint: "操作频繁")
+                }else{
+                    self.showHint(hint: "登录失败")
+                }
+            }
+            self.hideHud()
         }
     }
     
@@ -146,23 +169,42 @@ extension LoginViewController {
                 user.headImage = qqUser.iconURL
                 UserDefaults.standard.setValue(qqUser.iconURL, forKey: "userHeadImage")
                 SaveTools.mg_Archiver(user, path:  MGUserPath)
+                
                 //注册用户
                 //用户参数
-                let urlStr = "https://api.ds.itjh.net/v1/rest/user/registerUser"
-                let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
+                //                let urlStr = "https://api.ds.itjh.net/v1/rest/user/registerUser"
+                //                let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
                 
-//                NetWorkTools.test(type: .post, urlString: urlStr, parameters: parameters, succeed: { (result, err) in
-//                     print(result)
-//                }, failure: { (err) in
-//                        print(err)
-//                })
+                //                NetWorkTools.registRequest(type: .post, urlString: urlStr, parameters: parameters, succeed: { (result, err) in
+                //                    let userDict = (result as! NSDictionary).value(forKey: "content") as! [String: Any]
+                //                    print(result)
+                //                }, failure: { (err) in
+                //                    print(err)
+                //                })
+
                 
-                NetWorkTools.registRequest(type: .post, urlString: urlStr, parameters: parameters, succeed: { (result, err) in
-                    let userDict = (result as! NSDictionary).value(forKey: "content") as! [String: Any]
-                    print(result)
-                }, failure: { (err) in
-                    print(err)
-                })
+                /// 注册用户
+                let user1 = AVUser()
+                user1.username = user.nickName
+                user1.password = "123"
+                
+                user1.signUpInBackground { (successed, error) in
+                    if successed {
+                        self.showHint(hint: "登录成功")
+                    }else {
+                        let err = error as! NSError
+                        if err.code == 125 {
+                            self.showHint(hint: "邮箱不合法")
+                        }else if err.code == 203 {
+                            self.showHint(hint: "该邮箱已注册")
+                        }else if err.code == 202 {
+                            self.showHint(hint: "用户名已存在")
+                        }else{
+                            self.showHint(hint: "注册失败")
+                        }
+                    }
+                }
+
             }
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             let _ = self.navigationController?.popViewController(animated: true)

@@ -13,7 +13,6 @@ enum VideoSidType: Int {
     case tencent = 0
     case sina    = 1
     case netease = 2
-
 }
 
 class BaseTableViewController: UITableViewController {
@@ -46,7 +45,6 @@ class BaseTableViewController: UITableViewController {
         if tableView.responds(to: #selector(setter: UITableViewCell.separatorInset)) {
             tableView.separatorInset = UIEdgeInsets.zero
         }
-        
         if tableView.responds(to: #selector(setter: UIView.layoutMargins)) {
             tableView.layoutMargins = UIEdgeInsets.zero
         }

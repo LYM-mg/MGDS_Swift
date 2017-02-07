@@ -17,6 +17,9 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var reacha: Reachability? // 监听网络状态
+    var preNetWorkStatus: NetworkStatuses? // 之前的网络状态
+    
     lazy var videosArray: [VideoList] = [VideoList]()
     lazy var sidArray: [VideoSidList] = [VideoSidList]()
 
@@ -31,8 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 3.键盘扩展
         IQKeyboardManager.sharedManager().enable = true
         
-        // 4.友盟以、短信验证、以及激光推送
+        // 4.友盟以、短信验证、以及激光推送等注册
         setUpUMSocial(launchOptions: launchOptions)
+        
+        // 5.实时检查网络状态
+        checkNetworkStates()
         
         return true
     }
@@ -112,29 +118,23 @@ extension AppDelegate {
         //Get type string from shortcutItem
         // 获取当前页面TabBar
         let tabBar = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
-        
         // 获取当前TabBar Nav
         let nav = tabBar.selectedViewController as! UINavigationController
-        
+    
         if shortcutItem.type == "1" {
             let homeVC = HomeViewController()
-            
             homeVC.title = "首页"
-            
             handled = true
         }
         
         if shortcutItem.type == "2" {
-            
-            // Find视图
+            // Login视图
             let storyMy = UIStoryboard(name: "Login", bundle: nil)
-            
             // 排行榜列表页
             let loginView = storyMy.instantiateInitialViewController() as! LoginViewController
             loginView.title = "登录"
             // 跳转
             nav.pushViewController(loginView, animated: true)
-            
             handled = true
         }
         return handled
@@ -158,6 +158,18 @@ extension AppDelegate {
         UMSocialWechatHandler.setWXAppId("wxfd23fac852a54c97", appSecret: "d4624c36b6795d1d99dcf0547af5443d", url: "www.doushi.me")
 
         
+        /**
+         设置LeanCloud
+         */
+//        AVOSCloud.setApplicationId("TA9p1dH9HIS1cDaVB8cu33eO-gzGzoHsz", clientKey: "M0Da93ljH6lN61H3iFGl5Nnr")
+//        AVOSCloud.setApplicationId("i40Bw8oWkFemep2Rn2k9e5WX", clientKey: "MpeDsXwLTcQuuhplDjN1Hs8l")
+        
+        // 如果使用美国站点，请加上这行代码，并且写在初始化前面
+//      LeanCloud.setServiceRegion(.US)
+        // applicationId 即 App Id，applicationKey 是 App Key
+        AVOSCloud.setApplicationId("Guvxe6EhKrfSTMPpiWC4LVMi-gzGzoHsz", clientKey: "nwy4pORkhij4Pg6hsNHdR1bU")
+        
+        
         // Required
 //        APService.register(forRemoteNotificationTypes: UIUserNotificationType.badge.rawValue | UIUserNotificationType.sound.rawValue | UIUserNotificationType.alert.rawValue , categories: nil)
 //        // Required
@@ -165,4 +177,41 @@ extension AppDelegate {
 //        APService.setLogOFF()
     }
 }
+
+// MARK: - 网络状态检测
+extension AppDelegate {
+    fileprivate func checkNetworkStates() {
+        MGNotificationCenter.addObserver(self, selector: #selector(AppDelegate.networkChange), name: NSNotification.Name.reachabilityChanged, object: nil)
+        reacha = Reachability.init(hostName: "http://www.jianshu.com/collection/105dc167b43b")
+        reacha?.startNotifier()
+    }
+    
+    @objc fileprivate func networkChange() {
+        var tips: NSString = ""
+        guard let currentNetWorkStatus = NetWorkTools.getNetworkStates() else { return }
+        if currentNetWorkStatus == preNetWorkStatus { return }
+        preNetWorkStatus = currentNetWorkStatus
+        switch currentNetWorkStatus {
+        case .NetworkStatusNone:
+            tips = "当前没有网络，请检查你的网络"
+        case .NetworkStatus2G:
+            tips = "当前是网速有点慢"
+        case .NetworkStatus3G:
+            tips = "当前是网速有点慢"
+        case .NetworkStatus4G:
+            tips = "切换到了4G模式，请注意你的流量"
+        case .NetworkStatusWIFI:
+            tips = ""
+        }
+        
+        print(tips.lengthOfBytes(using: String.Encoding.utf16.rawValue))
+        let length = tips.lengthOfBytes(using: String.Encoding.utf16.rawValue)
+        if length > 0 {
+            let alertView = UIAlertView(title: "智博科技", message: tips as String, delegate: nil, cancelButtonTitle: "好的")
+            alertView.show()
+            
+        }
+    }
+}
+
 

@@ -42,6 +42,8 @@ class HomeViewController: UIViewController {
         childVcs.append(hotVC)
         let newVC = MGNewViewController()
         childVcs.append(newVC)
+        
+        // 斗鱼
         childVcs.append(AnchorViewController())
         
         // 腾讯
