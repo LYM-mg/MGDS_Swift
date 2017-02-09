@@ -15,4 +15,5 @@
  ![报这个错.png](http://upload-images.jianshu.io/upload_images/1429890-0b89560ecafeb462.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
  
  ![逗视介绍1.gif](http://upload-images.jianshu.io/upload_images/1429890-ecd25e08d367c32e.gif?imageMogr2/auto-orient/strip)
+ 
  ![逗视介绍2.gif](http://upload-images.jianshu.io/upload_images/1429890-91b427263bc09abd.gif?imageMogr2/auto-orient/strip)
