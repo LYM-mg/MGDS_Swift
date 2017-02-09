@@ -24,5 +24,7 @@ target 'MGDS_Swift' do
     pod 'SMSSDK', '~> 2.0.8'
     
     
+    pod 'pop', '~> 1.0.9'
+    
   
 end

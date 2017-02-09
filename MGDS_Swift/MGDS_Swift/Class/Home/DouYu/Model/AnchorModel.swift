@@ -41,8 +41,8 @@ class AnchorModel: NSObject {
     
     init(dict : [String : Any]) {
         super.init()
-        
         setValuesForKeys(dict)
+        jumpUrl = "http://www.douyu.com/\(room_id)"
     }
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}
 }

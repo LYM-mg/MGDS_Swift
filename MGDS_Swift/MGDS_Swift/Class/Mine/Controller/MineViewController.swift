@@ -70,7 +70,7 @@ extension MineViewController {
     // MARK: 第1️⃣页
     /// 我的收藏
     fileprivate func myFavourite() {
-        self.showHint(hint: "我的收藏")
+        self.showHint(hint: "我的收藏，暂时没有")
     }
 
     // MARK: 第2️⃣页
@@ -122,7 +122,6 @@ extension MineViewController {
     // MARK: 第4️⃣页
     /// 关于登录
     func aboutLogin() {
-        let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User
         if loginStatusLabel.text == "退出当前用户"{
             print("登录")
             //确定按钮
@@ -134,6 +133,12 @@ extension MineViewController {
             let OKAction = UIAlertAction(title: "确定", style: .default) { (action) in
                 self.loginStatusLabel.text = "立即登录"
                 self.loginStatusLabel.textColor = UIColor.green
+                
+                //删除归档文件
+                let defaultManager = FileManager.default
+                if defaultManager.isDeletableFile(atPath: MGUserPath) {
+                    try! defaultManager.removeItem(atPath: MGUserPath)
+                }
             }
             alertController.addAction(cancelAction)
             alertController.addAction(OKAction)
@@ -160,7 +165,7 @@ extension MineViewController: MFMailComposeViewControllerDelegate {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         //设置收件人
-        mailComposerVC.setToRecipients(["iosdev@itjh.com.cn"])
+        mailComposerVC.setToRecipients(["iosdev@itjh.com.cn","1292043630@qq.com"])
         //设置主题
         mailComposerVC.setSubject("逗视意见反馈")
         //邮件内容

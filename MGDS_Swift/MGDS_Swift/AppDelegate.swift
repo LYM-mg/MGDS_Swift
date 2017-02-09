@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import pop
 
 
 //import Fabric
@@ -17,11 +18,24 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    // MARK: - 自定义属性
     var reacha: Reachability? // 监听网络状态
     var preNetWorkStatus: NetworkStatuses? // 之前的网络状态
     
     lazy var videosArray: [VideoList] = [VideoList]()
     lazy var sidArray: [VideoSidList] = [VideoSidList]()
+    
+    // 引导页
+    fileprivate lazy var bgView: UIView = {
+        let bgView = UIView(frame: UIScreen.main.bounds)
+        bgView.backgroundColor = UIColor.black
+        return bgView
+    }()
+    fileprivate lazy var guardView: GuardScrollView = {
+        let guardView = GuardScrollView(frame: UIScreen.main.bounds)
+        guardView.backgroundColor = UIColor.white
+        return guardView
+    }()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -43,6 +57,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    deinit {
+        print("AppDelegate--deinit")
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // 腾讯数据
     fileprivate func loadData() {
         NetWorkTools.requestData(type: .get, urlString: "http://c.m.163.com/nc/video/home/0-10.html", succeed: {[unowned self] (result, err) in
@@ -70,6 +89,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MainTabBarViewController()
         window?.makeKeyAndVisible()
+        
+        let isfirst = SaveTools.mg_getLocalData(key: "isFirstOpen") as? String
+        if (isfirst?.isEmpty == nil) {
+            UIApplication.shared.isStatusBarHidden = true
+            showAppGurdView()
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.EnterHomeView(_:)), name: NSNotification.Name(rawValue: KEnterHomeViewNotification), object: nil)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -210,6 +236,37 @@ extension AppDelegate {
             let alertView = UIAlertView(title: "智博科技", message: tips as String, delegate: nil, cancelButtonTitle: "好的")
             alertView.show()
             
+        }
+    }
+}
+
+
+// MARK: - 引导页
+extension AppDelegate {
+    fileprivate func showAppGurdView() {
+        self.window!.addSubview(bgView)
+        bgView.addSubview(guardView)
+    }
+    
+    func EnterHomeView(_ noti: NSNotification) {
+        // 获取通知传过来的按钮
+        let dict = noti.userInfo as! [String : AnyObject]
+        let btn = dict["sender"]
+        
+        SaveTools.mg_SaveToLocal(value: "false", key: "isFirstOpen")
+        DispatchQueue.main.asyncAfter(deadline: .now()+2.5) { 
+            guard let showMenuAnimation = POPSpringAnimation(propertyNamed: kPOPViewAlpha) else {return}
+            showMenuAnimation.toValue = (0.0)
+            showMenuAnimation.springBounciness = 10.0
+            btn!.pop_add(showMenuAnimation,forKey:"hideBtn")
+            UIView.animate(withDuration: 1.5, animations: { () -> Void in
+                self.bgView.layer.transform = CATransform3DMakeScale(2, 2, 2)
+                self.bgView.alpha = 0
+                },completion: { (completion) -> Void in
+                    UIApplication.shared.isStatusBarHidden = false
+                    self.bgView.removeFromSuperview()
+            })
+
         }
     }
 }

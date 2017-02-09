@@ -81,8 +81,9 @@ class PlayerViewController: UIViewController {
         
         //初始化IJ播放器的控制器和view
         ijplayer = IJKFFMoviePlayerController(contentURLString: live.url, with: nil)
+
 //        ijplayer = IJKFFMoviePlayerController(contentURLString: "http://hdl.9158.com/live/16c124fec34aa4ccc38918954a89877a.flv", with: nil)
-        
+//        ijplayer = IJKFFMoviePlayerController(contentURLString: "rtmp://120.76.41.198:8881/hls/1516110016", with: nil)
         let pv = ijplayer.view!
         
         

@@ -41,6 +41,8 @@
 #import <AVOSCloud/AVOSCloud.h>  // leancloud
 
 
+#import "DeformationButton.h"
+
 //#import <Qiniu/QiniuSDK.h>
 //#import <GoogleMobileAds/GoogleMobileAds.h>
 

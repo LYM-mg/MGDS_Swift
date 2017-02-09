@@ -64,13 +64,12 @@ class AnchorViewController: UIViewController {
         return gameView
     }()
     
-    // MARK: 系统回调
+    // MARK: 系统方法
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         loadData()
     }
-    
 }
 
 // MARK:- 设置UI界面
@@ -92,7 +91,25 @@ extension AnchorViewController {
 
 // MARK:- 请求数据
 extension AnchorViewController {
-    func loadData() {
+    fileprivate func setUpRefresh() {
+        weak var weakSelf = self
+        // 头部刷新
+        self.collectionView.mj_header = MJRefreshGifHeader(refreshingBlock: {
+            let strongSelf = weakSelf
+            strongSelf?.anchorVM.anchorGroups.removeAll()
+            strongSelf?.anchorVM.bigDataGroup.anchors.removeAll()
+            strongSelf?.anchorVM.prettyGroup.anchors.removeAll()
+            strongSelf?.anchorVM.cycleModels.removeAll()
+            strongSelf?.loadData()
+        })
+        
+        // 设置自动切换透明度(在导航栏下面自动隐藏)
+        collectionView.mj_header.isAutomaticallyChangeAlpha = true
+        self.collectionView.mj_header.beginRefreshing()
+    }
+
+    
+    fileprivate func loadData() {
         // 1.请求推荐数据
         anchorVM.requestData {[unowned self] (err) in
             if err != nil {

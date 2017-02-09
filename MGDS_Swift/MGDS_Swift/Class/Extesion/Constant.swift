@@ -54,7 +54,8 @@ let MGFirstResponder = MGKeyWindow?.perform(Selector(("firstResponder")))
 /// 通知中心
 let MGNotificationCenter = NotificationCenter.default
 
+
 // MARK:- 首页排序的通知
 /// 首页自定义导航栏按钮的点击
 let MGBarLeftBtnClickNoti  = "MGBarLeftBtnClickNoti"
-
+let KEnterHomeViewNotification = "KEnterHomeViewNotification"
