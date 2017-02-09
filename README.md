@@ -15,34 +15,4 @@
  ![报这个错.png](http://upload-images.jianshu.io/upload_images/1429890-0b89560ecafeb462.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
  
 ***
-***
-***
-
-- #github
-
-|  项目  |  简介    |  
-    | : | : |
-	|  [MGDS_Swif](https://github.com/LYM-mg/MGDS_Swift)  |  逗视视频直播 |
-    |  [MGMiaoBo](https://github.com/LYM-mg/MGMiaoBo)  |  喵播视频直播 |  
-	|  [MGDYZB](https://github.com/LYM-mg/MGDYZB)  |  斗鱼视频直播 |
-    |  [MGDemo](https://github.com/LYM-mg/MGDemo)  |  n多小功能合集 |  
-    |   [MGBaisi](https://github.com/LYM-mg/MGBaisi)   |  高度仿写百思   | 
-    |   [MGSinaWeibo](https://github.com/LYM-mg/MGSinaWeibo)   | 高度仿写Sina   | 
-    |   [MGLoveFreshBeen](https://github.com/LYM-mg/MGLoveFreshBeen)   |  一款电商App   | 
-    |   [MGWeChat](https://github.com/LYM-mg/MGWeChat)   |  小部分实现微信功能   | 
-    |  [MGTrasitionPractice](https://github.com/LYM-mg/MGTrasitionPractice)   |  自定义转场练习   | 
-    |  [DBFMDemo](https://github.com/LYM-mg/DBFMDemo)  |  豆瓣电台   | 
-    | [MGPlayer](https://github.com/LYM-mg/MGPlayer)  |  一个播放视频的Demo   | 
-    |  [MGCollectionView](https://github.com/LYM-mg/MGCollectionView)  |  环形图片排布以及花瓣形排布   | 
-    |  [MGPuBuLiuDemo](https://github.com/LYM-mg/MGPuBuLiuDemo)  |  瀑布流--商品展   | 
-    |  [MGSlideViewDemo](https://github.com/LYM-mg/MGSlideViewDemo)  |  一个简单点的侧滑效果，仿QQ侧滑   | 
-    | [MyResume](https://github.com/LYM-mg/MyResume)  |  一个展示自己个人简历的Demo   | 
-    |  [GoodBookDemo](https://github.com/LYM-mg/GoodBookDemo) |  好书   | 
-
-   - #[1、直播喵播MGMiaoBo下载](https://github.com/LYM-mg/MGMiaoBo)
-   - #[2、逗视：逗你玩的直播App，可下载试玩](https://github.com/LYM-mg/MGDS_Swift)
-  - >#看下效果
-![逗视介绍1.gif](http://upload-images.jianshu.io/upload_images/1429890-ecd25e08d367c32e.gif?imageMogr2/auto-orient/strip)
 ![逗视介绍2.gif](http://upload-images.jianshu.io/upload_images/1429890-91b427263bc09abd.gif?imageMogr2/auto-orient/strip)
-***
- 
