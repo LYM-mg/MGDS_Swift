@@ -72,7 +72,15 @@ class HomeViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        let isfirst = SaveTools.mg_getLocalData(key: "isFirstOpen") as? String
+        return (isfirst == nil) ? true : false
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 

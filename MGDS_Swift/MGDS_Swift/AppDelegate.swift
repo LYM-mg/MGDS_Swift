@@ -233,7 +233,7 @@ extension AppDelegate {
         print(tips.lengthOfBytes(using: String.Encoding.utf16.rawValue))
         let length = tips.lengthOfBytes(using: String.Encoding.utf16.rawValue)
         if length > 0 {
-            let alertView = UIAlertView(title: "智博科技", message: tips as String, delegate: nil, cancelButtonTitle: "好的")
+            let alertView = UIAlertView(title: "明明科技", message: tips as String, delegate: nil, cancelButtonTitle: "好的")
             alertView.show()
             
         }
