@@ -95,8 +95,8 @@ extension BaseNavigationController {
             self.init().navigationBar.isTranslucent = false
         }
 
-//        navBarAppearance.barTintColor = UIColor(r: 39, g: 105, b: 187)
-//        navBarAppearance.tintColor = UIColor.orange
+        navBarAppearance.barTintColor = UIColor(r: 39, g: 105, b: 187)
+        navBarAppearance.tintColor = UIColor.orange
         
         var titleTextAttributes = [String : Any]()
         titleTextAttributes[NSForegroundColorAttributeName] =  UIColor.orange
@@ -116,7 +116,7 @@ extension BaseNavigationController {
         
         barItemAppearence.setTitleTextAttributes(attributes, for: .normal)
         
-        attributes[NSForegroundColorAttributeName] = UIColor.white
+        attributes[NSForegroundColorAttributeName] = UIColor.yellow
         barItemAppearence.setTitleTextAttributes(attributes, for: .highlighted)
     }
 }

@@ -12,10 +12,6 @@ import UIKit
 private let kTitlesViewH : CGFloat = 40
 
 class HomeViewController: UIViewController {
-    /// 是否第一次打开
-    var isFirst: Bool = false
-
-
     // MARK: - lazy
     fileprivate lazy var homeTitlesView: HomeTitlesView = { [weak self] in
         let titleFrame = CGRect(x: 0, y: MGNavHeight, width: MGScreenW, height: kTitlesViewH)
@@ -76,7 +72,7 @@ class HomeViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         let isfirst = SaveTools.mg_getLocalData(key: "isFirstOpen") as? String
-        return (isfirst == nil) ? true : false
+        return (isfirst == "false") ? false : true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

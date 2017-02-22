@@ -57,11 +57,16 @@ class MGPlayerViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
         if ((ijplayer) != nil) {
             ijplayer.shutdown()
             ijplayer.view.removeFromSuperview()
             ijplayer = nil
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }

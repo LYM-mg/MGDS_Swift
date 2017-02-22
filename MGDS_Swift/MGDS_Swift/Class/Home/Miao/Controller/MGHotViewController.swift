@@ -16,7 +16,6 @@ class MGHotViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         tableView.separatorStyle = .none
         tableView.register(MGHotADCell.classForCoder(), forCellReuseIdentifier: "KMGHotADCellID")
         tableView.register(UINib(nibName: "MGHotLiveCell", bundle: nil), forCellReuseIdentifier: "KMGHotLiveCellID")
