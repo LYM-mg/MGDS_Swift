@@ -878,11 +878,11 @@
 			children = (
 				C070712D1E1E1B86002C42D0 /* Array+Extension.swift */,
 				C070712E1E1E1B86002C42D0 /* NSObject+Extension.swift */,
+				C07071331E1E1B86002C42D0 /* UIImageView+Extension.swift */,
 				C070712F1E1E1B86002C42D0 /* String+Extension.swift */,
 				C07071301E1E1B86002C42D0 /* UIBUtton+Extension.swift */,
 				C07071311E1E1B86002C42D0 /* UIColor+Extension.swift */,
 				C07071321E1E1B86002C42D0 /* UIImage+Extension.swift */,
-				C07071331E1E1B86002C42D0 /* UIImageView+Extension.swift */,
 				C07071341E1E1B86002C42D0 /* UILabel+Extension.swift */,
 				C07071351E1E1B86002C42D0 /* UIView+Extension.swift */,
 				C07071361E1E1B86002C42D0 /* UIViewController+Extension.swift */,
@@ -1621,6 +1621,7 @@
 					"$(PROJECT_DIR)/MGDS_Swift/lib&IJKFW",
 					"$(PROJECT_DIR)/lib&IJKFW",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Login/release-v3.1.6.7/Static",
+					"$(PROJECT_DIR)/MGDS_Swift/Class/lib&IJKFW",
 				);
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1638,6 +1639,7 @@
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/MGDS_Swift/lib&IJKFW",
 					"$(PROJECT_DIR)/lib&IJKFW",
+					"$(PROJECT_DIR)/MGDS_Swift/Class/lib&IJKFW",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1684,6 +1686,7 @@
 					"$(PROJECT_DIR)/MGDS_Swift/lib&IJKFW",
 					"$(PROJECT_DIR)/lib&IJKFW",
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Login/release-v3.1.6.7/Static",
+					"$(PROJECT_DIR)/MGDS_Swift/Class/lib&IJKFW",
 				);
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1701,6 +1704,7 @@
 					"$(PROJECT_DIR)/MGDS_Swift/Class/Third\\ Party/UMSocial_Sdk_4.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/MGDS_Swift/lib&IJKFW",
 					"$(PROJECT_DIR)/lib&IJKFW",
+					"$(PROJECT_DIR)/MGDS_Swift/Class/lib&IJKFW",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

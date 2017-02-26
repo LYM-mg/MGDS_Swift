@@ -37,22 +37,24 @@ class MGPlayerViewController: UIViewController {
         setBg()
         
         // 2.准备播放器
-        setPlayerView()
+//        setPlayerView()
         
         // 3.把按钮提升到view最前面
-        bringBtnTofront()
+//        bringBtnTofront()
     }
     
     //view加载完成后,开始播放视频
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        // 2.准备播放器
+        setPlayerView()
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         if !self.ijplayer.isPlaying() {
             ijplayer.prepareToPlay()
         } else {
             ijplayer.prepareToPlay()
         }
+        bringBtnTofront()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -23,19 +23,18 @@ class PlayerViewController: UIViewController {
         
         //默认模糊主播头像背景
         setBg()
-        
+    }
+    
+    //view加载完成后,开始播放视频
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         //准备播放器
         setPlayerView()
         
         //把按钮提升到view最前面
         bringBtnTofront()
-    }
-    
-    //view加载完成后,开始播放视频
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+
         if !self.ijplayer.isPlaying() {
             ijplayer.prepareToPlay()
         }else {

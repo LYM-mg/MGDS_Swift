@@ -55,6 +55,7 @@ extension MGHotViewController {
         self.tableView.mj_footer.isHidden = true
     }
     
+    
     fileprivate func loadData() {
         if self.hotLiveVM.currentPage == 1 { // 如果是下拉刷新 即也是要重新加载图片轮播的数据
             hotLiveVM.getCycleData { [unowned self] (err) in
