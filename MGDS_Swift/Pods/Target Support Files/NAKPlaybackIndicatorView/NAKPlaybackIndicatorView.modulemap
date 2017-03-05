@@ -1,0 +1,6 @@
+framework module NAKPlaybackIndicatorView {
+  umbrella header "NAKPlaybackIndicatorView-umbrella.h"
+
+  export *
+  module * { export * }
+}

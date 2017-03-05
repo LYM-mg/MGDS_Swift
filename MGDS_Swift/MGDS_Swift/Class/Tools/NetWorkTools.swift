@@ -27,7 +27,7 @@ class NetWorkTools: NSObject {
     /// 请求时间
     var elapsedTime: TimeInterval?
     /// 请求单例工具类对象
-//    static let share = NetWorkTools()
+    static let share = NetWorkTools()
 //    class func share() -> NetWorkTools {
 //        struct single {
 //            static let singleDefault = NetWorkTools()
@@ -83,7 +83,7 @@ extension NetWorkTools {
             "Accept": "text/html",
             "application/x-www-form-urlencoded": "charset=utf-8",
             "Content-Type": "application/json",
-            "Content-Length": "12130"
+            "Content-Length": "12130",
         ]
 
         let start = CACurrentMediaTime()
@@ -131,11 +131,7 @@ extension NetWorkTools {
         // 1.获取类型
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         let headers: HTTPHeaders = [
-            "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
-//            "Accept": "text/html",
-//            "application/x-www-form-urlencoded": "charset=utf-8",
-//            "Content-Type": "application/json",
-//            "Content-Length": "12130"
+            "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="
         ]
         
         // 2.发送网络数据请求
@@ -157,41 +153,6 @@ extension NetWorkTools {
                 }
                 // 4.将结果回调出去
                 succeed(result, nil)
-            }
-        }
-    }
-    
-    
-    // 注册代码
-    static func test(type: MethodType,urlString: String, parameters: [String : Any]? = nil ,succeed:@escaping ((_ result : Any?, _ error: Error?) -> Swift.Void), failure: @escaping ((_ error: Error?)  -> Swift.Void)) {
-        // 1.获取类型
-        let method = type == .get ? HTTPMethod.get : HTTPMethod.post
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json"
-        ]
-        //用户参数
-        
-        // 2.发送网络数据请求
-        NetWorkTools.defManager.request(urlString, method: method, parameters: parameters,encoding: JSONEncoding.default, headers: headers).responseData { (response) in
-            
-            // 请求失败
-            if response.result.isFailure {
-                print(response.result.error)
-                failure(response.result.error)
-                return
-            }
-            
-            // 请求成功
-            if response.result.isSuccess {
-                // 3.获取结果
-                guard let result = response.result.value else {
-                    succeed(nil, response.result.error)
-                    return
-                }
-                // 4.将结果回调出去
-                let dict = try? JSONSerialization.jsonObject(with: result, options: JSONSerialization.ReadingOptions.allowFragments)
-
-                succeed(dict, nil)
             }
         }
     }
@@ -219,6 +180,52 @@ extension NetWorkTools {
 //            if let imagePath = response.destinationURL?.path {
 //                let image = UIImage(contentsOfFile: imagePath)
 //            }
+        }
+    }
+    
+    // 把歌词路劲传出来
+    func downloadData(type: MethodType,urlString: String,parameters: [String : Any]? = nil, endPathBlock:@escaping (_ endPath:String)->()) {
+        //指定下载路径（文件名不变）
+        let destination: DownloadRequest.DownloadFileDestination = { _, response in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            var fileURL = documentsURL.appendingPathComponent("MusicLrc_List")
+            fileURL = fileURL.appendingPathComponent(response.suggestedFilename!)
+            //两个参数表示如果有同名文件则会覆盖，如果路径中文件夹不存在则会自动创建
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        
+        // 1.获取类型
+        let method = type == .get ? HTTPMethod.get : HTTPMethod.post
+        //开始下载
+        NetWorkTools.backgroundManager.download(urlString, method: method, parameters: parameters, to: destination).downloadProgress { progress in
+            print("当前进度: \(progress.fractionCompleted)")
+            }
+            .response { (response) in
+                if let endPath = response.destinationURL?.path {
+                    endPathBlock(endPath)
+                }
+        }
+    }
+    
+    func downloadMusicData(type: MethodType,urlString: String,parameters: [String : Any]? = nil, endPathBlock:@escaping (_ endPath:String)->()) {
+        //指定下载路径（文件名不变）
+        let destination: DownloadRequest.DownloadFileDestination = { _, response in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            var fileURL = documentsURL.appendingPathComponent("Music_List")
+            fileURL = fileURL.appendingPathComponent(response.suggestedFilename!)
+            //两个参数表示如果有同名文件则会覆盖，如果路径中文件夹不存在则会自动创建
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        // 1.获取类型
+        let method = type == .get ? HTTPMethod.get : HTTPMethod.post
+        //开始下载
+        NetWorkTools.backgroundManager.download(urlString, method: method, parameters: parameters, to: destination).downloadProgress { progress in
+            print("当前进度: \(progress.fractionCompleted)")
+            }
+            .response { (response) in
+                if let endPath = response.destinationURL?.path {
+                    endPathBlock(endPath)
+                }
         }
     }
 }
@@ -282,63 +289,3 @@ extension NetWorkTools {
         return status;
     }
 }
-
-// MARK: - 逗视抄袭代码
-// 创建HttpClient User结构体
-//struct HttpClientByUser {
-//    
-//    // 创建逗视网络请求 Alamofire 路由
-//    enum DSRouter: URLRequestConvertible {
-//      
-//        // 逗视API地址
-//        static let baseURLString = "https://api.ds.itjh.net/v1/rest/user/"
-//        
-//        // 请求方法
-//        case registerUser(User) //注册用户
-//        case loginUser(String,String) //用户登录
-//        
-//        
-//        // 不同请求，对应不同请求类型
-//        var method: Alamofire.HTTPMethod {
-//            switch self {
-//            case .registerUser:
-//                return .post
-//            case .loginUser:
-//                return .get
-//            }
-//        }
-//        
-//        var URLRequest: NSMutableURLRequest {
-//            
-//            let (path) : (String) = {
-//                switch self {
-//                case .registerUser(_):
-//                    return "registerUser"
-//                case .loginUser(let phone,let password):
-//                    return "loginUser/\(phone)/\(password)"
-//                }
-//                
-//            }()
-//            
-//            let URL = Foundation.URL(string: DSRouter.baseURLString)
-//            let URLRequest = NSMutableURLRequest(url: URL!.appendingPathComponent(path))
-//            URLRequest.httpMethod = method.hashValue
-//            
-//            switch self {
-//                case .registerUser(let user):
-//                    URLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//                    //用户参数
-//                    let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
-//                    do {
-//                        URLRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: JSONSerialization.WritingOptions())
-//                    } catch {
-//                    }
-//                default: break
-//                
-//            }
-//            
-//            return encoding.encoding(URLRequest as! URLRequestConvertible, with: nil).0
-//        }
-//    }
-//}
-

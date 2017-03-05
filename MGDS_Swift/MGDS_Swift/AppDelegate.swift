@@ -54,6 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 5.实时检查网络状态
         checkNetworkStates()
         
+        
+        // 6.锁屏🔐歌词
+        锁屏🔐歌词()
+        
         return true
     }
 
@@ -266,9 +270,20 @@ extension AppDelegate {
                     UIApplication.shared.isStatusBarHidden = false
                     self.bgView.removeFromSuperview()
             })
-
         }
     }
 }
 
+//
+
+extension AppDelegate {
+    fileprivate func 锁屏🔐歌词() {
+        // 设置后台响应
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+//        self.becomeFirstResponder()
+//        let session = AVAudioSession.sharedInstance()
+//        try? session.setCategory(AVAudioSessionCategoryPlayback)
+//        try? session.setActive(true)
+    }
+}
 

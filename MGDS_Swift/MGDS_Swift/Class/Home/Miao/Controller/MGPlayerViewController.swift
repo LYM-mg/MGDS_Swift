@@ -12,8 +12,8 @@ class MGPlayerViewController: UIViewController {
     // MARK: - 属性
     // MARK: 自定义
     var live : MGHotModel!
-    var ijplayer: IJKMediaPlayback!
-    var playerView: UIView!
+    fileprivate var ijplayer: IJKMediaPlayback!
+    fileprivate var playerView: UIView!
     
     // MARK: SB拖拽属性
     @IBOutlet weak var giftBtn: UIButton!

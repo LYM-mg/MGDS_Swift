@@ -7,6 +7,7 @@ PODS:
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.12)
   - MOBFoundation_IDFA (2.2.3)
+  - NAKPlaybackIndicatorView (0.0.3)
   - pop (1.0.9)
   - SMSSDK (2.0.8)
   - SnapKit (3.0.2)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.9.2)
   - MJRefresh (~> 3.1.12)
   - MOBFoundation_IDFA (~> 2.2.3)
+  - NAKPlaybackIndicatorView (~> 0.0.3)
   - pop (~> 1.0.9)
   - SMSSDK (~> 2.0.8)
   - SnapKit (~> 3.0.2)
@@ -39,6 +41,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MOBFoundation_IDFA: bdc119aa1dd48c741d913695dcecfbef350555df
+  NAKPlaybackIndicatorView: 794dd97576fe074bb1844c19ebcbf7509384a47f
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SMSSDK: 1fc8500bec6bc36b524e4de7fac4acdb784e0217
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
@@ -46,6 +49,6 @@ SPEC CHECKSUMS:
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
   ZFPlayer: ff74ca27faa41e8f6df42ea038c951353246f97f
 
-PODFILE CHECKSUM: 8a7aeddfecdf74ece125721ec19e220a7e011bc6
+PODFILE CHECKSUM: c8061a9e37d9274b2d3844670e242b7987396d62
 
 COCOAPODS: 1.2.0.beta.1

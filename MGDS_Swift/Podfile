@@ -26,5 +26,8 @@ target 'MGDS_Swift' do
     
     pod 'pop', '~> 1.0.9'
     
+    
+    pod 'NAKPlaybackIndicatorView', '~> 0.0.3'
+    
   
 end

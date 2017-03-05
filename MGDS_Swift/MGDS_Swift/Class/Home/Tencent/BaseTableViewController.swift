@@ -101,7 +101,7 @@ extension BaseTableViewController {
                 weakSelf?.tableView.mj_footer.endRefreshing()
             }
             }, failure: { (err) in
-                self.showHint(hint: "数据请求失败")
+                weakSelf?.showHint(hint: "数据请求失败")
                 weakSelf?.hideHud()
                 weakSelf?.tableView.mj_header.endRefreshing()
                 weakSelf?.tableView.mj_footer.endRefreshing()
