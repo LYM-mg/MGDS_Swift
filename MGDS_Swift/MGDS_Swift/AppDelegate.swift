@@ -280,10 +280,10 @@ extension AppDelegate {
     fileprivate func 锁屏🔐歌词() {
         // 设置后台响应
         UIApplication.shared.beginReceivingRemoteControlEvents()
-//        self.becomeFirstResponder()
-//        let session = AVAudioSession.sharedInstance()
-//        try? session.setCategory(AVAudioSessionCategoryPlayback)
-//        try? session.setActive(true)
+        self.becomeFirstResponder()
+        let session = AVAudioSession.sharedInstance()
+        try? session.setCategory(AVAudioSessionCategoryPlayback)
+        try? session.setActive(true)
     }
 }
 

@@ -30,8 +30,8 @@ class MGLrcCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    static func cellWithTableView(tableView: UITableView,reuseIdentifier: String?,indexPath: IndexPath) -> MGLrcCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier!, for: indexPath) as? MGLrcCell
+    static func cellWithTableView(tableView: UITableView,reuseIdentifier: String?,indexPath: IndexPath) -> MGLrcCell { /// , for: indexPath
+        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier!) as? MGLrcCell
         if (cell == nil) {
             cell = MGLrcCell(style: .default, reuseIdentifier: reuseIdentifier)
             cell!.backgroundColor = UIColor.clear

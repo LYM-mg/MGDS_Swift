@@ -109,6 +109,7 @@
 		C07071491E1E1B86002C42D0 /* MGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713A1E1E1B86002C42D0 /* MGButton.swift */; };
 		C070714A1E1E1B86002C42D0 /* MoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713B1E1E1B86002C42D0 /* MoreButton.swift */; };
 		C070714B1E1E1B86002C42D0 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713C1E1E1B86002C42D0 /* TitleButton.swift */; };
+		C087D7EE1E6D83E2000FE18C /* MGImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C087D7ED1E6D83E2000FE18C /* MGImageTool.swift */; };
 		C08E3E691E2E4A17005A2835 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3E681E2E4A17005A2835 /* BaseNavigationController.swift */; };
 		C08E3E971E2F0C39005A2835 /* clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E891E2F0C39005A2835 /* clear@2x.png */; };
 		C08E3E981E2F0C39005A2835 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E8A1E2F0C39005A2835 /* close@2x.png */; };
@@ -347,6 +348,7 @@
 		C070713B1E1E1B86002C42D0 /* MoreButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreButton.swift; sourceTree = "<group>"; };
 		C070713C1E1E1B86002C42D0 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		C07071581E1E2523002C42D0 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
+		C087D7ED1E6D83E2000FE18C /* MGImageTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGImageTool.swift; sourceTree = "<group>"; };
 		C08E3E681E2E4A17005A2835 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		C08E3E891E2F0C39005A2835 /* clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clear@2x.png"; sourceTree = "<group>"; };
 		C08E3E8A1E2F0C39005A2835 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
@@ -814,6 +816,7 @@
 				C054FE861E6A8887003B5B33 /* MGPlayerQueue.swift */,
 				C054FE881E6A88CE003B5B33 /* MGPlayMusicTool.swift */,
 				C0A1C0D51E6AE3FD000809DE /* MGMusicIndicator.swift */,
+				C087D7ED1E6D83E2000FE18C /* MGImageTool.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1373,6 +1376,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = H54L47S422;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1576,6 +1584,7 @@
 				C08E3F131E304B5A005A2835 /* MGTencentNewsViewController.swift in Sources */,
 				C08E3F021E304B5A005A2835 /* HomeTitlesView.swift in Sources */,
 				C07071491E1E1B86002C42D0 /* MGButton.swift in Sources */,
+				C087D7EE1E6D83E2000FE18C /* MGImageTool.swift in Sources */,
 				C0B3C6BF1E46FBE8005F7634 /* RecommendCycleView.swift in Sources */,
 				C07071431E1E1B86002C42D0 /* UIImageView+Extension.swift in Sources */,
 				C01D1AC21E66DFA0001F3DA0 /* RankListCell.swift in Sources */,
@@ -1780,7 +1789,7 @@
 					"$(PROJECT_DIR)/MGDS_Swift/Class/lib&IJKFW",
 				);
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1845,7 +1854,7 @@
 					"$(PROJECT_DIR)/MGDS_Swift/Class/lib&IJKFW",
 				);
 				INFOPLIST_FILE = MGDS_Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

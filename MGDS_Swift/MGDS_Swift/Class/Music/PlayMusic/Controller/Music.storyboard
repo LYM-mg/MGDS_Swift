@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zcf-ei-TSa">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,11 +19,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QQListBack" translatesAutoresizingMaskIntoConstraints="NO" id="xN2-dc-uH7"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7g-BT-sGP">
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaM-NV-gOm" userLabel="Top View">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnS-Cp-lLg">
@@ -72,7 +66,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dzq" translatesAutoresizingMaskIntoConstraints="NO" id="jx9-CT-R27">
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jx9-CT-R27" secondAttribute="height" multiplier="1:1" id="J33-fr-SDy"/>
-                                            <constraint firstAttribute="height" constant="300" id="m0O-0P-Hfa"/>
+                                            <constraint firstAttribute="height" constant="320" id="m0O-0P-Hfa"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是一个兵，来自大广东" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN3-Vk-Fy4" customClass="MGLrcLabel" customModule="MGDS_Swift" customModuleProvider="target">
@@ -84,13 +78,13 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="vN3-Vk-Fy4" firstAttribute="leading" secondItem="wK8-NV-DTC" secondAttribute="leading" constant="8" id="Ibr-2r-FBb"/>
-                                    <constraint firstAttribute="bottom" secondItem="vN3-Vk-Fy4" secondAttribute="bottom" constant="8" id="KEF-vp-nlE"/>
+                                    <constraint firstAttribute="bottom" secondItem="vN3-Vk-Fy4" secondAttribute="bottom" id="KEF-vp-nlE"/>
                                     <constraint firstAttribute="trailing" secondItem="GV3-JT-81L" secondAttribute="trailing" id="N3U-3d-0pf"/>
                                     <constraint firstItem="jx9-CT-R27" firstAttribute="centerY" secondItem="wK8-NV-DTC" secondAttribute="centerY" constant="-15" id="Qvl-RY-8vP"/>
                                     <constraint firstAttribute="bottom" secondItem="GV3-JT-81L" secondAttribute="bottom" id="cnU-ue-5wY"/>
                                     <constraint firstAttribute="trailing" secondItem="vN3-Vk-Fy4" secondAttribute="trailing" constant="8" id="e26-l7-RQR"/>
                                     <constraint firstItem="GV3-JT-81L" firstAttribute="leading" secondItem="wK8-NV-DTC" secondAttribute="leading" id="eT3-si-yIh"/>
-                                    <constraint firstItem="vN3-Vk-Fy4" firstAttribute="top" secondItem="jx9-CT-R27" secondAttribute="bottom" constant="8" id="kcQ-sp-UKt"/>
+                                    <constraint firstItem="vN3-Vk-Fy4" firstAttribute="top" secondItem="jx9-CT-R27" secondAttribute="bottom" constant="5" id="kcQ-sp-UKt"/>
                                     <constraint firstItem="GV3-JT-81L" firstAttribute="top" secondItem="wK8-NV-DTC" secondAttribute="top" id="v05-6v-knd"/>
                                     <constraint firstItem="jx9-CT-R27" firstAttribute="centerX" secondItem="wK8-NV-DTC" secondAttribute="centerX" id="y5I-VP-jZ7"/>
                                 </constraints>
@@ -190,6 +184,11 @@
                                     <constraint firstItem="EJ8-nU-ctb" firstAttribute="leading" secondItem="mCK-M7-xkK" secondAttribute="trailing" constant="8" id="xja-CG-GNW"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7g-BT-sGP">
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -203,7 +202,7 @@
                             <constraint firstItem="J32-qT-tBr" firstAttribute="top" secondItem="EIR-nk-uG7" secondAttribute="bottom" id="O0P-wW-5xk"/>
                             <constraint firstAttribute="trailing" secondItem="uaM-NV-gOm" secondAttribute="trailing" id="Tcf-Yn-vMS"/>
                             <constraint firstItem="xN2-dc-uH7" firstAttribute="leading" secondItem="r3d-tk-uws" secondAttribute="leading" id="hPF-cH-JpW"/>
-                            <constraint firstItem="I7g-BT-sGP" firstAttribute="top" secondItem="uaM-NV-gOm" secondAttribute="bottom" constant="-10" id="lpX-kq-kDl"/>
+                            <constraint firstItem="I7g-BT-sGP" firstAttribute="top" secondItem="uaM-NV-gOm" secondAttribute="bottom" id="lpX-kq-kDl"/>
                             <constraint firstAttribute="trailing" secondItem="wK8-NV-DTC" secondAttribute="trailing" id="sHs-KN-X79"/>
                             <constraint firstItem="I7g-BT-sGP" firstAttribute="centerX" secondItem="r3d-tk-uws" secondAttribute="centerX" id="th2-bd-4Qb"/>
                             <constraint firstItem="uaM-NV-gOm" firstAttribute="top" secondItem="vY6-Ij-64F" secondAttribute="bottom" id="x8N-8T-ZHJ"/>
@@ -220,6 +219,7 @@
                         <outlet property="playOrStopBtn" destination="0oC-ta-spG" id="g7o-i6-P2u"/>
                         <outlet property="progressSlide" destination="qiE-Mj-Wpo" id="0Kg-0j-dPw"/>
                         <outlet property="singerImageV" destination="jx9-CT-R27" id="l4u-KU-IeY"/>
+                        <outlet property="singerImageVHCon" destination="m0O-0P-Hfa" id="d6w-GA-GYj"/>
                         <outlet property="singerLabel" destination="pBN-uy-52B" id="yr4-tf-B4G"/>
                         <outlet property="songNameLabel" destination="I7g-BT-sGP" id="2CL-Pr-n5G"/>
                         <outlet property="totalTimeLabel" destination="dXj-p4-HFX" id="HZr-ra-egu"/>
