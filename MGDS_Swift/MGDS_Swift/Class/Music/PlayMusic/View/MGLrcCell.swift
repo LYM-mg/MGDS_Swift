@@ -10,18 +10,19 @@ import UIKit
 
 class MGLrcCell: UITableViewCell {
 
-    fileprivate var lrcLabel: MGLrcLabel?
+    fileprivate var lrcLabel: MGLrcLabel!
+    
     /** 歌词内容*/
     var lrcText: String? {
         didSet {
-            self.lrcLabel!.text = lrcText!
+            self.lrcLabel.text = lrcText!
         }
     }
     
     /** 进度 */
     var progress: Double? {
         didSet {
-            self.lrcLabel!.progress = progress!
+            self.lrcLabel.progress = progress!
         }
     }
     
@@ -45,11 +46,14 @@ class MGLrcCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.clear
         self.contentView.backgroundColor = UIColor.clear
-        lrcLabel = MGLrcLabel()
-        lrcLabel!.tag = 199
-        lrcLabel?.textColor = UIColor.white
-        lrcLabel?.textAlignment = .center
-        self.addSubview(lrcLabel!)
+        lrcLabel = MGLrcLabel(frame: CGRect(x: 0, y: 0, width: MGScreenW, height: 44))
+        lrcLabel.isUserInteractionEnabled = true
+        lrcLabel.tag = 199
+        lrcLabel.textColor = UIColor.white
+        lrcLabel.textAlignment = .center
+        lrcLabel.sizeToFit()
+        lrcLabel.center = self.center
+        self.contentView.addSubview(lrcLabel)
         
         lrcLabel!.snp.makeConstraints { (make) in
             make.edges.equalToSuperview().offset(8)

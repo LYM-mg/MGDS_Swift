@@ -18,11 +18,10 @@ class MGLrcLabel: UILabel {
     fileprivate var lrcProgress: Double = 0.0
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        
         // 设置颜色
         UIColor.green.set()
         let fillRect = CGRect(origin: .zero, size: CGSize(width: rect.size.width*CGFloat(self.progress), height: rect.size.height))
         UIRectFillUsingBlendMode(fillRect, CGBlendMode.sourceIn)
-        //    UIRectFill(fillRect);
+//        UIRectFill(fillRect);
     }
 }

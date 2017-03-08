@@ -63,9 +63,7 @@ class MGMusicPlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lrcScrollView.delegate = self
         setUpInit()
-        setUpKVO()
     }
     
     func setSongIdArray(musicArr: [SongDetail],currentIndex: NSInteger) {
@@ -80,6 +78,8 @@ class MGMusicPlayViewController: UIViewController {
         view.layoutIfNeeded() // 设置lrcView的滚动区域
         self.lrcScrollView.contentSize = CGSize(width: backgroudImageView.mg_width * 2, height: 0)
         self.lrcTVC.tableView.frame = self.lrcScrollView.bounds
+        self.lrcTVC.tableView.mg_y = MGGloabalMargin
+        self.lrcTVC.tableView.mg_height = self.lrcScrollView.bounds.size.height - MGGloabalMargin
         self.lrcTVC.tableView.mg_x = self.backgroudImageView.mg_width
         
         self.singerImageV.layer.cornerRadius = self.singerImageV.mg_width*0.5;
@@ -94,6 +94,15 @@ class MGMusicPlayViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if playingItem?.status == AVPlayerItemStatus.readyToPlay{
+            // 只有在这个状态下才能播放
+            self.playingItem = MGPlayMusicTool.playMusicWithLink(link: currentMusic!.showLink)
+            beginAnimation()
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -121,8 +130,6 @@ class MGMusicPlayViewController: UIViewController {
     }
     deinit {
         self.removeObserver(self, forKeyPath: "currentMusic")
-        playingItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
-        playingItem?.removeObserver(self, forKeyPath: "status")
     }
 
 }
@@ -132,9 +139,9 @@ extension MGMusicPlayViewController {
     fileprivate func setUpKVO() {
         self.addObserver(self, forKeyPath: "currentMusic", options: [.new,.old], context: &currentMusicContext)
         // 监听缓冲进度改变
-        playingItem?.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
+//        playingItem?.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
         // 监听状态改变
-        playingItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
+//        playingItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
         // 将视频资源赋值给视频播放对象
 //        MGMusicPlayViewController._indicator.addObserver(self, forKeyPath: "state", options: .new, context: nil)
     }
@@ -147,25 +154,25 @@ extension MGMusicPlayViewController {
             MGNotificationCenter.addObserver(self, selector: #selector(MGMusicPlayViewController.playItemAction(item:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.playingItem)
         }
         
-        if keyPath == "loadedTimeRanges"{
-            // 缓冲进度 处理
-            let timeInterval = availableDuration() // 计算缓冲进度
-            NSLog("Time Interval:%f",timeInterval);
-            let duration: CMTime = (self.playingItem?.duration)!;
-            let totalDuration: Float = Float(CMTimeGetSeconds(duration))
-            self.progressSlide.setValue(Float(timeInterval) / totalDuration, animated: true)
-        } else if keyPath == "status"{
-            // 监听状态改变
-            if playingItem?.status == AVPlayerItemStatus.readyToPlay{
-                // 只有在这个状态下才能播放
-                self.playingItem = MGPlayMusicTool.playMusicWithLink(link: currentMusic!.showLink)
-                beginAnimation()
-            }else if playingItem?.status == .unknown{
-                pauseAnimation()
-            }else {
-                self.showHint(hint: "加载异常")
-            }
-        }
+//        if keyPath == "loadedTimeRanges"{
+//            // 缓冲进度 处理
+//            let timeInterval = availableDuration() // 计算缓冲进度
+//            debugPrint("缓冲进度 Time Interval:%f",timeInterval);
+//            let duration: CMTime = (self.playingItem?.duration)!;
+//            let totalDuration: Float = Float(CMTimeGetSeconds(duration))
+//            self.progressSlide.setValue(Float(timeInterval) / totalDuration, animated: true)
+//        } else if keyPath == "status"{
+//            // 监听状态改变
+//            if playingItem?.status == AVPlayerItemStatus.readyToPlay{
+//                // 只有在这个状态下才能播放
+//                self.playingItem = MGPlayMusicTool.playMusicWithLink(link: currentMusic!.showLink)
+//                beginAnimation()
+//            }else {
+//                pauseAnimation()
+//                MGPlayMusicTool.pauseMusicWithLink(link: currentMusic!.showLink)
+//                debugPrint("暂停或者异常")
+//            }
+//        }
     }
     
    fileprivate func availableDuration() -> TimeInterval {
@@ -183,9 +190,7 @@ extension MGMusicPlayViewController {
         nextMusicBtnBlick()
     }
     
-    func refreshIndicatorViewState() {
-        
-    }
+    func refreshIndicatorViewState() { }
 }
 
 // MARK: - Navigation
@@ -201,6 +206,7 @@ extension MGMusicPlayViewController {
         // 在lrcView添加一个tableView
         self.lrcScrollView.addSubview(self.lrcTVC.tableView)
         // 设置分页（已在story隐藏水平滚动条）
+        lrcScrollView.isScrollEnabled = true; lrcScrollView.isUserInteractionEnabled = true;
         self.lrcScrollView.isPagingEnabled = true
     }
     
@@ -209,14 +215,15 @@ extension MGMusicPlayViewController {
         self.playOrStopBtn.isSelected = true
         self.songNameLabel.text = currentMusic?.songName
         self.singerLabel.text = currentMusic!.artistName + "  " + currentMusic!.albumName
-        self.singerImageV.setImageWithURLString(currentMusic?.songPicBig!, placeholder: #imageLiteral(resourceName: "dzq"))
+        self.singerImageV.setImageWithURLString(currentMusic?.songPicRadio!, placeholder: #imageLiteral(resourceName: "dzq"))
         
         // 设置背景图片  // 添加专辑图片动画
-        self.backgroudImageView.setImageWithURLString(currentMusic?.songPicBig!, placeholder: #imageLiteral(resourceName: "dzq"))
+        self.backgroudImageView.setImageWithURLString(currentMusic?.songPicRadio!, placeholder: #imageLiteral(resourceName: "dzq"))
         beginAnimation()
         
         self.playingItem = MGPlayMusicTool.playMusicWithLink(link: currentMusic!.songLink)
         MGNotificationCenter.addObserver(self, selector: #selector(MGMusicPlayViewController.playItemAction(item:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.playingItem)
+        setUpKVO()
         /**
          *  加载歌曲对应的歌词资源
          */
@@ -236,6 +243,7 @@ extension MGMusicPlayViewController {
         let baseAnimation1 = CABasicAnimation(keyPath: "transform.rotation.z")
         baseAnimation1.fromValue = 0
         baseAnimation1.toValue = (M_PI*2)
+        baseAnimation1.autoreverses = false   // 设置动画自动反转(怎么去, 怎么回)
         
         /// 2.缩放动画
         let baseAnimition2 = CABasicAnimation(keyPath: "transform.scale")
@@ -249,6 +257,7 @@ extension MGMusicPlayViewController {
         groupAnimition.duration = 20;
         groupAnimition.repeatCount = MAXFLOAT;
         groupAnimition.fillMode = kCAFillModeForwards; // 保存动画最前面的效果.
+        groupAnimition.autoreverses = true   // 设置动画自动反转(怎么去, 怎么回)
         
         // 添加动画组
         self.singerImageV.layer.add(groupAnimition, forKey: "rotation")
@@ -271,27 +280,29 @@ extension MGMusicPlayViewController {
     // 上一首
     @IBAction func preMusicBtnBlick() {
         changeMusic(variable: -1)
-        setUpOnce()
     }
     // 播放OR暂停
     @IBAction func playOrStopBtnClick() {
         playOrStopBtn.isSelected = !playOrStopBtn.isSelected;
         if (playOrStopBtn.isSelected) {
+            pauseAnimation(); removeProgressTimer();    removeLrcTimer()
             MGPlayMusicTool.pauseMusicWithLink(link: currentMusic!.songLink)
-            pauseAnimation()
         }else{
-            resumeAnimation()
+            resumeAnimation(); addProgressTimer();  addLrcTimer()
            self.playingItem = MGPlayMusicTool.playMusicWithLink(link: currentMusic!.songLink)
         }
     }
     // 下一首
     @IBAction func nextMusicBtnBlick() {
         changeMusic(variable: 1)
-        setUpOnce()
     }
     // 根据模式播放音乐🎵
     fileprivate func changeMusic(variable: NSInteger) {
-        removeProgressTimer(); removeLrcTimer()
+//        if (playingItem != nil) {
+//            playingItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
+//            playingItem?.removeObserver(self, forKeyPath: "status")
+//        }
+        removeProgressTimer();    removeLrcTimer()
         MGPlayMusicTool.stopMusicWithLink(link: currentMusic!.songLink)
         switch(orderBtn.orderIndex){
             case 1: //顺序播放
@@ -312,8 +323,7 @@ extension MGMusicPlayViewController {
 //                break
 //        }
         loadSongDetail()
-        addProgressTimer()
-        addLrcTimer()
+        addProgressTimer();  addLrcTimer()
     }
     
     fileprivate func cicyleMusic(variable: NSInteger) {
@@ -458,39 +468,42 @@ extension MGMusicPlayViewController {
         
         //设置远程操控
         UIApplication.shared.beginReceivingRemoteControlEvents()
-        let _ = self.becomeFirstResponder()
+//        let _ = self.becomeFirstResponder()
     }
     
-    override func becomeFirstResponder() -> Bool {
-        return true
-    }
-    
+//    override func becomeFirstResponder() -> Bool {
+//        return true
+//    }
+//    
     
     override func remoteControlReceived(with event: UIEvent?) {
         super.remoteControlReceived(with: event)
         switch (event!.subtype) {
             case UIEventSubtype.remoteControlPlay:
-                self.playOrStopBtn.isSelected = false
-                playOrStopBtn.isSelected = !playOrStopBtn.isSelected;
-                resumeAnimation()
-                self.playingItem = MGPlayMusicTool.playMusicWithLink(link: currentMusic!.songLink)
-                break;
+                 playOrStopBtnClick()
+//                self.playOrStopBtn.isSelected = false
+//                playOrStopBtn.isSelected = !playOrStopBtn.isSelected;
+//                resumeAnimation()
+//                self.playingItem = MGPlayMusicTool.playMusicWithLink(link: currentMusic!.songLink)
+//                break;
             case .remoteControlPause:
-                self.playOrStopBtn.isSelected = true
-                MGPlayMusicTool.pauseMusicWithLink(link: currentMusic!.songLink)
-                pauseAnimation()
-                MGPlayerQueue.share.pause()
-                break;
+                  playOrStopBtnClick()
+//                self.playOrStopBtn.isSelected = true
+//                MGPlayMusicTool.pauseMusicWithLink(link: currentMusic!.songLink)
+//                pauseAnimation()
+//                MGPlayerQueue.share.pause()
+//                break;
             case .remoteControlStop:
                 MGPlayMusicTool.stopMusicWithLink(link: currentMusic!.songLink)
             case .remoteControlNextTrack:
                 nextMusicBtnBlick()
+                setUpOnce()
             case .remoteControlPreviousTrack:
                 preMusicBtnBlick()
+                setUpOnce()
             default:
                 break;
         }
-        setUpOnce()
     }
 }
 

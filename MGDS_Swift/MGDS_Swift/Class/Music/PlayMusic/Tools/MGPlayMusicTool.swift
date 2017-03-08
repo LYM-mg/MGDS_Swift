@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 
 class MGPlayMusicTool: NSObject {
-    static let _playingMusic = NSMutableDictionary()
+    static let _playingMusic = NSMutableDictionary()  // 利用字典 URL作为唯一key播放
     static let _indicator = MGMusicIndicator.share
     
     override class func initialize() {
@@ -62,6 +62,7 @@ extension MGPlayMusicTool {
         if playerItem != nil {
             let queue = MGPlayerQueue.share
             queue.remove(playerItem!)
+            queue.removeAllItems()
             _playingMusic.removeAllObjects()
         }
     }

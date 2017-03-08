@@ -54,10 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 5.实时检查网络状态
         checkNetworkStates()
         
-        
-        // 6.锁屏🔐歌词
-        锁屏🔐歌词()
-        
         return true
     }
 
@@ -66,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
-    // 腾讯数据
+    // 首页腾讯数据
     fileprivate func loadData() {
         NetWorkTools.requestData(type: .get, urlString: "http://c.m.163.com/nc/video/home/0-10.html", succeed: {[unowned self] (result, err) in
             guard let result      = result as? [String: Any] else { return }
@@ -108,8 +104,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        // 设置后台响应
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        self.becomeFirstResponder()
+        let session = AVAudioSession.sharedInstance()
+        try? session.setCategory(AVAudioSessionCategoryPlayback)
+        try? session.setActive(true)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -271,19 +271,6 @@ extension AppDelegate {
                     self.bgView.removeFromSuperview()
             })
         }
-    }
-}
-
-//
-
-extension AppDelegate {
-    fileprivate func 锁屏🔐歌词() {
-        // 设置后台响应
-        UIApplication.shared.beginReceivingRemoteControlEvents()
-        self.becomeFirstResponder()
-        let session = AVAudioSession.sharedInstance()
-        try? session.setCategory(AVAudioSessionCategoryPlayback)
-        try? session.setActive(true)
     }
 }
 

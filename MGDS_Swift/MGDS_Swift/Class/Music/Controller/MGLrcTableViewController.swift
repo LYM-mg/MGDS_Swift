@@ -18,13 +18,17 @@ class MGLrcTableViewController: UITableViewController {
         }
     }
     // 行号
-    var scrollRow: Int = 0 {
+    var scrollRow: NSInteger = 0 {
+        willSet {
+            tempscrollRow = scrollRow
+        }
         didSet {
+            if tempscrollRow == scrollRow { return }  // 同一行就直接返回
             // 根据行号获取当前是第几组第几行
             let indexPtah = IndexPath(row: scrollRow, section: 0)
             
             // 刷新你当前可见的cell
-            tableView.reloadRows(at: tableView.indexPathsForVisibleRows!, with: .fade)
+            tableView.reloadRows(at: tableView.indexPathsForVisibleRows!, with: .automatic)
             
             // 滚动到当前所在行
             tableView.scrollToRow(at: indexPtah, at: .middle, animated: true)
@@ -33,17 +37,18 @@ class MGLrcTableViewController: UITableViewController {
     /** 歌词进度 */
     var progress: Double = 0.0 {
         didSet {
-            let indexPtah = IndexPath(row: scrollRow, section: 0)
+            let indexPtah = IndexPath(row: self.scrollRow, section: 0)
             let cell = tableView.cellForRow(at: indexPtah) as? MGLrcCell
             cell?.progress = progress
         }
     }
+    fileprivate var tempscrollRow: NSInteger = 0
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(MGLrcCell.self, forCellReuseIdentifier: KLrcCellID)
-        
+        tableView.isUserInteractionEnabled = true
         // 设置背景颜色
         self.tableView.backgroundColor = UIColor.clear
         

@@ -198,7 +198,7 @@ extension NetWorkTools {
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         //开始下载
         NetWorkTools.backgroundManager.download(urlString, method: method, parameters: parameters, to: destination).downloadProgress { progress in
-            print("当前进度: \(progress.fractionCompleted)")
+//            print("当前歌曲下载进度: \(progress.fractionCompleted)")
             }
             .response { (response) in
                 if let endPath = response.destinationURL?.path {
@@ -220,7 +220,7 @@ extension NetWorkTools {
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         //开始下载
         NetWorkTools.backgroundManager.download(urlString, method: method, parameters: parameters, to: destination).downloadProgress { progress in
-            print("当前进度: \(progress.fractionCompleted)")
+//            print("当前歌词下载进度: \(progress.fractionCompleted)")
             }
             .response { (response) in
                 if let endPath = response.destinationURL?.path {

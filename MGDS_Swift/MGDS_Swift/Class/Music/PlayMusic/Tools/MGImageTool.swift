@@ -12,7 +12,7 @@ class MGImageTool: NSObject {
 
     static func creatImageWithText(text: String,InImage image: UIImage) -> UIImage? {
         // 开启位图上下文
-        UIGraphicsBeginImageContextWithOptions(image.size, true, 1)
+        UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
         image.draw(in: CGRect(origin: .zero, size: image.size))
         
         // 将文字绘制到图片上面
@@ -23,7 +23,7 @@ class MGImageTool: NSObject {
         style.alignment = .center
         
         let dict: [String: Any] =  [
-                                    NSFontAttributeName:UIFont.systemFont(ofSize: 13),
+                                    NSFontAttributeName:UIFont.systemFont(ofSize: 20),
                                     NSForegroundColorAttributeName: UIColor.green,
                                     NSParagraphStyleAttributeName : style
                                    ]
