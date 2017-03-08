@@ -233,7 +233,7 @@ extension MGMusicPlayViewController {
             self.addProgressTimer()
             self.addLrcTimer()
         }
-        self.playOrStopBtn.isSelected = false
+        self.playOrStopBtn.isSelected = true
     }
     
     fileprivate func beginAnimation() {
@@ -285,11 +285,11 @@ extension MGMusicPlayViewController {
     @IBAction func playOrStopBtnClick() {
         playOrStopBtn.isSelected = !playOrStopBtn.isSelected;
         if (playOrStopBtn.isSelected) {
+            resumeAnimation(); addProgressTimer();  addLrcTimer()
+            self.playingItem = MGPlayMusicTool.playMusicWithLink(link: currentMusic!.songLink)
+        }else{
             pauseAnimation(); removeProgressTimer();    removeLrcTimer()
             MGPlayMusicTool.pauseMusicWithLink(link: currentMusic!.songLink)
-        }else{
-            resumeAnimation(); addProgressTimer();  addLrcTimer()
-           self.playingItem = MGPlayMusicTool.playMusicWithLink(link: currentMusic!.songLink)
         }
     }
     // 下一首

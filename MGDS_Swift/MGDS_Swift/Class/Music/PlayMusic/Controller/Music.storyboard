@@ -126,8 +126,8 @@
                                             <constraint firstAttribute="height" constant="64" id="MeP-Yy-mmR"/>
                                             <constraint firstAttribute="width" constant="64" id="nz6-W6-Avf"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="player_btn_pause_normal"/>
-                                        <state key="selected" image="player_btn_play_normal"/>
+                                        <state key="normal" title="Button" image="player_btn_play_normal"/>
+                                        <state key="selected" image="player_btn_pause_normal"/>
                                         <state key="highlighted" image="player_btn_play_highlight"/>
                                         <connections>
                                             <action selector="playOrStopBtnClick" destination="Zcf-ei-TSa" eventType="touchUpInside" id="Cp8-jT-3hC"/>
