@@ -5,7 +5,7 @@
 - # 第一步：
  - 下载项目,其实第二步可以不用了，下载下来的代码中已经包含framework，解压即可IJKframework,拖入项目
  
- *** 
+ ---
 - # 第二步：
  - 下载framework，拖入项目
  - 链接: https://pan.baidu.com/s/1boWHvht 密码: hu7a
