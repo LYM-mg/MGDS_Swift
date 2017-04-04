@@ -4,15 +4,17 @@
 
 - # 第一步：
  - 下载项目,其实第二步可以不用了，下载下来的代码中已经包含framework，解压即可IJKframework,拖入项目
+ 
 ***  
 - # 第二步：
  - 下载framework，拖入项目
  - 链接: https://pan.baidu.com/s/1boWHvht 密码: hu7a
+ 
  ***
 - # 第三步：
  - 解压framework，拖入项目，运行项目即可
  如果拖入项目报这个错，记得Ctrl + Shift + K 清除一下缓存。继续报错，强退XCode，清空DerivedData，重新打开XCode
  ![报这个错.png](http://upload-images.jianshu.io/upload_images/1429890-0b89560ecafeb462.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+ 
 ***
-
 ![逗视介绍2.gif](http://upload-images.jianshu.io/upload_images/1429890-91b427263bc09abd.gif?imageMogr2/auto-orient/strip)
