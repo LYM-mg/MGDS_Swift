@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVKit
 import MediaPlayer
 import AVFoundation
 
