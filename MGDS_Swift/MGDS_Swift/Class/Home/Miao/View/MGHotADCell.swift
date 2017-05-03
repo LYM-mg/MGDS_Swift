@@ -17,6 +17,7 @@ class MGHotADCell: UITableViewCell {
         carouselView.time = 2.0
         carouselView.pagePosition = PositionBottomCenter
         carouselView.delegate = self
+        carouselView.setPageImage(#imageLiteral(resourceName: "other"), andCurrentImage: #imageLiteral(resourceName: "current"))
         return carouselView
     }()
     fileprivate lazy var imageUrls = [String]()

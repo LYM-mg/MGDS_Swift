@@ -8,6 +8,8 @@
 
 import UIKit
 
+// "Apple ID 为您的 App 自动生成的 ID。
+let appid = "1228164508"
 // MARK:- 全局参数
 let MGScreenBounds = UIScreen.main.bounds
 let MGScreenW = UIScreen.main.bounds.size.width
@@ -38,6 +40,11 @@ let MGGetCompanysKey: String = "MGGetCompanysKey"
 let MGServeraddressKey = "MGServeraddressKey"
 /// storyBoard跳转到配置IP的标志
 let MGTurnToServerIPID = "MGTurnToServerIPID"
+
+/// 搜索数组的key
+let MGSearchMusicHistorySearchArray = "MGSearchMusicHistorySearchArray"
+
+
 
 
 

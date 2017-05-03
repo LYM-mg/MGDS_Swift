@@ -19,7 +19,7 @@ class DiscoverViewController: UITableViewController {
         //（可选设置）可以设置视频的填充模式，默认为（等比例填充，直到一个维度到达区域边界）
         playerView.playerLayerGravity = .resizeAspect
         // 静音
-        playerView.mute = true
+        playerView.mute = false
         return playerView
     }()
     fileprivate lazy var controlView: ZFPlayerControlView = ZFPlayerControlView()

@@ -48,6 +48,11 @@ class MGRankListViewController: UIViewController {
 extension MGRankListViewController {
     fileprivate func setUpMainView() {
         view.addSubview(collectionView)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(self.searchClick))
+    }
+    
+    @objc fileprivate func searchClick() {
+        show(SearchMusicViewController(), sender: nil)
     }
     
     fileprivate func setUpRefresh() {

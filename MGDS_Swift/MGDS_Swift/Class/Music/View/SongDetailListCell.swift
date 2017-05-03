@@ -40,7 +40,7 @@ class SongDetailListCell: UITableViewCell {
         cell?.contentView.backgroundColor = UIColor.clear
         cell?.backgroundColor = UIColor.clear
         // 3.设置cell的动画效果
-        cell?.addAnimation()
+//        cell?.addAnimation()
 
         // 4.返回cell
         return cell!

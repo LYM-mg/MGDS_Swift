@@ -28,6 +28,8 @@ class RegisterViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "注册"
+        
         // 1.给头像添加点按手势
         headImageView.isUserInteractionEnabled = true
         headImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.uploadHeadImage(_:))))
@@ -107,7 +109,6 @@ extension RegisterViewController: UIImagePickerControllerDelegate,UINavigationCo
         let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in }
         let OKAction = UIAlertAction(title: "拍照", style: .default) { (action) in
              self.openCamera(.camera)
-            
         }
         let destroyAction = UIAlertAction(title: "从相册上传", style: .default) { (action) in
             print(action)

@@ -26,7 +26,7 @@ class MGHotLiveCell: UITableViewCell {
     
     var live: MGHotModel? {
         didSet {
-            headImageView.kf.setImage(with: URL(string: live!.smallpic), placeholder: UIImage(named: "placeholder_head"), options: nil, progressBlock: nil, completionHandler: { (image, err, cache, url) in
+            headImageView.kf.setImage(with: URL(string: live!.smallpic), placeholder: UIImage(named: "default-user"), options: nil, progressBlock: nil, completionHandler: { (image, err, cache, url) in
                 let image = UIImage.circleImage(originImage: image!, borderColor: UIColor.purple, borderWidth: 1)
                 self.headImageView.image = image
             })

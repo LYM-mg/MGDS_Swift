@@ -19,7 +19,7 @@ class UserHeaderView: UIView {
         didSet {
             userName.text = user?.nickName ?? "明明就是你"
             if user?.headImage != "" {
-                let url = URL(string: user?.headImage ?? "")!
+                let url = URL(string: user?.headImage ?? "")!  // , placeholder: #imageLiteral(resourceName: "default-user") 
                 userIcon.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "default-user"))
             }
         }

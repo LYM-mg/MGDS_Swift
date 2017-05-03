@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - 自定义属性
     var reacha: Reachability? // 监听网络状态
     var preNetWorkStatus: NetworkStatuses? // 之前的网络状态
+    var isFirstStart = true // 这里是第一次启动打开App的意思是用户完全退出运用然后打开，并不是指第一次安装打开
     
     lazy var videosArray: [VideoList] = [VideoList]()
     lazy var sidArray: [VideoSidList] = [VideoSidList]()
@@ -87,7 +88,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func setUpKeyWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = MainTabBarViewController()
+        if isFirstStart == true {
+            let arr = ["login_video","loginmovie","qidong"]
+            let welcomeVc = MGWelcomeViewController(urlStr: Bundle.main.path(forResource: arr[Int(arc4random()%3)], ofType: "mp4")!)
+            window?.rootViewController = welcomeVc
+            isFirstStart = false
+        } else {
+            let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User   // 获取用户数据
+            window?.rootViewController =  (user == nil) ? UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() : MainTabBarViewController()
+        }
+
         window?.makeKeyAndVisible()
         
         let isfirst = SaveTools.mg_getLocalData(key: "isFirstOpen") as? String
@@ -95,6 +105,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplication.shared.isStatusBarHidden = true
             showAppGurdView()
         }
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.EnterHomeView(_:)), name: NSNotification.Name(rawValue: KEnterHomeViewNotification), object: nil)
     }
     
@@ -146,32 +158,36 @@ extension AppDelegate {
     func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
         var handled = false
         //Get type string from shortcutItem
-        // 获取当前页面TabBar
-        let tabBar = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
-        // 获取当前TabBar Nav
-        let nav = tabBar.selectedViewController as! UINavigationController
-    
-        if shortcutItem.type == "1" {
-            let homeVC = HomeViewController()
-            homeVC.title = "首页"
+        let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User   // 获取用户数据
+        
+        if shortcutItem.type == "2" {
+            // 跳转
+            window?.rootViewController =  (user == nil) ? UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() : MainTabBarViewController()
+            
             handled = true
         }
         
-        if shortcutItem.type == "2" {
-            // Login视图
-            let storyMy = UIStoryboard(name: "Login", bundle: nil)
-            // 排行榜列表页
-            let loginView = storyMy.instantiateInitialViewController() as! LoginViewController
-            loginView.title = "登录"
-            // 跳转
-            nav.pushViewController(loginView, animated: true)
-            handled = true
+        if user != nil {
+            // 获取当前页面TabBar
+            let tabBar = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
+            // 获取当前TabBar Nav
+            let nav = tabBar.selectedViewController as! UINavigationController
+            
+            if shortcutItem.type == "1" {
+                tabBar.selectedIndex = 1
+                handled = true
+            }
+            
+            if shortcutItem.type == "3" {
+                nav.pushViewController(QRCodeViewController(), animated: true)
+                handled = true
+            }
         }
         return handled
     }
 }
 
-// MARK: - 友盟以、短信验证、以及激光推送
+// MARK: - 友盟以、短信验证、以及极光推送
 extension AppDelegate {
     fileprivate func setUpUMSocial(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         // Share
@@ -180,11 +196,12 @@ extension AppDelegate {
         SMSSDK.registerApp("1a9fafc4d4a6c", withSecret: "8f8b196fb408ebe54b53c0b60ea0cf12")
         
         // 友盟
-        UMSocialData.setAppKey("563b6bdc67e58e73ee002acd")
-        
+        UMSocialData.setAppKey("58f6d91fbbea834d7200178b")
         UMSocialQQHandler.setQQWithAppId("1104864621", appKey: "AQKpnMRxELiDWHwt", url: "www.itjh.net")
         UMSocialQQHandler.setSupportWebView(true)
-        UMSocialSinaHandler.openSSO(withRedirectURL: "http://sns.whalecloud.com/sina2/callback")
+        /* 设置新浪的appKey和appSecret */
+        UMSocialSinaHandler.openSSO(withRedirectURL: "https://github.com/LYM-mg/MGDS_Swift")
+//        UMSocialSinaHandler.openSSO(withRedirectURL: "http://sns.whalecloud.com/sina2/callback")
         UMSocialWechatHandler.setWXAppId("wxfd23fac852a54c97", appSecret: "d4624c36b6795d1d99dcf0547af5443d", url: "www.doushi.me")
 
         

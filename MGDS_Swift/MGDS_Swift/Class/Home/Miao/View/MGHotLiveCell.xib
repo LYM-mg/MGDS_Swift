@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +30,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_head" translatesAutoresizingMaskIntoConstraints="NO" id="p4i-gG-1eb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-user" translatesAutoresizingMaskIntoConstraints="NO" id="p4i-gG-1eb">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Gwq-HC-fbc"/>
                                     <constraint firstAttribute="width" secondItem="p4i-gG-1eb" secondAttribute="height" multiplier="1:1" id="VNA-PR-PRy"/>
@@ -90,7 +89,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYO-eQ-dIs"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dzq" translatesAutoresizingMaskIntoConstraints="NO" id="cYO-eQ-dIs"/>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_live_43x22" translatesAutoresizingMaskIntoConstraints="NO" id="ZB1-eO-jzQ">
                         <constraints>
                             <constraint firstAttribute="width" constant="43" id="brk-W4-PYi"/>
@@ -123,9 +122,10 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="default-user" width="165" height="165"/>
+        <image name="dzq" width="350" height="350"/>
         <image name="girl_star1_40x19" width="40" height="19"/>
         <image name="home_live_43x22" width="43" height="22"/>
         <image name="home_location_8x8" width="8" height="8"/>
-        <image name="placeholder_head" width="100" height="100"/>
     </resources>
 </document>

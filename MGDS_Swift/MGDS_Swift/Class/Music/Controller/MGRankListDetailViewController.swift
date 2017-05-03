@@ -13,14 +13,19 @@ class MGRankListDetailViewController: UITableViewController {
 
     var songGroup: SongGroup?
     lazy var dataSource = [SongDetail]()
+    /** 记录右边边TableView是否滚动到的位置的Y坐标 */
+    fileprivate lazy var lastOffsetY: CGFloat = 0
+    /** 记录tableView是否向下滚动 */
+    fileprivate lazy var  isScrollDown: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "音乐列表"
 //        tableView.estimatedRowHeight = 70
 //        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.rowHeight = 90
         
         setUpMainView()
-        
         setUpRefresh()
     }
 
@@ -45,7 +50,6 @@ class MGRankListDetailViewController: UITableViewController {
         bg.addSubview(effectView)
         self.tableView.backgroundView = bg
         
-        
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: MGScreenW, height: MGScreenW*0.5))
         let image = UIImageView(frame: headerView.frame)
         image.setImageWithURLString(songGroup?.pic_s444, placeholder: #imageLiteral(resourceName: "mybk1"))
@@ -55,6 +59,12 @@ class MGRankListDetailViewController: UITableViewController {
         headerView.addSubview(image)
         headerView.addSubview(nameLable)
         tableView.tableHeaderView = headerView
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(self.searchClick))
+    }
+    
+    @objc fileprivate func searchClick() {
+        show(SearchMusicViewController(), sender: nil)
     }
 }
 
@@ -79,7 +89,7 @@ extension MGRankListDetailViewController {
             // 1.将result转成字典类型
             guard let resultDict = result as? [String : Any] else { return }
             
-            // 2.根据data该key,获取数组
+            // 2.根据song_list该key,获取数组
             guard let dataArray = resultDict["song_list"] as? [[String : Any]] else { return }
             
             for mdict in dataArray {
@@ -118,12 +128,39 @@ extension MGRankListDetailViewController {
     }
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        viewController setSongIdArray:self.songIdsArrayM currentIndex:index];
-        let model = self.dataSource[indexPath.row]
-//        MGMusicOperationTool.share.musicMs = dataSource
-//        MGMusicOperationTool.share.playWithMusicName(musicM: model,index: indexPath.row)
+        _ = self.dataSource[indexPath.row]
         let vc = UIStoryboard(name: "Music", bundle: nil).instantiateInitialViewController() as! MGMusicPlayViewController
         vc.setSongIdArray(musicArr: dataSource, currentIndex: indexPath.row)
         show(vc, sender: nil)
     }
+    
+    
+    // MARK: - 动画
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if isScrollDown {
+//            startAnimation(view: cell, offsetY: 90, duration: 2.0)
+            let rect = cell.convert((cell.bounds), to: nil)
+            if (rect.origin.y) > MGScreenW*0.5 {
+                cell.transform = CGAffineTransform(translationX: 0, y: 1.5*cell.mg_height)
+                UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut, animations: {
+                    cell.transform =  CGAffineTransform.identity
+                }, completion: nil)
+            }
+        }
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y <= scrollView.contentSize.height {
+            isScrollDown = lastOffsetY < scrollView.contentOffset.y
+            lastOffsetY = scrollView.contentOffset.y
+        }
+    }
+    
+    private func startAnimation(view: UIView, offsetY: CGFloat, duration: TimeInterval) {
+        view.transform = CGAffineTransform(translationX: 0, y: offsetY)
+        UIView.animate(withDuration: duration, animations: { () -> Void in
+            view.transform = CGAffineTransform.identity
+        })
+    }
+
 }

@@ -40,7 +40,6 @@ class User: NSObject,NSCoding{
         super.init()
         self.id = 0
         self.nickName = ""
-        
         self.password = ""
         self.headImage = ""
         self.phone = ""

@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "登录"
         phoneTextField.delegate = self
         pwdTextField.delegate = self
         
@@ -38,6 +39,9 @@ class LoginViewController: UIViewController {
         //设置登录按钮一开始为不可点击
         loginBtn.isEnabled = false
         loginBtn.alpha = 0.6
+        
+        textFieldDidReChange(textField: phoneTextField)
+        textFieldDidReChange(textField: pwdTextField)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -46,7 +50,7 @@ class LoginViewController: UIViewController {
     }
 }
 
-// MARK: - 
+// MARK: -  UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
     /**
      检测正在输入
@@ -54,26 +58,17 @@ extension LoginViewController: UITextFieldDelegate {
      - parameter textField: textField description
      */
     @objc fileprivate func textFieldDidReChange(textField: UITextField) {
-        let phoneRule = ValidationRuleLength(min: 11, max: 11, error: ValidationError(message: "😫"))
+        let phoneRule = ValidationRuleLength(min: 2, max: 21, error: ValidationError(message: "😫"))
         let pwdRule = ValidationRuleLength(min: 3, max: 15, error:ValidationError(message: "😫"))
 
         let result: ValidationResult
-        
         switch textField.tag{
             case 1://手机号
                 result = textField.text!.validate(rule: phoneRule)
-                if result.isValid {
-                    phoneResultUILabel.text = "😀"
-                }else{
-                    phoneResultUILabel.text = "😫"
-                }
+                phoneResultUILabel.text = result.isValid ? "😀" : "😫"
             case 2://密码
                 result = textField.text!.validate(rule: pwdRule)
-                if result.isValid {
-                    pwdResultUILabel.text = "😀"
-                }else{
-                    pwdResultUILabel.text = "😫"
-                }
+                pwdResultUILabel.text = result.isValid ? "😀" : "😫"
             default:
                 break
         }
@@ -96,10 +91,23 @@ extension LoginViewController {
         AVUser.logInWithUsername(inBackground: self.phoneTextField.text, password: self.pwdTextField.text) { (user, error) -> Void in
             if error == nil {
                 let user1 = User()
+                let iconArr = ["https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2950591917,2354666181&fm=117&gp=0.jpg",
+                               "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=785610095,2402278722&fm=117&gp=0.jpg",
+                               "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2523342981,456767842&fm=117&gp=0.jpg",
+                               "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2414892350,1335458424&fm=117&gp=0.jpg",
+                               "http://img4.imgtn.bdimg.com/it/u=3150227654,1407185070&fm=23&gp=0.jpg",
+                               "http://img1.imgtn.bdimg.com/it/u=4229711263,3512784892&fm=23&gp=0.jpg",
+                               "http://img2.imgtn.bdimg.com/it/u=1600397295,882101291&fm=23&gp=0.jpg",
+                               "http://img1.imgtn.bdimg.com/it/u=2724666881,1693626036&fm=23&gp=0.jpg",
+                               "http://img0.imgtn.bdimg.com/it/u=845085609,3840359293&fm=23&gp=0.jpg",
+                               "http://img4.imgtn.bdimg.com/it/u=1405137322,3395236384&fm=23&gp=0.jpg",
+                               "http://img1.imgtn.bdimg.com/it/u=4088129600,4034692539&fm=23&gp=0.jpg",
+                               "http://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E5%A4%B4%E5%83%8F&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&cs=1887792679,709769868&os=1882039900,1253656006&simid=4271764292,655119390&pn=14&rn=1&di=153173665370&ln=3968&fr=&fmq=1390280702008_R&fm=&ic=0&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&oriquery=%E5%A4%B4%E5%83%8F&objurl=http%3A%2F%2Fwww.zbjdyw.com%2Fqqwebhimgs%2Fuploads%2Fbd24351977.jpg&rpstart=0&rpnum=0&adpicid=0"]
                 user1.nickName = user!.username
                 user1.password = user!.password
+                user1.headImage = iconArr[Int(arc4random_uniform(13))]
                 SaveTools.mg_Archiver(user1, path:  MGUserPath)
-                let _ = self.navigationController?.popViewController(animated: true)
+                self.turnToMainTabBarViewController()
             } else {
                 let err = error as! NSError
                 if err.code == 210 {
@@ -147,10 +155,10 @@ extension LoginViewController {
     fileprivate func loginWithSocialPlatform(name: String,platformName: String) {
         //授权
         let snsPlatform = UMSocialSnsPlatformManager.getSocialPlatform(withName: name)
+    UMSocialConfig.setFollowWeiboUids([UMShareToSina:"2778589865",UMShareToTencent:"@liuyuanming6388"])
         
         snsPlatform?.loginClickHandler(self, UMSocialControllerService.default(), true, {response in
             if response?.responseCode == UMSResponseCodeSuccess {
-                
                 guard var snsAccount = UMSocialAccountManager.socialAccountDictionary() else {return}
                 
                 let qqUser: UMSocialAccountEntity =  snsAccount[name] as! UMSocialAccountEntity
@@ -169,19 +177,6 @@ extension LoginViewController {
                 user.headImage = qqUser.iconURL
                 UserDefaults.standard.setValue(qqUser.iconURL, forKey: "userHeadImage")
                 SaveTools.mg_Archiver(user, path:  MGUserPath)
-                
-                //注册用户
-                //用户参数
-                //                let urlStr = "https://api.ds.itjh.net/v1/rest/user/registerUser"
-                //                let parameters = ["nickName": user.nickName,"headImage": user.headImage,"phone":user.phone,"platformId":user.platformId,"platformName":user.platformName,"password":user.password,"gender":user.gender] as [String : Any]
-                
-                //                NetWorkTools.registRequest(type: .post, urlString: urlStr, parameters: parameters, succeed: { (result, err) in
-                //                    let userDict = (result as! NSDictionary).value(forKey: "content") as! [String: Any]
-                //                    print(result)
-                //                }, failure: { (err) in
-                //                    print(err)
-                //                })
-
                 
                 /// 注册用户
                 let user1 = AVUser()
@@ -204,10 +199,17 @@ extension LoginViewController {
                         }
                     }
                 }
-
+                self.turnToMainTabBarViewController()
             }
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            let _ = self.navigationController?.popViewController(animated: true)
         })
+    }
+    
+    fileprivate func turnToMainTabBarViewController() {
+        MGKeyWindow?.rootViewController = MainTabBarViewController()
+        let transition = CATransition()
+        transition.type = "reveal"
+        transition.duration = 1.5
+        MGKeyWindow?.layer.add(transition, forKey: nil)
     }
 }

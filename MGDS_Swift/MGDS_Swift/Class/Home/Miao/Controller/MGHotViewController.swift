@@ -12,7 +12,8 @@ import MJRefresh
 class MGHotViewController: UITableViewController {
     // MARK: - 懒加载
     fileprivate lazy var hotLiveVM = MGHotViewModel()
-
+    fileprivate lazy var shareModel = MGHotModel()
+    fileprivate lazy var shareImage = UIImage()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -116,7 +117,7 @@ extension MGHotViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.row == 0) {
-            return 120
+            return 160
         }
         return 465
     }
@@ -134,18 +135,54 @@ extension MGHotViewController {
 extension MGHotViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
-        guard let cell = tableView.cellForRow(at: indexPath) else { return nil }
+        guard let cell = tableView.cellForRow(at: indexPath) as? MGHotLiveCell else { return nil }
         if #available(iOS 9.0, *) {
             previewingContext.sourceRect = cell.frame
         }
         
         let playerVC = MGPlayerViewController(nibName: "MGPlayerView", bundle: nil)
         playerVC.live = self.hotLiveVM.lives[indexPath.row-1]
-        
+        shareModel = self.hotLiveVM.lives[indexPath.row-1]
+        shareImage = cell.bigPicView.image!
         return playerVC
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         show(viewControllerToCommit, sender: self)
+    }
+    
+    // 返回预览下面的快捷方式
+    override var previewActionItems: [UIPreviewActionItem] {
+        let shareAction = UIPreviewAction(title: "分享", style: .default) { (action, controller) in
+            print("点击了分享按钮!") // "http://www.jianshu.com/u/57b58a39b70e"
+            
+            let image = self.shareImage
+            let str = self.shareModel.myname!
+            let url = NSURL(string: self.shareModel.flv)
+            let items:[Any] = [image, str, url!]
+            
+            let activity = UIActivityViewController(activityItems: items, applicationActivities: [UIActivity()])
+            // .copyToPasteboard,.copyToPasteboard,.message,.print,UIActivityType.airDrop,,.postToWeibo,.postToVimeo,.postToTencentWeibo,.mail,.assignToContact,.postToFacebook,.openInIBooks,.postToTwitter
+            // 不出现在活动项目
+            if #available(iOS 9.0, *) {
+                activity.excludedActivityTypes = [.addToReadingList]
+            }
+            let popver: UIPopoverPresentationController? = activity.popoverPresentationController
+            if (popver != nil) {
+                popver!.permittedArrowDirections = UIPopoverArrowDirection.left
+            }
+            self.present(activity, animated: true, completion: nil)
+            
+            activity.completionWithItemsHandler = { (type, completed, result, err)  in
+                if completed {
+                    
+                }
+                activity.completionWithItemsHandler = nil
+            }
+        }
+        let favAction = UIPreviewAction(title: "收藏", style: .default) { (action, controller) in
+            print("点击了收藏按钮!")
+        }
+        return [shareAction,favAction]
     }
 }

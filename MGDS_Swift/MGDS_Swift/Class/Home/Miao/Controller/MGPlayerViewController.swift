@@ -12,8 +12,8 @@ class MGPlayerViewController: UIViewController {
     // MARK: - 属性
     // MARK: 自定义
     var live : MGHotModel!
-    fileprivate var ijplayer: IJKMediaPlayback!
-    fileprivate var playerView: UIView!
+    fileprivate var ijplayer: IJKMediaPlayback?
+    fileprivate var playerView: UIView?
     
     // MARK: SB拖拽属性
     @IBOutlet weak var giftBtn: UIButton!
@@ -37,7 +37,7 @@ class MGPlayerViewController: UIViewController {
         setBg()
         
         // 2.准备播放器
-//        setPlayerView()
+        setPlayerView()
         
         // 3.把按钮提升到view最前面
 //        bringBtnTofront()
@@ -47,12 +47,16 @@ class MGPlayerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // 2.准备播放器
-        setPlayerView()
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        if !self.ijplayer.isPlaying() {
-            ijplayer.prepareToPlay()
-        } else {
-            ijplayer.prepareToPlay()
+        if self.ijplayer != nil {
+            if !(self.ijplayer!.isPlaying()) {
+                ijplayer?.prepareToPlay()
+            } else {
+                ijplayer?.prepareToPlay()
+            }
+        }else {  // ijk为空时 
+            setPlayerView()
+            ijplayer?.prepareToPlay()
         }
         bringBtnTofront()
     }
@@ -61,8 +65,8 @@ class MGPlayerViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         if ((ijplayer) != nil) {
-            ijplayer.shutdown()
-            ijplayer.view.removeFromSuperview()
+            ijplayer!.shutdown()
+            ijplayer!.view.removeFromSuperview()
             ijplayer = nil
         }
     }
@@ -78,19 +82,19 @@ extension MGPlayerViewController  {
     func setPlayerView()  {
         //初始化一个空白容器view
         self.playerView = UIView(frame: MGScreenBounds)
-        view.addSubview(self.playerView)
+        view.addSubview(self.playerView!)
         
         
         //初始化IJ播放器的控制器和view
         ijplayer = IJKFFMoviePlayerController(contentURLString: live.flv!, with: nil)
-        let pv = ijplayer.view!
+        let pv = ijplayer!.view!
         
         
         //将播放器view自适应后,加入容器
-        pv.frame = playerView.bounds
+        pv.frame = playerView!.bounds
         pv.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        playerView.insertSubview(pv, at: 1)
-        ijplayer.scalingMode = .aspectFill
+        playerView!.insertSubview(pv, at: 1)
+        ijplayer!.scalingMode = .aspectFill
     }
 }
 

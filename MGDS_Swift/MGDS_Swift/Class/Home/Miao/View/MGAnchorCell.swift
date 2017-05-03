@@ -26,7 +26,7 @@ class MGAnchorCell: UICollectionViewCell {
         didSet {
             // 设置封面头像
             
-            coverImageView.kf.setImage(with: URL(string: user!.photo!), placeholder: UIImage(named: "placeholder_head"))
+            coverImageView.kf.setImage(with: URL(string: user!.photo!), placeholder: UIImage(named: "dzq"))
             
             // 是否是新主播
             self.fresnImageView.isHidden = !(user!.newStar != nil);

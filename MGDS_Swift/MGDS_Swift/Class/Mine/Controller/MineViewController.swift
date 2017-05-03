@@ -28,7 +28,6 @@ class MineViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User
-        loginStatusLabel.text = (user != nil) ? "退出当前用户" : "立即登录"
         if (user != nil){
            userHeaderView.user = user
         }
@@ -49,7 +48,7 @@ extension MineViewController {
             }else if indexPath.row == 1 {
                 giveSuggest()
             } else {
-                disclaimer()
+                setUpWiFi()
             }
         case 2:
             if indexPath.row == 0 {
@@ -75,16 +74,17 @@ extension MineViewController {
 
     // MARK: 第2️⃣页
     /// 给个笑脸,就是评价的意思
-    fileprivate func giveFace() {
-        let urlStr = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1044917946&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"
+    fileprivate func giveFace() {  // itms-apps://
+        let urlStr = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(appid)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"
         guard let url = URL(string: urlStr) else { return }
         if UIApplication.shared.canOpenURL(url){
-            if #available(iOS 10.0, *) {
-                let options = [UIApplicationOpenURLOptionUniversalLinksOnly : true]
-                UIApplication.shared.open(url, options: options, completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
+             UIApplication.shared.openURL(url)
+//            if #available(iOS 10.0, *) {
+//                let options = [UIApplicationOpenURLOptionUniversalLinksOnly : true]
+//                UIApplication.shared.open(url, options: options, completionHandler: nil)
+//            } else {
+//                UIApplication.shared.openURL(url)
+//            }
         }
     }
     /// 意见反馈
@@ -95,9 +95,14 @@ extension MineViewController {
         }
     }
     
-    /// 免责声明
-    fileprivate func  disclaimer() {
-        self.showHint(hint: "免责声明")
+    /// 设置WIFi
+    fileprivate func  setUpWiFi() {
+        guard let url = URL(string: "app-Prefs:root=WIFI") else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
     }
     
     // MARK: 第3️⃣页
@@ -114,47 +119,39 @@ extension MineViewController {
         UMSocialData.default().extConfig.title = "搞笑,恶搞视频全聚合,尽在逗视App"
         UMSocialWechatHandler.setWXAppId("wxfd23fac852a54c97", appSecret: "d4624c36b6795d1d99dcf0547af5443d", url: "\(share)")
         UMSocialQQHandler.setQQWithAppId("1104864621", appKey: "AQKpnMRxELiDWHwt", url: "\(share)")
-        
-        let snsArray = [UMShareToWechatTimeline,UMShareToWechatSession,UMShareToQQ,UMShareToQzone,UMShareToSina,UMShareToFacebook,UMShareToTwitter,UMShareToEmail]
-        UMSocialSnsService.presentSnsIconSheetView(self, appKey: "563b6bdc67e58e73ee002acd", shareText:"搞笑,恶搞视频全聚合,尽在逗视App   " + share, shareImage: UIImage(named: "doushi_icon"), shareToSnsNames: snsArray, delegate: nil)
+        UMSocialSinaHandler.openSSO(withRedirectURL: "https://github.com/LYM-mg/MGDS_Swift")
+    UMSocialConfig.setFollowWeiboUids([UMShareToSina:"2778589865",UMShareToTencent:"@liuyuanming6388"]) // 563b6bdc67e58e73ee002acd
+        let snsArray = [UMShareToWechatTimeline,UMShareToWechatSession,UMShareToTencent,UMShareToQQ,UMShareToQzone,UMShareToSina,UMShareToFacebook,UMShareToEmail]
+        UMSocialSnsService.presentSnsIconSheetView(self, appKey: "58f6d91fbbea834d7200178b", shareText:"搞笑,恶搞视频全聚合,尽在逗视App   " + share, shareImage: UIImage(named: "doushi_icon"), shareToSnsNames: snsArray, delegate: nil)
     }
     
     // MARK: 第4️⃣页
     /// 关于登录
     func aboutLogin() {
-        if loginStatusLabel.text == "退出当前用户"{
-            print("登录")
-            //确定按钮
-            let alertController = UIAlertController(title: "确定要退出吗？", message: "", preferredStyle: .alert)
-            
-            let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+        //确定按钮
+        let alertController = UIAlertController(title: "确定要退出吗？", message: "", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+        }
+        
+        let OKAction = UIAlertAction(title: "确定", style: .default) { (action) in
+            self.loginStatusLabel.textColor = UIColor.green
+            //删除归档文件
+            let defaultManager = FileManager.default
+            if defaultManager.isDeletableFile(atPath: MGUserPath) {
+                try! defaultManager.removeItem(atPath: MGUserPath)
             }
-            
-            let OKAction = UIAlertAction(title: "确定", style: .default) { (action) in
-                self.loginStatusLabel.text = "立即登录"
-                self.loginStatusLabel.textColor = UIColor.green
-                
-                //删除归档文件
-                let defaultManager = FileManager.default
-                if defaultManager.isDeletableFile(atPath: MGUserPath) {
-                    try! defaultManager.removeItem(atPath: MGUserPath)
-                }
-            }
-            alertController.addAction(cancelAction)
-            alertController.addAction(OKAction)
-            self.present(alertController, animated: true) {
-            }
-        }else{
-            
-            /**
-             跳转登录页面
-             */
-            print("立即登录")
-            loginStatusLabel.text = "退出当前用户"
-            loginStatusLabel.textColor = UIColor.red
-            
-            let loginVc = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
-            self.navigationController?.pushViewController(loginVc!, animated: true)
+
+            MGKeyWindow?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+            let transAnimation = CATransition()
+            transAnimation.type = kCATransitionPush
+            transAnimation.subtype = kCATransitionFromLeft
+            transAnimation.duration = 0.5
+            MGKeyWindow?.layer.add(transAnimation, forKey: nil)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true) {
         }
     }
 }
@@ -165,7 +162,7 @@ extension MineViewController: MFMailComposeViewControllerDelegate {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
         //设置收件人
-        mailComposerVC.setToRecipients(["iosdev@itjh.com.cn","1292043630@qq.com"])
+        mailComposerVC.setToRecipients(["lym.mgming@gmail.com","1292043630@qq.com"])
         //设置主题
         mailComposerVC.setSubject("逗视意见反馈")
         //邮件内容

@@ -25,13 +25,12 @@ class BaseTableViewController: UITableViewController {
         // 当cell播放视频由全屏变为小屏时候，不回到中间位置
         playerView.cellPlayerOnCenter = true
         /** 静音（默认为NO）*/
-        playerView.mute = true
+        playerView.mute = false
         // 当cell划出屏幕的时候停止播放
         playerView.stopPlayWhileCellNotVisable = false
         //（可选设置）可以设置视频的填充模式，默认为（等比例填充，直到一个维度到达区域边界）
         playerView.playerLayerGravity = .resizeAspect
-        // 静音
-        playerView.mute = true
+
         return playerView
     }()
     lazy var controlView: ZFPlayerControlView = ZFPlayerControlView()
@@ -52,6 +51,11 @@ class BaseTableViewController: UITableViewController {
         
         setUpRefresh()
         self.view.layoutIfNeeded()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        playerView.resetPlayer()
     }
 }
 

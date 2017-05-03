@@ -64,4 +64,12 @@ extension RecommendGameView : UICollectionViewDataSource {
     }
 }
 
+// MARK:- 遵守UICollectionView的数据源协议
+extension RecommendGameView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = groups![(indexPath as NSIndexPath).item]
+        topViewController()!.show(DetailGameViewController(tag_id: String(describing: model.tag_id)), sender: self)
+    }
+}
+
 

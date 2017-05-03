@@ -11,14 +11,14 @@ import MJRefresh
 import SafariServices
 
 
-private let kItemMargin : CGFloat = 10
-private let kHeaderViewH : CGFloat = 50
+let kItemMargin: CGFloat = 10
+let kHeaderViewH: CGFloat = 50
 
 
-private let kCycleViewH = MGScreenW * 3 / 8
-private let kGameViewH : CGFloat = 90
+let kCycleViewH = MGScreenW * 3 / 8
+let kGameViewH: CGFloat = 90
 
-private let kNormalCellID = "kNormalCellID"
+let kNormalCellID = "kNormalCellID"
 private let kHeaderViewID = "kHeaderViewID"
 
 let kPrettyCellID = "kPrettyCellID"
@@ -68,7 +68,15 @@ class AnchorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadData()
+//        loadData()
+        setUpRefresh()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        if anchorVM.anchorGroups.count == 0 {
+//            setUpRefresh()
+//        }
     }
 }
 
@@ -85,7 +93,7 @@ extension AnchorViewController {
         collectionView.addSubview(gameView)
         
         // 4.设置collectionView的内边距
-        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH-MGNavHeight, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -123,8 +131,11 @@ extension AnchorViewController {
             var groups = self.anchorVM.anchorGroups
             
             // 2.1.移除前两组数据
-            groups.removeFirst()
-            groups.removeFirst()
+            if groups.count > 2 {
+                // 2.1.移除前两组数据
+                groups.removeFirst()
+                groups.removeFirst()
+            }
             
             // 2.2.添加更多组
             let moreGroup = AnchorGroup()
