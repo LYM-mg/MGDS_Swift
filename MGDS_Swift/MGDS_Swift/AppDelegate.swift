@@ -92,21 +92,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User   // 获取用户数据
         window?.rootViewController =  (user == nil) ? UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() : MainTabBarViewController()
         window?.makeKeyAndVisible()
-        if isFirstStart == true {
-            let arr = ["login_video","loginmovie","qidong","opening_long"]
-            let welcomeVc = MGWelcomeAVPlayerViewController(urlStr: Bundle.main.path(forResource: arr[Int(arc4random()%UInt32(arr.count))], ofType: "mp4")!)
-            window?.addSubview(welcomeVc.view)
-
-            window?.rootViewController?.addChildViewController(welcomeVc)
-            isFirstStart = false
-        }
-
         
         let isfirst = SaveTools.mg_getLocalData(key: "isFirstOpen") as? String
         if (isfirst?.isEmpty == nil) {
             UIApplication.shared.isStatusBarHidden = true
             showAppGurdView()
+        }else {
+            if user != nil {                
+                if isFirstStart == true {
+                    let arr = ["login_video","loginmovie","qidong","opening_long"]
+                    let welcomeVc = MGWelcomeAVPlayerViewController(urlStr: Bundle.main.path(forResource: arr[Int(arc4random()%UInt32(arr.count))], ofType: "mp4")!)
+                    window?.addSubview(welcomeVc.view)
+                    
+                    window?.rootViewController?.addChildViewController(welcomeVc)
+                    isFirstStart = false
+                }
+            }
         }
+        
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.EnterHomeView(_:)), name: NSNotification.Name(rawValue: KEnterHomeViewNotification), object: nil)
