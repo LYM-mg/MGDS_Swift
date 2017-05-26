@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     // MARK: - lazy
     fileprivate lazy var homeTitlesView: HomeTitlesView = { [weak self] in
         let titleFrame = CGRect(x: 0, y: MGNavHeight, width: MGScreenW, height: kTitlesViewH)
-        let titles = ["推荐","精华","热门","娱乐","逗视"] // "斗鱼",
+        let titles = ["推荐","精华","热门","斗鱼","娱乐","逗视"] //
         let tsView = HomeTitlesView(frame: titleFrame, titles: titles)
         tsView.deledate = self
         return tsView
@@ -40,7 +40,7 @@ class HomeViewController: UIViewController {
         childVcs.append(newVC)
         
         // 斗鱼
-//        childVcs.append(AnchorViewController())
+        childVcs.append(AnchorViewController())
         
         // 腾讯
         let tencentVC = UIStoryboard(name: "Tencent", bundle: nil).instantiateInitialViewController() as! MGTencentNewsViewController

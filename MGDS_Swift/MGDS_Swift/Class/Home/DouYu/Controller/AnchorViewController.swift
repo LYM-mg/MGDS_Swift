@@ -49,7 +49,6 @@ class AnchorViewController: UIViewController {
         collectionView.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)
         collectionView.register(UINib(nibName: "CollectionPrettyCell", bundle: nil), forCellWithReuseIdentifier: kPrettyCellID)
         collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
-        
         return collectionView
     }()
     // MARK:- 懒加载属性
@@ -68,15 +67,11 @@ class AnchorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        loadData()
         setUpRefresh()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        if anchorVM.anchorGroups.count == 0 {
-//            setUpRefresh()
-//        }
     }
 }
 
@@ -93,7 +88,7 @@ extension AnchorViewController {
         collectionView.addSubview(gameView)
         
         // 4.设置collectionView的内边距
-        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH-MGNavHeight, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -112,6 +107,7 @@ extension AnchorViewController {
         })
         
         // 设置自动切换透明度(在导航栏下面自动隐藏)
+        collectionView.mj_header.ignoredScrollViewContentInsetTop = kCycleViewH + kGameViewH
         collectionView.mj_header.isAutomaticallyChangeAlpha = true
         self.collectionView.mj_header.beginRefreshing()
     }
@@ -122,8 +118,10 @@ extension AnchorViewController {
         anchorVM.requestData {[unowned self] (err) in
             if err != nil {
                 self.showHint(hint: "网络请求失败")
+                self.collectionView.mj_header.endRefreshing()
                 return
             }
+            self.collectionView.mj_header.endRefreshing()
             // 1.展示推荐数据
             self.collectionView.reloadData()
             
@@ -143,14 +141,17 @@ extension AnchorViewController {
             groups.append(moreGroup)
             
             self.gameView.groups = groups
+            
         }
         
         // 2.请求轮播数据
         anchorVM.requestCycleData { [unowned self] (err) in
             if err != nil {
+                self.collectionView.mj_header.endRefreshing()
                 return
             }
             self.cycleView.cycleModels = self.anchorVM.cycleModels
+            self.collectionView.mj_header.endRefreshing()
         }
     }
 }
