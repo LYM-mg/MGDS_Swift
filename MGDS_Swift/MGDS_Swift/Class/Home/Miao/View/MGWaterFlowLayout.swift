@@ -39,7 +39,7 @@ class MGWaterFlowLayout: UICollectionViewFlowLayout {
     fileprivate var attrsArray = [UICollectionViewLayoutAttributes]()
     /** 存放所有列的当前高度 */
     fileprivate var columnHeights: [CGFloat] = [CGFloat]()
-    
+    /** MGWaterFlowLayout的代理 */
     weak var delegate: MGWaterFlowLayoutDelegate?
 
 }

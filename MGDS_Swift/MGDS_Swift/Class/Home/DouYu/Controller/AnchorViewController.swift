@@ -49,6 +49,7 @@ class AnchorViewController: UIViewController {
         collectionView.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)
         collectionView.register(UINib(nibName: "CollectionPrettyCell", bundle: nil), forCellWithReuseIdentifier: kPrettyCellID)
         collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
+        
         return collectionView
     }()
     // MARK:- 懒加载属性
@@ -67,11 +68,21 @@ class AnchorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+//        loadData()
         setUpRefresh()
+        
+        if #available(iOS 9, *) {
+            if traitCollection.forceTouchCapability == .available {
+                registerForPreviewing(with: self, sourceView: self.view)
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+//        if anchorVM.anchorGroups.count == 0 {
+//            setUpRefresh()
+//        }
     }
 }
 
@@ -88,7 +99,7 @@ extension AnchorViewController {
         collectionView.addSubview(gameView)
         
         // 4.设置collectionView的内边距
-        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH-MGNavHeight, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -107,7 +118,6 @@ extension AnchorViewController {
         })
         
         // 设置自动切换透明度(在导航栏下面自动隐藏)
-        collectionView.mj_header.ignoredScrollViewContentInsetTop = kCycleViewH + kGameViewH
         collectionView.mj_header.isAutomaticallyChangeAlpha = true
         self.collectionView.mj_header.beginRefreshing()
     }
@@ -118,10 +128,8 @@ extension AnchorViewController {
         anchorVM.requestData {[unowned self] (err) in
             if err != nil {
                 self.showHint(hint: "网络请求失败")
-                self.collectionView.mj_header.endRefreshing()
                 return
             }
-            self.collectionView.mj_header.endRefreshing()
             // 1.展示推荐数据
             self.collectionView.reloadData()
             
@@ -141,17 +149,14 @@ extension AnchorViewController {
             groups.append(moreGroup)
             
             self.gameView.groups = groups
-            
         }
         
         // 2.请求轮播数据
         anchorVM.requestCycleData { [unowned self] (err) in
             if err != nil {
-                self.collectionView.mj_header.endRefreshing()
                 return
             }
             self.cycleView.cycleModels = self.anchorVM.cycleModels
-            self.collectionView.mj_header.endRefreshing()
         }
     }
 }
@@ -200,37 +205,49 @@ extension AnchorViewController : UICollectionViewDataSource {
     }
     
     @objc fileprivate func headerClick(_ tap: UITapGestureRecognizer) {
-        var url = ""
-        var title = ""
         switch headerIndexPath!.section {
             case 0:
-                url = "http://www.douyu.com/directory/game/TVgame"
-                title = "主机游戏"
+                let webVC = WebViewController(navigationTitle: "主机游戏", urlStr: "http://www.douyu.com/directory/game/TVgame")
+                navigationController?.pushViewController(webVC, animated: true)
             case 1:
-                url = "http://www.douyu.com/directory/game/yz"
-                title = "美颜"
-            case 2:
-                url = "http://www.douyu.com/directory/game/outdoor"
-                title = "户外"
-            case 3:
-                url = "http://www.douyu.com/directory/game/LOL"
-                title = "英雄联盟"
-            case 4:
-                 url = "http://www.douyu.com/directory/game/mhxy"
-                title = "梦幻西游手游"
-            case 5:
-                url = "http://www.douyu.com/directory/game/How"
-                title = "炉石传说"
-            case 6:
-                 url = "http://www.douyu.com/directory/game/wzry"
-                 title = "王者荣耀"
+                let webVC = WebViewController(navigationTitle: "美颜", urlStr: "http://www.douyu.com/directory/game/yz")
+                navigationController?.pushViewController(webVC, animated: true)
             default:
-                url = "http://www.douyu.com/directory/game/yz"
-                title = "美颜"
+                let model = anchorVM.anchorGroups[headerIndexPath!.section]
+                self.show(HeaderViewDetailController(model: model), sender: self)
         }
-        
-        let webVC = WebViewController(navigationTitle: title, urlStr: url)
-        navigationController?.pushViewController(webVC, animated: true)
+
+//        var url = ""
+//        var title = ""
+//        switch headerIndexPath!.section {
+//            case 0:
+//                url = "http://www.douyu.com/directory/game/TVgame"
+//                title = "主机游戏"
+//            case 1:
+//                url = "http://www.douyu.com/directory/game/yz"
+//                title = "美颜"
+//            case 2:
+//                url = "http://www.douyu.com/directory/game/outdoor"
+//                title = "户外"
+//            case 3:
+//                url = "http://www.douyu.com/directory/game/LOL"
+//                title = "英雄联盟"
+//            case 4:
+//                 url = "http://www.douyu.com/directory/game/mhxy"
+//                title = "梦幻西游手游"
+//            case 5:
+//                url = "http://www.douyu.com/directory/game/How"
+//                title = "炉石传说"
+//            case 6:
+//                 url = "http://www.douyu.com/directory/game/wzry"
+//                 title = "王者荣耀"
+//            default:
+//                url = "http://www.douyu.com/directory/game/yz"
+//                title = "美颜"
+//        }
+//        
+//        let webVC = WebViewController(navigationTitle: title, urlStr: url)
+//        navigationController?.pushViewController(webVC, animated: true)
     }
 }
 
@@ -278,3 +295,36 @@ extension AnchorViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: kNormalItemW, height: kNormalItemH)
     }
 }
+
+// MARK: - peek和pop
+// MARK: - UIViewControllerPreviewingDelegate
+extension AnchorViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
+        
+        if #available(iOS 9.0, *) {
+            previewingContext.sourceRect = cell.frame
+        }
+        
+        var vc = UIViewController()
+        let anchor = anchorVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+        if anchor.isVertical == 0 {
+            if #available(iOS 9, *) {
+                vc = SFSafariViewController(url: URL(string: anchor.jumpUrl)!, entersReaderIfAvailable: true)
+            } else {
+                vc = WKWebViewController(navigationTitle: anchor.room_name, urlStr: anchor.jumpUrl)
+            }
+        }else {
+            vc = WKWebViewController(navigationTitle: anchor.room_name, urlStr: anchor.jumpUrl)
+        }
+        
+        return vc
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: nil)
+    }
+}
+
+

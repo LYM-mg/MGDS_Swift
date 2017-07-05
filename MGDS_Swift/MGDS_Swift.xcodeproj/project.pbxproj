@@ -188,6 +188,9 @@
 		C0A1C0D61E6AE3FD000809DE /* MGMusicIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A1C0D51E6AE3FD000809DE /* MGMusicIndicator.swift */; };
 		C0A1C0D81E6B0B7C000809DE /* MGLrcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A1C0D71E6B0B7C000809DE /* MGLrcCell.swift */; };
 		C0A1C0DA1E6BD77C000809DE /* MGOrderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A1C0D91E6BD77C000809DE /* MGOrderButton.swift */; };
+		C0AEF8FF1F0C8B420050BCF2 /* HeaderViewDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEF8FE1F0C8B420050BCF2 /* HeaderViewDetailController.swift */; };
+		C0AEF9011F0C8B8D0050BCF2 /* HeadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEF9001F0C8B8D0050BCF2 /* HeadViewModel.swift */; };
+		C0AEF9311F0CC2D30050BCF2 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEF92D1F0CC2D30050BCF2 /* MoreViewController.swift */; };
 		C0B3C6A11E46C7E8005F7634 /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3C6A01E46C7E8005F7634 /* AnchorModel.swift */; };
 		C0B3C6A31E46C858005F7634 /* AnchorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3C6A21E46C858005F7634 /* AnchorViewModel.swift */; };
 		C0B3C6A51E46C9D7005F7634 /* AnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3C6A41E46C9D7005F7634 /* AnchorViewController.swift */; };
@@ -450,6 +453,9 @@
 		C0A1C0D51E6AE3FD000809DE /* MGMusicIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGMusicIndicator.swift; sourceTree = "<group>"; };
 		C0A1C0D71E6B0B7C000809DE /* MGLrcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGLrcCell.swift; sourceTree = "<group>"; };
 		C0A1C0D91E6BD77C000809DE /* MGOrderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGOrderButton.swift; sourceTree = "<group>"; };
+		C0AEF8FE1F0C8B420050BCF2 /* HeaderViewDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewDetailController.swift; sourceTree = "<group>"; };
+		C0AEF9001F0C8B8D0050BCF2 /* HeadViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadViewModel.swift; sourceTree = "<group>"; };
+		C0AEF92D1F0CC2D30050BCF2 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		C0B3C6A01E46C7E8005F7634 /* AnchorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorModel.swift; sourceTree = "<group>"; };
 		C0B3C6A21E46C858005F7634 /* AnchorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewModel.swift; sourceTree = "<group>"; };
 		C0B3C6A41E46C9D7005F7634 /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
@@ -980,6 +986,7 @@
 				C08E3F261E304C6E005A2835 /* Miao */,
 				C08E3EE71E304B5A005A2835 /* Liveky */,
 				C08E3EF41E304B5A005A2835 /* Tencent */,
+				C0AEF92B1F0CC2D30050BCF2 /* More */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1311,6 +1318,46 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		C0AEF92B1F0CC2D30050BCF2 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				C0AEF92C1F0CC2D30050BCF2 /* Controller  */,
+				C0AEF92E1F0CC2D30050BCF2 /* Model */,
+				C0AEF92F1F0CC2D30050BCF2 /* View */,
+				C0AEF9301F0CC2D30050BCF2 /* ViewModel */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		C0AEF92C1F0CC2D30050BCF2 /* Controller  */ = {
+			isa = PBXGroup;
+			children = (
+				C0AEF92D1F0CC2D30050BCF2 /* MoreViewController.swift */,
+			);
+			path = "Controller ";
+			sourceTree = "<group>";
+		};
+		C0AEF92E1F0CC2D30050BCF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0AEF92F1F0CC2D30050BCF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0AEF9301F0CC2D30050BCF2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C0B3C69B1E46C742005F7634 /* DouYu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1327,6 +1374,7 @@
 			children = (
 				C0B3C6A41E46C9D7005F7634 /* AnchorViewController.swift */,
 				C0D156DB1E9B814D0095B8BA /* DetailGameViewController.swift */,
+				C0AEF8FE1F0C8B420050BCF2 /* HeaderViewDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1368,6 +1416,7 @@
 		C0B3C69F1E46C742005F7634 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C0AEF9001F0C8B8D0050BCF2 /* HeadViewModel.swift */,
 				C0D156DD1E9B815D0095B8BA /* DetailGameViewModel.swift */,
 				C0B3C6A21E46C858005F7634 /* AnchorViewModel.swift */,
 			);
@@ -1635,6 +1684,7 @@
 				C03CCA561EB971CE00957CBF /* MGWelcomeAVPlayerViewController.swift in Sources */,
 				C0A1C0D81E6B0B7C000809DE /* MGLrcCell.swift in Sources */,
 				C0373C251EB32387001206C5 /* MGWelcomeViewController.swift in Sources */,
+				C0AEF9011F0C8B8D0050BCF2 /* HeadViewModel.swift in Sources */,
 				C07071471E1E1B86002C42D0 /* Constant.swift in Sources */,
 				C05821EE1EA9D91A00607178 /* HistoryHeaderView.swift in Sources */,
 				C08E3F111E304B5A005A2835 /* MGNetEaseViewController.swift in Sources */,
@@ -1670,6 +1720,7 @@
 				C07071491E1E1B86002C42D0 /* MGButton.swift in Sources */,
 				C087D7EE1E6D83E2000FE18C /* MGImageTool.swift in Sources */,
 				C0B3C6BF1E46FBE8005F7634 /* RecommendCycleView.swift in Sources */,
+				C0AEF8FF1F0C8B420050BCF2 /* HeaderViewDetailController.swift in Sources */,
 				C07071431E1E1B86002C42D0 /* UIImageView+Extension.swift in Sources */,
 				C01D1AC21E66DFA0001F3DA0 /* RankListCell.swift in Sources */,
 				C054FE891E6A88CE003B5B33 /* MGPlayMusicTool.swift in Sources */,
@@ -1691,6 +1742,7 @@
 				C01D1AC41E66E2F0001F3DA0 /* Song.swift in Sources */,
 				C08E3F061E304B5A005A2835 /* DMHeartFlyView.m in Sources */,
 				C01D1AC01E66DE7E001F3DA0 /* MGRankListViewController.swift in Sources */,
+				C0AEF9311F0CC2D30050BCF2 /* MoreViewController.swift in Sources */,
 				C08E3F0D1E304B5A005A2835 /* YKLive.swift in Sources */,
 				C0B3C6A31E46C858005F7634 /* AnchorViewModel.swift in Sources */,
 				C070713E1E1E1B86002C42D0 /* NSObject+Extension.swift in Sources */,

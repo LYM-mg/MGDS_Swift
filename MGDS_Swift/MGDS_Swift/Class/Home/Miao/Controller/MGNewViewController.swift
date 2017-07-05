@@ -177,7 +177,7 @@ extension MGNewViewController: MGWaterFlowLayoutDelegate {
         if a == 0 {
             a += 1.0
         } else if a == 1{
-            a += 0.1
+            a += 0.2
         } else {
             a -= 0.8
         }

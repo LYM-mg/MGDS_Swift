@@ -4,7 +4,15 @@
 //
 //  Created by i-Techsys.com on 17/1/19.
 //  Copyright © 2017年 i-Techsys. All rights reserved.
-//
+/*
+http://qf.56.com/home/v4/moreAnchor.ios?index=0&size=48&type=2
+http://qf.56.com/home/v4/moreAnchor.ios?index=0&size=48&type=2
+http://qf.56.com/home/v4/moreAnchor.ios?index=0&size=48&type=1
+http://qf.56.com/home/v4/moreAnchor.ios?index=0&size=48&type=4
+http://qf.56.com/home/v4/moreAnchor.ios?index=0&size=48&type=3
+http://qf.56.com/home/v4/moreAnchor.ios?index=0&size=48&type=3
+http://qf.56.com/home/v4/moreAnchor.ios?index=0&size=48&type=0
+*/
 
 import UIKit
 
@@ -19,7 +27,7 @@ class MGHotViewModel: NSObject {
 
 extension MGHotViewModel {
     func getHotData(finishedCallBack: @escaping (_ err: Error?) -> ())  {
-        NetWorkTools.requestData(type: .get, urlString: "http://live.9158.com/Fans/GetHotLive?page=\(self.currentPage)", succeed: { [unowned self] (result, err) in
+        NetWorkTools.requestData(type: .get, urlString: "奥?page=\(self.currentPage)", succeed: { [unowned self] (result, err) in
             guard let result = result as? [String: Any] else { return }
             guard let data = result["data"] as? [String: Any] else { return }
             guard let dictArr = data["list"] as? [[String: Any]] else { return }

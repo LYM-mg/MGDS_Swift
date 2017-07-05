@@ -70,9 +70,10 @@ extension HomeTitlesView {
     
     fileprivate func setupTitleLabels() {
         // 0.确定label的一些frame的值
-        let labelW: CGFloat = MGScreenW/CGFloat(self.titles.count)
+        let labelW: CGFloat = 80; // MGScreenW/CGFloat(self.titles.count)
         let labelH: CGFloat = frame.height - kScrollLineH
         let labelY: CGFloat = 0
+        scrollView.contentSize = CGSize(width: 80*self.titles.count, height: 0)
         
         for (index, title) in self.titles.enumerated() {
             // 1.创建UILabel

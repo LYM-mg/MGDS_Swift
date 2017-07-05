@@ -77,7 +77,6 @@ extension AnchorViewModel {
             self.bigDataGroup.tag_name = "热门"
             self.bigDataGroup.icon_name = "home_header_hot"
             
-            print(dataArray)
             // 3.2.获取主播数据
             for dict in dataArray {
                 let anchor = AnchorModel(dict: dict)
@@ -102,7 +101,6 @@ extension AnchorViewModel {
             // 2.根据data该key,获取数组
             guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
             
-            print(dataArray)
             // 3.遍历字典,并且转成模型对象
             // 3.1.设置组的属性
             self.prettyGroup.tag_name = "颜值"

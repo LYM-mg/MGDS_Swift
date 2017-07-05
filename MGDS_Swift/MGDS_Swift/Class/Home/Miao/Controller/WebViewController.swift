@@ -105,19 +105,21 @@ class LoadProgressAnimationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        debugPrint("LoadProgressAnimationView-deinit")
+    }
     
     // MARK: - 加载进度动画
     func startLoadProgressAnimation() {
         self.frame.size.width = 0
         isHidden = false
-        weak var tmpSelf = self
         UIView.animate(withDuration: 0.8, animations: { () -> Void in
-            tmpSelf!.frame.size.width = tmpSelf!.viewWidth * 0.70
+            self.frame.size.width = self.viewWidth * 0.70
             
         }) { (finish) -> Void in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.08, execute: {
-                UIView.animate(withDuration: 0.3, animations: { 
-                    tmpSelf!.frame.size.width = tmpSelf!.viewWidth * 0.85
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.frame.size.width = self.viewWidth * 0.85
                 })
             })
         }

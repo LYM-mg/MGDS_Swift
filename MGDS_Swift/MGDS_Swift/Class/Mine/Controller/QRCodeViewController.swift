@@ -34,14 +34,8 @@ class QRCodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "我的二维码"
         view.backgroundColor = UIColor.white
         setUpMainView()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
