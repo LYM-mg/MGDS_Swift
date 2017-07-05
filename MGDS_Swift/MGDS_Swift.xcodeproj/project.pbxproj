@@ -201,6 +201,8 @@
 		C0AEF9501F0CD4000050BCF2 /* HomeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0AEF94C1F0CD4000050BCF2 /* HomeViewCell.xib */; };
 		C0AEF9511F0CD4000050BCF2 /* FocusViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEF94D1F0CD4000050BCF2 /* FocusViewCell.swift */; };
 		C0AEF9521F0CD4000050BCF2 /* FocusViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0AEF94E1F0CD4000050BCF2 /* FocusViewCell.xib */; };
+		C0AEF9541F0CE4AC0050BCF2 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEF9531F0CE4AC0050BCF2 /* FindViewController.swift */; };
+		C0AEF9561F0CE8140050BCF2 /* FindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEF9551F0CE8140050BCF2 /* FindCell.swift */; };
 		C0B3C6A11E46C7E8005F7634 /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3C6A01E46C7E8005F7634 /* AnchorModel.swift */; };
 		C0B3C6A31E46C858005F7634 /* AnchorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3C6A21E46C858005F7634 /* AnchorViewModel.swift */; };
 		C0B3C6A51E46C9D7005F7634 /* AnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3C6A41E46C9D7005F7634 /* AnchorViewController.swift */; };
@@ -476,6 +478,8 @@
 		C0AEF94C1F0CD4000050BCF2 /* HomeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewCell.xib; sourceTree = "<group>"; };
 		C0AEF94D1F0CD4000050BCF2 /* FocusViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusViewCell.swift; sourceTree = "<group>"; };
 		C0AEF94E1F0CD4000050BCF2 /* FocusViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FocusViewCell.xib; sourceTree = "<group>"; };
+		C0AEF9531F0CE4AC0050BCF2 /* FindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
+		C0AEF9551F0CE8140050BCF2 /* FindCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindCell.swift; sourceTree = "<group>"; };
 		C0B3C6A01E46C7E8005F7634 /* AnchorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorModel.swift; sourceTree = "<group>"; };
 		C0B3C6A21E46C858005F7634 /* AnchorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewModel.swift; sourceTree = "<group>"; };
 		C0B3C6A41E46C9D7005F7634 /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
@@ -589,6 +593,7 @@
 			children = (
 				C004782A1E2E3D5D00393BF8 /* TableViewCell.swift */,
 				C004782B1E2E3D5D00393BF8 /* TableViewCell.xib */,
+				C0AEF9551F0CE8140050BCF2 /* FindCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -987,6 +992,7 @@
 			isa = PBXGroup;
 			children = (
 				C07071271E1E1A2C002C42D0 /* DiscoverViewController.swift */,
+				C0AEF9531F0CE4AC0050BCF2 /* FindViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1192,8 +1198,8 @@
 		C08E3EE71E304B5A005A2835 /* Liveky */ = {
 			isa = PBXGroup;
 			children = (
-				C05A8E7E1E358BC200996FFE /* View */,
 				C08E3F1B1E304BDE005A2835 /* Controler */,
+				C05A8E7E1E358BC200996FFE /* View */,
 				C08E3EE91E304B5A005A2835 /* HeartFlyView */,
 				C08E3F1C1E304C00005A2835 /* Model */,
 			);
@@ -1677,6 +1683,7 @@
 				C0D4EF4F1E1F8D7100043A6B /* RegisterViewController.swift in Sources */,
 				C0B3C6C91E46FEDC005F7634 /* BaseGameModel.swift in Sources */,
 				C01D1ACE1E66F621001F3DA0 /* SongDetailListCell.swift in Sources */,
+				C0AEF9561F0CE8140050BCF2 /* FindCell.swift in Sources */,
 				C08E3F171E304B5A005A2835 /* VideoSidList.swift in Sources */,
 				C0A1C0DA1E6BD77C000809DE /* MGOrderButton.swift in Sources */,
 				C0B3C6B11E46F348005F7634 /* AnchorGroup.swift in Sources */,
@@ -1760,6 +1767,7 @@
 				C07071431E1E1B86002C42D0 /* UIImageView+Extension.swift in Sources */,
 				C01D1AC21E66DFA0001F3DA0 /* RankListCell.swift in Sources */,
 				C054FE891E6A88CE003B5B33 /* MGPlayMusicTool.swift in Sources */,
+				C0AEF9541F0CE4AC0050BCF2 /* FindViewController.swift in Sources */,
 				C070712A1E1E1A42002C42D0 /* MineViewController.swift in Sources */,
 				C08E3F0C1E304B5A005A2835 /* YKCreator.swift in Sources */,
 				C0AEF9461F0CCCB40050BCF2 /* MAnchorViewController.swift in Sources */,
