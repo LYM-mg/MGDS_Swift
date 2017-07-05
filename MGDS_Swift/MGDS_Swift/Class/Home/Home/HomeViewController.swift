@@ -91,7 +91,7 @@ extension HomeViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "更多", style: .plain, target: self, action: #selector(moreClick))
     }
     @objc fileprivate func moreClick() {
-        
+        self.show(MoreViewController(), sender: nil)
     }
 }
 

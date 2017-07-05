@@ -1,9 +1,10 @@
 //
-//  HomeTitlesView.swift
+//  MoreTitlesView.swift
 //  MGDS_Swift
 //
-//  Created by ming on 17/01/05.
-//  Copyright © 2017年 ming. All rights reserved.
+//  Created by i-Techsys.com on 2017/7/5.
+//  Copyright © 2017年 i-Techsys. All rights reserved.
+//
 
 import UIKit
 
@@ -13,18 +14,18 @@ private let kSelectColor : (CGFloat, CGFloat, CGFloat) = (255, 128, 0)
 
 // MARK:- 定义协议
 @objc
-protocol HomeTitlesViewDelegate: NSObjectProtocol {
-    @objc optional func HomeTitlesViewDidSetlected(homeTitlesView: HomeTitlesView, selectedIndex: Int)
+protocol MoreTitlesViewDelegate: NSObjectProtocol {
+    @objc optional func MoreTitlesViewDidSetlected(moreTitlesView: MoreTitlesView, selectedIndex: Int)
 }
 
-class HomeTitlesView: UIView {
-
+class MoreTitlesView: UIView {
+    
     // MARK: - 属性
     var titles: [String]
     var titleLabels: [UILabel] = [UILabel]()
     fileprivate var currentIndex : Int = 0
     
-    weak var deledate: HomeTitlesViewDelegate?
+    weak var delegate: MoreTitlesViewDelegate?
     var HomeTitlesViewWhenTitleSelect : ((_ homeTitlesView: HomeTitlesView, _ selectedIndex: Int) -> ())?
     // MARK: - lazy属性
     fileprivate lazy var scrollView: UIScrollView = {
@@ -44,7 +45,6 @@ class HomeTitlesView: UIView {
         self.titles = titles
         super.init(frame: frame)
         self.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-//        self.backgroundColor = UIColor(r: 166, g: 166, b: 166, a: 0.2)
         setUpUI()
     }
     
@@ -55,7 +55,7 @@ class HomeTitlesView: UIView {
 }
 
 // MARK: - 初始化UI
-extension HomeTitlesView {
+extension MoreTitlesView {
     fileprivate func setUpUI() {
         // 1.添加UIScrollView
         addSubview(scrollView)
@@ -70,9 +70,10 @@ extension HomeTitlesView {
     
     fileprivate func setupTitleLabels() {
         // 0.确定label的一些frame的值
-        let labelW: CGFloat = MGScreenW/CGFloat(self.titles.count)
+        let labelW: CGFloat = 80; // MGScreenW/CGFloat(self.titles.count)
         let labelH: CGFloat = frame.height - kScrollLineH
         let labelY: CGFloat = 0
+        scrollView.contentSize = CGSize(width: 80*self.titles.count, height: 0)
         
         for (index, title) in self.titles.enumerated() {
             // 1.创建UILabel
@@ -118,7 +119,7 @@ extension HomeTitlesView {
 }
 
 // MARK:- 监听Label的点击
-extension HomeTitlesView {
+extension MoreTitlesView {
     @objc func titleLabelClick(_ tap: UITapGestureRecognizer) {
         // 0.获取当前Label
         guard let currentLabel = tap.view as? UILabel else { return }
@@ -143,15 +144,39 @@ extension HomeTitlesView {
         }
         
         // 6.回调
-        //        if (self.HomeTitlesViewWhenTitleSelect != nil) {
-        //            self.HomeTitlesViewWhenTitleSelect!(HomeTitlesView: self, selectedIndex: currentIndex)
-        //        }
-        deledate?.HomeTitlesViewDidSetlected!(homeTitlesView: self, selectedIndex: currentIndex)
+        if delegate != nil && (delegate?.responds(to: #selector(delegate?.MoreTitlesViewDidSetlected(moreTitlesView:selectedIndex:))))! {
+            delegate?.MoreTitlesViewDidSetlected!(moreTitlesView: self, selectedIndex: currentIndex)
+        }
+        
+        // 7.居中显示
+        contentViewDidEndScroll()
+    }
+    
+    func contentViewDidEndScroll() {
+        // 0.如果是不需要滚动,则不需要调整中间位置
+//        guard style.isScrollEnable else { return }
+        
+        // 1.获取获取目标的Label
+        let targetLabel = titleLabels[currentIndex]
+        
+        // 2.计算和中间位置的偏移量
+        var offSetX = targetLabel.center.x - bounds.width * 0.5
+        if offSetX < 0 {
+            offSetX = 0
+        }
+        
+        let maxOffset = scrollView.contentSize.width - bounds.width
+        if offSetX > maxOffset {
+            offSetX = maxOffset
+        }
+        
+        // 3.滚动UIScrollView
+        scrollView.setContentOffset(CGPoint(x: offSetX, y: 0), animated: true)
     }
 }
 
 // MARK:- 对外暴露的接口方法
-extension HomeTitlesView {
+extension MoreTitlesView {
     func setTitleWithProgress(progress : CGFloat, sourceIndex : Int, targetIndex : Int) {
         // 1.取出sourceLabel/targetLabel
         let sourceLabel = titleLabels[sourceIndex]
@@ -174,6 +199,22 @@ extension HomeTitlesView {
         
         // 4.记录最新的index
         currentIndex = targetIndex
+    }
+}
+
+extension UIColor {
+    static func KNormalColorForPageTitle() -> UIColor {
+        let r = CGFloat(85) / 255.0
+        let g = CGFloat(85) / 255.0
+        let b = CGFloat(85) / 255.0
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
+    }
+    
+    static func KSelectedColorForPageTitle() -> UIColor {
+        let r = CGFloat(255) / 255.0
+        let g = CGFloat(128) / 255.0
+        let b = CGFloat(0) / 255.0
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
     }
 }
 

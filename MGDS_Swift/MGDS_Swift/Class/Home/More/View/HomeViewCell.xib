@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeViewCell" customModule="XMGTV" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="177" height="195"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="177" height="195"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WJT-mZ-j5G">
+                        <rect key="frame" x="0.0" y="0.0" width="177" height="195"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_icon_live" translatesAutoresizingMaskIntoConstraints="NO" id="36y-5B-vb2">
+                        <rect key="frame" x="146" y="8" width="23" height="13"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="三语女神诗诗休息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wxb-hY-Z4b">
+                        <rect key="frame" x="8" y="172" width="99" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4a-je-2ab">
+                        <rect key="frame" x="112" y="174" width="45" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="rCS-SE-QSm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="2023" image="home_icon_people"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="36y-5B-vb2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="0qF-P3-8cC"/>
+                <constraint firstAttribute="bottom" secondItem="WJT-mZ-j5G" secondAttribute="bottom" id="4GM-5w-IcE"/>
+                <constraint firstAttribute="bottom" secondItem="Wxb-hY-Z4b" secondAttribute="bottom" constant="8" id="4ji-ir-9Ff"/>
+                <constraint firstItem="a4a-je-2ab" firstAttribute="centerY" secondItem="Wxb-hY-Z4b" secondAttribute="centerY" id="5GW-vZ-6ZO"/>
+                <constraint firstAttribute="trailing" secondItem="36y-5B-vb2" secondAttribute="trailing" constant="8" id="EQX-4f-Z3O"/>
+                <constraint firstItem="Wxb-hY-Z4b" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="GVd-dc-7cr"/>
+                <constraint firstItem="a4a-je-2ab" firstAttribute="leading" secondItem="Wxb-hY-Z4b" secondAttribute="trailing" constant="5" id="Mg8-4o-6uM"/>
+                <constraint firstAttribute="trailing" secondItem="WJT-mZ-j5G" secondAttribute="trailing" id="Mu9-EK-Cq7"/>
+                <constraint firstItem="WJT-mZ-j5G" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bjN-cD-rg3"/>
+                <constraint firstItem="WJT-mZ-j5G" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sv4-kn-HXk"/>
+            </constraints>
+            <size key="customSize" width="177" height="195"/>
+            <connections>
+                <outlet property="albumImageView" destination="WJT-mZ-j5G" id="aXQ-Bz-aB1"/>
+                <outlet property="liveImageView" destination="36y-5B-vb2" id="AKb-On-DxQ"/>
+                <outlet property="nickNameLabel" destination="Wxb-hY-Z4b" id="2KZ-Ue-Ozk"/>
+                <outlet property="onlinePeopleLabel" destination="a4a-je-2ab" id="6LX-hk-Fwx"/>
+            </connections>
+            <point key="canvasLocation" x="27.5" y="50.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="home_icon_live" width="23" height="13"/>
+        <image name="home_icon_people" width="7" height="7"/>
+    </resources>
+</document>
