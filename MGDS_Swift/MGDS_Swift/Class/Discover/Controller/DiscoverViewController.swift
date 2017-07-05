@@ -26,7 +26,7 @@ class DiscoverViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.title = "惊喜"
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 50.0
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -34,6 +34,7 @@ class DiscoverViewController: UITableViewController {
         
         loadData()
         self.view.layoutIfNeeded()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "惊喜", style: .plain, target: self, action: #selector(rightClick))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,6 +42,10 @@ class DiscoverViewController: UITableViewController {
         playerView.resetPlayer()
     }
     
+    @objc fileprivate func rightClick() {
+        let discoverVC = FindViewController()
+        self.show(discoverVC, sender: nil)
+    }
 }
 
 // MARK: - 数据源

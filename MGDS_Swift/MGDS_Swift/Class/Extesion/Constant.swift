@@ -56,13 +56,13 @@ let MGKeyWindow = UIApplication.shared.keyWindow
 let MGFirstResponder = MGKeyWindow?.perform(Selector(("firstResponder")))
 
 
-
 // MARK:- 通知
 /// 通知中心
 let MGNotificationCenter = NotificationCenter.default
-
 
 // MARK:- 首页排序的通知
 /// 首页自定义导航栏按钮的点击
 let MGBarLeftBtnClickNoti  = "MGBarLeftBtnClickNoti"
 let KEnterHomeViewNotification = "KEnterHomeViewNotification"
+/// 通知换一换
+let KChangeanchorNotification = "KChangeanchorNotification"

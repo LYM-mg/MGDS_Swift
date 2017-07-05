@@ -8,11 +8,6 @@ import Kingfisher
 import UIKit
 import MJRefresh
 
-enum LivekyTopicType {
-    case top
-    case search
-}
-
 
 class LiveTableViewController: UITableViewController {
     // MARK: - 属性
