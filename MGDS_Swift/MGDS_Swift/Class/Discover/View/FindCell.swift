@@ -55,12 +55,13 @@ class FindCell: UITableViewCell {
     }
     
     @objc fileprivate func change() {
-        self.currentIndex = Int(arc4random_uniform(15))
-        if ((self.currentIndex + 1) * 9 < ((anchorData?.count)! - 1)) {
-            self.anchorArray?.removeAll()
-            self.anchorArray = Array(anchorData![self.currentIndex * 9..<(self.currentIndex + 1) * 9])
-            self.collectionView.reloadData()
+        self.currentIndex += 1
+        if !((self.currentIndex + 1) * 9 < ((anchorData?.count)! - 1)) {
+            self.currentIndex = 0
         }
+        self.anchorArray?.removeAll()
+        self.anchorArray = Array(anchorData![self.currentIndex * 9..<(self.currentIndex + 1) * 9])
+        self.collectionView.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {

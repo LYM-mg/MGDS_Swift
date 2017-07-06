@@ -13,7 +13,7 @@ class MoreViewModel {
 }
 
 extension MoreViewModel {
-    func loadHomeData(type : MoreType, index : Int,  finishedCallback: @escaping (_ error: Error?) -> ()) {
+    func loadMoreData(type : MoreType, index : Int,  finishedCallback: @escaping (_ error: Error?) -> ()) {
         NetWorkTools.requestData(type: .get, urlString: "http://qf.56.com/home/v4/moreAnchor.ios", parameters: ["type" : type.type, "index" : index, "size" : 48], succeed: { (result, err) in
             guard let resultDict = result as? [String : Any] else { return }
             guard let messageDict = resultDict["message"] as? [String : Any] else { return }

@@ -127,6 +127,10 @@ extension FindViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: KFindCellID, for: indexPath) as? FindCell
         cell?.anchorData = findVM.anchorModels
+        cell?.cellDidSelected = { (anchor) in
+            let liveVc = RoomViewController(anchor:anchor)
+            self.navigationController?.pushViewController(liveVc, animated: true)
+        }
         return cell!
     }
     
@@ -135,10 +139,10 @@ extension FindViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 35
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200*3+10
+        return 200*3
     }
 }

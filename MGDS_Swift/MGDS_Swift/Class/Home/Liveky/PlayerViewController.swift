@@ -139,7 +139,6 @@ class PlayerViewController: UIViewController {
     
     
     @IBAction func like(_ sender: UIButton) {
-        
         //爱心大小
         let heart = DMHeartFlyView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
 
@@ -156,6 +155,5 @@ class PlayerViewController: UIViewController {
         btnAnime.keyTimes = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
         btnAnime.duration = 0.2
         sender.layer.add(btnAnime, forKey: "SHOW")
-        
     }
 }

@@ -16,6 +16,15 @@ class MainTabBarViewController: UITabBarController {
         // 1.初始化所有的子控制器
         setUpChildViewController()
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        let isfirst = SaveTools.mg_getLocalData(key: "isFirstOpen") as? String
+        return (isfirst == "false") ? false : true
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 // MARK: - setUpChildViewController

@@ -209,6 +209,7 @@ extension MGNewViewController: MGWaterFlowLayoutDelegate {
     func edgeInsetsInWaterflowLayout(waterflowLayout: MGWaterFlowLayout) -> UIEdgeInsets {
         if newAnchorVM.anchors.count > 36  {
             return UIEdgeInsetsMake(2, 2, 2, 2)
+            
         }
         return UIEdgeInsetsMake(2, 10, 2, 10)
     }

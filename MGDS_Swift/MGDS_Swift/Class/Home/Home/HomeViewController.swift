@@ -69,15 +69,6 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    override var prefersStatusBarHidden: Bool {
-        let isfirst = SaveTools.mg_getLocalData(key: "isFirstOpen") as? String
-        return (isfirst == "false") ? false : true
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 }
 
 // MARK: - 初始化UI
@@ -88,7 +79,7 @@ extension HomeViewController {
         view.addSubview(homeContentView)
     }
     fileprivate func setUpNavgationBar() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "更多", style: .plain, target: self, action: #selector(moreClick))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "更多", style: .plain, target: self, action: #selector(moreClick))
     }
     @objc fileprivate func moreClick() {
         self.show(MoreViewController(), sender: nil)

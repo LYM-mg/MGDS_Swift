@@ -37,12 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guardView.backgroundColor = UIColor.white
         return guardView
     }()
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // 状态栏设置为白色
+//        application.setStatusBarStyle(.lightContent, animated: true)
+        
         // 1.主窗口
         setUpKeyWindow()
-        
+    
         // 2.加载数据
         loadData()
         

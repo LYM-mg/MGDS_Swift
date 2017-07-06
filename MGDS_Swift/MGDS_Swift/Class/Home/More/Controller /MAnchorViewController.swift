@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MJRefresh
 
 private let KEdgeMargin : CGFloat = 8
 private let KAnchorCellID = "KAnchorCellID"
@@ -38,13 +39,12 @@ class MAnchorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadData(index: 0)
     }
     
     // MARK: - 系统方法
     convenience init(type: MoreType) {
         self.init()
-        self.moreType = type   // 这个tag_id是用作url参数用的，具体你看ViewModel的两个url分析
+        self.moreType = type   // 这个type是用作网络参数请求用的
     }
 }
 
@@ -52,13 +52,21 @@ class MAnchorViewController: UIViewController {
 extension MAnchorViewController {
     fileprivate func setupUI() {
         view.addSubview(collectionView)
+        
+        collectionView.mj_header = MJRefreshGifHeader(refreshingBlock: { 
+            self.loadData(index: 0)
+        })
+        collectionView.mj_header.beginRefreshing()
     }
 }
 
 extension MAnchorViewController {
     fileprivate func loadData(index : Int) {
-        moreVM.loadHomeData(type: moreType, index : index, finishedCallback: { _ in
-            self.collectionView.reloadData()
+        weak var weakSelf = self
+        moreVM.loadMoreData(type: moreType, index : index, finishedCallback: { _ in
+            weakSelf?.collectionView.mj_header.endRefreshing()
+            weakSelf!.hideHud()
+            weakSelf?.collectionView.reloadData()
         })
     }
 }
@@ -75,6 +83,7 @@ extension MAnchorViewController : UICollectionViewDataSource, UICollectionViewDe
         cell.anchorModel = moreVM.anchorModels[indexPath.item]
         
         if indexPath.item == moreVM.anchorModels.count - 1 {
+            self.showHudInViewWithMode(view: MGKeyWindow!, hint: "正在加载更多...", mode: .indeterminate, imageName: nil)
             loadData(index: moreVM.anchorModels.count)
         }
         
@@ -82,9 +91,8 @@ extension MAnchorViewController : UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let liveVc = RoomViewController()
-//        liveVc.anchor = moreVM.anchorModels[indexPath.item]
-//        navigationController?.pushViewController(liveVc, animated: true)
+        let liveVc = RoomViewController(anchor: moreVM.anchorModels[indexPath.item])
+        navigationController?.pushViewController(liveVc, animated: true)
     }
 }
 
@@ -107,6 +115,10 @@ extension MAnchorViewController: MGWaterFlowLayoutDelegate {
         } else {
             return 2
         }
+    }
+    
+    func edgeInsetsInWaterflowLayout(waterflowLayout: MGWaterFlowLayout) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(3, 10, 3, 10)
     }
 }
 
