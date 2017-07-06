@@ -109,7 +109,7 @@ extension MoreTitlesView {
         // 2.添加scrollLine
         // 2.1.获取第一个Label
         guard let firstLabel = titleLabels.first else { return }
-        firstLabel.textColor = UIColor.KNormalColorForPageTitle()
+        firstLabel.textColor = UIColor.KSelectedColorForPageTitle()
         
         // 2.2.设置scrollLine的属性
         scrollView.addSubview(scrollLine)

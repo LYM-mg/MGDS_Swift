@@ -14,7 +14,7 @@ class FindViewController: UIViewController {
     // MARK: - 懒加载属性
     fileprivate lazy var findHeaderView: LivekyCycleHeader = {[unowned self] in
         let hdcView = LivekyCycleHeader(frame: CGRect(x: 0, y: 0, width: MGScreenW, height: MGScreenW/2.5))
-        hdcView.type = .top
+        hdcView.type = .find
         // 图片轮播器点击回调
         hdcView.carouselsClickBlock = { [unowned self] (carouselModel) in
             let webViewVc = WebViewController(navigationTitle: carouselModel.name, urlStr: carouselModel.linkUrl)
@@ -72,6 +72,7 @@ extension FindViewController {
         btn.center = CGPoint(x: MGScreenW * 0.5, y: 40)
         btn.setTitle("换一换", for: .normal)
         btn.setTitleColor(UIColor.black, for: .normal)
+        btn.setTitleColor(UIColor.lightGray, for: .highlighted)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
         btn.layer.cornerRadius = 5
         btn.layer.borderColor = UIColor.orange.cgColor

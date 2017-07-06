@@ -27,7 +27,7 @@ class MGHotViewModel: NSObject {
 
 extension MGHotViewModel {
     func getHotData(finishedCallBack: @escaping (_ err: Error?) -> ())  {
-        NetWorkTools.requestData(type: .get, urlString: "奥?page=\(self.currentPage)", succeed: { [unowned self] (result, err) in
+        NetWorkTools.requestData(type: .get, urlString: "http://live.9158.com/Fans/GetHotLive?page=\(self.currentPage)", succeed: { [unowned self] (result, err) in
             guard let result = result as? [String: Any] else { return }
             guard let data = result["data"] as? [String: Any] else { return }
             guard let dictArr = data["list"] as? [[String: Any]] else { return }

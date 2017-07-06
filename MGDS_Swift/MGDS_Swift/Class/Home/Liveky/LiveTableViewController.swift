@@ -16,7 +16,7 @@ class LiveTableViewController: UITableViewController {
     var multiaddr: Int = 0
     var proto: Int = 5
     fileprivate lazy var livekyHeaderView: LivekyCycleHeader = {[unowned self] in
-        let hdcView = LivekyCycleHeader(frame: CGRect(x: 0, y: 0, width: MGScreenW, height: MGScreenW*190/338))
+        let hdcView = LivekyCycleHeader(frame: CGRect(x: 0, y: 0, width: MGScreenW, height: MGScreenW/2.8))
         hdcView.type = self.topicType == .top ? .top : .search
             // 图片轮播器点击回调
         hdcView.imageClickBlock = { [unowned self] (cycleHeaderModel) in

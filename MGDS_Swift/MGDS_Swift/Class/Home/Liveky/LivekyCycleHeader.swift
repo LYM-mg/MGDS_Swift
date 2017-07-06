@@ -70,7 +70,7 @@ extension LivekyCycleHeader {
     
     /// 内部请求，不外部封装（要想看外部封装请看Miao文件下的 MGHotADCell）
     open func loadData() {
-       if self.type != .find  {
+       if self.type == .find  {
             NetWorkTools.requestData(type:.get, urlString: "http://qf.56.com/home/v4/getBanners.ios", succeed: { [unowned self] (result, err) in
                 // 1.转成字典
                 guard let resultDict = result as? [String : Any] else { return }

@@ -220,6 +220,8 @@ extension AppDelegate {
         
         // 如果使用美国站点，请加上这行代码，并且写在初始化前面
 //      LeanCloud.setServiceRegion(.US)
+        AVOSCloud.setAllLogsEnabled(false)
+        AVOSCloud.setLogLevel(AVLogLevelError)
         // applicationId 即 App Id，applicationKey 是 App Key
         AVOSCloud.setApplicationId("Guvxe6EhKrfSTMPpiWC4LVMi-gzGzoHsz", clientKey: "nwy4pORkhij4Pg6hsNHdR1bU")
         

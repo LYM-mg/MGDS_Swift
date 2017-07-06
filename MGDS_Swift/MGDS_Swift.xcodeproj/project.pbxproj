@@ -139,7 +139,6 @@
 		C08E3E9F1E2F0C39005A2835 /* playcount.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E911E2F0C39005A2835 /* playcount.png */; };
 		C08E3EA01E2F0C39005A2835 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E921E2F0C39005A2835 /* share@2x.png */; };
 		C08E3EA11E2F0C39005A2835 /* share_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E931E2F0C39005A2835 /* share_s@2x.png */; };
-		C08E3EA21E2F0C39005A2835 /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E941E2F0C39005A2835 /* time.png */; };
 		C08E3EA31E2F0C39005A2835 /* video_play_btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E951E2F0C39005A2835 /* video_play_btn_bg@2x.png */; };
 		C08E3EFF1E304B5A005A2835 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EE01E304B5A005A2835 /* HomeViewController.swift */; };
 		C08E3F001E304B5A005A2835 /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3EE11E304B5A005A2835 /* VideoTableViewController.swift */; };
@@ -208,6 +207,7 @@
 		C0AEF9691F0D12820050BCF2 /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEF9681F0D12820050BCF2 /* FindViewModel.swift */; };
 		C0AEF9781F0DC1AE0050BCF2 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEF9771F0DC1AE0050BCF2 /* RoomViewController.swift */; };
 		C0AEF97A1F0DC5BE0050BCF2 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEF9791F0DC5BE0050BCF2 /* RoomViewModel.swift */; };
+		C0AEF98A1F0E09C20050BCF2 /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0AEF9891F0E09C20050BCF2 /* ClockViewController.m */; };
 		C0B3C6A11E46C7E8005F7634 /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3C6A01E46C7E8005F7634 /* AnchorModel.swift */; };
 		C0B3C6A31E46C858005F7634 /* AnchorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3C6A21E46C858005F7634 /* AnchorViewModel.swift */; };
 		C0B3C6A51E46C9D7005F7634 /* AnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3C6A41E46C9D7005F7634 /* AnchorViewController.swift */; };
@@ -419,7 +419,6 @@
 		C08E3E911E2F0C39005A2835 /* playcount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playcount.png; sourceTree = "<group>"; };
 		C08E3E921E2F0C39005A2835 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		C08E3E931E2F0C39005A2835 /* share_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_s@2x.png"; sourceTree = "<group>"; };
-		C08E3E941E2F0C39005A2835 /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
 		C08E3E951E2F0C39005A2835 /* video_play_btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_play_btn_bg@2x.png"; sourceTree = "<group>"; };
 		C08E3EE01E304B5A005A2835 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C08E3EE11E304B5A005A2835 /* VideoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
@@ -490,6 +489,8 @@
 		C0AEF9681F0D12820050BCF2 /* FindViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindViewModel.swift; path = MGDS_Swift/Class/Discover/View/FindViewModel.swift; sourceTree = SOURCE_ROOT; };
 		C0AEF9771F0DC1AE0050BCF2 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		C0AEF9791F0DC5BE0050BCF2 /* RoomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoomViewModel.swift; path = MGDS_Swift/Class/Main/Controller/RoomViewModel.swift; sourceTree = SOURCE_ROOT; };
+		C0AEF9881F0E09C20050BCF2 /* ClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockViewController.h; sourceTree = "<group>"; };
+		C0AEF9891F0E09C20050BCF2 /* ClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockViewController.m; sourceTree = "<group>"; };
 		C0B3C6A01E46C7E8005F7634 /* AnchorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorModel.swift; sourceTree = "<group>"; };
 		C0B3C6A21E46C858005F7634 /* AnchorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewModel.swift; sourceTree = "<group>"; };
 		C0B3C6A41E46C9D7005F7634 /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
@@ -966,8 +967,8 @@
 		C07070F91E1E1461002C42D0 /* MGDS_Swift */ = {
 			isa = PBXGroup;
 			children = (
-				C070710C1E1E14F0002C42D0 /* Class */,
 				C07070FA1E1E1461002C42D0 /* AppDelegate.swift */,
+				C070710C1E1E14F0002C42D0 /* Class */,
 				C07071591E1E2538002C42D0 /* Support File */,
 			);
 			path = MGDS_Swift;
@@ -1184,7 +1185,6 @@
 				C08E3E911E2F0C39005A2835 /* playcount.png */,
 				C08E3E921E2F0C39005A2835 /* share@2x.png */,
 				C08E3E931E2F0C39005A2835 /* share_s@2x.png */,
-				C08E3E941E2F0C39005A2835 /* time.png */,
 				C08E3E951E2F0C39005A2835 /* video_play_btn_bg@2x.png */,
 			);
 			path = Resource;
@@ -1356,6 +1356,8 @@
 			children = (
 				C08E3EE01E304B5A005A2835 /* HomeViewController.swift */,
 				C08E3EE11E304B5A005A2835 /* VideoTableViewController.swift */,
+				C0AEF9881F0E09C20050BCF2 /* ClockViewController.h */,
+				C0AEF9891F0E09C20050BCF2 /* ClockViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1616,7 +1618,6 @@
 				C017AD041E1FC718000F4B60 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				C004C6651E1E7C1800EC712E /* Login.storyboard in Resources */,
 				C0373C2A1EB33DE4001206C5 /* login_video.mp4 in Resources */,
-				C08E3EA21E2F0C39005A2835 /* time.png in Resources */,
 				C08E3EA11E2F0C39005A2835 /* share_s@2x.png in Resources */,
 				C08E3F3D1E305950005A2835 /* placeholder.png in Resources */,
 				C017ACF91E1FC718000F4B60 /* UMShareEditViewController.xib in Resources */,
@@ -1768,6 +1769,7 @@
 				C017AC591E1FC449000F4B60 /* SysNetWorkTools.swift in Sources */,
 				C08E3F2F1E304E2E005A2835 /* MGHotLiveCell.swift in Sources */,
 				C0B3C6B31E46F479005F7634 /* CycleModel.swift in Sources */,
+				C0AEF98A1F0E09C20050BCF2 /* ClockViewController.m in Sources */,
 				C0B3C6AB1E46CB37005F7634 /* CollectionNormalCell.swift in Sources */,
 				C017AC581E1FC449000F4B60 /* SaveTools.swift in Sources */,
 				C07071241E1E19D3002C42D0 /* MainTabBarViewController.swift in Sources */,

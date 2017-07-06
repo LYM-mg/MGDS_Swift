@@ -44,6 +44,8 @@
 #import "DeformationButton.h"
 #import "HotSearchView.h"  // 音乐热门搜索View
 
+#import "ClockViewController.h" // 时钟
+
 //#import <Qiniu/QiniuSDK.h>
 //#import <GoogleMobileAds/GoogleMobileAds.h>
 

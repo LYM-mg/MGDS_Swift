@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     // MARK: - lazy
     fileprivate lazy var homeTitlesView: HomeTitlesView = { [weak self] in
         let titleFrame = CGRect(x: 0, y: MGNavHeight, width: MGScreenW, height: kTitlesViewH)
-        let titles = ["推荐","精华","热门","娱乐","逗视"] // "斗鱼",
+        let titles = ["推荐","精华","热门","斗鱼","娱乐","逗视"] //
         let tsView = HomeTitlesView(frame: titleFrame, titles: titles)
         tsView.deledate = self
         return tsView
@@ -28,25 +28,26 @@ class HomeViewController: UIViewController {
         // 2.确定所有的子控制器
         var childVcs = [UIViewController]()
         
-        // 映客直播
+        // 2.2映客直播
         let livekySearchVC = UIStoryboard(name: "Liveky", bundle: nil).instantiateInitialViewController() as! LiveTableViewController
         livekySearchVC.topicType = LivekyTopicType.search
         childVcs.append(livekySearchVC)
         
-        // 喵播
+        // 2.3喵播
         let hotVC = MGHotViewController()
         childVcs.append(hotVC)
         let newVC = MGNewViewController()
         childVcs.append(newVC)
         
-        // 斗鱼
-//        childVcs.append(AnchorViewController())
+        // 2.4斗鱼
+        childVcs.append(AnchorViewController())
         
-        // 腾讯
+        // 2.5腾讯
         let tencentVC = UIStoryboard(name: "Tencent", bundle: nil).instantiateInitialViewController() as! MGTencentNewsViewController
 //        let sinaNewsVC = UIStoryboard(name: "Tencent", bundle: nil).instantiateViewController(withIdentifier: "KTrunToSinaNewsVC") as! MGSinaNewsViewController
         childVcs.append(tencentVC)
         
+        // 2.6映客直播
         let livekyTopVC = UIStoryboard(name: "Liveky", bundle: nil).instantiateInitialViewController() as! LiveTableViewController
         livekyTopVC.topicType = .top
         childVcs.append(livekyTopVC)
@@ -79,10 +80,14 @@ extension HomeViewController {
         view.addSubview(homeContentView)
     }
     fileprivate func setUpNavgationBar() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "更多", style: .plain, target: self, action: #selector(moreClick))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "更多", style: .plain, target: self, action: #selector(moreClick))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "time.png"),  style: .plain, target: self, action: #selector(leftClick))
     }
     @objc fileprivate func moreClick() {
         self.show(MoreViewController(), sender: nil)
+    }
+    @objc fileprivate func leftClick() {
+        self.show(ClockViewController(), sender: nil)
     }
 }
 
