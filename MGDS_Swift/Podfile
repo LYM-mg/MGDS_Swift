@@ -28,6 +28,7 @@ target 'MGDS_Swift' do
     
     
     pod 'NAKPlaybackIndicatorView', '~> 0.0.3'
+    pod 'FMDB', '~> 2.7.2'                # 数据存储
     
   
 end

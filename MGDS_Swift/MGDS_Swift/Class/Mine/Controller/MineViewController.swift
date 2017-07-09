@@ -69,7 +69,7 @@ extension MineViewController {
     // MARK: 第1️⃣页
     /// 我的收藏
     fileprivate func myFavourite() {
-        self.showHint(hint: "我的收藏，暂时没有")
+        self.tabBarController?.selectedIndex = 2
     }
 
     // MARK: 第2️⃣页

@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.2.0)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
   - IQKeyboardManagerSwift (4.0.6)
   - Just (0.5.7)
   - Kingfisher (3.2.1)
@@ -18,6 +21,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.2.0)
+  - FMDB (~> 2.7.2)
   - IQKeyboardManagerSwift (= 4.0.6)
   - Just (~> 0.5.7)
   - Kingfisher (~> 3.2.1)
@@ -34,6 +38,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
   Just: d19e769d86b965e39ae58cb3c0cbad07706634a8
   Kingfisher: 64ef28c6d3d6f344e3ae2d7f5c9da80439505d99
@@ -49,6 +54,6 @@ SPEC CHECKSUMS:
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
   ZFPlayer: ff74ca27faa41e8f6df42ea038c951353246f97f
 
-PODFILE CHECKSUM: c8061a9e37d9274b2d3844670e242b7987396d62
+PODFILE CHECKSUM: 49a9b376e7c290062d5aef981e351f0bde19d8ac
 
 COCOAPODS: 1.2.0.beta.1

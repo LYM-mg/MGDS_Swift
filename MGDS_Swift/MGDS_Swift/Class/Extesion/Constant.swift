@@ -66,3 +66,5 @@ let MGBarLeftBtnClickNoti  = "MGBarLeftBtnClickNoti"
 let KEnterHomeViewNotification = "KEnterHomeViewNotification"
 /// 通知换一换
 let KChangeanchorNotification = "KChangeanchorNotification"
+/// 通知换一换
+let KSelectedFavouriteAnchorNotification = "KSelectedFavouriteAnchorNotification"

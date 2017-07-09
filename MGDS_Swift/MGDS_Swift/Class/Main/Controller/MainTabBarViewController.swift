@@ -37,6 +37,8 @@ extension MainTabBarViewController {
         let musicVC = MGRankListViewController()
         setUpNavRootViewControllers(vc: musicVC, title: "音乐", image: "songList_normal", selImage: "songList_highLighted")
         
+        setUpNavRootViewControllers(vc: MyFavoutiteViewController(), title: "收藏", image: "tabBar_me_click_icon", selImage: "tabBar_me_icon")
+        
         let findVC = FindViewController()
         setUpNavRootViewControllers(vc: findVC, title: "发现", image: "find", selImage: "find")
         
