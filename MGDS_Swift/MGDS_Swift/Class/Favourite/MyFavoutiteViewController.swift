@@ -169,7 +169,7 @@ extension MyFavoutiteViewController {
     /**
         从数据库取出缓存收藏数据
      
-     - parasmeter array: 收藏数据数组
+     - parasmeter statusArray: 收藏数据数组
      */
     static fileprivate func loadFavouriteAnchorDataFromLocal(finished:@escaping ([MGHotModel]) -> ()){
         DispatchQueue.global().async {

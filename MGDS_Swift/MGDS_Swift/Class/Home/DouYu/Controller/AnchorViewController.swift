@@ -77,13 +77,6 @@ class AnchorViewController: UIViewController {
             }
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        if anchorVM.anchorGroups.count == 0 {
-//            setUpRefresh()
-//        }
-    }
 }
 
 // MARK:- 设置UI界面
@@ -98,8 +91,8 @@ extension AnchorViewController {
         // 3.将gameView添加collectionView中
         collectionView.addSubview(gameView)
         
-        // 4.设置collectionView的内边距
-        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH-MGNavHeight, left: 0, bottom: 0, right: 0)
+        // 4.设置collectionView的内边距 -MGNavHeight
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -118,6 +111,8 @@ extension AnchorViewController {
         })
         
         // 设置自动切换透明度(在导航栏下面自动隐藏)
+        // 设置自动切换透明度(在导航栏下面自动隐藏)
+        collectionView.mj_header.ignoredScrollViewContentInsetTop = kCycleViewH + kGameViewH
         collectionView.mj_header.isAutomaticallyChangeAlpha = true
         self.collectionView.mj_header.beginRefreshing()
     }
@@ -128,6 +123,7 @@ extension AnchorViewController {
         anchorVM.requestData {[unowned self] (err) in
             if err != nil {
                 self.showHint(hint: "网络请求失败")
+                self.collectionView.mj_header.endRefreshing()
                 return
             }
             // 1.展示推荐数据
@@ -149,6 +145,7 @@ extension AnchorViewController {
             groups.append(moreGroup)
             
             self.gameView.groups = groups
+            self.collectionView.mj_header.endRefreshing()
         }
         
         // 2.请求轮播数据

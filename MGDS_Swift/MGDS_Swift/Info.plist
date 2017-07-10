@@ -252,61 +252,61 @@
 	<string>App需要您的同意,才能访问相册</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>App需要您的同意,才能访问提醒事项</string>
-	<key>UIApplicationShortcutItems</key>
-	<array>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>hearts</string>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeLove</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>你最喜欢听的Music</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>我的音乐</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>1</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>sort</string>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeHome</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>快速启动界面至首页或登录</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>首页或登录</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>2</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>qrcode</string>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeAlarm
-&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=&quot;1.0&quot;&gt;
-&lt;dict&gt;
-	&lt;key&gt;UIApplicationShortcutItemIconFile&lt;/key&gt;
-	&lt;string&gt;sort&lt;/string&gt;
-	&lt;key&gt;UIApplicationShortcutItemIconType&lt;/key&gt;
-	&lt;string&gt;UIApplicationShortcutIconTypeHome&lt;/string&gt;
-	&lt;key&gt;UIApplicationShortcutItemSubtitle&lt;/key&gt;
-	&lt;string&gt;3DTouch快速启动界面至首页或登录&lt;/string&gt;
-	&lt;key&gt;UIApplicationShortcutItemTitle&lt;/key&gt;
-	&lt;string&gt;首页或登录&lt;/string&gt;
-	&lt;key&gt;UIApplicationShortcutItemType&lt;/key&gt;
-	&lt;string&gt;2&lt;/string&gt;
-&lt;/dict&gt;
-&lt;/plist&gt;
-</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string></string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>我的二维码</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>3</string>
-		</dict>
-	</array>
+<!--	<key>UIApplicationShortcutItems</key>-->
+<!--	<array>-->
+<!--		<dict>-->
+<!--			<key>UIApplicationShortcutItemIconFile</key>-->
+<!--			<string>hearts</string>-->
+<!--			<key>UIApplicationShortcutItemIconType</key>-->
+<!--			<string>UIApplicationShortcutIconTypeLove</string>-->
+<!--			<key>UIApplicationShortcutItemSubtitle</key>-->
+<!--			<string>你最喜欢听的Music</string>-->
+<!--			<key>UIApplicationShortcutItemTitle</key>-->
+<!--			<string>我的音乐</string>-->
+<!--			<key>UIApplicationShortcutItemType</key>-->
+<!--			<string>1</string>-->
+<!--		</dict>-->
+<!--		<dict>-->
+<!--			<key>UIApplicationShortcutItemIconFile</key>-->
+<!--			<string>sort</string>-->
+<!--			<key>UIApplicationShortcutItemIconType</key>-->
+<!--			<string>UIApplicationShortcutIconTypeHome</string>-->
+<!--			<key>UIApplicationShortcutItemSubtitle</key>-->
+<!--			<string>快速启动界面至首页或登录</string>-->
+<!--			<key>UIApplicationShortcutItemTitle</key>-->
+<!--			<string>首页或登录</string>-->
+<!--			<key>UIApplicationShortcutItemType</key>-->
+<!--			<string>2</string>-->
+<!--		</dict>-->
+<!--		<dict>-->
+<!--			<key>UIApplicationShortcutItemIconFile</key>-->
+<!--			<string>qrcode</string>-->
+<!--			<key>UIApplicationShortcutItemIconType</key>-->
+<!--			<string>UIApplicationShortcutIconTypeAlarm-->
+<!--&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;-->
+<!--&lt;plist version=&quot;1.0&quot;&gt;-->
+<!--&lt;dict&gt;-->
+<!--	&lt;key&gt;UIApplicationShortcutItemIconFile&lt;/key&gt;-->
+<!--	&lt;string&gt;sort&lt;/string&gt;-->
+<!--	&lt;key&gt;UIApplicationShortcutItemIconType&lt;/key&gt;-->
+<!--	&lt;string&gt;UIApplicationShortcutIconTypeHome&lt;/string&gt;-->
+<!--	&lt;key&gt;UIApplicationShortcutItemSubtitle&lt;/key&gt;-->
+<!--	&lt;string&gt;3DTouch快速启动界面至首页或登录&lt;/string&gt;-->
+<!--	&lt;key&gt;UIApplicationShortcutItemTitle&lt;/key&gt;-->
+<!--	&lt;string&gt;首页或登录&lt;/string&gt;-->
+<!--	&lt;key&gt;UIApplicationShortcutItemType&lt;/key&gt;-->
+<!--	&lt;string&gt;2&lt;/string&gt;-->
+<!--&lt;/dict&gt;-->
+<!--&lt;/plist&gt;-->
+<!--</string>-->
+<!--			<key>UIApplicationShortcutItemSubtitle</key>-->
+<!--			<string></string>-->
+<!--			<key>UIApplicationShortcutItemTitle</key>-->
+<!--			<string>我的二维码</string>-->
+<!--			<key>UIApplicationShortcutItemType</key>-->
+<!--			<string>3</string>-->
+<!--		</dict>-->
+<!--	</array>-->
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

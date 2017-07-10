@@ -57,6 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 5.实时检查网络状态
         checkNetworkStates()
         
+        // 6.3DTouch
+        create3DTouchShotItems()
+        
         return true
     }
 
@@ -147,6 +150,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // MARK: - 3D touch 
 extension AppDelegate {
+    fileprivate func create3DTouchShotItems() {
+        //创建快捷item的icon UIApplicationShortcutItemIconFile
+        let heart = UIApplicationShortcutIcon(templateImageName: "heart")
+        let sort = UIApplicationShortcutIcon(templateImageName: "sort")
+        let qrcode = UIApplicationShortcutIcon(templateImageName: "qrcode")
+
+        //创建ShortcutItem
+        let item1 = UIMutableApplicationShortcutItem(type: "MG_3DTocuh_1", localizedTitle: "你最喜欢听的Music", localizedSubtitle: "", icon: heart, userInfo: nil)
+        let item2 = UIMutableApplicationShortcutItem(type: "MG_3DTocuh_2", localizedTitle: "首页或登录", localizedSubtitle: "", icon: sort, userInfo: nil)
+        let item3 = UIMutableApplicationShortcutItem(type: "MG_3DTocuh_3", localizedTitle: "我的二维码", localizedSubtitle: "", icon: qrcode, userInfo: nil)
+        
+        let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User   // 获取用户数据
+        if user != nil {
+            UIApplication.shared.shortcutItems = [item1,item2,item3]
+        }else {
+           UIApplication.shared.shortcutItems = [item2] 
+        }
+        
+    }
     /**
      3D Touch 跳转
      
@@ -163,34 +185,32 @@ extension AppDelegate {
     
     @available(iOS 9.0, *)
     func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
-        var handled = false
+//        var handled = false
         //Get type string from shortcutItem
         let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User   // 获取用户数据
-        
-        if shortcutItem.type == "2" {
+        if shortcutItem.type == "MG_3DTocuh_2" {
             // 跳转
             window?.rootViewController =  (user == nil) ? UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() : MainTabBarViewController()
-            
-            handled = true
+            return true
         }
         
-        if user != nil {
-            // 获取当前页面TabBar
-            let tabBar = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
-            // 获取当前TabBar Nav
-            let nav = tabBar.selectedViewController as! UINavigationController
-            
-            if shortcutItem.type == "1" {
-                tabBar.selectedIndex = 1
-                handled = true
-            }
-            
-            if shortcutItem.type == "3" {
-                nav.pushViewController(QRCodeViewController(), animated: true)
-                handled = true
-            }
+        
+        // 获取当前页面TabBar
+        let tabBar = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
+        // 获取当前TabBar Nav
+        let nav = tabBar.selectedViewController as! UINavigationController
+        
+        if shortcutItem.type == "MG_3DTocuh_1" {
+            tabBar.selectedIndex = 1
+            return true
         }
-        return handled
+        
+        if shortcutItem.type == "MG_3DTocuh_3" {
+            nav.pushViewController(QRCodeViewController(), animated: true)
+            return true
+        }
+        
+        return false
     }
 }
 
@@ -248,16 +268,26 @@ extension AppDelegate {
         if currentNetWorkStatus == preNetWorkStatus { return }
         preNetWorkStatus = currentNetWorkStatus
         switch currentNetWorkStatus {
-        case .NetworkStatusNone:
-            tips = "当前没有网络，请检查你的网络"
-        case .NetworkStatus2G:
-            tips = "当前是网速有点慢"
-        case .NetworkStatus3G:
-            tips = "当前是网速有点慢"
-        case .NetworkStatus4G:
-            tips = "切换到了4G模式，请注意你的流量"
-        case .NetworkStatusWIFI:
-            tips = ""
+            case .NetworkStatusNone:
+                tips = ""
+                let alertView = UIAlertView(title: "设置网络", message: "", cancleTitle: "好的", otherButtonTitle: ["设置"], onDismissBlock: { (index) in
+                    guard let url = URL(string: "app-Prefs:root=WIFI") else {
+                        return
+                    }
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.openURL(url)
+                    }
+                }, onCancleBlock: {
+                   
+                })
+                alertView.show()
+                break
+            case .NetworkStatus2G,.NetworkStatus3G,.NetworkStatus4G:
+                tips = "当前是移动网络，请注意你的流量"
+                break
+            case .NetworkStatusWIFI:
+                tips = ""
+                break
         }
         
         print(tips.lengthOfBytes(using: String.Encoding.utf16.rawValue))
@@ -269,7 +299,6 @@ extension AppDelegate {
         }
     }
 }
-
 
 // MARK: - 引导页
 extension AppDelegate {

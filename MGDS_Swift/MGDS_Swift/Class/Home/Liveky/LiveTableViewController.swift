@@ -69,6 +69,8 @@ class LiveTableViewController: UITableViewController {
         
         Just.post(urlStr) { (r) in
             guard let json = r.json as? NSDictionary else {
+                self.tableView.mj_header.endRefreshing()
+                self.tableView.mj_footer.endRefreshing()
                 return
             }
             

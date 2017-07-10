@@ -84,6 +84,7 @@
 		C03CCA561EB971CE00957CBF /* MGWelcomeAVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03CCA551EB971CE00957CBF /* MGWelcomeAVPlayerViewController.swift */; };
 		C04C9D171F11E0A600888518 /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D161F11E0A600888518 /* SQLiteManager.swift */; };
 		C04C9D1A1F12017000888518 /* MyFavoutiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D191F12017000888518 /* MyFavoutiteViewController.swift */; };
+		C04C9D291F131A0400888518 /* UIAlertView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04C9D281F131A0400888518 /* UIAlertView+Extension.swift */; };
 		C054FE7D1E6A8734003B5B33 /* MGMusicPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054FE751E6A8734003B5B33 /* MGMusicPlayViewController.swift */; };
 		C054FE7E1E6A8734003B5B33 /* Music.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C054FE761E6A8734003B5B33 /* Music.storyboard */; };
 		C054FE7F1E6A8734003B5B33 /* MGLrcLoadTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054FE791E6A8734003B5B33 /* MGLrcLoadTool.swift */; };
@@ -362,6 +363,7 @@
 		C03CCA551EB971CE00957CBF /* MGWelcomeAVPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGWelcomeAVPlayerViewController.swift; sourceTree = "<group>"; };
 		C04C9D161F11E0A600888518 /* SQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
 		C04C9D191F12017000888518 /* MyFavoutiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFavoutiteViewController.swift; sourceTree = "<group>"; };
+		C04C9D281F131A0400888518 /* UIAlertView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertView+Extension.swift"; sourceTree = "<group>"; };
 		C054FE751E6A8734003B5B33 /* MGMusicPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGMusicPlayViewController.swift; sourceTree = "<group>"; };
 		C054FE761E6A8734003B5B33 /* Music.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Music.storyboard; sourceTree = "<group>"; };
 		C054FE791E6A8734003B5B33 /* MGLrcLoadTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGLrcLoadTool.swift; sourceTree = "<group>"; };
@@ -1140,6 +1142,7 @@
 		C070712C1E1E1B86002C42D0 /* Category(扩展) */ = {
 			isa = PBXGroup;
 			children = (
+				C04C9D281F131A0400888518 /* UIAlertView+Extension.swift */,
 				C070712D1E1E1B86002C42D0 /* Array+Extension.swift */,
 				C070712E1E1E1B86002C42D0 /* NSObject+Extension.swift */,
 				C07071331E1E1B86002C42D0 /* UIImageView+Extension.swift */,
@@ -1803,6 +1806,7 @@
 				C07071431E1E1B86002C42D0 /* UIImageView+Extension.swift in Sources */,
 				C01D1AC21E66DFA0001F3DA0 /* RankListCell.swift in Sources */,
 				C054FE891E6A88CE003B5B33 /* MGPlayMusicTool.swift in Sources */,
+				C04C9D291F131A0400888518 /* UIAlertView+Extension.swift in Sources */,
 				C0AEF9541F0CE4AC0050BCF2 /* FindViewController.swift in Sources */,
 				C070712A1E1E1A42002C42D0 /* MineViewController.swift in Sources */,
 				C08E3F0C1E304B5A005A2835 /* YKCreator.swift in Sources */,

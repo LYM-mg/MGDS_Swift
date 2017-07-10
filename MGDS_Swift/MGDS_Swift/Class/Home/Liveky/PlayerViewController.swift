@@ -157,3 +157,40 @@ class PlayerViewController: UIViewController {
         sender.layer.add(btnAnime, forKey: "SHOW")
     }
 }
+
+extension PlayerViewController {
+    // 向上拖动弹出视图的操作
+    // MARK: - 3DTouch Sliding Action
+    override var previewActionItems: [UIPreviewActionItem] {
+        let shareAction = UIPreviewAction(title: "分享", style: .default) { (action, controller) in
+            print("点击了分享按钮!") // "http://www.jianshu.com/u/57b58a39b70e"
+            
+            let image = self.imgBackground.image
+            let str = self.live.caster
+            let url = NSURL(string: self.live.url)
+            let items:[Any] = [image, str, url!]
+            
+            let activity = UIActivityViewController(activityItems: items, applicationActivities: [UIActivity()])
+            
+            // .copyToPasteboard,.copyToPasteboard,.message,.print,UIActivityType.airDrop,,.postToWeibo,.postToVimeo,.postToTencentWeibo,.mail,.assignToContact,.postToFacebook,.openInIBooks,.postToTwitter
+            // 不出现在活动项目
+            if #available(iOS 9.0, *) {
+                activity.excludedActivityTypes = [.addToReadingList]
+            }
+            let popver: UIPopoverPresentationController? = activity.popoverPresentationController
+            if (popver != nil) {
+                popver!.permittedArrowDirections = UIPopoverArrowDirection.left
+            }
+            MGKeyWindow?.rootViewController?.present(activity, animated: true, completion: nil)
+            
+            activity.completionWithItemsHandler = { (type, completed, result, err)  in
+                if completed {
+                    MGKeyWindow?.rootViewController?.showHint(hint: "成功")
+                }
+                activity.completionWithItemsHandler = nil
+            }
+        }
+        return [shareAction]
+    }
+}
+
