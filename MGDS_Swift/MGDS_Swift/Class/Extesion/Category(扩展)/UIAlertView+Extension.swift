@@ -10,13 +10,18 @@ import UIKit
 
 fileprivate var dismissBlock: ((_ buttonIndex: NSInteger)->())?
 fileprivate var cancelBlock: (()->())?
-
 extension UIAlertView: UIAlertViewDelegate {
-    convenience init(title: String?,message: String?,cancleTitle: String,otherButtonTitle: [String]?, onDismissBlock:@escaping ((_ buttonIndex: NSInteger)->()),onCancleBlock: @escaping (()->())){
+    convenience init(title: String?,message: String?,cancleTitle: String,otherButtonTitle: [String]?, onDismissBlock:((_ buttonIndex: NSInteger) -> Swift.Void)? = nil,onCancleBlock:(() -> Swift.Void)? = nil){
         self.init(title: title, message: message, delegate: nil, cancelButtonTitle: cancleTitle)
         self.delegate = self
-        dismissBlock = onDismissBlock
-        cancelBlock = onCancleBlock
+        if (onDismissBlock != nil)  {
+            dismissBlock = onDismissBlock
+        }
+        
+        if (onCancleBlock != nil) {
+            cancelBlock = onCancleBlock
+        }
+        
         if otherButtonTitle != nil {
             for buttonTitle in otherButtonTitle! {
                 self.addButton(withTitle: buttonTitle)

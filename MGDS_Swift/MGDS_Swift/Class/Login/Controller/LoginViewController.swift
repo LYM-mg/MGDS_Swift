@@ -206,6 +206,7 @@ extension LoginViewController {
     }
     
     fileprivate func turnToMainTabBarViewController() {
+        MGNotificationCenter.post(name: NSNotification.Name(KChange3DTouchNotification), object: nil)
         MGKeyWindow?.rootViewController = MainTabBarViewController()
         let transition = CATransition()
         transition.type = "reveal"

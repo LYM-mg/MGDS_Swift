@@ -109,7 +109,7 @@ extension LivekyCycleHeader {
                     let model = CycleHeaderModel(dict: dict)
                     self.cycleHeaderModels.append(model)
                     self.type == .top ? imageUrls.append(model.picture) : imageUrls.append(model.newimg)
-                    self.type == .top ? titleArr.append(model.name) : titleArr.append(model.notice)
+                    self.type == .top ? titleArr.append(model.name ?? "你相信易风吗？快来给他✨吧") : titleArr.append(model.nickname ?? "MG明明就是你")
                 }
                 
                 self.carouselView.imageArray = imageUrls

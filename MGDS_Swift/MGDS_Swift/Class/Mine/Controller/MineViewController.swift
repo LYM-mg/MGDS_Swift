@@ -142,6 +142,7 @@ extension MineViewController {
                 try! defaultManager.removeItem(atPath: MGUserPath)
             }
 
+            MGNotificationCenter.post(name: NSNotification.Name(KChange3DTouchNotification), object: nil)
             MGKeyWindow?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
             let transAnimation = CATransition()
             transAnimation.type = kCATransitionPush

@@ -167,7 +167,7 @@ extension PlayerViewController {
             
             let image = self.imgBackground.image
             let str = self.live.caster
-            let url = NSURL(string: self.live.url)
+            let url = NSURL(string: "http://www.jianshu.com/u/57b58a39b70e")
             let items:[Any] = [image, str, url!]
             
             let activity = UIActivityViewController(activityItems: items, applicationActivities: [UIActivity()])

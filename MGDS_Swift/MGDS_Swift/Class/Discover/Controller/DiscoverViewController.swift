@@ -40,7 +40,6 @@ class DiscoverViewController: UITableViewController {
         super.viewWillDisappear(animated)
         playerView.resetPlayer()
     }
-    
 }
 
 // MARK: - 数据源

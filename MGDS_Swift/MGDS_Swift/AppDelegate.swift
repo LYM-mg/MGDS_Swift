@@ -60,6 +60,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 6.3DTouch
         create3DTouchShotItems()
         
+        // 7.通知
+        setUpNotification()
+        
         return true
     }
 
@@ -99,12 +102,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let isfirst = SaveTools.mg_getLocalData(key: "isFirstOpen") as? String
-        if (isfirst?.isEmpty == nil) {
+        if (isfirst?.isEmpty == nil) { // 安装后第一次启用APP  引导页
             UIApplication.shared.isStatusBarHidden = true
             showAppGurdView()
         }else {
             if user != nil {                
-                if isFirstStart == true {
+                if isFirstStart == true {  // 第一次打开APP  视频启动页
                     let arr = ["login_video","loginmovie","qidong","opening_long"]
                     let welcomeVc = MGWelcomeAVPlayerViewController(urlStr: Bundle.main.path(forResource: arr[Int(arc4random()%UInt32(arr.count))], ofType: "mp4")!)
                     window?.addSubview(welcomeVc.view)
@@ -114,10 +117,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.EnterHomeView(_:)), name: NSNotification.Name(rawValue: KEnterHomeViewNotification), object: nil)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -269,17 +268,15 @@ extension AppDelegate {
         preNetWorkStatus = currentNetWorkStatus
         switch currentNetWorkStatus {
             case .NetworkStatusNone:
-                tips = ""
-                let alertView = UIAlertView(title: "设置网络", message: "", cancleTitle: "好的", otherButtonTitle: ["设置"], onDismissBlock: { (index) in
-                    guard let url = URL(string: "app-Prefs:root=WIFI") else {
+                tips = "" // 设置
+                let alertView = UIAlertView(title: "设置网络", message: "", cancleTitle: "好的", otherButtonTitle: ["设置"], onDismissBlock: { (index) in // app-Prefs:root=WIFI
+                    guard let url = URL(string: "App-Prefs:root=com.ming.MGDS-Swift") else {
                         return
                     }
                     if UIApplication.shared.canOpenURL(url) {
                         UIApplication.shared.openURL(url)
                     }
-                }, onCancleBlock: {
-                   
-                })
+                }, onCancleBlock:nil)
                 alertView.show()
                 break
             case .NetworkStatus2G,.NetworkStatus3G,.NetworkStatus4G:
@@ -297,6 +294,19 @@ extension AppDelegate {
             alertView.show()
             
         }
+    }
+}
+
+// MARK: - 通知
+extension AppDelegate {
+    fileprivate func setUpNotification() {
+        // 3DTouch变化通知
+        MGNotificationCenter.addObserver(forName: NSNotification.Name(KChange3DTouchNotification), object: nil, queue: nil) { (_) in
+            self.create3DTouchShotItems()
+        }
+        
+        // 引导页按钮点击进去主界面通知
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.EnterHomeView(_:)), name: NSNotification.Name(rawValue: KEnterHomeViewNotification), object: nil)
     }
 }
 

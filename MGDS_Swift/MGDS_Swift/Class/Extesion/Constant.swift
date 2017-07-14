@@ -68,3 +68,5 @@ let KEnterHomeViewNotification = "KEnterHomeViewNotification"
 let KChangeanchorNotification = "KChangeanchorNotification"
 /// 通知换一换
 let KSelectedFavouriteAnchorNotification = "KSelectedFavouriteAnchorNotification"
+/// 通知#DTouch变化
+let KChange3DTouchNotification = "KChange3DTouchNotification"

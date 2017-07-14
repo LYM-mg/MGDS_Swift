@@ -98,6 +98,10 @@ class LiveTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (self.tableView.mj_footer != nil) {
+            self.tableView.mj_footer.isHidden = (list.count == 0)
+        }
+        
         return list.count
     }
 

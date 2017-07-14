@@ -68,7 +68,6 @@ extension BaseTableViewController {
             let strongSelf = weakSelf
             if KAppDelegate.sidArray.count > strongSelf!.videoSid.rawValue {
                 let sidModel = KAppDelegate.sidArray[strongSelf!.videoSid.rawValue]
-                self.showHudInViewWithMode(view: (strongSelf?.view)!, hint: "加载数据中...", mode: .determinate, imageName: nil)
                 self.dataArr.removeAll()
                 strongSelf!.page = 10
                 let index = Int(arc4random_uniform(10))
@@ -84,7 +83,6 @@ extension BaseTableViewController {
         tableView.mj_footer = MJRefreshAutoFooter(refreshingBlock: {
             let strongSelf = weakSelf
             let sidModel = KAppDelegate.sidArray[strongSelf!.videoSid.rawValue]
-            self.showHudInViewWithMode(view: (strongSelf?.view)!, hint: "加载数据中...", mode: .determinate, imageName: nil)
             strongSelf!.page += 10
             let urlStr = "http://c.3g.163.com/nc/video/list/\(sidModel.sid!)/y/\(self.page-10)-\(self.page).html"
             weakSelf?.loadData(urlStr: urlStr, sidModel: sidModel)
@@ -101,13 +99,11 @@ extension BaseTableViewController {
             weakSelf?.dataArr += listArray as! [VideoList]
             DispatchQueue.main.async {
                 weakSelf?.tableView.reloadData()
-                weakSelf?.hideHud()
                 weakSelf?.tableView.mj_header.endRefreshing()
                 weakSelf?.tableView.mj_footer.endRefreshing()
             }
             }, failure: { (err) in
                 weakSelf?.showHint(hint: "数据请求失败")
-                weakSelf?.hideHud()
                 weakSelf?.tableView.mj_header.endRefreshing()
                 weakSelf?.tableView.mj_footer.endRefreshing()
         })
