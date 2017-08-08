@@ -67,6 +67,10 @@ extension BaseTableViewController {
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             let strongSelf = weakSelf
             if KAppDelegate.sidArray.count > strongSelf!.videoSid.rawValue {
+                if KAppDelegate.sidArray.isEmpty && KAppDelegate.sidArray.count == 0 {
+                    strongSelf?.tableView.mj_header.endRefreshing()
+                    return
+                }
                 let sidModel = KAppDelegate.sidArray[strongSelf!.videoSid.rawValue]
                 self.dataArr.removeAll()
                 strongSelf!.page = 10
@@ -95,7 +99,7 @@ extension BaseTableViewController {
     
     func loadData(urlStr: String,sidModel: VideoSidList) {
         weak var weakSelf = self
-        SysNetWorkTools.getVideoList(withURLString: urlStr, listID: sidModel.sid, success: { (listArray, _) in
+        SysNetWorkTools.share.progressTitle("正在加载数据...").getVideoList(withURLString: urlStr, listID: sidModel.sid, success: { (listArray, _) in
             weakSelf?.dataArr += listArray as! [VideoList]
             DispatchQueue.main.async {
                 weakSelf?.tableView.reloadData()

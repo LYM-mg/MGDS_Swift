@@ -122,14 +122,60 @@ extension UIView {
         return self.frame
     }
     
-    /// 圆角方法
+    /// MARK: - Layer相关属性方法圆角方法
     @IBInspectable var cornerRadius: CGFloat {
         get {
-            return layer.cornerRadius
-        }
-        set {
+            return self.layer.cornerRadius
+        } set {
             layer.cornerRadius = newValue
             layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat {
+        get{
+            return self.layer.borderWidth
+        } set {
+            self.layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor {
+        get{
+            return UIColor(cgColor: self.layer.borderColor!)
+        }set {
+            self.layer.borderColor = newValue.cgColor
+        }
+    }
+    
+    @IBInspectable var shadowOffset: CGSize {
+        get{
+            return self.layer.shadowOffset
+        } set {
+            self.layer.shadowOffset = newValue
+        }
+    }
+    
+    @IBInspectable var shadowColor: UIColor {
+        get{
+            return UIColor(cgColor: self.layer.shadowColor!)
+        } set {
+            self.layer.shadowColor = newValue.cgColor
+        }
+    }
+    
+    @IBInspectable var shadowRadius: CGFloat {
+        get{
+            return self.layer.shadowRadius
+        }set {
+            self.layer.shadowRadius = newValue
+        }
+    }
+    @IBInspectable var shadowOpacity: Float {
+        get{
+            return self.layer.shadowOpacity
+        }set {
+            self.layer.shadowOpacity = newValue
         }
     }
 }
@@ -213,10 +259,13 @@ extension UIView {
 
 // MARK: - 快速从XIB创建一个View (仅限于XIB中只有一个View的时候)
 extension UIView {
-    class func loadViewFromXib() -> UIView {
-        return Bundle.main.loadNibNamed(NSStringFromClass(self.classForCoder()), owner: nil, options: nil)?.last! as! UIView
+    class func loadViewFromXib1<T>() -> T {
+        let fullViewName: String = NSStringFromClass(self.classForCoder())
+        let viewName: String = fullViewName.components(separatedBy: ".").last!
+        return Bundle.main.loadNibNamed(viewName, owner: nil, options: nil)?.last! as! T
     }
 }
+
 // MARK: - 版本判断
 // _url	NSURL	"app-settings:"	0x7bafc010
 //        if #available(iOS 10.0, *) { // UIApplicationOpenURLOptionsKey

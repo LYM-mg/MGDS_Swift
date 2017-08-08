@@ -17,6 +17,7 @@
 #import <CommonCrypto/CommonHMAC.h>
 
 #import <MJRefresh/MJRefresh.h> // 刷新框架
+#import "SVProgressHUD.h"
 
 // 友盟
 #import "UMSocial.h"

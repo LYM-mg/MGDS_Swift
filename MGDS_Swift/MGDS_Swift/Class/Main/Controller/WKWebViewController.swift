@@ -54,7 +54,27 @@ class WKWebViewController: UIViewController {
         webView.addObserver(self, forKeyPath: "title", options: .new, context: nil)
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         
+    }
+    
+    // MARK: - 导航栏
+    fileprivate func buildRightItemBarButton() {
+        let backItem = UIBarButtonItem(image: #imageLiteral(resourceName: "goback"), title: "", target: self, action: #selector(backClick))
+        let closeItem = UIBarButtonItem(title: "关闭", target: self, action: #selector(closeClick))
+        self.navigationItem.leftBarButtonItems = [backItem,closeItem]
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "v2_refresh"), style: .plain, target: self, action: #selector(self.refreshClick))
+    }
+    
+    // MARK: - Action
+    @objc fileprivate func backClick() {
+        if webView.canGoBack {
+            webView.goBack()
+        }else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @objc fileprivate func closeClick() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Action
@@ -63,6 +83,8 @@ class WKWebViewController: UIViewController {
             webView.reload()
         }
     }
+
+
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "loading" {
@@ -111,7 +133,7 @@ extension WKWebViewController: WKNavigationDelegate {
     // 单独处理。但是，对于Safari是允许跨域的，不用这么处理。
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let hostname = (navigationAction.request as NSURLRequest).url?.host?.lowercased()
-        
+    
         print(hostname)
         print(navigationAction.navigationType)
         // 处理跨域问题

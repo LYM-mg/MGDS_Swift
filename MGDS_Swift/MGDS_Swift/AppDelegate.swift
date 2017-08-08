@@ -109,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if user != nil {                
                 if isFirstStart == true {  // 第一次打开APP  视频启动页
                     let arr = ["login_video","loginmovie","qidong","opening_long"]
-                    let welcomeVc = MGWelcomeAVPlayerViewController(urlStr: Bundle.main.path(forResource: arr[Int(arc4random()%UInt32(arr.count))], ofType: "mp4")!)
+                    let welcomeVc = MGWelcomeViewController(urlStr: Bundle.main.path(forResource: arr[Int(arc4random()%UInt32(arr.count))], ofType: "mp4")!)
                     window?.addSubview(welcomeVc.view)
                     
                     window?.rootViewController?.addChildViewController(welcomeVc)
@@ -170,7 +170,6 @@ extension AppDelegate {
     }
     /**
      3D Touch 跳转
-     
      - parameter application:       application
      - parameter shortcutItem:      item
      - parameter completionHandler: handler
@@ -184,8 +183,6 @@ extension AppDelegate {
     
     @available(iOS 9.0, *)
     func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
-//        var handled = false
-        //Get type string from shortcutItem
         let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User   // 获取用户数据
         if shortcutItem.type == "MG_3DTocuh_2" {
             // 跳转
@@ -236,7 +233,6 @@ extension AppDelegate {
          */
 //        AVOSCloud.setApplicationId("TA9p1dH9HIS1cDaVB8cu33eO-gzGzoHsz", clientKey: "M0Da93ljH6lN61H3iFGl5Nnr")
 //        AVOSCloud.setApplicationId("i40Bw8oWkFemep2Rn2k9e5WX", clientKey: "MpeDsXwLTcQuuhplDjN1Hs8l")
-        
         // 如果使用美国站点，请加上这行代码，并且写在初始化前面
 //      LeanCloud.setServiceRegion(.US)
         AVOSCloud.setAllLogsEnabled(false)

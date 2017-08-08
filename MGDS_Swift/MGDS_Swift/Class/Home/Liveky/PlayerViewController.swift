@@ -91,7 +91,6 @@ class PlayerViewController: UIViewController {
         pv.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         playerView.insertSubview(pv, at: 1)
         ijplayer.scalingMode = .aspectFill
-        
     }
     
     

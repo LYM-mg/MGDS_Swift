@@ -19,7 +19,7 @@ import Foundation
 //import <CommonCrypto/CommonDigest.h>
 
 // MARK: - 沙盒路径
-extension String {
+public extension String {
     /// 沙盒路径之document
     func document() -> String {
         let documentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
@@ -39,8 +39,55 @@ extension String {
     }
 }
 
+// MARK: - 和基本数据类型转换等
+public extension String {
+    func toFloat() -> Float? {
+        if let number = NumberFormatter().number(from: self) {
+            return number.floatValue
+        }
+        return nil
+    }
+    
+    func toInt() -> Int? {
+        if let number = NumberFormatter().number(from: self) {
+            return number.intValue
+        }
+        return nil
+    }
+    
+    func toDouble(locale: Locale = Locale.current) -> Double? {
+        let nf = NumberFormatter()
+        nf.locale = locale as Locale!
+        if let number = nf.number(from: self) {
+            return number.doubleValue
+        }
+        return nil
+    }
+    
+    func toBool() -> Bool? {
+        let trimmed = self.trim().lowercased()
+        if trimmed == "true" || trimmed == "false" {
+            return (trimmed as NSString).boolValue
+        }
+        return nil
+    }
+    
+    func toDate(format: String = "yyyy-MM-dd") -> NSDate? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: self) as NSDate?
+    }
+    
+    func toDateTime(format: String = "yyyy-MM-dd HH:mm:ss") -> NSDate? {
+        return toDate(format: format)
+    }
+}
+
+
 // MARK: - 通过扩展来简化一下,截取字符串
-extension String {
+public extension String {
+    var length: Int { return characters.count }
+    
     subscript (range: Range<Int>) -> String {
         get {
             let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
@@ -64,6 +111,25 @@ extension String {
     }
     func subString(from:Int, to:Int) ->String {
         return self[from..<to]
+    }
+    
+    func replace(_ string: String, with withString: String) -> String {
+        return replacingOccurrences(of: string, with: withString)
+    }
+    
+    func truncate(_ length: Int, suffix: String = "...") -> String {
+        return self.length > length
+            ? substring(to: characters.index(startIndex, offsetBy: length)) + suffix
+            : self
+    }
+    
+    func split(_ delimiter: String) -> [String] {
+        let components = self.components(separatedBy: delimiter)
+        return components != [""] ? components : []
+    }
+    
+    func trim() -> String {
+        return trimmingCharacters(in: CharacterSet.whitespaces)
     }
 }
 // MARK: - 判断手机号  隐藏手机中间四位  正则匹配用户身份证号15或18位  正则RegexKitLite框架
@@ -93,7 +159,7 @@ extension String {
     mutating func numberHideMidWithOtherChar(form: Int, to: Int,char: String) {
         // 判断
         var form = form;   var to = to
-        if form < 0 {
+        if form < 0 || form > self.characters.count {
             form = 0
         }
         if to > self.characters.count {
@@ -213,3 +279,43 @@ extension String {
         return String(hash)
     }
 }
+
+
+// MARK: - 计算高度
+extension String {
+    /**
+     取得输入的文字高度
+     - parameter width: 控件的宽度
+     - parameter font: 要计算的文字代销
+     - parameter Float: 返回计算好的高度
+     */
+    func getSpaceLabelHeight(with font: UIFont, withWidth width: CGFloat) -> CGFloat {
+        let paraStyle = NSMutableParagraphStyle()
+        paraStyle.lineBreakMode = NSLineBreakMode.byCharWrapping
+        paraStyle.alignment = .left
+        /** 行高 */
+        paraStyle.lineSpacing = 15
+        paraStyle.hyphenationFactor = 1.0
+        paraStyle.firstLineHeadIndent = 0.0
+        paraStyle.paragraphSpacingBefore = 0.0
+        paraStyle.headIndent = 0
+        paraStyle.tailIndent = 0
+        let dic: [AnyHashable: Any] = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paraStyle, NSKernAttributeName: 1.5]
+        let size = self.boundingRect(with: CGSize(width: width, height: CGFloat(HUGE)), options: .usesLineFragmentOrigin, attributes: (dic as? [String : Any] ?? [String : Any]()), context: nil).size
+        return size.height
+    }
+    
+    /**
+     取得输入的文字高度
+     - parameter width: 控件的宽度
+     - parameter strText: 要计算的文字
+     - parameter Float: 返回计算好的高度
+     */
+    public func inputTextHeight(for width: CGFloat) -> Float {
+        let constraint = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+        let size: CGRect = self.boundingRect(with: constraint, options: ([.usesLineFragmentOrigin, .usesFontLeading]), attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
+        let textHeight: Float = Float(size.size.height + 22.0)
+        return textHeight
+    }
+}
+

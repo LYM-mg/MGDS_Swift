@@ -150,6 +150,60 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return newImage
     }
+    
+    /**
+     图片上绘制logo，返回一张带logo的图片
+     - parameter logo: 要绘画到图片上的logo
+     */
+    func imageWithLogo(logo: String) -> UIImage? {
+        //画布大小
+        let size = CGSize(width: self.size.width, height: self.size.height)
+        
+        //创建一个基于位图的上下文
+        UIGraphicsBeginImageContextWithOptions(size,false,0.0) //opaque:NO  scale:0.0
+        
+        self.draw(in: CGRect(origin: .zero, size: size))
+        let logoImage = UIImage(named: logo)
+        
+        // logo显示在画布上
+        let width = logoImage!.size.width*0.2
+        let height = logoImage!.size.height*0.2
+        let margin: CGFloat = 3
+        let x = self.size.width - width - margin
+        let y = self.size.height - height - margin
+      
+        let rect = CGRect(x: x, y: y, width: width, height: height)
+        
+        //绘制文字
+        logoImage?.draw(in: rect, blendMode: .normal, alpha: 1.0)
+        
+        //返回绘制的新图形
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    /**
+     截屏功能
+     - parameter view: 要截屏的View
+     */
+    func imageWithTitle(view: UIView,finished: @escaping (UIImage?)->()) {
+        // 延时一秒执行截屏
+        DispatchQueue.main.asyncAfter(deadline: .now()+1.0) { 
+            // 创建一个基于位图的上下文
+            UIGraphicsBeginImageContextWithOptions(view.mg_size,false,0.0) //opaque:NO  scale:0.0
+            
+            view.layer.render(in: UIGraphicsGetCurrentContext()!)
+            // 返回绘制的新图形
+            if let newImage = UIGraphicsGetImageFromCurrentImageContext() {
+                UIGraphicsEndImageContext()
+                // 保存到相册
+                UIImageWriteToSavedPhotosAlbum(newImage, nil, nil, nil)
+                finished(newImage)
+
+            }
+            finished(nil)
+        }
+    }
 }
 
 

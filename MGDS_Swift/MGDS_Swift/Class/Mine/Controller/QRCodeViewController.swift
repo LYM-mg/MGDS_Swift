@@ -57,6 +57,14 @@ class QRCodeViewController: UIViewController {
 //        label.attributedText = attrStr
 //        self.view.addSubview(label)
         
+        API.Common.Base.login(
+            parameters: ["UserName": "admin", "UserPwd" : "techsys2015"])
+            .progressTitle("heihaih>...").perform(successed: { (reslut, err) in
+            print(reslut)
+        }) { (err) in
+            print(err)
+        }
+        
         
         isHiddenNavBar = !isHiddenNavBar
         UIView.animate(withDuration: 1.0) {
