@@ -154,6 +154,24 @@ class PlayerViewController: UIViewController {
         btnAnime.keyTimes = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
         btnAnime.duration = 0.2
         sender.layer.add(btnAnime, forKey: "SHOW")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2.0) { 
+            sender.setImage(self.snapshotScreen(in: self.view), for: .normal)
+        }
+    }
+    
+    func snapshotScreen(in contentView: UIView) -> UIImage {
+        let size: CGSize = contentView.bounds.size
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        let rect: CGRect = contentView.frame
+        //  自iOS7开始，UIView类提供了一个方法-drawViewHierarchyInRect:afterScreenUpdates: 它允许你截取一个UIView或者其子类中的内容，并且以位图的形式（bitmap）保存到UIImage中
+        for window: UIWindow in UIApplication.shared.windows {
+            window.drawHierarchy(in: rect, afterScreenUpdates: true)
+        }
+        //    [contentView drawViewHierarchyInRect:rect afterScreenUpdates:YES];
+        let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
     }
 }
 

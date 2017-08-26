@@ -256,6 +256,7 @@
 		C0D4EF4B1E1F7ED800043A6B /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */; };
 		C0D4EF4D1E1F883A00043A6B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4EF4C1E1F883A00043A6B /* QRCodeViewController.swift */; };
 		C0D4EF4F1E1F8D7100043A6B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4EF4E1E1F8D7100043A6B /* RegisterViewController.swift */; };
+		C0D763F11F4FC25700E029D9 /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D763F01F4FC25700E029D9 /* Timer+Extension.swift */; };
 		C0D9D8DB1E4C4EE5008CC6C8 /* DeformationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D9D8D71E4C4EE5008CC6C8 /* DeformationButton.m */; };
 		C0D9D8DD1E4C4FE4008CC6C8 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = C004783F1E2E3D7E00393BF8 /* MMMaterialDesignSpinner.m */; };
 		C0EF3A0B1F1CDFAE0089F2A9 /* SBTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF3A0A1F1CDFAE0089F2A9 /* SBTools.swift */; };
@@ -565,6 +566,7 @@
 		C0D4EF4A1E1F7ED800043A6B /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		C0D4EF4C1E1F883A00043A6B /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		C0D4EF4E1E1F8D7100043A6B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C0D763F01F4FC25700E029D9 /* Timer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timer+Extension.swift"; sourceTree = "<group>"; };
 		C0D9D8D61E4C4EE5008CC6C8 /* DeformationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeformationButton.h; sourceTree = "<group>"; };
 		C0D9D8D71E4C4EE5008CC6C8 /* DeformationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeformationButton.m; sourceTree = "<group>"; };
 		C0D9D8D91E4C4EE5008CC6C8 /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
@@ -1241,6 +1243,7 @@
 				C00F8B631E6848A700BED0E7 /* CALayer+Extension.swift */,
 				C0ACF3381F3012AF004AECFB /* UIGestureRecognizer+Extension.swift */,
 				C047DCC81F31565A00254A95 /* UIDevice+Extension.swift */,
+				C0D763F01F4FC25700E029D9 /* Timer+Extension.swift */,
 			);
 			path = "Category(扩展)";
 			sourceTree = "<group>";
@@ -1822,6 +1825,7 @@
 				C054FE7F1E6A8734003B5B33 /* MGLrcLoadTool.swift in Sources */,
 				C05A8E801E358C1B00996FFE /* LivekyCycleHeader.swift in Sources */,
 				C08E3F341E305326005A2835 /* MGHotModel.swift in Sources */,
+				C0D763F11F4FC25700E029D9 /* Timer+Extension.swift in Sources */,
 				C08E3F011E304B5A005A2835 /* HomeContentView.swift in Sources */,
 				C08E3F4C1E30A772005A2835 /* MGPlayerViewController.swift in Sources */,
 				C08E3EFF1E304B5A005A2835 /* HomeViewController.swift in Sources */,

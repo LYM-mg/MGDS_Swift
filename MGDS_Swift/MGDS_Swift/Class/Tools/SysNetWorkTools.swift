@@ -114,7 +114,7 @@ class SysNetWorkTools: NSObject {
                         return
                     }
                     
-                    if let response = response as? HTTPURLResponse, [200].contains(response.statusCode) {
+                    if let response = response as? HTTPURLResponse, [200,204, 205].contains(response.statusCode) {
                         do {
                             let dict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                             successed(dict, nil)
@@ -154,14 +154,14 @@ class SysNetWorkTools: NSObject {
                     return
                 }
                 
-                if let response = response as? HTTPURLResponse, [200].contains(response.statusCode) {
+                if let response = response as? HTTPURLResponse, [200,204, 205].contains(response.statusCode) {
                     do {
                         let dict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                         successed(dict, nil)
                     }catch {
                         failure(AFError.ResponseSerializationFailureReason.jsonSerializationFailed(error: error) as? Error)
                     }
-                }else { // 其他, 204, 205
+                }else { // 其他,
                     failure(AFError.ResponseSerializationFailureReason.stringSerializationFailed(encoding: String.Encoding.utf8) as? Error)
                 }
             }

@@ -23,6 +23,13 @@ extension NSObject {
             UIApplication.shared.keyWindow?.rootViewController?.present(alertVc, animated: true, completion: nil)
         }
     }
+    
+    // iOS在当前屏幕获取第一响应
+    func getFirstResponder() -> Any? {
+        let keyWindow: UIWindow? = UIApplication.shared.keyWindow
+        let firstResponder: UIView? = keyWindow?.subviews.first?.perform(Selector(("firstResponder"))) as? UIView
+        return firstResponder
+    }
 }
 
 // MARK: - RunTime
