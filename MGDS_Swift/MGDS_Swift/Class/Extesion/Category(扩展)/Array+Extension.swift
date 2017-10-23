@@ -17,18 +17,18 @@ extension Sequence{
     }
     
     typealias Element = Self.Iterator.Element
-    func partitionBy(fu: (Element)->Bool)->([Element],[Element]){
-        var first=[Element]()
-        var second=[Element]()
-        for el in self {
-            if fu(el) {
-                first.append(el)
-            }else{
-                second.append(el)
-            }
-        }
-        return (first,second)
-    }
+//    func partitionBy(fu: (Element)->Bool)->([Element],[Element]){
+//        var first=[Element]()
+//        var second=[Element]()
+//        for el in self {
+//            if fu(el) {
+//                first.append(el)
+//            }else{
+//                second.append(el)
+//            }
+//        }
+//        return (first,second)
+//    }
     
     /// 第三种方法才实现了  然后依次取出原来序列中的元素，根据过滤结果将它放到第一个或第二个部分中。
 //    var part3 = [82, 58, 76, 49, 88, 90].reduce( ([],[]), {

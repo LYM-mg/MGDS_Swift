@@ -9,6 +9,65 @@
 import UIKit
 // MARK: - 尺寸frame
 extension UIView {
+    /** 控件底部 */
+    var bottom: CGFloat {
+        get {
+            return self.frame.origin.y + self.frame.size.height
+        }set {
+            var newframe = self.frame;
+            newframe.origin.y = newValue - self.frame.size.height;
+            self.frame = newframe;
+        }
+    }
+    
+     /** 控件顶部 */
+    var top: CGFloat {
+        get {
+            return self.frame.origin.y
+        }set {
+            var newframe = self.frame;
+            newframe.origin.y = newValue
+            self.frame = newframe;
+        }
+    }
+    
+    /** 控件左边 */
+    var left: CGPoint {
+        get {
+            return self.frame.origin.x
+        }set {
+            var newframe = self.frame;
+            newframe.origin.x = newValue
+            self.frame = newframe;
+        }
+    }
+    
+    
+    /**  控件右边 */
+    var right: CGFloat! {
+        get {
+            return self.frame.origin.x + self.frame.size.width
+        }set {
+            var newframe = self.frame;
+            newframe.origin.x = newValue - self.frame.size.width
+            self.frame = newframe;
+        }
+    }
+    
+    /** 中心点的Y */
+    var mg_centerY: CGFloat! {
+        get {
+            return self.center.y
+        }
+        set {
+            var tmpCenter : CGPoint = center
+            tmpCenter.y             = newValue
+            center                  = tmpCenter
+        }
+    }
+    // ————————————————————————
+    
+    
     /** origin的X */
     var mg_x: CGFloat! {
         get {
