@@ -45,8 +45,15 @@ class LivekyCycleHeader: UIView {
     // MARK: - 系统方法
     override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    
+    /// 把首页的模型传递过来
+    convenience required init(frame: CGRect,type: LivekyTopicType) {
+        self.init(frame: frame)
+        self.type = type
         setUpUI()
     }
+
     
     
     override func layoutSubviews() {
@@ -88,7 +95,6 @@ extension LivekyCycleHeader {
                     self.carousels.append(carouselModel)
                 }
                 
-                
                 self.carouselView.imageArray = imageUrls
                 self.carouselView.describeArray = titleArr
                 
@@ -108,7 +114,7 @@ extension LivekyCycleHeader {
                 for dict in resultArr {
                     let model = CycleHeaderModel(dict: dict)
                     self.cycleHeaderModels.append(model)
-                    self.type == .top ? imageUrls.append(model.picture) : imageUrls.append(model.newimg)
+                    self.type == .top ? imageUrls.append((model.picture=="" ? model.picture : model.newimg)) : imageUrls.append(model.newimg)
                     self.type == .top ? titleArr.append(model.name ?? "你相信易风吗？快来给他✨吧") : titleArr.append(model.nickname ?? "MG明明就是你")
                 }
                 
@@ -126,7 +132,7 @@ extension LivekyCycleHeader {
 // MARK: - XRCarouselViewDelegate
 extension LivekyCycleHeader: XRCarouselViewDelegate {
     internal func carouselView(_ carouselView: XRCarouselView!, didClickImage index: Int) {
-        if self.type != .find {
+        if self.type == .find {
             if carouselsClickBlock != nil {
                 carouselsClickBlock!((self.carousels[index]))
             }

@@ -38,7 +38,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.searchTitleLabel.frame = CGRectMake(5, 0, [UIScreen mainScreen].bounds.size.width - 30, 30);
+//    self.searchTitleLabel.frame = CGRectMake(5, 0, [UIScreen mainScreen].bounds.size.width - 30, 30);
 }
 
 #pragma mark - 私有方法
@@ -68,9 +68,9 @@
  */
 - (instancetype)initWithFrame:(CGRect)frame searchTitleText:(NSString *)searchTitleText searchButtonTitleTexts:(NSArray *)searchButtonTitleTexts searchButton:(void(^)(UIButton *sender))searchButtonClickCallback{
     if (self = [super initWithFrame:frame]) {
-        [self setUpUI];
+//        [self setUpUI];
         
-        self.searchTitleLabel.text = searchTitleText;
+//        self.searchTitleLabel.text = searchTitleText;
         
         CGFloat btnW = 0;
         CGFloat btnH  = 30;
@@ -78,7 +78,7 @@
         CGFloat marginX  = 10;
         CGFloat marginY  = 5;
         CGFloat lastX = 10;
-        CGFloat lastY = 45;
+        CGFloat lastY = 10;
         
         NSInteger count = searchButtonTitleTexts.count;
         for (int i = 0; i < count; i++) {
@@ -106,7 +106,8 @@
             [self.btnArray addObject:btn];
             [self addSubview:btn];
         }
-        self.searchHeight = CGRectGetMaxY(self.btnArray.lastObject.frame);
+        self.searchHeight = CGRectGetMaxY(self.btnArray.lastObject.frame)+marginX;
+        self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.searchHeight);
         [self layoutIfNeeded];
         self.searchButtonClickCallback = searchButtonClickCallback;
     }

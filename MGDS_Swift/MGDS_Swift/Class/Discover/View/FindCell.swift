@@ -14,7 +14,7 @@ class FindCell: UITableViewCell {
     fileprivate lazy var collectionView : UICollectionView = { [unowned self] in
         let layout = UICollectionViewFlowLayout()
         let itemMargin : CGFloat = 10
-        let itemW: CGFloat = (MGScreenW - 4 * itemMargin) / 3
+        let itemW: CGFloat = (MGScreenW - 5 * itemMargin) / 3
         let itemH: CGFloat = 200
         layout.itemSize = CGSize(width: itemW, height: itemH)
         layout.minimumLineSpacing = 0

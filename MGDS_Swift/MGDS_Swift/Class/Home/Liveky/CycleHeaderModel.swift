@@ -22,7 +22,7 @@ class CycleHeaderModel: NSObject {
     var notice : String!
     var order : String!
     var personNum : String!
-    var picture : String!
+    var picture : String! = ""
     var qcmsint1 : String!
     var qcmsint3 : String!
     var qcmsint4 : String!

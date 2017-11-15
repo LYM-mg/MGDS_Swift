@@ -41,8 +41,6 @@
 		C017ACF41E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACD31E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a */; };
 		C017ACF51E1FC718000F4B60 /* libUMSocial_Sdk_Comment_4.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACD41E1FC718000F4B60 /* libUMSocial_Sdk_Comment_4.3.a */; };
 		C017ACF61E1FC718000F4B60 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACD61E1FC718000F4B60 /* UMSCommentDetailController.xib */; };
-		C017ACF71E1FC718000F4B60 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACD71E1FC718000F4B60 /* UMSCommentInputController.xib */; };
-		C017ACF81E1FC718000F4B60 /* UMSCommentInputControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACD81E1FC718000F4B60 /* UMSCommentInputControlleriPad.xib */; };
 		C017ACF91E1FC718000F4B60 /* UMShareEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACD91E1FC718000F4B60 /* UMShareEditViewController.xib */; };
 		C017ACFA1E1FC718000F4B60 /* UMShareEditViewControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACDA1E1FC718000F4B60 /* UMShareEditViewControlleriPad.xib */; };
 		C017ACFB1E1FC718000F4B60 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACDB1E1FC718000F4B60 /* UMSLoginViewController.xib */; };
@@ -144,6 +142,7 @@
 		C07071491E1E1B86002C42D0 /* MGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713A1E1E1B86002C42D0 /* MGButton.swift */; };
 		C070714A1E1E1B86002C42D0 /* MoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713B1E1E1B86002C42D0 /* MoreButton.swift */; };
 		C070714B1E1E1B86002C42D0 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C070713C1E1E1B86002C42D0 /* TitleButton.swift */; };
+		C07AD15B1F9F145B00317065 /* RegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07AD15A1F9F145B00317065 /* RegexHelper.swift */; };
 		C087D7EE1E6D83E2000FE18C /* MGImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C087D7ED1E6D83E2000FE18C /* MGImageTool.swift */; };
 		C08E3E691E2E4A17005A2835 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E3E681E2E4A17005A2835 /* BaseNavigationController.swift */; };
 		C08E3E971E2F0C39005A2835 /* clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C08E3E891E2F0C39005A2835 /* clear@2x.png */; };
@@ -333,8 +332,6 @@
 		C017ACD31E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_4.3.a; sourceTree = "<group>"; };
 		C017ACD41E1FC718000F4B60 /* libUMSocial_Sdk_Comment_4.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_Comment_4.3.a; sourceTree = "<group>"; };
 		C017ACD61E1FC718000F4B60 /* UMSCommentDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentDetailController.xib; sourceTree = "<group>"; };
-		C017ACD71E1FC718000F4B60 /* UMSCommentInputController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentInputController.xib; sourceTree = "<group>"; };
-		C017ACD81E1FC718000F4B60 /* UMSCommentInputControlleriPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentInputControlleriPad.xib; sourceTree = "<group>"; };
 		C017ACD91E1FC718000F4B60 /* UMShareEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMShareEditViewController.xib; sourceTree = "<group>"; };
 		C017ACDA1E1FC718000F4B60 /* UMShareEditViewControlleriPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMShareEditViewControlleriPad.xib; sourceTree = "<group>"; };
 		C017ACDB1E1FC718000F4B60 /* UMSLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSLoginViewController.xib; sourceTree = "<group>"; };
@@ -451,6 +448,7 @@
 		C070713B1E1E1B86002C42D0 /* MoreButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreButton.swift; sourceTree = "<group>"; };
 		C070713C1E1E1B86002C42D0 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		C07071581E1E2523002C42D0 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
+		C07AD15A1F9F145B00317065 /* RegexHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexHelper.swift; sourceTree = "<group>"; };
 		C087D7ED1E6D83E2000FE18C /* MGImageTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGImageTool.swift; sourceTree = "<group>"; };
 		C08E3E681E2E4A17005A2835 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		C08E3E891E2F0C39005A2835 /* clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clear@2x.png"; sourceTree = "<group>"; };
@@ -750,6 +748,7 @@
 				C017AC541E1FC449000F4B60 /* SysNetWorkTools.swift */,
 				C036A2F71F298B4400EE45DE /* MGAPIConfig.swift */,
 				C047DCCA1F31A14100254A95 /* MGHelpTools.swift */,
+				C07AD15A1F9F145B00317065 /* RegexHelper.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -825,8 +824,6 @@
 			isa = PBXGroup;
 			children = (
 				C017ACD61E1FC718000F4B60 /* UMSCommentDetailController.xib */,
-				C017ACD71E1FC718000F4B60 /* UMSCommentInputController.xib */,
-				C017ACD81E1FC718000F4B60 /* UMSCommentInputControlleriPad.xib */,
 				C017ACD91E1FC718000F4B60 /* UMShareEditViewController.xib */,
 				C017ACDA1E1FC718000F4B60 /* UMShareEditViewControlleriPad.xib */,
 				C017ACDB1E1FC718000F4B60 /* UMSLoginViewController.xib */,
@@ -1690,7 +1687,6 @@
 				C0AEF9671F0D11060050BCF2 /* FindAnchorCell.xib in Resources */,
 				C08E3E991E2F0C39005A2835 /* found@2x.png in Resources */,
 				C0B3C6CB1E47017D005F7634 /* RecommendGameView.xib in Resources */,
-				C017ACF81E1FC718000F4B60 /* UMSCommentInputControlleriPad.xib in Resources */,
 				C0B3C6AE1E46CB37005F7634 /* CollectionPrettyCell.xib in Resources */,
 				C08E3E9B1E2F0C39005A2835 /* logo.png in Resources */,
 				C017ACFC1E1FC718000F4B60 /* UMSnsAccountViewController.xib in Resources */,
@@ -1720,7 +1716,6 @@
 				C08E3E981E2F0C39005A2835 /* close@2x.png in Resources */,
 				C054FE7E1E6A8734003B5B33 /* Music.storyboard in Resources */,
 				C0B3C6AC1E46CB37005F7634 /* CollectionNormalCell.xib in Resources */,
-				C017ACF71E1FC718000F4B60 /* UMSCommentInputController.xib in Resources */,
 				C08E3F081E304B5A005A2835 /* Liveky.storyboard in Resources */,
 				C0D4EF4B1E1F7ED800043A6B /* Mine.storyboard in Resources */,
 				C017AD041E1FC718000F4B60 /* UMSocialSDKResourcesNew.bundle in Resources */,
@@ -1825,6 +1820,7 @@
 				C054FE7F1E6A8734003B5B33 /* MGLrcLoadTool.swift in Sources */,
 				C05A8E801E358C1B00996FFE /* LivekyCycleHeader.swift in Sources */,
 				C08E3F341E305326005A2835 /* MGHotModel.swift in Sources */,
+				C07AD15B1F9F145B00317065 /* RegexHelper.swift in Sources */,
 				C0D763F11F4FC25700E029D9 /* Timer+Extension.swift in Sources */,
 				C08E3F011E304B5A005A2835 /* HomeContentView.swift in Sources */,
 				C08E3F4C1E30A772005A2835 /* MGPlayerViewController.swift in Sources */,
@@ -2254,7 +2250,7 @@
 				C07071081E1E1461002C42D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C07071091E1E1461002C42D0 /* Build configuration list for PBXNativeTarget "MGDS_Swift" */ = {
 			isa = XCConfigurationList;
@@ -2263,7 +2259,7 @@
 				C070710B1E1E1461002C42D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

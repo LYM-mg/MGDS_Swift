@@ -16,7 +16,7 @@ private let KHistoryHeaderViewID = "KHistoryHeaderViewID"
 private let KSearchResultHeaderViewID = "KSearchResultHeaderViewID"
 
 class SearchMusicViewController: UIViewController {
-    fileprivate lazy var hotSearchView: HotSearchView = HotSearchView()
+    fileprivate var hotSearchView: HotSearchView?
     // MARK: - 懒加载属性
     fileprivate lazy var tableView: UITableView = { [unowned self] in
         //        let tb = UITableView(frame: CGRect(x: 0, y: 0, width: MGScreenW, height: self.view.mg_height))
@@ -250,19 +250,25 @@ extension SearchMusicViewController: UICollectionViewDataSource,UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KHotSearchCellID, for: indexPath)
-            if hotSearchArr.count > 0 {                
-                let hotSearchView = HotSearchView(frame: CGRect(x: 0, y: 0, width: MGScreenW, height: 200), searchTitleText: "热门搜索", searchButtonTitleTexts: hotSearchArr, searchButton: {[unowned self] (btn) in
-                    self.searchBar.text = btn?.currentTitle
-                    self.loadProductsWithKeyword(self.searchBar.text!)
-                    self.tableView.isHidden = false
-                    self.searchBar.resignFirstResponder()
-                })
-                cell.addSubview(hotSearchView!)
-                cell.layoutIfNeeded()
-                self.hotSearchView = hotSearchView!
-                print(hotSearchView!.searchHeight)
-                cell.frame = hotSearchView!.frame
-            }
+            if hotSearchArr.count > 0 {
+                if hotSearchView == nil {
+                    let hotSearchView = HotSearchView(frame: CGRect(x: 0, y: 0, width: MGScreenW, height: 200), searchTitleText: "热门搜索", searchButtonTitleTexts: hotSearchArr, searchButton: {[unowned self] (btn) in
+                        self.searchBar.text = btn?.currentTitle
+                        self.loadProductsWithKeyword(self.searchBar.text!)
+                        self.tableView.isHidden = false
+                        self.searchBar.resignFirstResponder()
+                    })
+                    cell.addSubview(hotSearchView!)
+                    self.hotSearchView = hotSearchView!
+                    print(hotSearchView!.searchHeight)
+//                    cell.frame = hotSearchView!.frame
+//                    cell.layoutIfNeeded()
+
+                    // IndexSet(index: 0)
+                   let indexSet = IndexSet(integer: 0)
+                   collectionView.reloadSections(indexSet)
+                }
+             }
              return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KSearchHistoryCellID, for: indexPath) as! SearchHistoryCell
@@ -309,7 +315,7 @@ extension SearchMusicViewController: UICollectionViewDataSource,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize(width: MGScreenW, height: (self.hotSearchView.searchHeight == 0) ? 200 : self.hotSearchView.searchHeight)
+            return CGSize(width: MGScreenW, height: (self.hotSearchView == nil) ? 200 : (self.hotSearchView?.searchHeight)!)
         }
         return CGSize(width: MGScreenW, height: 44)
     }

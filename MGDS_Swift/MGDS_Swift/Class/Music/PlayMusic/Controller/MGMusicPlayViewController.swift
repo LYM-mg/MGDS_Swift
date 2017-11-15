@@ -130,6 +130,7 @@ class MGMusicPlayViewController: UIViewController {
     }
     deinit {
         self.removeObserver(self, forKeyPath: "currentMusic")
+        MGNotificationCenter.removeObserver(self)
     }
 
 }
@@ -414,6 +415,9 @@ extension MGMusicPlayViewController {
         
         // 显示歌词label
         // 取出当前正在播放的歌词数据模型
+        if self.lrcTVC.lrcMs.count == 0 {
+            return
+        }
         let lrcModel = self.lrcTVC.lrcMs[row];
 //        let ctime = playingItem!.currentTime()
 //        let currentTimeSec: Float = Float(ctime.value) /  Float(ctime.timescale)

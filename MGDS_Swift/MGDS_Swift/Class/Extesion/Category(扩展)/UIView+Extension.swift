@@ -9,6 +9,8 @@
 import UIKit
 // MARK: - 尺寸frame
 extension UIView {
+    
+    /// 上下左右  ///
     /** 控件底部 */
     var bottom: CGFloat {
         get {
@@ -32,7 +34,7 @@ extension UIView {
     }
     
     /** 控件左边 */
-    var left: CGPoint {
+    var left: CGFloat {
         get {
             return self.frame.origin.x
         }set {
@@ -54,18 +56,7 @@ extension UIView {
         }
     }
     
-    /** 中心点的Y */
-    var mg_centerY: CGFloat! {
-        get {
-            return self.center.y
-        }
-        set {
-            var tmpCenter : CGPoint = center
-            tmpCenter.y             = newValue
-            center                  = tmpCenter
-        }
-    }
-    // ————————————————————————
+    // ——————————————————————————————————————————————————————————————————
     
     
     /** origin的X */
