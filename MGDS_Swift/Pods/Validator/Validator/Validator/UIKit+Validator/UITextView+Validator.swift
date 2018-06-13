@@ -9,6 +9,10 @@
 import UIKit
 
 extension UITextView: ValidatableInterfaceElement {
+    public func validate<R>(rule r: R) -> ValidationResult where R : ValidationRule, UITextView.InputType == R.InputType {
+        return .valid;
+    }
+    
     
     public typealias InputType = String
     

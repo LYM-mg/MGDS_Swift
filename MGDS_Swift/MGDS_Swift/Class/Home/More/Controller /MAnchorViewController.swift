@@ -53,10 +53,15 @@ extension MAnchorViewController {
     fileprivate func setupUI() {
         view.addSubview(collectionView)
         
-        collectionView.mj_header = MJRefreshGifHeader(refreshingBlock: { 
-            self.loadData(index: 0)
+        
+        collectionView.mj_header = MJRefreshGifHeader(refreshingBlock: { [weak self] in
+            self?.loadData(index: 0)
         })
         collectionView.mj_header.beginRefreshing()
+        
+        collectionView.mj_footer = MJRefreshAutoGifFooter(refreshingBlock: { [weak self] in
+            self?.loadData(index: self!.moreVM.anchorModels.count)
+        })
     }
 }
 
@@ -65,7 +70,7 @@ extension MAnchorViewController {
         weak var weakSelf = self
         moreVM.loadMoreData(type: moreType, index : index, finishedCallback: { _ in
             weakSelf?.collectionView.mj_header.endRefreshing()
-            weakSelf!.hideHud()
+            weakSelf?.collectionView.mj_footer.endRefreshing()
             weakSelf?.collectionView.reloadData()
         })
     }
@@ -81,11 +86,6 @@ extension MAnchorViewController : UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KAnchorCellID, for: indexPath) as! HomeViewCell
         
         cell.anchorModel = moreVM.anchorModels[indexPath.item]
-        
-        if indexPath.item == moreVM.anchorModels.count - 1 {
-            self.showHudInViewWithMode(view: MGKeyWindow!, hint: "正在加载更多...", mode: .indeterminate, imageName: nil)
-            loadData(index: moreVM.anchorModels.count)
-        }
         
         return cell
     }

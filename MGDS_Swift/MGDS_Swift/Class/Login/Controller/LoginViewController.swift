@@ -109,7 +109,7 @@ extension LoginViewController {
                 SaveTools.mg_Archiver(user1, path:  MGUserPath)
                 self.turnToMainTabBarViewController()
             } else {
-                let err = error as! NSError
+                let err = error! as NSError
                 if err.code == 210 {
                     self.showHint(hint: "用户名或密码错误")
                 }else if err.code == 211 {

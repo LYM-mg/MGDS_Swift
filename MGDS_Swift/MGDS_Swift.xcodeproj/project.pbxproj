@@ -40,12 +40,6 @@
 		C017ACF31E1FC718000F4B60 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C017ACC51E1FC718000F4B60 /* UMSocialLocalizable.strings */; };
 		C017ACF41E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACD31E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a */; };
 		C017ACF51E1FC718000F4B60 /* libUMSocial_Sdk_Comment_4.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACD41E1FC718000F4B60 /* libUMSocial_Sdk_Comment_4.3.a */; };
-		C017ACF61E1FC718000F4B60 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACD61E1FC718000F4B60 /* UMSCommentDetailController.xib */; };
-		C017ACF91E1FC718000F4B60 /* UMShareEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACD91E1FC718000F4B60 /* UMShareEditViewController.xib */; };
-		C017ACFA1E1FC718000F4B60 /* UMShareEditViewControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACDA1E1FC718000F4B60 /* UMShareEditViewControlleriPad.xib */; };
-		C017ACFB1E1FC718000F4B60 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACDB1E1FC718000F4B60 /* UMSLoginViewController.xib */; };
-		C017ACFC1E1FC718000F4B60 /* UMSnsAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACDC1E1FC718000F4B60 /* UMSnsAccountViewController.xib */; };
-		C017ACFD1E1FC718000F4B60 /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017ACDD1E1FC718000F4B60 /* UMSShareListController.xib */; };
 		C017ACFE1E1FC718000F4B60 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACE01E1FC718000F4B60 /* libSocialSina.a */; };
 		C017ACFF1E1FC718000F4B60 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C017ACE31E1FC718000F4B60 /* libSocialQQ.a */; };
 		C017AD011E1FC718000F4B60 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C017ACE51E1FC718000F4B60 /* TencentOpenApi_IOS_Bundle.bundle */; };
@@ -114,12 +108,6 @@
 		C05821F51EA9EF2C00607178 /* MGSearchMusicResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05821F41EA9EF2C00607178 /* MGSearchMusicResultVC.swift */; };
 		C05A8E801E358C1B00996FFE /* LivekyCycleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A8E7F1E358C1B00996FFE /* LivekyCycleHeader.swift */; };
 		C05A8E821E358CCC00996FFE /* CycleHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A8E811E358CCC00996FFE /* CycleHeaderModel.swift */; };
-		C05F6E811F1907E5003BA57E /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C05F6E7B1F1907E5003BA57E /* IJKMediaFramework.framework */; };
-		C05F6E821F1907E5003BA57E /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C05F6E7C1F1907E5003BA57E /* libbz2.tbd */; };
-		C05F6E831F1907E5003BA57E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C05F6E7D1F1907E5003BA57E /* libcrypto.a */; };
-		C05F6E841F1907E5003BA57E /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C05F6E7E1F1907E5003BA57E /* librtmp.a */; };
-		C05F6E851F1907E5003BA57E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C05F6E7F1F1907E5003BA57E /* libssl.a */; };
-		C05F6E861F1907E5003BA57E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C05F6E801F1907E5003BA57E /* libz.tbd */; };
 		C07070FB1E1E1461002C42D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07070FA1E1E1461002C42D0 /* AppDelegate.swift */; };
 		C07071001E1E1461002C42D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07070FE1E1E1461002C42D0 /* Main.storyboard */; };
 		C07071021E1E1461002C42D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C07071011E1E1461002C42D0 /* Assets.xcassets */; };
@@ -331,12 +319,6 @@
 		C017ACD21E1FC718000F4B60 /* UMSocialSnsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSnsService.h; sourceTree = "<group>"; };
 		C017ACD31E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_4.3.a; sourceTree = "<group>"; };
 		C017ACD41E1FC718000F4B60 /* libUMSocial_Sdk_Comment_4.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_Comment_4.3.a; sourceTree = "<group>"; };
-		C017ACD61E1FC718000F4B60 /* UMSCommentDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentDetailController.xib; sourceTree = "<group>"; };
-		C017ACD91E1FC718000F4B60 /* UMShareEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMShareEditViewController.xib; sourceTree = "<group>"; };
-		C017ACDA1E1FC718000F4B60 /* UMShareEditViewControlleriPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMShareEditViewControlleriPad.xib; sourceTree = "<group>"; };
-		C017ACDB1E1FC718000F4B60 /* UMSLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSLoginViewController.xib; sourceTree = "<group>"; };
-		C017ACDC1E1FC718000F4B60 /* UMSnsAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSnsAccountViewController.xib; sourceTree = "<group>"; };
-		C017ACDD1E1FC718000F4B60 /* UMSShareListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSShareListController.xib; sourceTree = "<group>"; };
 		C017ACE01E1FC718000F4B60 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
 		C017ACE11E1FC718000F4B60 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
 		C017ACE31E1FC718000F4B60 /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
@@ -417,12 +399,6 @@
 		C05821F41EA9EF2C00607178 /* MGSearchMusicResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGSearchMusicResultVC.swift; sourceTree = "<group>"; };
 		C05A8E7F1E358C1B00996FFE /* LivekyCycleHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivekyCycleHeader.swift; sourceTree = "<group>"; };
 		C05A8E811E358CCC00996FFE /* CycleHeaderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleHeaderModel.swift; sourceTree = "<group>"; };
-		C05F6E7B1F1907E5003BA57E /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
-		C05F6E7C1F1907E5003BA57E /* libbz2.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = libbz2.tbd; sourceTree = "<group>"; };
-		C05F6E7D1F1907E5003BA57E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		C05F6E7E1F1907E5003BA57E /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librtmp.a; sourceTree = "<group>"; };
-		C05F6E7F1F1907E5003BA57E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
-		C05F6E801F1907E5003BA57E /* libz.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = libz.tbd; sourceTree = "<group>"; };
 		C07070F71E1E1461002C42D0 /* MGDS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07070FA1E1E1461002C42D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C07070FF1E1E1461002C42D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -580,34 +556,28 @@
 			files = (
 				C0F445311F20895300FF6C44 /* Foundation.framework in Frameworks */,
 				C017AD211E22065A000F4B60 /* AdSupport.framework in Frameworks */,
-				C05F6E821F1907E5003BA57E /* libbz2.tbd in Frameworks */,
 				C017AD1F1E220641000F4B60 /* libstdc++.tbd in Frameworks */,
 				C017AD1D1E22062C000F4B60 /* JavaScriptCore.framework in Frameworks */,
 				C017AD1B1E220617000F4B60 /* MessageUI.framework in Frameworks */,
 				C017AD191E220606000F4B60 /* libicucore.tbd in Frameworks */,
 				C017AD111E1FCDF2000F4B60 /* TencentOpenApi_IOS_Bundle.bundle in Frameworks */,
 				C017AD121E1FCDF2000F4B60 /* TencentOpenAPI.framework in Frameworks */,
-				C05F6E831F1907E5003BA57E /* libcrypto.a in Frameworks */,
 				C017AD101E1FC89A000F4B60 /* libc++.tbd in Frameworks */,
 				C017AD081E1FC85B000F4B60 /* SystemConfiguration.framework in Frameworks */,
 				C017AD0E1E1FC882000F4B60 /* libz.tbd in Frameworks */,
 				C017AD061E1FC84F000F4B60 /* libsqlite3.tbd in Frameworks */,
-				C05F6E851F1907E5003BA57E /* libssl.a in Frameworks */,
 				C017AD0C1E1FC86E000F4B60 /* ImageIO.framework in Frameworks */,
 				C017AD0A1E1FC864000F4B60 /* CoreTelephony.framework in Frameworks */,
 				C017ACFF1E1FC718000F4B60 /* libSocialQQ.a in Frameworks */,
 				C017ACF21E1FC718000F4B60 /* libUMessage_Sdk_1.2.0.a in Frameworks */,
 				C017ACFE1E1FC718000F4B60 /* libSocialSina.a in Frameworks */,
-				C05F6E861F1907E5003BA57E /* libz.tbd in Frameworks */,
 				C017AD031E1FC718000F4B60 /* libWeChatSDK.a in Frameworks */,
 				C017ACBA1E1FC709000F4B60 /* libMobClickLibrary.a in Frameworks */,
-				C05F6E811F1907E5003BA57E /* IJKMediaFramework.framework in Frameworks */,
 				C017ACF41E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a in Frameworks */,
 				C017ACB51E1FC6F1000F4B60 /* libPushSDK-1.8.8.a in Frameworks */,
 				DFB4E0B8595614ACAE126B5B /* Pods_MGDS_Swift.framework in Frameworks */,
 				C017AD021E1FC718000F4B60 /* libSocialWechat.a in Frameworks */,
 				C017ACF51E1FC718000F4B60 /* libUMSocial_Sdk_Comment_4.3.a in Frameworks */,
-				C05F6E841F1907E5003BA57E /* librtmp.a in Frameworks */,
 				C0B3C6E01E484AE9005F7634 /* AVOSCloud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -823,12 +793,6 @@
 		C017ACD51E1FC718000F4B60 /* SocialSDKXib */ = {
 			isa = PBXGroup;
 			children = (
-				C017ACD61E1FC718000F4B60 /* UMSCommentDetailController.xib */,
-				C017ACD91E1FC718000F4B60 /* UMShareEditViewController.xib */,
-				C017ACDA1E1FC718000F4B60 /* UMShareEditViewControlleriPad.xib */,
-				C017ACDB1E1FC718000F4B60 /* UMSLoginViewController.xib */,
-				C017ACDC1E1FC718000F4B60 /* UMSnsAccountViewController.xib */,
-				C017ACDD1E1FC718000F4B60 /* UMSShareListController.xib */,
 			);
 			path = SocialSDKXib;
 			sourceTree = "<group>";
@@ -1030,19 +994,6 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		C05F6E7A1F1907E5003BA57E /* lib&IJKFW */ = {
-			isa = PBXGroup;
-			children = (
-				C05F6E7B1F1907E5003BA57E /* IJKMediaFramework.framework */,
-				C05F6E7C1F1907E5003BA57E /* libbz2.tbd */,
-				C05F6E7D1F1907E5003BA57E /* libcrypto.a */,
-				C05F6E7E1F1907E5003BA57E /* librtmp.a */,
-				C05F6E7F1F1907E5003BA57E /* libssl.a */,
-				C05F6E801F1907E5003BA57E /* libz.tbd */,
-			);
-			path = "lib&IJKFW";
-			sourceTree = "<group>";
-		};
 		C07070EE1E1E1461002C42D0 = {
 			isa = PBXGroup;
 			children = (
@@ -1065,7 +1016,6 @@
 			isa = PBXGroup;
 			children = (
 				C07070FA1E1E1461002C42D0 /* AppDelegate.swift */,
-				C05F6E7A1F1907E5003BA57E /* lib&IJKFW */,
 				C070710C1E1E14F0002C42D0 /* Class */,
 				C07071591E1E2538002C42D0 /* Support File */,
 			);
@@ -1650,8 +1600,8 @@
 				TargetAttributes = {
 					C07070F61E1E1461002C42D0 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 6Q4SPHM5Z9;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 2SCJBB22ZQ;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1689,7 +1639,6 @@
 				C0B3C6CB1E47017D005F7634 /* RecommendGameView.xib in Resources */,
 				C0B3C6AE1E46CB37005F7634 /* CollectionPrettyCell.xib in Resources */,
 				C08E3E9B1E2F0C39005A2835 /* logo.png in Resources */,
-				C017ACFC1E1FC718000F4B60 /* UMSnsAccountViewController.xib in Resources */,
 				C07071221E1E16C4002C42D0 /* LaunchScreen.storyboard in Resources */,
 				C08E3EA31E2F0C39005A2835 /* video_play_btn_bg@2x.png in Resources */,
 				C00478541E2E3D7E00393BF8 /* ZFPlayer.bundle in Resources */,
@@ -1706,13 +1655,10 @@
 				C08E3E9E1E2F0C39005A2835 /* play.png in Resources */,
 				C08E3E971E2F0C39005A2835 /* clear@2x.png in Resources */,
 				C05821F31EA9EB3100607178 /* SearchResultHeaderView.xib in Resources */,
-				C017ACFA1E1FC718000F4B60 /* UMShareEditViewControlleriPad.xib in Resources */,
-				C017ACFD1E1FC718000F4B60 /* UMSShareListController.xib in Resources */,
 				C0AEF9501F0CD4000050BCF2 /* HomeViewCell.xib in Resources */,
 				C017ACF31E1FC718000F4B60 /* UMSocialLocalizable.strings in Resources */,
 				C00478591E2E40A500393BF8 /* videoData.json in Resources */,
 				C004782D1E2E3D5D00393BF8 /* TableViewCell.xib in Resources */,
-				C017ACF61E1FC718000F4B60 /* UMSCommentDetailController.xib in Resources */,
 				C08E3E981E2F0C39005A2835 /* close@2x.png in Resources */,
 				C054FE7E1E6A8734003B5B33 /* Music.storyboard in Resources */,
 				C0B3C6AC1E46CB37005F7634 /* CollectionNormalCell.xib in Resources */,
@@ -1723,7 +1669,6 @@
 				C0373C2A1EB33DE4001206C5 /* login_video.mp4 in Resources */,
 				C08E3EA11E2F0C39005A2835 /* share_s@2x.png in Resources */,
 				C08E3F3D1E305950005A2835 /* placeholder.png in Resources */,
-				C017ACF91E1FC718000F4B60 /* UMShareEditViewController.xib in Resources */,
 				C0373C2B1EB33DE4001206C5 /* loginmovie.mp4 in Resources */,
 				C08E3F4E1E30B412005A2835 /* MGPlayerView.xib in Resources */,
 				C08E3E9C1E2F0C39005A2835 /* message@2x.png in Resources */,
@@ -1736,7 +1681,6 @@
 				C08E3F301E304E2E005A2835 /* MGHotLiveCell.xib in Resources */,
 				C08E3E9F1E2F0C39005A2835 /* playcount.png in Resources */,
 				C0B3C6C31E46FC0C005F7634 /* RecommendCycleView.xib in Resources */,
-				C017ACFB1E1FC718000F4B60 /* UMSLoginViewController.xib in Resources */,
 				C0B3C6BE1E46FBE8005F7634 /* CollectionHeaderView.xib in Resources */,
 				C08E3E9A1E2F0C39005A2835 /* found_s@2x.png in Resources */,
 			);
@@ -2110,7 +2054,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6Q4SPHM5Z9;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2SCJBB22ZQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2164,8 +2109,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ming.MGDS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19fb22d5-05f7-48ca-bffc-7f81cee959af";
-				PROVISIONING_PROFILE_SPECIFIER = doushiDevelopment;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDS_Swift/BridgeHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -2179,7 +2124,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 6Q4SPHM5Z9;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2SCJBB22ZQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2233,8 +2179,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ming.MGDS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "afc80559-ecb4-4739-b756-df14d2546dd9";
-				PROVISIONING_PROFILE_SPECIFIER = doushiDistribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDS_Swift/BridgeHeader.h;
 				SWIFT_VERSION = 3.0;
 			};

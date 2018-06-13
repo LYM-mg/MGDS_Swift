@@ -30,6 +30,10 @@
 import UIKit
 
 extension UISlider: ValidatableInterfaceElement {
+    public func validate<R>(rule r: R) -> ValidationResult where R : ValidationRule, UISlider.InputType == R.InputType {
+        return .valid;
+    }
+    
     
     public typealias InputType = Float
     
