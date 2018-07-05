@@ -183,7 +183,7 @@ extension AnchorViewController : UICollectionViewDataSource {
         }else {
             let prettyCell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
 
-            prettyCell.anchor = anchorVM.anchorGroups[indexPath.section].anchors[indexPath.item-1]
+            prettyCell.anchor = anchorVM.anchorGroups[indexPath.section].anchors[indexPath.item]
             
             return prettyCell
 
