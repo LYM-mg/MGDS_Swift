@@ -49,7 +49,9 @@ extension GuardScrollView {
             scrollView.addSubview(imageV)
             
             if(i == 4) {
-                let x = MGScreenW/2+MGScreenW*4-187/4
+//                let x = MGScreenW/2+MGScreenW*4-187/4
+//                let deformationBtn  = DeformationButton(frame: CGRect(x: x, y:MGScreenH/2+100, width:  187/2, height:  187/2))
+                let x = MGScreenW/2-187/4
                 let deformationBtn  = DeformationButton(frame: CGRect(x: x, y:MGScreenH/2+100, width:  187/2, height:  187/2))
                 deformationBtn.contentColor  =  UIColor.clear
                 deformationBtn.progressColor  = UIColor(r: 126, g: 235, b: 251)
@@ -57,7 +59,8 @@ extension GuardScrollView {
                 let bgImage  = UIImage(named: "按前")!
                 deformationBtn.forDisplayButton.setBackgroundImage(bgImage, for: .normal)
                 deformationBtn.addTarget(self, action: #selector(GuardScrollView.EnterApp(sender:)), for: .touchUpInside)
-                scrollView.addSubview(deformationBtn)
+                imageV.addSubview(deformationBtn)
+                imageV.isUserInteractionEnabled = true
             }
         }
         self.addSubview(scrollView)

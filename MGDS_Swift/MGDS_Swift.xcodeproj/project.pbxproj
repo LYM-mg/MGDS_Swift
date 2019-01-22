@@ -249,6 +249,12 @@
 		C0EF3A0B1F1CDFAE0089F2A9 /* SBTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF3A0A1F1CDFAE0089F2A9 /* SBTools.swift */; };
 		C0F445311F20895300FF6C44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F445301F20895300FF6C44 /* Foundation.framework */; };
 		DFB4E0B8595614ACAE126B5B /* Pods_MGDS_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 899208F26CCBE9818DD0C9FB /* Pods_MGDS_Swift.framework */; };
+		F43CC56721B919DD0010960C /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43CC56121B919DD0010960C /* IJKMediaFramework.framework */; };
+		F43CC56821B919DD0010960C /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F43CC56221B919DD0010960C /* libbz2.tbd */; };
+		F43CC56921B919DD0010960C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F43CC56321B919DD0010960C /* libcrypto.a */; };
+		F43CC56A21B919DD0010960C /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F43CC56421B919DD0010960C /* librtmp.a */; };
+		F43CC56B21B919DD0010960C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F43CC56521B919DD0010960C /* libssl.a */; };
+		F43CC56C21B919DD0010960C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F43CC56621B919DD0010960C /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -547,6 +553,12 @@
 		C0D9D8DA1E4C4EE5008CC6C8 /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
 		C0EF3A0A1F1CDFAE0089F2A9 /* SBTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBTools.swift; sourceTree = "<group>"; };
 		C0F445301F20895300FF6C44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F43CC56121B919DD0010960C /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		F43CC56221B919DD0010960C /* libbz2.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = libbz2.tbd; sourceTree = "<group>"; };
+		F43CC56321B919DD0010960C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		F43CC56421B919DD0010960C /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librtmp.a; sourceTree = "<group>"; };
+		F43CC56521B919DD0010960C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		F43CC56621B919DD0010960C /* libz.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = libz.tbd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -560,22 +572,28 @@
 				C017AD1D1E22062C000F4B60 /* JavaScriptCore.framework in Frameworks */,
 				C017AD1B1E220617000F4B60 /* MessageUI.framework in Frameworks */,
 				C017AD191E220606000F4B60 /* libicucore.tbd in Frameworks */,
+				F43CC56921B919DD0010960C /* libcrypto.a in Frameworks */,
 				C017AD111E1FCDF2000F4B60 /* TencentOpenApi_IOS_Bundle.bundle in Frameworks */,
 				C017AD121E1FCDF2000F4B60 /* TencentOpenAPI.framework in Frameworks */,
+				F43CC56A21B919DD0010960C /* librtmp.a in Frameworks */,
 				C017AD101E1FC89A000F4B60 /* libc++.tbd in Frameworks */,
+				F43CC56821B919DD0010960C /* libbz2.tbd in Frameworks */,
 				C017AD081E1FC85B000F4B60 /* SystemConfiguration.framework in Frameworks */,
 				C017AD0E1E1FC882000F4B60 /* libz.tbd in Frameworks */,
 				C017AD061E1FC84F000F4B60 /* libsqlite3.tbd in Frameworks */,
 				C017AD0C1E1FC86E000F4B60 /* ImageIO.framework in Frameworks */,
+				F43CC56721B919DD0010960C /* IJKMediaFramework.framework in Frameworks */,
 				C017AD0A1E1FC864000F4B60 /* CoreTelephony.framework in Frameworks */,
 				C017ACFF1E1FC718000F4B60 /* libSocialQQ.a in Frameworks */,
 				C017ACF21E1FC718000F4B60 /* libUMessage_Sdk_1.2.0.a in Frameworks */,
+				F43CC56B21B919DD0010960C /* libssl.a in Frameworks */,
 				C017ACFE1E1FC718000F4B60 /* libSocialSina.a in Frameworks */,
 				C017AD031E1FC718000F4B60 /* libWeChatSDK.a in Frameworks */,
 				C017ACBA1E1FC709000F4B60 /* libMobClickLibrary.a in Frameworks */,
 				C017ACF41E1FC718000F4B60 /* libUMSocial_Sdk_4.3.a in Frameworks */,
 				C017ACB51E1FC6F1000F4B60 /* libPushSDK-1.8.8.a in Frameworks */,
 				DFB4E0B8595614ACAE126B5B /* Pods_MGDS_Swift.framework in Frameworks */,
+				F43CC56C21B919DD0010960C /* libz.tbd in Frameworks */,
 				C017AD021E1FC718000F4B60 /* libSocialWechat.a in Frameworks */,
 				C017ACF51E1FC718000F4B60 /* libUMSocial_Sdk_Comment_4.3.a in Frameworks */,
 				C0B3C6E01E484AE9005F7634 /* AVOSCloud.framework in Frameworks */,
@@ -1016,6 +1034,7 @@
 			isa = PBXGroup;
 			children = (
 				C07070FA1E1E1461002C42D0 /* AppDelegate.swift */,
+				F43CC56021B919DD0010960C /* lib&IJKFW */,
 				C070710C1E1E14F0002C42D0 /* Class */,
 				C07071591E1E2538002C42D0 /* Support File */,
 			);
@@ -1563,6 +1582,19 @@
 				C0D9D8DA1E4C4EE5008CC6C8 /* MMMaterialDesignSpinner.m */,
 			);
 			path = "MMMaterialDesignSpinner-master";
+			sourceTree = "<group>";
+		};
+		F43CC56021B919DD0010960C /* lib&IJKFW */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC56121B919DD0010960C /* IJKMediaFramework.framework */,
+				F43CC56221B919DD0010960C /* libbz2.tbd */,
+				F43CC56321B919DD0010960C /* libcrypto.a */,
+				F43CC56421B919DD0010960C /* librtmp.a */,
+				F43CC56521B919DD0010960C /* libssl.a */,
+				F43CC56621B919DD0010960C /* libz.tbd */,
+			);
+			path = "lib&IJKFW";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

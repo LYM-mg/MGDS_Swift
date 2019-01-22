@@ -88,30 +88,30 @@ public extension String {
 public extension String {
     var length: Int { return characters.count }
     
-    subscript (range: Range<Int>) -> String {
-        get {
-            let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
-            let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
-            return self[Range(startIndex..<endIndex)]
-        } set {
-            let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
-            let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
-            let strRange = Range(startIndex..<endIndex)
-            self.replaceSubrange(strRange, with: newValue)
-        }
-    }
-    
-    func subString(from: Int) -> String {
-        let end = self.characters.count
-        return self[from..<end]
-    }
-    func subString(from: Int, length: Int) -> String {
-        let end = from + length
-        return self[from..<end]
-    }
-    func subString(from:Int, to:Int) ->String {
-        return self[from..<to]
-    }
+//    subscript (range: Range<Int>) -> String {
+//        get {
+//            let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
+//            let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
+//            return self[Range(startIndex..<endIndex)]
+//        } set {
+//            let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
+//            let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
+//            let strRange = Range(startIndex..<endIndex)
+//            self.replaceSubrange(strRange, with: newValue)
+//        }
+//    }
+//    
+//    func subString(from: Int) -> String {
+//        let end = self.characters.count
+//        return self[from..<end]
+//    }
+//    func subString(from: Int, length: Int) -> String {
+//        let end = from + length
+//        return self[from..<end]
+//    }
+//    func subString(from:Int, to:Int) ->String {
+//        return self[from..<to]
+//    }
     
     func replace(_ string: String, with withString: String) -> String {
         return replacingOccurrences(of: string, with: withString)
