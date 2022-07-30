@@ -10,21 +10,25 @@
 #endif
 #endif
 
-#import "ASValuePopUpView.h"
-#import "ASValueTrackingSlider.h"
-#import "NSObject+Extend.h"
-#import "UIImageView+ZFCache.h"
-#import "UINavigationController+ZFPlayerRotation.h"
-#import "UITabBarController+ZFPlayerRotation.h"
-#import "UIView+CustomControlView.h"
-#import "UIViewController+ZFPlayerRotation.h"
-#import "MMMaterialDesignSpinner.h"
-#import "ZFBrightnessView.h"
-#import "ZFFullScreenViewController.h"
+#import "UIScrollView+ZFPlayer.h"
+#import "ZFFloatView.h"
+#import "ZFKVOController.h"
+#import "ZFLandscapeViewController.h"
+#import "ZFLandscapeWindow.h"
+#import "ZFOrientationObserver.h"
+#import "ZFPersentInteractiveTransition.h"
 #import "ZFPlayer.h"
-#import "ZFPlayerControlView.h"
-#import "ZFPlayerModel.h"
+#import "ZFPlayerConst.h"
+#import "ZFPlayerController.h"
+#import "ZFPlayerGestureControl.h"
+#import "ZFPlayerLogManager.h"
+#import "ZFPlayerMediaControl.h"
+#import "ZFPlayerMediaPlayback.h"
+#import "ZFPlayerNotification.h"
 #import "ZFPlayerView.h"
+#import "ZFPortraitViewController.h"
+#import "ZFPresentTransition.h"
+#import "ZFReachabilityManager.h"
 
 FOUNDATION_EXPORT double ZFPlayerVersionNumber;
 FOUNDATION_EXPORT const unsigned char ZFPlayerVersionString[];

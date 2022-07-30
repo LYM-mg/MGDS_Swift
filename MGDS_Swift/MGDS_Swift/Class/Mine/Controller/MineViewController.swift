@@ -164,6 +164,11 @@ extension MineViewController: MFMailComposeViewControllerDelegate {
         mailComposerVC.mailComposeDelegate = self
         //设置收件人
         mailComposerVC.setToRecipients(["lym.mgming@gmail.com","1292043630@qq.com"])
+        if #available(iOS 11.0, *) {
+            mailComposerVC.setPreferredSendingEmailAddress("1292043630@qq.com")
+        } else {
+            
+        }
         //设置主题
         mailComposerVC.setSubject("逗视意见反馈")
         //邮件内容

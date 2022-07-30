@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MOBFJSTypeDefine.h"
 
+@class JSContext;
+
 /**
  *  JavaScript上下文环境
  */
@@ -20,6 +22,22 @@
  *  @return JS上下文环境
  */
 + (instancetype)defaultContext;
+
+/**
+ 初始化
+
+ @param webview Web视图，如果传入视图带有委托处理，请在传入该参数前将委托设置，否则会导致Context无法正常工作。
+ @return JS上下文
+ */
+- (instancetype)initWithWebView:(UIWebView *)webview;
+
+/**
+ 初始化
+
+ @param context JS上下文
+ @return JS上下文
+ */
+- (instancetype)initWithContext:(JSContext *)context;
 
 /**
  *  注册方法

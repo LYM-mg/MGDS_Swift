@@ -26,11 +26,10 @@
 #import <MOBFoundation/MOBFDataService.h>
 #import <MOBFoundation/MOBFHttpService.h>
 #import <MOBFoundation/MOBFImageGetter.h>
-#import <MOBFoundation/MOBFJSContext.h>
-
-#import <MOBFoundation/IMOBFPlugin.h>
-#import <MOBFoundation/MOBFPluginManager.h>
+#import <MOBFoundation/MOBFImageCachePolicy.h>
 
 #import <MOBFoundation/MOBFNotificationCenter.h>
+
+#import <MOBFoundation/MobSDK.h>
 
 #endif

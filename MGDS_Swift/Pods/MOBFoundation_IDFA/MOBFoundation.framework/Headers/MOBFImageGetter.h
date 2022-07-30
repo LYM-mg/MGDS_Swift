@@ -10,6 +10,8 @@
 #import "MOBFImageServiceTypeDef.h"
 #import <Foundation/Foundation.h>
 
+@class MOBFImageCachePolicy;
+
 /**
  *  图片获取器
  */
@@ -21,6 +23,14 @@
  *  @return 图片服务实例
  */
 + (instancetype)sharedInstance;
+
+/**
+ 初始化图片服务实例
+
+ @param cachePolicy 缓存策略
+ @return 图片服务实例
+ */
+- (instancetype)initWithCachePolicy:(MOBFImageCachePolicy *)cachePolicy;
 
 /**
  *  是否存在图片缓存

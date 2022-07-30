@@ -11,7 +11,9 @@
 
 @interface NAKPlaybackIndicatorView ()
 
-@property (nonatomic, readonly) NAKPlaybackIndicatorContentView* contentView;
+- (instancetype)initWithCoder:(NSCoder*)aDecoder NS_DESIGNATED_INITIALIZER;
+
+@property (nonatomic, readonly, nonnull) NAKPlaybackIndicatorContentView* contentView;
 @property (nonatomic, assign) BOOL hasInstalledConstraints;
 
 @end
@@ -20,29 +22,39 @@
 
 #pragma mark - Initialization
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    return [self initWithFrame:frame style:[NAKPlaybackIndicatorViewStyle defaultStyle]];
+}
+
+- (instancetype)initWithStyle:(NAKPlaybackIndicatorViewStyle*)style
+{
+    return [self initWithFrame:CGRectZero style:style];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame style:(NAKPlaybackIndicatorViewStyle*)style
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self commonInit];
+        [self commonInitWithStyle:style];
     }
     return self;
 }
 
-- (id)initWithCoder:(NSCoder*)aDecoder
+- (instancetype)initWithCoder:(NSCoder*)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self commonInit];
+        [self commonInitWithStyle:[NAKPlaybackIndicatorViewStyle defaultStyle]];
     }
     return self;
 }
 
-- (void)commonInit
+- (void)commonInitWithStyle:(NAKPlaybackIndicatorViewStyle*)style
 {
     self.layer.masksToBounds = YES;
 
-    _contentView = [[NAKPlaybackIndicatorContentView alloc] init];
+    _contentView = [[NAKPlaybackIndicatorContentView alloc] initWithStyle:style];
     [self addSubview:_contentView];
 
     [self prepareLayoutPriorities];
@@ -105,6 +117,13 @@
     return [self.contentView intrinsicContentSize];
 }
 
+// iOS 9 or later
+- (UIView*)viewForLastBaselineLayout
+{
+    return self.contentView;
+}
+
+// iOS 8
 - (UIView*)viewForBaselineLayout
 {
     return self.contentView;

@@ -26,6 +26,15 @@
 + (NSData *)hmacSha1Data:(NSData *)data forKey:(NSData *)key;
 
 /**
+ 使用HMAC-MD5进行签名
+
+ @param data 原始数据
+ @param key 密钥
+ @return 加密后数据
+ */
++ (NSData *)hmacMd5Data:(NSData *)data forKey:(NSData *)key;
+
+/**
  *  对数据进行MD5签名
  *
  *  @param data 原始数据

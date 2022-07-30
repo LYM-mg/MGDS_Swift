@@ -102,7 +102,7 @@ class SysNetWorkTools: NSObject {
             let endStr = "\r\n--\(boundary)--"
             mData.append(endStr.data(using: .utf8)!)
             
-            let task = session.uploadTask(with: request, from: mData as Data) { (data, response, error) in
+            let task = session.uploadTask(with: encodedURLRequest, from: mData as Data) { (data, response, error) in
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss(withDelay: 0.5)
                     guard error == nil else {

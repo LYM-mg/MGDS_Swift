@@ -296,4 +296,41 @@ extension UIViewController {
 }
 
 
-    
+/// MARk: - 返回z到指定控制器
+extension UIViewController {
+    /**
+     *  导航栏回到指定控制器
+     *  className：控制器名字（字符串）
+     *  animated：是否带动画
+     */
+    func back(toController className: String!, animated: Bool) {
+        guard let appName: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String else {
+            return
+        }
+        let classStringName = appName + "." + className
+        guard  let cls:AnyClass = NSClassFromString(classStringName) else {
+            return;
+        }
+
+        self.back(toControllerClass: cls, animated: animated)
+    }
+
+    /**
+     *  导航栏回到指定控制器
+     *  cls：控制器类名）
+     *  animated：是否带动画
+     */
+    func back(toControllerClass cls: AnyClass, animated: Bool) {
+        if navigationController != nil, let childViewControllers = navigationController?.childViewControllers {
+            let resluts = childViewControllers.filter { return $0.isKind(of: cls) }
+            if resluts.count>0,let firstObject = resluts.first {
+                 navigationController!.popToViewController(firstObject, animated: animated)
+
+
+            }
+        }
+    }
+}
+
+
+

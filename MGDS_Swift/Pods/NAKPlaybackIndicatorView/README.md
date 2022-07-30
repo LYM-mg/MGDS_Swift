@@ -1,27 +1,25 @@
-[![Version](http://cocoapod-badges.herokuapp.com/v/NAKPlaybackIndicatorView/badge.png)](http://cocoadocs.org/docsets/NAKPlaybackIndicatorView) [![Platform](http://cocoapod-badges.herokuapp.com/p/NAKPlaybackIndicatorView/badge.png)](http://cocoadocs.org/docsets/NAKPlaybackIndicatorView) [![Build Status](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView.png?branch=master)](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView)
+[![Version](http://img.shields.io/cocoapods/v/NAKPlaybackIndicatorView.svg)](https://cocoapods.org/pods/NAKPlaybackIndicatorView)
+[![Build Status](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView.svg?branch=master)](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView)
 
 # ![Icon](Documentation/icon.png) NAKPlaybackIndicatorView
 
 <img src="Documentation/music-app.png" width="320" height="150" alt="Music.app" align="right" />
 
-**NAKPlaybackIndicatorView** is a view that mimics the music playback indicator in the Music.app on iOS 7.
-It has three vertical bars and they oscillate randomly.
+**NAKPlaybackIndicatorView** is a view that mimics the music playback indicator in the Music.app on iOS.
+It has some vertical bars and they oscillate randomly.
 
-Requires iOS 7 or later.
+Requires iOS 8.0 or later.
 
-## Trying Demo App
+## Trying the Demo App
 
 You can try the demo app instantly with [CocoaPods](http://cocoapods.org):
 
 ```bash
-# This will open a Xcode workspace
+# This will open an Xcode workspace
 $ pod try NAKPlaybackIndicatorView
 ```
 
-If you're asked to choose which workspace or project to open,
-choose `NAKPlaybackIndicatorView.xcworkspace`.
-
-Then, in the opened workspace, choose the **Demo** scheme and run.
+In the opened workspace, choose the **Demo** scheme and run.
 
 ## Installation
 
@@ -41,22 +39,28 @@ Here's a basic example:
 ```objective-c
 #import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
 
-NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
-[self.view addSubview:indicator];
-[indicator sizeToFit];
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
 
-// Initially the `state` property is NAKPlaybackIndicatorViewStateStopped
-// and the `hidesWhenStopped` property is YES.
-// Thus, the view is hidden at this time.
+    NAKPlaybackIndicatorViewStyle *style = [NAKPlaybackIndicatorViewStyle iOS7Style];
+    NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWithStyle:style];
+    [self.view addSubview:indicator];
+    [indicator sizeToFit];
 
-// The view appears and the bars start animation.
-indicator.state = NAKPlaybackIndicatorViewStatePlaying;
+    // Initially the `state` property is NAKPlaybackIndicatorViewStateStopped
+    // and the `hidesWhenStopped` property is YES.
+    // Thus, the view is hidden at this time.
 
-// The bars stop animation and become idle.
-indicator.state = NAKPlaybackIndicatorViewStatePaused;
+    // The view appears and the bars start animation.
+    indicator.state = NAKPlaybackIndicatorViewStatePlaying;
 
-// The view becomes hidden.
-indicator.state = NAKPlaybackIndicatorViewStateStopped;
+    // The bars stop animation and become idle.
+    indicator.state = NAKPlaybackIndicatorViewStatePaused;
+
+    // The view becomes hidden.
+    indicator.state = NAKPlaybackIndicatorViewStateStopped;
+}
 ```
 
 You can use NAKPlaybackIndicatorView in both code and Storyboard, and it works well with both Auto Layout and frame-based layout.
@@ -86,22 +90,26 @@ NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWith
 
 1. Put a `UIView` on your view.
 2. Set its custom class to `NAKPlaybackIndicatorView`.
-3. In the **Size Inspector** (⌥⌘5), set the **Intrinsic Size** to **Placeholder** and set the width to 13 and the height to 12. Note that this is just for convenience of the appearance on the Storyboard, and the placeholder size won't be used at runtime.
+3. In the **Size Inspector** (⌥⌘5), set the **Intrinsic Size** to **Placeholder** and set the width to 12 and the height to 12. Note that this is just for convenience of the appearance on the Storyboard, and the placeholder size won't be used at runtime.
 4. Add some positioning layout constraints.
 
 ### Storyboard with Frame-Based Layout
 
 1. Put a `UIView` on your view.
 2. Set its custom class to `NAKPlaybackIndicatorView`.
-3. In the **Size Inspector** (⌥⌘5), set the width to 13 and the height to 12. In fact, the content width is 12 points on Retina device, and 13 points on non-Retina device.
+3. In the **Size Inspector** (⌥⌘5), set the width to 12 and the height to 12.
 
 ## Customization
+
+### Bar Count, Size, and Spacing
+
+Bars can be customized via `NAKPlaybackIndicatorViewStyle`.
 
 ### Color
 
 The color of the bars can be changed by setting `tintColor` property (`UIView`) of the view or its ancestor view.
 
-### Size
+### View Size
 
 Normally the view can be automatically resized to fit its content by:
 
@@ -112,10 +120,10 @@ Or if you explicitly specify size, the bars will be placed in the center of the 
 
 ## Class Reference
 
-NAKPlaybackIndicatorView's reference is available [here](http://yujinakayama.me/NAKPlaybackIndicatorView/).
+NAKPlaybackIndicatorView's class reference is available on [CocoaDocs.org](http://cocoadocs.org/docsets/NAKPlaybackIndicatorView/0.1.0).
 
 ## License
 
-Copyright (c) 2014 Yuji Nakayama
+Copyright (c) 2014–2017 Yuji Nakayama
 
 See the [LICENSE.txt](LICENSE.txt) for details.

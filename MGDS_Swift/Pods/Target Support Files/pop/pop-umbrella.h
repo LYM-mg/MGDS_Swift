@@ -12,6 +12,7 @@
 
 #import "POP.h"
 #import "POPAnimatableProperty.h"
+#import "POPAnimatablePropertyTypes.h"
 #import "POPAnimation.h"
 #import "POPAnimationEvent.h"
 #import "POPAnimationExtras.h"
@@ -25,6 +26,7 @@
 #import "POPLayerExtras.h"
 #import "POPPropertyAnimation.h"
 #import "POPSpringAnimation.h"
+#import "POPVector.h"
 
 FOUNDATION_EXPORT double popVersionNumber;
 FOUNDATION_EXPORT const unsigned char popVersionString[];

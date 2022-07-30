@@ -11,6 +11,7 @@
 #endif
 
 #import "NAKPlaybackIndicatorView.h"
+#import "NAKPlaybackIndicatorViewStyle.h"
 
 FOUNDATION_EXPORT double NAKPlaybackIndicatorViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char NAKPlaybackIndicatorViewVersionString[];

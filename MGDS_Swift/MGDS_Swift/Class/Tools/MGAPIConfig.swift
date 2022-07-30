@@ -35,6 +35,7 @@ extension API {
             request.parameters = parameters ?? [:]
             request.method = .post
             request.type = .upData
+            
             return request
         }
     }
