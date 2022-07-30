@@ -42,7 +42,7 @@ class MGHotLiveCell: UITableViewCell {
             let fullAudience: NSString = "\(live!.allnum!)人在看" as NSString
             let range = fullAudience.range(of: "\(live!.allnum!)")
             let attr = NSMutableAttributedString(string: fullAudience as String)
-            attr.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 20),NSForegroundColorAttributeName: UIColor(r:216,g: 41,b: 116)], range: range)
+            attr.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20),NSAttributedString.Key.foregroundColor: UIColor(r:216,g: 41,b: 116)], range: range)
             self.audienceLabel.attributedText = attr
         }
     }

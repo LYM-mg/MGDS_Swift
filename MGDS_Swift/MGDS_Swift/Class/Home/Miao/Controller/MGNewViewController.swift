@@ -68,18 +68,18 @@ extension MGNewViewController {
         })
         
         // 设置自动切换透明度(在导航栏下面自动隐藏)
-        collectionView.mj_header.isAutomaticallyChangeAlpha = true
-        self.collectionView.mj_footer.isAutomaticallyHidden = true
-        self.collectionView.mj_header.beginRefreshing()
+        collectionView.mj_header?.isAutomaticallyChangeAlpha = true
+        self.collectionView.mj_footer?.isAutomaticallyHidden = true
+        self.collectionView.mj_header?.beginRefreshing()
         // 隐藏下拉刷新
-        self.collectionView.mj_footer.isHidden = true
+        self.collectionView.mj_footer?.isHidden = true
     }
     
     fileprivate func loadData() {
         newAnchorVM.getHotData() { [unowned self] (err) in
             self.collectionView.reloadData()
-            self.collectionView.mj_header.endRefreshing()
-            self.collectionView.mj_footer.endRefreshing()
+            self.collectionView.mj_header?.endRefreshing()
+            self.collectionView.mj_footer?.endRefreshing()
         }
     }
 }
@@ -91,7 +91,7 @@ extension MGNewViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.collectionView.mj_footer.isHidden = newAnchorVM.anchors.count == 0
+        self.collectionView.mj_footer?.isHidden = newAnchorVM.anchors.count == 0
         return newAnchorVM.anchors.count
     }
     
@@ -208,10 +208,10 @@ extension MGNewViewController: MGWaterFlowLayoutDelegate {
     
     func edgeInsetsInWaterflowLayout(waterflowLayout: MGWaterFlowLayout) -> UIEdgeInsets {
         if newAnchorVM.anchors.count > 36  {
-            return UIEdgeInsetsMake(2, 2, 2, 2)
+            return UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
             
         }
-        return UIEdgeInsetsMake(2, 10, 2, 10)
+        return UIEdgeInsets(top: 2, left: 10, bottom: 2, right: 10)
     }
 }
 

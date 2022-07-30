@@ -31,7 +31,7 @@ extension MGTencentNewsViewController {
 //        })
 //        
 //        // 设置自动切换透明度(在导航栏下面自动隐藏)
-//        tableView.mj_header.isAutomaticallyChangeAlpha = true
+//        tableView.mj_header?.isAutomaticallyChangeAlpha = true
 //        
 //        tableView.mj_footer = MJRefreshAutoFooter(refreshingBlock: {
 //            let sidModel = KAppDelegate.sidArray[2]
@@ -42,8 +42,8 @@ extension MGTencentNewsViewController {
 //            
 //        })
 //        
-//        self.tableView.mj_footer.isAutomaticallyHidden = true
-//        self.tableView.mj_header.beginRefreshing()
+//        self.tableView.mj_footer?.isAutomaticallyHidden = true
+//        self.tableView.mj_header?.beginRefreshing()
 //    }
 //    
 //    override func loadData(urlStr: String,sidModel: VideoSidList) {
@@ -53,22 +53,22 @@ extension MGTencentNewsViewController {
 //            DispatchQueue.main.async {
 //                weakSelf?.tableView.reloadData()
 //                weakSelf?.hideHud()
-//                weakSelf?.tableView.mj_header.endRefreshing()
-//                weakSelf?.tableView.mj_footer.endRefreshing()
+//                weakSelf?.tableView.mj_header?.endRefreshing()
+//                weakSelf?.tableView.mj_footer?.endRefreshing()
 //            }
 //            }, failure: { (err) in
 //                self.showHint(hint: "数据请求失败")
 //                weakSelf?.hideHud()
-//                weakSelf?.tableView.mj_header.endRefreshing()
-//                weakSelf?.tableView.mj_footer.endRefreshing()
+//                weakSelf?.tableView.mj_header?.endRefreshing()
+//                weakSelf?.tableView.mj_footer?.endRefreshing()
 //        })
 //        
 //        // 1.显示指示器
 //        dataArr = KAppDelegate.videosArray
 //        self.tableView.reloadData()
 //        
-//        self.tableView.mj_header.endRefreshing()
-//        self.tableView.mj_footer.endRefreshing()
+//        self.tableView.mj_header?.endRefreshing()
+//        self.tableView.mj_footer?.endRefreshing()
 //    }
 }
 

@@ -29,8 +29,8 @@ class SearchMusicViewController: UIViewController {
         tb.rowHeight = 60
         tb.tableFooterView = UIView()
 //        tb.estimatedRowHeight = 60  // 设置估算高度
-//        tb.rowHeight = UITableViewAutomaticDimension // 告诉tableView我们cell的高度是自动的
-        tb.keyboardDismissMode = UIScrollViewKeyboardDismissMode.onDrag
+//        tb.rowHeight = UITableView.automaticDimension // 告诉tableView我们cell的高度是自动的
+        tb.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
         tb.register(UINib(nibName: "SearchResultHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: KSearchResultHeaderViewID)
         return tb
     }()
@@ -48,10 +48,10 @@ class SearchMusicViewController: UIViewController {
         cv.dataSource = self
         cv.delegate = self
         cv.alwaysBounceVertical = true
-        cv.keyboardDismissMode = UIScrollViewKeyboardDismissMode.interactive
+        cv.keyboardDismissMode = UIScrollView.KeyboardDismissMode.interactive
         cv.register(SearchHistoryCell.classForCoder(), forCellWithReuseIdentifier: KSearchHistoryCellID)
          cv.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: KHotSearchCellID)
-        cv.register(UINib(nibName: "HistoryHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: KHistoryHeaderViewID)
+        cv.register(UINib(nibName: "HistoryHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: KHistoryHeaderViewID)
         return cv
     }()
 
@@ -299,7 +299,7 @@ extension SearchMusicViewController: UICollectionViewDataSource,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         //如果是headerView
-        if kind == UICollectionElementKindSectionHeader {
+        if kind == UICollectionView.elementKindSectionHeader {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: KHistoryHeaderViewID, for: indexPath) as! HistoryHeaderView
             headerView.titleLabel.text = (indexPath.section == 0) ? "热门搜索" : "历史搜索"
             headerView.iconImageView.image = (indexPath.section == 0) ? #imageLiteral(resourceName: "home_header_hot"): #imageLiteral(resourceName: "search_history")
@@ -353,7 +353,7 @@ extension SearchMusicViewController: UISearchBarDelegate,UIScrollViewDelegate {
         searchBar.showsCancelButton = true
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.characters.count == 0 {
+        if searchText.count == 0 {
             // 将tableView隐藏
             tableView.isHidden = true
             collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)

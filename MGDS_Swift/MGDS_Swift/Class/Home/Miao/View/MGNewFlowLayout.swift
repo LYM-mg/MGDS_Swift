@@ -12,7 +12,7 @@ class MGNewFlowLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         let margin: CGFloat = 2
-        self.scrollDirection = UICollectionViewScrollDirection.vertical
+        self.scrollDirection = UICollectionView.ScrollDirection.vertical
         let wh = (MGScreenW - 2*margin) / 3.0
         self.itemSize = CGSize(width: wh, height: wh)
         self.minimumLineSpacing = margin

@@ -42,7 +42,7 @@ class RecommendCycleView: UIView {
         super.awakeFromNib()
         
         // 设置该控件不随着父控件的拉伸而拉伸
-        autoresizingMask = UIViewAutoresizing()
+        autoresizingMask = UIView.AutoresizingMask()
         
         // 注册Cell
         collectionView.register(UINib(nibName: "CollectionCycleCell", bundle: nil), forCellWithReuseIdentifier: kCycleCellID)
@@ -117,7 +117,7 @@ extension RecommendCycleView : UICollectionViewDelegate {
 extension RecommendCycleView {
     fileprivate func addCycleTimer() {
         cycleTimer = Timer(timeInterval: 3.0, target: self, selector: #selector(self.scrollToNext), userInfo: nil, repeats: true)
-        RunLoop.main.add(cycleTimer!, forMode: RunLoopMode.commonModes)
+        RunLoop.main.add(cycleTimer!, forMode: RunLoop.Mode.common)
     }
     
     fileprivate func removeCycleTimer() {

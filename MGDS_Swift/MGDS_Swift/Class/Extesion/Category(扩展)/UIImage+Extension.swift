@@ -18,7 +18,7 @@ extension UIImage {
          - parameter value: 模糊程度 0 ~ 无限大 （一开始误认为0~1）
      */
     public func blurImage(value: NSNumber) -> UIImage? {
-        let context = CIContext(options: [kCIContextUseSoftwareRenderer: true])
+        let context = CIContext(options: [CIContextOption.useSoftwareRenderer: true])
         let ciImage = CoreImage.CIImage(image: self)
         guard let blurFilter = CIFilter(name: "CIGaussianBlur") else { return nil }
         blurFilter.setValue(ciImage, forKey: kCIInputImageKey)
@@ -135,7 +135,7 @@ extension UIImage {
         paragraphStyle.alignment = NSTextAlignment.center//文字居中
         
         //计算文字所占的size,文字居中显示在画布上
-        let sizeText = title.boundingRect(with: self.size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)] , context: nil);
+        let sizeText = title.boundingRect(with: self.size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)] , context: nil);
         
         let width = self.size.width
         let height = self.size.height
@@ -143,7 +143,7 @@ extension UIImage {
         let rect = CGRect(x: (width-sizeText.width)/2, y: (height-sizeText.height)/2, width: sizeText.width, height: sizeText.height)
         
         //绘制文字
-        title.draw(in: rect, withAttributes: [NSFontAttributeName: UIFont.systemFont(ofSize: fontSize),NSForegroundColorAttributeName: UIColor.white, NSParagraphStyleAttributeName:paragraphStyle])
+        title.draw(in: rect, withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize),NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.paragraphStyle:paragraphStyle])
         
         //返回绘制的新图形
         guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return nil }

@@ -89,8 +89,8 @@ extension RoomViewController {
             make.width.height.equalTo(popBtn)
             make.bottom.right.equalTo(view).offset(-20)
         }
-        view.bringSubview(toFront: popBtn)
-        view.bringSubview(toFront: likeBtn)
+        view.bringSubviewToFront(popBtn)
+        view.bringSubviewToFront(likeBtn)
     }
     
     

@@ -98,7 +98,7 @@ class MGMusicPlayViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if playingItem?.status == AVPlayerItemStatus.readyToPlay{
+        if playingItem?.status == AVPlayerItem.Status.readyToPlay{
             // 只有在这个状态下才能播放
             self.playingItem = MGPlayMusicTool.playMusicWithLink(link: currentMusic!.showLink)
             beginAnimation()
@@ -200,7 +200,7 @@ extension MGMusicPlayViewController {
      *  控制器的初始化方法(加一些视图控件, 或者, 一次性的设置)
      */
     fileprivate func setUpInit() {
-        self.addChildViewController(lrcTVC)
+        self.addChild(lrcTVC)
         singerImageVHCon.constant = (MGScreenW == 320) ? 250 : 320
         // 设置slide滚动条的滑动按钮图片
         progressSlide.setThumbImage(#imageLiteral(resourceName: "player_slider_playback_thumb"), for: .normal)
@@ -257,7 +257,7 @@ extension MGMusicPlayViewController {
         groupAnimition.animations = [baseAnimation1,baseAnimition2]
         groupAnimition.duration = 20;
         groupAnimition.repeatCount = MAXFLOAT;
-        groupAnimition.fillMode = kCAFillModeForwards; // 保存动画最前面的效果.
+        groupAnimition.fillMode = CAMediaTimingFillMode.forwards; // 保存动画最前面的效果.
         groupAnimition.autoreverses = true   // 设置动画自动反转(怎么去, 怎么回)
         
         // 添加动画组
@@ -362,7 +362,7 @@ extension MGMusicPlayViewController {
             return
         }
         self.currentTimeLabel.text = MGTimeTool.getFormatTimeWithTimeInterval(timeInterval: Double(slider.value))
-        let dragCMtime = CMTimeMake(Int64(slider.value), 1)
+        let dragCMtime = CMTimeMake(value: Int64(slider.value), timescale: 1)
         MGPlayMusicTool.setUpCurrentPlayingTime(time: dragCMtime, link: currentMusic!.songLink)
     }
     
@@ -381,7 +381,7 @@ extension MGMusicPlayViewController {
     }
     fileprivate func addLrcTimer() {
         self.lrcTimer = CADisplayLink(target: self, selector: #selector(MGMusicPlayViewController.updateLrcLabel))
-        lrcTimer?.add(to: RunLoop.main, forMode: .commonModes)
+        lrcTimer?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
     }
     
     fileprivate func removeProgressTimer() {
@@ -483,7 +483,7 @@ extension MGMusicPlayViewController {
     override func remoteControlReceived(with event: UIEvent?) {
         super.remoteControlReceived(with: event)
         switch (event!.subtype) {
-            case UIEventSubtype.remoteControlPlay:
+        case UIEvent.EventSubtype.remoteControlPlay:
                  playOrStopBtnClick()
 //                self.playOrStopBtn.isSelected = false
 //                playOrStopBtn.isSelected = !playOrStopBtn.isSelected;

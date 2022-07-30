@@ -22,7 +22,7 @@ class MGRankListDetailViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "音乐列表"
 //        tableView.estimatedRowHeight = 70
-//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.rowHeight = UITableView.automaticDimension
         tableView.rowHeight = 90
         
         setUpMainView()
@@ -79,8 +79,8 @@ extension MGRankListDetailViewController {
         })
         
         // 设置自动切换透明度(在导航栏下面自动隐藏)
-        tableView.mj_header.isAutomaticallyChangeAlpha = true
-        self.tableView.mj_header.beginRefreshing()
+        tableView.mj_header?.isAutomaticallyChangeAlpha = true
+        self.tableView.mj_header?.beginRefreshing()
     }
     
     fileprivate func loadData() {
@@ -97,12 +97,12 @@ extension MGRankListDetailViewController {
             }
             
             self!.tableView.reloadData()
-            self!.tableView.mj_header.endRefreshing()
+            self!.tableView.mj_header?.endRefreshing()
         }) { (err) in
             if err != nil {
                 self.showHint(hint: "网络请求错误❌")
             }
-            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_header?.endRefreshing()
         }
     }
 }

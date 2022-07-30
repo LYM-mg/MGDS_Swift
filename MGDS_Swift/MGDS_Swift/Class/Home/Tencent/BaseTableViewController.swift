@@ -39,7 +39,7 @@ class BaseTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.estimatedRowHeight = 350.0
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
         // 设置分割线从最左开始
         if tableView.responds(to: #selector(setter: UITableViewCell.separatorInset)) {
@@ -68,7 +68,7 @@ extension BaseTableViewController {
             let strongSelf = weakSelf
             if KAppDelegate.sidArray.count > strongSelf!.videoSid.rawValue {
                 if KAppDelegate.sidArray.isEmpty && KAppDelegate.sidArray.count == 0 {
-                    strongSelf?.tableView.mj_header.endRefreshing()
+                    strongSelf?.tableView.mj_header?.endRefreshing()
                     return
                 }
                 let sidModel = KAppDelegate.sidArray[strongSelf!.videoSid.rawValue]
@@ -80,7 +80,7 @@ extension BaseTableViewController {
         })
         
         // 设置自动切换透明度(在导航栏下面自动隐藏)
-        tableView.mj_header.isAutomaticallyChangeAlpha = true
+        tableView.mj_header?.isAutomaticallyChangeAlpha = true
         
         
         // MARK: 上拉刷新
@@ -93,8 +93,8 @@ extension BaseTableViewController {
             
         })
         
-        self.tableView.mj_footer.isAutomaticallyHidden = true
-        self.tableView.mj_header.beginRefreshing()
+        self.tableView.mj_footer?.isAutomaticallyHidden = true
+        self.tableView.mj_header?.beginRefreshing()
     }
     
     func loadData(urlStr: String,sidModel: VideoSidList) {
@@ -103,21 +103,21 @@ extension BaseTableViewController {
             weakSelf?.dataArr += listArray as! [VideoList]
             DispatchQueue.main.async {
                 weakSelf?.tableView.reloadData()
-                weakSelf?.tableView.mj_header.endRefreshing()
-                weakSelf?.tableView.mj_footer.endRefreshing()
+                weakSelf?.tableView.mj_header?.endRefreshing()
+                weakSelf?.tableView.mj_footer?.endRefreshing()
             }
             }, failure: { (err) in
                 weakSelf?.showHint(hint: "数据请求失败")
-                weakSelf?.tableView.mj_header.endRefreshing()
-                weakSelf?.tableView.mj_footer.endRefreshing()
+                weakSelf?.tableView.mj_header?.endRefreshing()
+                weakSelf?.tableView.mj_footer?.endRefreshing()
         })
         
         // 1.显示指示器
         dataArr = KAppDelegate.videosArray
         self.tableView.reloadData()
         
-        self.tableView.mj_header.endRefreshing()
-        self.tableView.mj_footer.endRefreshing()
+        self.tableView.mj_header?.endRefreshing()
+        self.tableView.mj_footer?.endRefreshing()
     }
 }
 

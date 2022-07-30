@@ -70,7 +70,7 @@ extension MGWelcomeAVPlayerViewController {
              AVLayerVideoGravityResizeAspectFill 不进行比例缩放 以宽高中短的一边充满为基准
              AVLayerVideoGravityResize     进行缩放充满屏幕
          */
-        playerVc.videoGravity = AVLayerVideoGravityResizeAspectFill
+        playerVc.videoGravity = AVLayerVideoGravity.resizeAspectFill
         
         //播放视频
         if #available(iOS 10.0, *) {
@@ -100,7 +100,7 @@ extension MGWelcomeAVPlayerViewController {
     @objc func enterMainAction(_ btn: UIButton) {
         UIView.animate(withDuration: 0.8) { 
             self.view.removeFromSuperview()
-            self.removeFromParentViewController()
+            self.removeFromParent()
         }
 //        let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User   // 获取用户数据
 //        MGKeyWindow?.rootViewController =  (user == nil) ? UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() : MainTabBarViewController()

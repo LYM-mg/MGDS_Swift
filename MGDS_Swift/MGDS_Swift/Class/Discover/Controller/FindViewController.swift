@@ -31,7 +31,7 @@ class FindViewController: UIViewController {
         tb.dataSource = self
         tb.delegate = self
 //        tb.estimatedRowHeight = 60  // 设置估算高度
-//        tb.rowHeight = UITableViewAutomaticDimension // 告诉tableView我们cell的高度是自动的
+//        tb.rowHeight = UITableView.automaticDimension // 告诉tableView我们cell的高度是自动的
         tb.register(FindCell.self, forCellReuseIdentifier: KFindCellID)
         return tb
     }()

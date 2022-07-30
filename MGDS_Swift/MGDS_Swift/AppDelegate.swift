@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return guardView
     }()
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // 状态栏设置为白色
 //        application.setStatusBarStyle(.lightContent, animated: true)
         
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loadData()
         
         // 3.键盘扩展
-        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.shared.enable = true
         
         // 4.友盟以、短信验证、以及激光推送等注册
         setUpUMSocial(launchOptions: launchOptions)
@@ -112,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let welcomeVc = MGWelcomeViewController(urlStr: Bundle.main.path(forResource: arr[Int(arc4random()%UInt32(arr.count))], ofType: "mp4")!)
                     window?.addSubview(welcomeVc.view)
                     
-                    window?.rootViewController?.addChildViewController(welcomeVc)
+                    window?.rootViewController?.addChild(welcomeVc)
                     isFirstStart = false
                 }
             }
@@ -129,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.beginReceivingRemoteControlEvents()
         self.becomeFirstResponder()
         let session = AVAudioSession.sharedInstance()
-        try? session.setCategory(AVAudioSessionCategoryPlayback)
+        try? session.setCategory(AVAudioSession.Category.playback)
         try? session.setActive(true)
     }
 
@@ -212,11 +212,11 @@ extension AppDelegate {
 
 // MARK: - 友盟以、短信验证、以及极光推送
 extension AppDelegate {
-    fileprivate func setUpUMSocial(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    fileprivate func setUpUMSocial(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         // Share
         //        SMSSDK.registerApp("1a9f73be2f6ce", withSecret: "990c4bc75c8d27ba3fe88403ad722ff8")
         //  SMS 1a9fafc4d4a6c 8f8b196fb408ebe54b53c0b60ea0cf12
-        SMSSDK.registerApp("1a9fafc4d4a6c", withSecret: "8f8b196fb408ebe54b53c0b60ea0cf12")
+        // SMSSDK.registerApp("1a9fafc4d4a6c", withDescription: "8f8b196fb408ebe54b53c0b60ea0cf12") info.plist 配置
         
         // 友盟
         UMSocialData.setAppKey("58f6d91fbbea834d7200178b")
@@ -313,7 +313,7 @@ extension AppDelegate {
         bgView.addSubview(guardView)
     }
     
-    func EnterHomeView(_ noti: NSNotification) {
+    @objc func EnterHomeView(_ noti: NSNotification) {
         // 获取通知传过来的按钮
         let dict = noti.userInfo as! [String : AnyObject]
         let btn = dict["sender"]

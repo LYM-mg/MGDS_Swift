@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class MineViewController: UITableViewController {
 
@@ -145,8 +146,8 @@ extension MineViewController {
             MGNotificationCenter.post(name: NSNotification.Name(KChange3DTouchNotification), object: nil)
             MGKeyWindow?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
             let transAnimation = CATransition()
-            transAnimation.type = kCATransitionPush
-            transAnimation.subtype = kCATransitionFromLeft
+            transAnimation.type = CATransitionType.push
+            transAnimation.subtype = CATransitionSubtype.fromLeft
             transAnimation.duration = 0.5
             MGKeyWindow?.layer.add(transAnimation, forKey: nil)
         }

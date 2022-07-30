@@ -37,8 +37,8 @@ class RegisterViewController: UIViewController {
         // 2.设置代理监听textField的变化
         phoneTextField.delegate = self
         passwordTextField.delegate = self
-        phoneTextField.addTarget(self, action: #selector(RegisterViewController.textFieldDidReChange(_:)), for: UIControlEvents.editingChanged)
-        passwordTextField.addTarget(self, action: #selector(RegisterViewController.textFieldDidReChange(_:)), for: UIControlEvents.editingChanged)
+        phoneTextField.addTarget(self, action: #selector(RegisterViewController.textFieldDidReChange(_:)), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(RegisterViewController.textFieldDidReChange(_:)), for: UIControl.Event.editingChanged)
         
         
         // 3.设置注册按钮一开始为不可点击
@@ -60,10 +60,9 @@ extension RegisterViewController: UITextFieldDelegate {
      - parameter textField: textField description
      */
     @objc fileprivate func textFieldDidReChange(_ textField: UITextField) {
-        let phoneRule = ValidationRuleLength(min: 11, max: 11, error: ValidationError(message: "😫"))
-        let pwdRule = ValidationRuleLength(min: 3, max: 15, error:ValidationError(message: "😫"))
+        let phoneRule = ValidationRuleLength(min: 11, max: 11, error: MGValidationError(message: "😫"))
+        let pwdRule = ValidationRuleLength(min: 3, max: 15, error: MGValidationError(message: "😫"))
         let result: ValidationResult
-        
         switch textField.tag{
             case 1://手机号
                 result = textField.text!.validate(rule: phoneRule)
@@ -103,7 +102,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate,UINavigationCo
      
      - parameter sender: 点按手势
      */
-    func uploadHeadImage(_ tap: UITapGestureRecognizer) {
+    @objc func uploadHeadImage(_ tap: UITapGestureRecognizer) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in }
@@ -130,7 +129,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate,UINavigationCo
     /**
      *  打开照相机/打开相册
      */
-    func openCamera(_ type: UIImagePickerControllerSourceType,title: String? = "") {
+    func openCamera(_ type: UIImagePickerController.SourceType,title: String? = "") {
         if !UIImagePickerController.isSourceTypeAvailable(type) {
             self.showInfo(info: "Camera不可用")
             return
@@ -152,12 +151,12 @@ extension RegisterViewController: UIImagePickerControllerDelegate,UINavigationCo
         present(ipc, animated: true,  completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let mediaType = info[UIImagePickerControllerMediaType] as! String
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let mediaType: String = info[UIImagePickerController.InfoKey.mediaType] as! String
         
         //判读是否是视频还是图片
         if mediaType == kUTTypeMovie as String {
-            let moviePath = info[UIImagePickerControllerMediaURL] as? URL
+            let moviePath = info[UIImagePickerController.InfoKey.mediaURL] as? URL
             //获取路径
             let moviePathString = moviePath!.relativePath
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(moviePathString){
@@ -166,7 +165,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate,UINavigationCo
             print("视频")
         } else {
             print("图片")
-            let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+            let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
             headImageView.image = image
         }
         picker.dismiss(animated: true, completion: nil)
@@ -224,7 +223,7 @@ extension RegisterViewController {
     func sendVerification(method: SMSGetCodeMethod, phoneNumber: String) {
         weak var weakSelf = self
         // 必须要输入正确的手机号码才能来到下面的代码
-        SMSSDK.getVerificationCode(by: method, phoneNumber: phoneNumber, zone: "86", customIdentifier: nil) { (err) -> Void in
+        SMSSDK.getVerificationCode(by: method, phoneNumber: phoneNumber, zone: "86") { err in
             if err != nil { // 有错误
                 weakSelf!.showHint(hint: "验证码发送失败")
                 return
@@ -264,8 +263,7 @@ extension RegisterViewController {
             self.showHint(hint: "请输入正确的11位手机号码")
             return
         }
-        
-        SMSSDK.commitVerificationCode(self.code.text!, phoneNumber: phoneTextField.text!, zone: "86") { (info, err) in
+        SMSSDK.commitVerificationCode(self.code.text!, phoneNumber: phoneTextField.text!, zone: "86") { err in
             if err == nil {
                 print("验证成功")
             } else {

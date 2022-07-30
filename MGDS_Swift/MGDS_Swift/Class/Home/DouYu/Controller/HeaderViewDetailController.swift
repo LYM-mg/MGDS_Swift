@@ -70,8 +70,8 @@ extension HeaderViewDetailController {
         // 1.请求数据
         headerVM.loadHearderData({ [weak self] (err) in
             // 1.1.刷新表格
-            self!.collectionView.mj_header.endRefreshing()
-            self!.collectionView.mj_footer.endRefreshing()
+            self!.collectionView.mj_header?.endRefreshing()
+            self!.collectionView.mj_footer?.endRefreshing()
             self!.collectionView.reloadData()
         })
     }
@@ -89,9 +89,9 @@ extension HeaderViewDetailController {
             self!.headerVM.offset += 20
             self!.loadData()
         })
-        self.collectionView.mj_header.isAutomaticallyChangeAlpha = true
-        self.collectionView.mj_header.beginRefreshing()
-        self.collectionView.mj_footer.endRefreshingWithNoMoreData()
+        self.collectionView.mj_header?.isAutomaticallyChangeAlpha = true
+        self.collectionView.mj_header?.beginRefreshing()
+        self.collectionView.mj_footer?.endRefreshingWithNoMoreData()
     }
 }
 

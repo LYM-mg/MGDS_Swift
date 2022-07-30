@@ -47,7 +47,7 @@ extension MyFavoutiteViewController {
             let dict = noti.userInfo as! [String : AnyObject]
             let model: MGHotModel = dict["model"] as! MGHotModel
             MyFavoutiteViewController.saveFavouriteAnchorDataToLocal(model: model)
-            self?.tableView.mj_header.beginRefreshing()
+            self?.tableView.mj_header?.beginRefreshing()
         }
         
         if #available(iOS 9.0, *) {
@@ -66,13 +66,13 @@ extension MyFavoutiteViewController {
                 MyFavoutiteViewController.loadFavouriteAnchorDataFromLocal(finished: { (models) in
                      strongSelf.lives = models
                      strongSelf.tableView.reloadData()
-                    self.tableView.mj_header.endRefreshing()
+                    self.tableView.mj_header?.endRefreshing()
                 })
             }
         })
        
         // 设置自动切换透明度(在导航栏下面自动隐藏)
-        tableView.mj_header.isAutomaticallyChangeAlpha = true
+        tableView.mj_header?.isAutomaticallyChangeAlpha = true
     }
 }
 
@@ -107,7 +107,7 @@ extension MyFavoutiteViewController {
     }
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let model = self.lives[indexPath.row]
             self.lives.remove(at: indexPath.row)

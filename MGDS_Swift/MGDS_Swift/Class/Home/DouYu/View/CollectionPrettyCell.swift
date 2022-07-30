@@ -23,7 +23,7 @@ class CollectionPrettyCell: CollectionBaseCell {
             
             // 2.所在的城市
             anchor!.anchor_city = anchor!.anchor_city == "" ? "未知星球" : anchor!.anchor_city
-            cityBtn.setTitle(anchor!.anchor_city, for: UIControlState())
+            cityBtn.setTitle(anchor!.anchor_city, for: UIControl.State())
         }
     }
 

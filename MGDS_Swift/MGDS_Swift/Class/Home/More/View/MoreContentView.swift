@@ -65,7 +65,7 @@ extension MoreContentView {
     fileprivate func setUpUI() {
         // 1.将所有的子控制器添加父控制器中
         for childVc in childVcs {
-            parentViewController?.addChildViewController(childVc)
+            parentViewController?.addChild(childVc)
         }
         
         // 2.添加UICollectionView,用于在Cell中存放控制器的View

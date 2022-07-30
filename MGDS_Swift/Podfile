@@ -16,7 +16,7 @@ target 'MGDS_Swift' do
     # OC
     pod 'MJRefresh'         # 刷新数据 , '~> 3.7.5'
     pod 'MBProgressHUD'   # 蒙版提示 , '~> 1.2.0'
-    pod 'ZFPlayer'            # 视频播放 , '~> 4.0.3'
+#    pod 'ZFPlayer'            # 视频播放 , '~> 4.0.3'
   
 #    // Mob产品公共库
     pod 'MOBFoundation'

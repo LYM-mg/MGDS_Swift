@@ -39,7 +39,7 @@ class LiveTableViewController: UITableViewController {
         }
 
 //        self.tableView.estimatedRowHeight = 150
-//        self.tableView.rowHeight = UITableViewAutomaticDimension
+//        self.tableView.rowHeight = UITableView.automaticDimension
         
         // 头部刷新
         self.tableView.mj_header = MJRefreshGifHeader(refreshingBlock: {
@@ -54,7 +54,7 @@ class LiveTableViewController: UITableViewController {
              self.proto += 5
             self.loadList()
         })
-        self.tableView.mj_header.beginRefreshing()
+        self.tableView.mj_header?.beginRefreshing()
     }
     
     // 加载数据
@@ -70,8 +70,8 @@ class LiveTableViewController: UITableViewController {
         
         Just.post(urlStr) { (r) in
             guard let json = r.json as? NSDictionary else {
-                self.tableView.mj_header.endRefreshing()
-                self.tableView.mj_footer.endRefreshing()
+                self.tableView.mj_header?.endRefreshing()
+                self.tableView.mj_footer?.endRefreshing()
                 return
             }
             
@@ -84,8 +84,8 @@ class LiveTableViewController: UITableViewController {
             OperationQueue.main.addOperation({
                 self.tableView.reloadData()
             })
-            self.tableView.mj_header.endRefreshing()
-            self.tableView.mj_footer.endRefreshing()
+            self.tableView.mj_header?.endRefreshing()
+            self.tableView.mj_footer?.endRefreshing()
         }
     }
 
@@ -100,7 +100,7 @@ class LiveTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.tableView.mj_footer != nil) {
-            self.tableView.mj_footer.isHidden = (list.count == 0)
+            self.tableView.mj_footer?.isHidden = (list.count == 0)
         }
         
         return list.count

@@ -22,10 +22,10 @@ class MGImageTool: NSObject {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         
-        let dict: [String: Any] =  [
-                                    NSFontAttributeName:UIFont.systemFont(ofSize: 20),
-                                    NSForegroundColorAttributeName: UIColor.green,
-                                    NSParagraphStyleAttributeName : style
+        let dict: [NSAttributedString.Key: Any] =  [
+                                    NSAttributedString.Key.font:UIFont.systemFont(ofSize: 20),
+                                    NSAttributedString.Key.foregroundColor: UIColor.green,
+                                    NSAttributedString.Key.paragraphStyle : style
                                    ]
         (text as NSString).draw(in: rect, withAttributes: dict)
         

@@ -190,7 +190,7 @@ extension MGWaterFlowLayout {
         for i in 1..<columnHeights.count {
             let tempHeight:CGFloat = self.columnHeights[i]
             
-            if (tempHeight < maxColumnHeight) {
+            if (tempHeight > maxColumnHeight) {
                 maxHeightColumn = i
                 maxColumnHeight = tempHeight
             }

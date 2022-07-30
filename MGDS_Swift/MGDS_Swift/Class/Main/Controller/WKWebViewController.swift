@@ -79,7 +79,7 @@ class WKWebViewController: UIViewController {
     
     // MARK: - Action
     @objc fileprivate func refreshClick() {
-        if webView.url != nil && webView.url!.absoluteString.characters.count > 1 {
+        if webView.url != nil && webView.url!.absoluteString.count > 1 {
             webView.reload()
         }
     }

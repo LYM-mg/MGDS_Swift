@@ -14,7 +14,7 @@ func emmitParticles(from point: CGPoint, emitter: CAEmitterLayer , in rootView:U
     let image = #imageLiteral(resourceName: "tspark")
     
     emitter.emitterPosition = pos
-    emitter.renderMode = kCAEmitterLayerBackToFront
+    emitter.renderMode = CAEmitterLayerRenderMode.backToFront
     
     let rocket = CAEmitterCell()
     
@@ -26,7 +26,7 @@ func emmitParticles(from point: CGPoint, emitter: CAEmitterLayer , in rootView:U
     rocket.velocityRange = 100
     rocket.yAcceleration = -250
     rocket.emissionRange = CGFloat(M_PI_4)
-    rocket.color = UIColor(colorLiteralRed: 0.5, green: 0.5, blue: 0.5, alpha: 0.8).cgColor
+    rocket.color = UIColor(red:  0.5, green:  0.5, blue:  0.5, alpha: 0.8).cgColor
     rocket.redRange = 0.5
     rocket.greenRange = 0.5
     rocket.blueRange = 0.5

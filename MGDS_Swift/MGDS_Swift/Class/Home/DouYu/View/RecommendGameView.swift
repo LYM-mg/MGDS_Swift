@@ -30,7 +30,7 @@ class RecommendGameView: UIView {
         super.awakeFromNib()
         
         // 让控件不随着父控件的拉伸而拉伸
-        autoresizingMask = UIViewAutoresizing()
+        autoresizingMask = UIView.AutoresizingMask()
         
         // 注册Cell
         collectionView.register(UINib(nibName: "CollectionGameCell", bundle: nil), forCellWithReuseIdentifier: kGameCellID)

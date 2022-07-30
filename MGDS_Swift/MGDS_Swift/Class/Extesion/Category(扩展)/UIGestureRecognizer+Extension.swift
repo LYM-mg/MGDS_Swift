@@ -13,7 +13,7 @@ extension UIGestureRecognizer {
     // MARK:- RuntimeKey   动态绑属性
     // 改进写法【推荐】
     fileprivate struct RuntimeKey {
-        static let mg_GestureBlockKey = UnsafeRawPointer.init(bitPattern: "mg_GestureBlockKey".hashValue)
+        static let mg_GestureBlockKey = UnsafeRawPointer.init(bitPattern: "mg_GestureBlockKey".hashValue)!
         /// ...其他Key声明
     }
     

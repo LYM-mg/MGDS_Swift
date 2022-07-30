@@ -18,9 +18,9 @@ extension UIViewController {
     // MARK:- RuntimeKey   动态绑属性
     // 改进写法【推荐】
     struct RuntimeKey {
-        static let mg_HUDKey = UnsafeRawPointer.init(bitPattern: "mg_HUDKey".hashValue)
-        static let mg_GIFKey = UnsafeRawPointer(bitPattern: "mg_GIFKey".hashValue)
-        static let mg_GIFWebView = UnsafeRawPointer(bitPattern: "mg_GIFWebView".hashValue)
+        static let mg_HUDKey = UnsafeRawPointer.init(bitPattern: "mg_HUDKey".hashValue)!
+        static let mg_GIFKey = UnsafeRawPointer(bitPattern: "mg_GIFKey".hashValue)!
+        static let mg_GIFWebView = UnsafeRawPointer(bitPattern: "mg_GIFWebView".hashValue)!
         /// ...其他Key声明
     }
     
@@ -44,21 +44,21 @@ extension UIViewController {
      *  @param hint 提示
      */
     func showHudInView(view: UIView, hint: String?, yOffset: Float = 0.0) {
-        guard let hud = MBProgressHUD(view: view) else { return }
-        hud.labelText = hint
+        let hud = MBProgressHUD(view: view)
+        hud.label.text = hint
         view.addSubview(hud)
         if yOffset != 0.0 {
             hud.margin = 10.0;
-            hud.yOffset += yOffset;
+            hud.offset.y += CGFloat(yOffset)
         }
-        hud.show(true)
+        hud.show(animated: true)
         self.MBHUD = hud
     }
     
     /// 如果设置了图片名，mode的其他其他设置将失效
     func showHudInViewWithMode(view: UIView, hint: String?, mode: MBProgressHUDMode = .text, imageName: String?)  {
-        guard let hud = MBProgressHUD(view: view) else { return }
-        hud.labelText = hint
+        let hud = MBProgressHUD(view: view)
+        hud.label.text = hint
         view.addSubview(hud)
 
         hud.mode = mode
@@ -67,7 +67,7 @@ extension UIViewController {
             hud.customView = UIImageView(image: UIImage(named: imageName!))
         }
         
-        hud.show(true)
+        hud.show(animated: true)
         self.MBHUD = hud
     }
 
@@ -76,7 +76,7 @@ extension UIViewController {
      *  隐藏HUD
      */
     func hideHud(){
-        self.MBHUD?.hide(true)
+        self.MBHUD?.hide(animated: true)
     }
 
     
@@ -88,22 +88,22 @@ extension UIViewController {
     func showHint(hint: String?, mode: MBProgressHUDMode = .text) {
         //显示提示信息
         guard let view = UIApplication.shared.delegate?.window else { return }
-        guard let hud = MBProgressHUD.showAdded(to: view, animated: true)  else { return }
+        let hud = MBProgressHUD.showAdded(to: view!, animated: true)
         hud.isUserInteractionEnabled = false
         hud.mode = MBProgressHUDMode.text
-        hud.labelText = hint;
+        hud.label.text = hint;
         hud.mode = mode
         hud.margin = 10.0;
         hud.removeFromSuperViewOnHide = true
-        hud.hide(true, afterDelay: 2)
+        hud.hide(animated: true, afterDelay: 2)
     }
 
     func showHint(hint: String?,mode: MBProgressHUDMode? = .text,view: UIView? = (UIApplication.shared.delegate?.window!)!, yOffset: Float = 0.0){
         //显示提示信息
-        guard let hud = MBProgressHUD.showAdded(to: view, animated: true)  else { return }
+        let hud = MBProgressHUD.showAdded(to: view!, animated: true)
         hud.isUserInteractionEnabled = false
         hud.mode = MBProgressHUDMode.text
-        hud.labelText = hint
+        hud.label.text = hint
 
         if mode == .customView {
             hud.mode = .customView
@@ -114,19 +114,19 @@ extension UIViewController {
         }
         hud.margin = 15.0
         if yOffset != 0.0 {
-            hud.yOffset += yOffset;
+            hud.offset.y += CGFloat(yOffset)
         }
 
         hud.removeFromSuperViewOnHide = true
-        hud.hide(true, afterDelay: 2)
+        hud.hide(animated: true, afterDelay: 2)
     }
     
     // 带图片的提示HUD，延时2秒消失
     func showHint(hint: String?,imageName: String?) {
-        guard let hud = MBProgressHUD.showAdded(to: view, animated: true)  else { return }
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.isUserInteractionEnabled = false
         hud.mode = MBProgressHUDMode.text
-        hud.labelText = hint
+        hud.label.text = hint
         
         if imageName != nil {
             hud.mode = .customView
@@ -135,7 +135,7 @@ extension UIViewController {
             hud.mode = .text
         }
         hud.removeFromSuperViewOnHide = true
-        hud.hide(true, afterDelay: 2)
+        hud.hide(animated: true, afterDelay: 2)
     }
     
     // MARK: - 显示Gif图片
@@ -268,7 +268,7 @@ extension UIViewController {
                     self.mg_GIFWebView = webView
                 }
                 view?.addSubview(webView)
-                view?.bringSubview(toFront: webView)
+                view?.bringSubviewToFront(webView)
                 //创建一个灰色的蒙版，提升效果（ 可选 ）
                 if filter! {  // true
                     let filter = UIView(frame: self.view.frame)
@@ -321,7 +321,7 @@ extension UIViewController {
      *  animated：是否带动画
      */
     func back(toControllerClass cls: AnyClass, animated: Bool) {
-        if navigationController != nil, let childViewControllers = navigationController?.childViewControllers {
+        if navigationController != nil, let childViewControllers = navigationController?.children {
             let resluts = childViewControllers.filter { return $0.isKind(of: cls) }
             if resluts.count>0,let firstObject = resluts.first {
                  navigationController!.popToViewController(firstObject, animated: animated)

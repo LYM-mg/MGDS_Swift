@@ -114,9 +114,9 @@ extension MGPlayerViewController {
     
     
     func bringBtnTofront()  {
-        self.view.bringSubview(toFront: likeBtn)
-        self.view.bringSubview(toFront: backBtn)
-        self.view.bringSubview(toFront: giftBtn)
+        self.view.bringSubviewToFront(likeBtn)
+        self.view.bringSubviewToFront(backBtn)
+        self.view.bringSubviewToFront(giftBtn)
     }
 }
 

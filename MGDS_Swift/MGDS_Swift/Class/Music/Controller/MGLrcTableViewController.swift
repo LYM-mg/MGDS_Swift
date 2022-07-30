@@ -56,7 +56,7 @@ class MGLrcTableViewController: UITableViewController {
         self.tableView.separatorStyle = .none
         
         // 设置模式--居中显示
-        self.tableView.contentMode = UIViewContentMode.center
+        self.tableView.contentMode = UIView.ContentMode.center
     }
 
     override func viewDidLayoutSubviews() {

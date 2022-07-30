@@ -13,11 +13,6 @@ import AVFoundation
 class MGPlayMusicTool: NSObject {
     static let _playingMusic = NSMutableDictionary()  // 利用字典 URL作为唯一key播放
     static let _indicator = MGMusicIndicator.share
-    
-    override class func initialize() {
-        super.initialize()
-//        _playingMusic =
-    }
 }
 
 // MARK: - 播放相关

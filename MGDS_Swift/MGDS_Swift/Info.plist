@@ -332,6 +332,10 @@
 	<key>required background modes</key>
 	<array>
 		<string>App plays audio</string>
-	</array>
+    </array>
+    <key>MOBAppKey</key>
+    <string>1a9fafc4d4a6c</string>
+    <key>MOBAppSecret</key>
+    <string>8f8b196fb408ebe54b53c0b60ea0cf12</string>
 </dict>
 </plist>

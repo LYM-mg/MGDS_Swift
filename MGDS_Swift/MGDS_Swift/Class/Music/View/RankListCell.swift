@@ -25,7 +25,7 @@ class RankListCell: UICollectionViewCell {
             songLabel1.text = "1: " + song_list[0].title + " - " + song_list[0].author
             songLabel2.text = "2: " + song_list[1].title + " - " + song_list[1].author
             songLabel3.text = "3: " + song_list[2].title + " - " + song_list[2].author
-            songLabel4.text = "4: " + song_list[3].title + " - " + song_list[3].author
+//            songLabel4.text = "4: " + song_list[3].title + " - " + song_list[3].author
         }
     }
     

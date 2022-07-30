@@ -32,8 +32,8 @@ extension UIBarButtonItem {
         backBtn.addTarget(target, action: action, for: .touchUpInside)
         backBtn.contentHorizontalAlignment = .left
         backBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
-        backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0)
-        backBtn.titleEdgeInsets  = UIEdgeInsetsMake(0, -2, 0, 0)
+        backBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
+        backBtn.titleEdgeInsets  = UIEdgeInsets(top: 0, left: -2, bottom: 0, right: 0)
         
         self.init(customView: backBtn)
     }

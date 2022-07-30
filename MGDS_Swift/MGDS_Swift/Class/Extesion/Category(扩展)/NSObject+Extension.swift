@@ -43,8 +43,8 @@ extension NSObject {
         var methodNum: UInt32 = 0
         let methods = class_copyMethodList(cls, &methodNum)
         for index in 0..<numericCast(methodNum) {
-            let met: Method = methods![index]!
-            debugPrint("m_name: \(method_getName(met)!)")
+            let met: Method = methods![index]
+            debugPrint("m_name: \(method_getName(met))")
 //            debugPrint("m_returnType: \(String(utf8String: method_copyReturnType(met))!)")
 //            debugPrint("m_type: \(String(utf8String: method_getTypeEncoding(met))!)")
         }
@@ -53,7 +53,7 @@ extension NSObject {
         var propNum: UInt32 = 0
         let properties = class_copyPropertyList(cls, &propNum)
         for index in 0..<Int(propNum) {
-            let prop: objc_property_t = properties![index]!
+            let prop: objc_property_t = properties![index]
             debugPrint("p_name: \(String(utf8String: property_getName(prop))!)")
 //            debugPrint("p_Attr: \(String(utf8String: property_getAttributes(prop))!)")
         }
@@ -62,7 +62,7 @@ extension NSObject {
         var ivarNum: UInt32 = 0
         let ivars = class_copyIvarList(cls, &ivarNum)
         for index in 0..<numericCast(ivarNum) {
-            let ivar: objc_property_t = ivars![index]!
+            let ivar: objc_property_t = ivars![index]
             let name = ivar_getName(ivar)
             debugPrint("ivar_name: \(String(cString: name!))")
         }
@@ -76,8 +76,8 @@ extension NSObject {
     /// RunTime交换方法
     class func mg_SwitchMethod(cls: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
         
-        let originalMethod = class_getInstanceMethod(cls, originalSelector)
-        let swizzledMethod = class_getInstanceMethod(cls, swizzledSelector)
+        guard let originalMethod = class_getInstanceMethod(cls, originalSelector),
+              let swizzledMethod = class_getInstanceMethod(cls, swizzledSelector) else { return }
         
         let didAddMethod = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
         

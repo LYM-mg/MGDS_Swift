@@ -57,7 +57,7 @@ extension MAnchorViewController {
         collectionView.mj_header = MJRefreshGifHeader(refreshingBlock: { [weak self] in
             self?.loadData(index: 0)
         })
-        collectionView.mj_header.beginRefreshing()
+        collectionView.mj_header?.beginRefreshing()
         
         collectionView.mj_footer = MJRefreshAutoGifFooter(refreshingBlock: { [weak self] in
             self?.loadData(index: self!.moreVM.anchorModels.count)
@@ -69,8 +69,8 @@ extension MAnchorViewController {
     fileprivate func loadData(index : Int) {
         weak var weakSelf = self
         moreVM.loadMoreData(type: moreType, index : index, finishedCallback: { _ in
-            weakSelf?.collectionView.mj_header.endRefreshing()
-            weakSelf?.collectionView.mj_footer.endRefreshing()
+            weakSelf?.collectionView.mj_header?.endRefreshing()
+            weakSelf?.collectionView.mj_footer?.endRefreshing()
             weakSelf?.collectionView.reloadData()
         })
     }
@@ -118,7 +118,7 @@ extension MAnchorViewController: MGWaterFlowLayoutDelegate {
     }
     
     func edgeInsetsInWaterflowLayout(waterflowLayout: MGWaterFlowLayout) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(3, 10, 3, 10)
+        return UIEdgeInsets(top: 3, left: 10, bottom: 3, right: 10)
     }
 }
 

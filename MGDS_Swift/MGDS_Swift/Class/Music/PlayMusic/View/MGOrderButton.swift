@@ -53,7 +53,7 @@ class MGOrderButton: UIButton {
                 break
         }
         
-        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 8, options: UIViewAnimationOptions.transitionFlipFromTop, animations: { () -> Void in
+        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 8, options: UIView.AnimationOptions.transitionFlipFromTop, animations: { () -> Void in
             self.tipLabel.alpha = 1.0
             self.tipLabel.transform = CGAffineTransform.identity
         }) { (_) -> Void in

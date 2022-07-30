@@ -35,7 +35,7 @@ class SongDetailListCell: UITableViewCell {
         if (cell == nil) {
             cell = SongDetailListCell(style: .default, reuseIdentifier: musicID)
             // 设置一些cell的属性(清除系统默认选中样式)
-            cell?.selectionStyle = UITableViewCellSelectionStyle.none;
+            cell?.selectionStyle = UITableViewCell.SelectionStyle.none;
         }
         cell?.contentView.backgroundColor = UIColor.clear
         cell?.backgroundColor = UIColor.clear
@@ -46,7 +46,7 @@ class SongDetailListCell: UITableViewCell {
         return cell!
     }
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUpUI()
         self.layoutIfNeeded()

@@ -17,9 +17,6 @@ PODS:
   - SnapKit (4.2.0)
   - SwiftyJSON (5.0.1)
   - Validator (3.2.1)
-  - ZFPlayer (4.0.3):
-    - ZFPlayer/Core (= 4.0.3)
-  - ZFPlayer/Core (4.0.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -37,7 +34,6 @@ DEPENDENCIES:
   - SnapKit
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - Validator
-  - ZFPlayer
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -54,7 +50,6 @@ SPEC REPOS:
     - SMSSDK
     - SnapKit
     - Validator
-    - ZFPlayer
 
 EXTERNAL SOURCES:
   Masonry:
@@ -86,8 +81,7 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
-  ZFPlayer: 624c92de06eb34df322c3b53b4c9ce760f528f7a
 
-PODFILE CHECKSUM: c2305d34368e39893a28ff44ebc3ff3ce758e1fe
+PODFILE CHECKSUM: a0965c3379244deac01779ee3f5980216eded138
 
 COCOAPODS: 1.11.3

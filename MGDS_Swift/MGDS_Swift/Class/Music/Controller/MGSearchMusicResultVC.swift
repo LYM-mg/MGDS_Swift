@@ -40,8 +40,8 @@ extension MGSearchMusicResultVC {
         })
         
         // 设置自动切换透明度(在导航栏下面自动隐藏)
-        tableView.mj_header.isAutomaticallyChangeAlpha = true
-        self.tableView.mj_header.beginRefreshing()
+        tableView.mj_header?.isAutomaticallyChangeAlpha = true
+        self.tableView.mj_header?.beginRefreshing()
     }
     
     fileprivate func loadSearchResultDataWithKeyWord(_ keyword: String) {
@@ -59,10 +59,10 @@ extension MGSearchMusicResultVC {
                 self?.dataSource.append(SongDetail(dict: dict))
             }
             self?.tableView.reloadData()
-            self?.tableView.mj_header.endRefreshing()
+            self?.tableView.mj_header?.endRefreshing()
         }) { (err) in
             self.hideHud()
-            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_header?.endRefreshing()
             self.showHint(hint: "请求数据失败", imageName: "sad_face_icon")
         }
     }

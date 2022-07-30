@@ -21,7 +21,7 @@ class HistoryHeaderView: UICollectionReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        moreBtn.addTarget(self, action: #selector(HistoryHeaderView.moreBtnClick), for: UIControlEvents.touchUpInside)
+        moreBtn.addTarget(self, action: #selector(HistoryHeaderView.moreBtnClick), for: UIControl.Event.touchUpInside)
         frame = CGRect(x: 0, y: 0, width: MGScreenW, height: 35)
     }
     

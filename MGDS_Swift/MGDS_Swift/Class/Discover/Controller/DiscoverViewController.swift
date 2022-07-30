@@ -29,7 +29,7 @@ class DiscoverViewController: UITableViewController {
         self.navigationItem.title = "惊喜"
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 50.0
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "tableViewCellID")
         
         loadData()
@@ -49,7 +49,7 @@ extension DiscoverViewController {
         let data: Data = NSData(contentsOfFile: path!) as! Data
         guard let rootDict = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else { return }
         
-        guard let videoList = rootDict?["videoList"]! as? [[String: Any]]  else { return }
+        guard let videoList = rootDict["videoList"] as? [[String: Any]]  else { return }
         for dict in videoList {
             let model = MGVideoModel(dict: dict)
             dataArr.append(model)
@@ -79,10 +79,10 @@ extension DiscoverViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
 }
 

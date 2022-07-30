@@ -78,11 +78,11 @@ extension MGAnchorCell {
         
         fresnImageView = UIImageView()
         fresnImageView.image = UIImage(named: "flag_new_33x17_")
-        fresnImageView.contentMode = UIViewContentMode.scaleAspectFit;
+        fresnImageView.contentMode = UIView.ContentMode.scaleAspectFit;
         self.contentView.addSubview(fresnImageView)
         
         star = UIImageView()
-        star.contentMode = UIViewContentMode.scaleAspectFit;
+        star.contentMode = UIView.ContentMode.scaleAspectFit;
         self.contentView.addSubview(star)
         
         nickNameLabel = UILabel()

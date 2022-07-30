@@ -11,14 +11,10 @@ import UIKit
 // MARK: - 生命周期
 class BaseNavigationController: UINavigationController {
     
-    override class func initialize() {
-        super.initialize()
-        // 0.设置导航栏的颜色
-        setUpNavAppearance()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 0.设置导航栏的颜色
+        setUpNavAppearance()
         // 1.全局拖拽手势
         setUpGlobalPan()
     }
@@ -32,7 +28,7 @@ class BaseNavigationController: UINavigationController {
 // MARK: - 拦截控制器的push操作
 extension BaseNavigationController {
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        if self.childViewControllers.count > 0 {
+        if self.children.count > 0 {
             let popBtn = UIButton(imageName: "goback", title: "", target: self, action: #selector(BaseNavigationController.popClick(sender:)))
             
             // 设置popBtn的属性
@@ -42,8 +38,8 @@ extension BaseNavigationController {
             
             popBtn.contentHorizontalAlignment = .left
             popBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
-            popBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0)
-            popBtn.titleEdgeInsets  = UIEdgeInsetsMake(0, 0, 0, 0)
+            popBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
+            popBtn.titleEdgeInsets  = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: popBtn)
             viewController.hidesBottomBarWhenPushed = true
         }
@@ -76,13 +72,13 @@ extension BaseNavigationController {
     
     /// 什么时候支持全屏手势
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return self.childViewControllers.count != 1
+        return self.children.count != 1
     }
 }
 
 // MARK: - 设置导航栏肤色
 extension BaseNavigationController {
-    fileprivate class func setUpNavAppearance() {
+    fileprivate func setUpNavAppearance() {
         // ======================  bar ======================
         var navBarAppearance = UINavigationBar.appearance()
         if #available(iOS 9.0, *) {
@@ -92,15 +88,15 @@ extension BaseNavigationController {
         if #available(iOS 10.0, *) {  // 导航栏透明
             navBarAppearance.isTranslucent = true
         } else {
-            self.init().navigationBar.isTranslucent = false
+            self.navigationBar.isTranslucent = false
         }
 
         navBarAppearance.barTintColor = UIColor(r: 39, g: 105, b: 187)
         navBarAppearance.tintColor = UIColor.orange
         
-        var titleTextAttributes = [String : Any]()
-        titleTextAttributes[NSForegroundColorAttributeName] =  UIColor.orange
-        titleTextAttributes[NSFontAttributeName] = UIFont(name: "HelveticaNeue-CondensedBlack", size: 19)
+        var titleTextAttributes = [NSAttributedString.Key : Any]()
+        titleTextAttributes[NSAttributedString.Key.foregroundColor] =  UIColor.orange
+        titleTextAttributes[NSAttributedString.Key.font] = UIFont(name: "HelveticaNeue-CondensedBlack", size: 19)
         navBarAppearance.titleTextAttributes = titleTextAttributes
         
         // ======================  item  =======================
@@ -109,14 +105,14 @@ extension BaseNavigationController {
         let shadow = NSShadow()
         shadow.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
         shadow.shadowOffset = CGSize(width: 0, height: 1)
-        var attributes = [String : Any]()
-        attributes[NSForegroundColorAttributeName] = UIColor(r: 245.0, g: 245.0, b: 245.0)
-        attributes[NSShadowAttributeName] = shadow
-        attributes[NSFontAttributeName] = UIFont(name: "HelveticaNeue-CondensedBlack", size: 17)
+        var attributes = [NSAttributedString.Key : Any]()
+        attributes[NSAttributedString.Key.foregroundColor] = UIColor(r: 245.0, g: 245.0, b: 245.0)
+        attributes[NSAttributedString.Key.shadow] = shadow
+        attributes[NSAttributedString.Key.font] = UIFont(name: "HelveticaNeue-CondensedBlack", size: 17)
         
         barItemAppearence.setTitleTextAttributes(attributes, for: .normal)
         
-        attributes[NSForegroundColorAttributeName] = UIColor.yellow
+        attributes[NSAttributedString.Key.foregroundColor] = UIColor.yellow
         barItemAppearence.setTitleTextAttributes(attributes, for: .highlighted)
     }
 }

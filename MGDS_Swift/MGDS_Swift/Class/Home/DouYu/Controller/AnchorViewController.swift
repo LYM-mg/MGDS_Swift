@@ -48,7 +48,7 @@ class AnchorViewController: UIViewController {
         
         collectionView.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)
         collectionView.register(UINib(nibName: "CollectionPrettyCell", bundle: nil), forCellWithReuseIdentifier: kPrettyCellID)
-        collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
+        collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
         
         return collectionView
     }()
@@ -112,9 +112,9 @@ extension AnchorViewController {
         
         // 设置自动切换透明度(在导航栏下面自动隐藏)
         // 设置自动切换透明度(在导航栏下面自动隐藏)
-        collectionView.mj_header.ignoredScrollViewContentInsetTop = kCycleViewH + kGameViewH
-        collectionView.mj_header.isAutomaticallyChangeAlpha = true
-        self.collectionView.mj_header.beginRefreshing()
+        collectionView.mj_header?.ignoredScrollViewContentInsetTop = kCycleViewH + kGameViewH
+        collectionView.mj_header?.isAutomaticallyChangeAlpha = true
+        self.collectionView.mj_header?.beginRefreshing()
     }
 
     
@@ -123,7 +123,7 @@ extension AnchorViewController {
         anchorVM.requestData {[unowned self] (err) in
             if err != nil {
                 self.showHint(hint: "网络请求失败")
-                self.collectionView.mj_header.endRefreshing()
+                self.collectionView.mj_header?.endRefreshing()
                 return
             }
             // 1.展示推荐数据
@@ -145,7 +145,7 @@ extension AnchorViewController {
             groups.append(moreGroup)
             
             self.gameView.groups = groups
-            self.collectionView.mj_header.endRefreshing()
+            self.collectionView.mj_header?.endRefreshing()
         }
         
         // 2.请求轮播数据

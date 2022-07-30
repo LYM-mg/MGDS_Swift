@@ -53,15 +53,15 @@ class WebViewController: UIViewController {
     // MARK: - 导航栏
     private func buildRightItemBarButton() {
         let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 44))
-        rightButton.setImage(UIImage(named: "restart"), for: UIControlState.normal)
+        rightButton.setImage(UIImage(named: "restart"), for: UIControl.State.normal)
         rightButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -53)
-        rightButton.addTarget(self, action: #selector(WebViewController.refreshClick), for: UIControlEvents.touchUpInside)
+        rightButton.addTarget(self, action: #selector(WebViewController.refreshClick), for: UIControl.Event.touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
     }
     
     // MARK: - Action
-    func refreshClick() {
-        if urlStr != nil && urlStr!.characters.count > 1 {
+    @objc func refreshClick() {
+        if urlStr != nil && urlStr!.count > 1 {
             webView.loadRequest(URLRequest(url: URL(string: urlStr!)!))
         }
     }

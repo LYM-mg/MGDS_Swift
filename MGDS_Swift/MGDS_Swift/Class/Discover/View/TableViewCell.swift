@@ -44,7 +44,7 @@ class TableViewCell: UITableViewCell {
         self.playBtn.addTarget(self, action: #selector(self.play), for: .touchUpInside)
         self.picView.addSubview(self.playBtn)
         
-        contentView.systemLayoutSizeFitting(UILayoutFittingExpandedSize)
+        contentView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
     }
     
     override func layoutSubviews() {
@@ -58,7 +58,7 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func play(sender: UIButton) {
+    @objc func play(sender: UIButton) {
         if (delegate?.responds(to: #selector(TableViewCellProtocol.playBtnClick)))! {
             delegate?.playBtnClick(cell: self, model: model!)
         }

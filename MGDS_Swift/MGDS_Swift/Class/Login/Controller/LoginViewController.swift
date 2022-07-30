@@ -8,13 +8,8 @@
 import UIKit
 import  Validator
 
-struct ValidationError: Error {
-    
-    public let message: String
-    
-    public init(message m: String) {
-        message = m
-    }
+struct MGValidationError: ValidationError {
+    var message: String
 }
 
 class LoginViewController: UIViewController {
@@ -33,8 +28,8 @@ class LoginViewController: UIViewController {
         pwdTextField.delegate = self
         
         
-        phoneTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidReChange(textField:)), for: UIControlEvents.editingChanged)
-        pwdTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidReChange(textField:)), for: UIControlEvents.editingChanged)
+        phoneTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidReChange(textField:)), for: UIControl.Event.editingChanged)
+        pwdTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidReChange(textField:)), for: UIControl.Event.editingChanged)
         
         //设置登录按钮一开始为不可点击
         loginBtn.isEnabled = false
@@ -58,8 +53,8 @@ extension LoginViewController: UITextFieldDelegate {
      - parameter textField: textField description
      */
     @objc fileprivate func textFieldDidReChange(textField: UITextField) {
-        let phoneRule = ValidationRuleLength(min: 2, max: 21, error: ValidationError(message: "😫"))
-        let pwdRule = ValidationRuleLength(min: 3, max: 15, error:ValidationError(message: "😫"))
+        let phoneRule = ValidationRuleLength(min: 2, max: 21, error: MGValidationError(message: "😫"))
+        let pwdRule = ValidationRuleLength(min: 3, max: 15, error: MGValidationError(message: "😫"))
 
         let result: ValidationResult
         switch textField.tag{
@@ -209,7 +204,7 @@ extension LoginViewController {
         MGNotificationCenter.post(name: NSNotification.Name(KChange3DTouchNotification), object: nil)
         MGKeyWindow?.rootViewController = MainTabBarViewController()
         let transition = CATransition()
-        transition.type = "reveal"
+        transition.type = CATransitionType.reveal
         transition.duration = 1.5
         MGKeyWindow?.layer.add(transition, forKey: nil)
     }

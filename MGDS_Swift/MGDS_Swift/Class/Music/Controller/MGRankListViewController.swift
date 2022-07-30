@@ -64,8 +64,8 @@ extension MGRankListViewController {
         })
         
         // 设置自动切换透明度(在导航栏下面自动隐藏)
-        collectionView.mj_header.isAutomaticallyChangeAlpha = true
-        self.collectionView.mj_header.beginRefreshing()
+        collectionView.mj_header?.isAutomaticallyChangeAlpha = true
+        self.collectionView.mj_header?.beginRefreshing()
     }
 
     
@@ -84,12 +84,12 @@ extension MGRankListViewController {
             }
 
             self!.collectionView.reloadData()
-            self!.collectionView.mj_header.endRefreshing()
+            self!.collectionView.mj_header?.endRefreshing()
         }) { (err) in
             if err != nil {
                 self.showHint(hint: "网络请求错误❌")
             }
-            self.collectionView.mj_header.endRefreshing()
+            self.collectionView.mj_header?.endRefreshing()
         }
     }
 }

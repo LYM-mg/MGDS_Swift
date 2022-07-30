@@ -57,7 +57,7 @@ public extension String {
     
     func toDouble(locale: Locale = Locale.current) -> Double? {
         let nf = NumberFormatter()
-        nf.locale = locale as Locale!
+        nf.locale = locale
         if let number = nf.number(from: self) {
             return number.doubleValue
         }
@@ -86,7 +86,7 @@ public extension String {
 
 // MARK: - 通过扩展来简化一下,截取字符串
 public extension String {
-    var length: Int { return characters.count }
+    var length: Int { return count }
     
 //    subscript (range: Range<Int>) -> String {
 //        get {
@@ -119,7 +119,7 @@ public extension String {
     
     func truncate(_ length: Int, suffix: String = "...") -> String {
         return self.length > length
-            ? substring(to: characters.index(startIndex, offsetBy: length)) + suffix
+            ? substring(to: self.index(startIndex, offsetBy: length)) + suffix
             : self
     }
     
@@ -159,11 +159,11 @@ extension String {
     mutating func numberHideMidWithOtherChar(form: Int, to: Int,char: String) {
         // 判断
         var form = form;   var to = to
-        if form < 0 || form > self.characters.count {
+        if form < 0 || form > self.count {
             form = 0
         }
-        if to > self.characters.count {
-            to = self.characters.count
+        if to > self.count {
+            to = self.count
         }
         var star = ""
         for _ in form...to {
@@ -266,7 +266,7 @@ extension String {
         
         let digest = stringFromResult(result:  result, length: digestLen)
         
-        result.deallocate(capacity: digestLen)
+        result.deallocate()
         
         return digest
     }
@@ -300,8 +300,8 @@ extension String {
         paraStyle.paragraphSpacingBefore = 0.0
         paraStyle.headIndent = 0
         paraStyle.tailIndent = 0
-        let dic: [AnyHashable: Any] = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paraStyle, NSKernAttributeName: 1.5]
-        let size = self.boundingRect(with: CGSize(width: width, height: CGFloat(HUGE)), options: .usesLineFragmentOrigin, attributes: (dic as? [String : Any] ?? [String : Any]()), context: nil).size
+        let dic: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paraStyle, NSAttributedString.Key.kern: 1.5]
+        let size = self.boundingRect(with: CGSize(width: width, height: CGFloat(HUGE)), options: .usesLineFragmentOrigin, attributes: dic, context: nil).size
         return size.height
     }
     
@@ -313,7 +313,7 @@ extension String {
      */
     public func inputTextHeight(for width: CGFloat) -> Float {
         let constraint = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let size: CGRect = self.boundingRect(with: constraint, options: ([.usesLineFragmentOrigin, .usesFontLeading]), attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
+        let size: CGRect = self.boundingRect(with: constraint, options: ([.usesLineFragmentOrigin, .usesFontLeading]), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
         let textHeight: Float = Float(size.size.height + 22.0)
         return textHeight
     }

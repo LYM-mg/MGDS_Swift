@@ -47,31 +47,31 @@ extension MGHotViewController {
         })
 
         // 设置自动切换透明度(在导航栏下面自动隐藏)
-        tableView.mj_header.isAutomaticallyChangeAlpha = true
-        self.tableView.mj_footer.isAutomaticallyHidden = true
-        self.tableView.mj_header.beginRefreshing()
+        tableView.mj_header?.isAutomaticallyChangeAlpha = true
+        self.tableView.mj_footer?.isAutomaticallyHidden = true
+        self.tableView.mj_header?.beginRefreshing()
         // 隐藏下拉刷新
-        self.tableView.mj_footer.isHidden = true
+        self.tableView.mj_footer?.isHidden = true
     }
     
     
     fileprivate func loadData() {
         if self.hotLiveVM.currentPage == 1 { // 如果是下拉刷新 即也是要重新加载图片轮播的数据
             hotLiveVM.getCycleData { [unowned self] (err) in
-                self.tableView.mj_header.endRefreshing()
-                self.tableView.mj_footer.endRefreshing()
+                self.tableView.mj_header?.endRefreshing()
+                self.tableView.mj_footer?.endRefreshing()
             }
             
             hotLiveVM.getHotData { [unowned self] (err) in
                 self.tableView.reloadData()
-                self.tableView.mj_header.endRefreshing()
-                self.tableView.mj_footer.endRefreshing()
+                self.tableView.mj_header?.endRefreshing()
+                self.tableView.mj_footer?.endRefreshing()
             }
         }else {
             hotLiveVM.getHotData { [unowned self] (err) in
                 self.tableView.reloadData()
-                self.tableView.mj_header.endRefreshing()
-                self.tableView.mj_footer.endRefreshing()
+                self.tableView.mj_header?.endRefreshing()
+                self.tableView.mj_footer?.endRefreshing()
             }
 
         }
@@ -85,7 +85,7 @@ extension MGHotViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.tableView.mj_footer.isHidden = hotLiveVM.lives.count == 0
+        self.tableView.mj_footer?.isHidden = hotLiveVM.lives.count == 0
         return hotLiveVM.lives.count + 1
     }
     

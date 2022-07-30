@@ -10,21 +10,21 @@ import UIKit
 
 extension UIButton {
     /// 遍历构造函数
-//    convenience init(imageName:String, bgImageName:String){
-//        self.init()
-//        
-//        // 1.设置按钮的属性
-//        // 1.1图片
-//        setImage(UIImage(named: imageName), for: .normal)
-//        setImage(UIImage(named: imageName + "_highlighted"), for: .highlighted)
-//        
-//        // 1.2背景
-//        setBackgroundImage(UIImage(named: bgImageName), for: .normal)
-//        setBackgroundImage(UIImage(named: bgImageName + "_highlighted"), for: .highlighted)
-//        
-//        // 2.设置尺寸
-//        sizeToFit()
-//    }
+    convenience init(imageName:String, bgImageName:String){
+        self.init()
+        
+        // 1.设置按钮的属性
+        // 1.1图片
+        setImage(UIImage(named: imageName), for: .normal)
+        setImage(UIImage(named: imageName + "_highlighted"), for: .highlighted)
+        
+        // 1.2背景
+        setBackgroundImage(UIImage(named: bgImageName), for: .normal)
+        setBackgroundImage(UIImage(named: bgImageName + "_highlighted"), for: .highlighted)
+        
+        // 2.设置尺寸
+        sizeToFit()
+    }
     
     convenience init(imageName:String, target:AnyObject, action:Selector) {
         self.init()
@@ -40,7 +40,7 @@ extension UIButton {
     
     convenience init(title:String, target:AnyObject, action:Selector) {
         self.init()
-        setTitle(title, for: UIControlState.normal)
+        setTitle(title, for: UIControl.State.normal)
         sizeToFit()
         addTarget(target, action: action, for: .touchUpInside)
     }
@@ -50,9 +50,9 @@ extension UIButton {
         // 1.设置按钮的属性
         setImage(UIImage(named: imageName), for: .normal)
 //        setImage(UIImage(named: imageName + "_highlighted"), for: .highlighted)
-        setTitle(title, for: UIControlState.normal)
+        setTitle(title, for: UIControl.State.normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        setTitleColor(UIColor.darkGray, for: UIControlState.normal)
+        setTitleColor(UIColor.darkGray, for: UIControl.State.normal)
         
         // 2.监听
         addTarget(target, action: action, for: .touchUpInside)
@@ -64,7 +64,7 @@ extension UIButton {
     // MARK:- RuntimeKey   动态绑属性
     // 改进写法【推荐】
     fileprivate struct RuntimeKey {
-        static let mg_BtnBlockKey = UnsafeRawPointer.init(bitPattern: "mg_BtnBlockKey".hashValue)
+        static let mg_BtnBlockKey = UnsafeRawPointer.init(bitPattern: "mg_BtnBlockKey".hashValue)!
         /// ...其他Key声明
     }
     
@@ -91,18 +91,18 @@ extension UIButton {
         self.init(actionBlock: actionBlock)
         // 1.设置按钮的属性
         setImage(imageName, for: .normal)
-        setTitle(title, for: UIControlState.normal)
+        setTitle(title, for: UIControl.State.normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        setTitleColor(UIColor.darkGray, for: UIControlState.normal)
+        setTitleColor(UIColor.darkGray, for: UIControl.State.normal)
         sizeToFit()
     }
     
     convenience init(title: String,actionBlock: @escaping MGButtonBlock) {
         self.init(actionBlock: actionBlock)
         // 1.设置按钮的属性
-        setTitle(title, for: UIControlState.normal)
+        setTitle(title, for: UIControl.State.normal)
         titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        setTitleColor(UIColor.darkGray, for: UIControlState.normal)
+        setTitleColor(UIColor.darkGray, for: UIControl.State.normal)
         sizeToFit()
     }
     
