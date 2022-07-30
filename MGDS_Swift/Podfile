@@ -26,7 +26,7 @@ target 'MGDS_Swift' do
     
     
     pod 'pop'            #',~> 1.0.12'
-    
+    pod 'Masonry', :git => 'https://github.com/cloudkite/Masonry.git'
     
     pod 'NAKPlaybackIndicatorView'       # ,'~> 0.1.1'
     pod 'FMDB'                 # 数据存储 # ,'~> 2.7.5'

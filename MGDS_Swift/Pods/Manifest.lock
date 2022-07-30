@@ -6,6 +6,7 @@ PODS:
   - IQKeyboardManagerSwift (6.5.10)
   - Just (0.8.0)
   - Kingfisher (4.10.1)
+  - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.7.5)
   - MOBFoundation (3.2.36)
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Just
   - Kingfisher
+  - Masonry (from `https://github.com/cloudkite/Masonry.git`)
   - MBProgressHUD
   - MJRefresh
   - MOBFoundation
@@ -55,10 +57,15 @@ SPEC REPOS:
     - ZFPlayer
 
 EXTERNAL SOURCES:
+  Masonry:
+    :git: https://github.com/cloudkite/Masonry.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
+  Masonry:
+    :commit: 8bd77ea92bbe995e14c454f821200b222e5a8804
+    :git: https://github.com/cloudkite/Masonry.git
   SwiftyJSON:
     :commit: b3dcd7dbd0d488e1a7077cb33b00f2083e382f07
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -69,6 +76,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   Just: aef5105fb2c7069b65aa6f21aec8f429057f9c19
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Masonry: 890751a1008d6f33a97b032f4ecad4870d7eed3a
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   MOBFoundation: 78ad4264f436b3d147375ab7fdb8088b9e22ca5d
@@ -80,6 +88,6 @@ SPEC CHECKSUMS:
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
   ZFPlayer: 624c92de06eb34df322c3b53b4c9ce760f528f7a
 
-PODFILE CHECKSUM: a2dfe51c3b801a0bc44e833c8fb3c52ce886605f
+PODFILE CHECKSUM: c2305d34368e39893a28ff44ebc3ff3ce758e1fe
 
 COCOAPODS: 1.11.3
