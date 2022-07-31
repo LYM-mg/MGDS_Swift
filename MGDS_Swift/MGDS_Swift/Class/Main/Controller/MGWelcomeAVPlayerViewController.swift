@@ -103,7 +103,7 @@ extension MGWelcomeAVPlayerViewController {
             self.removeFromParent()
         }
 //        let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User   // 获取用户数据
-//        MGKeyWindow?.rootViewController =  (user == nil) ? UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() : MainTabBarViewController()
+//        MGHelpTools.getKeyWindow()?.rootViewController =  (user == nil) ? UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() : MainTabBarViewController()
         
     }
 }

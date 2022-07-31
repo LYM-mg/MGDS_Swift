@@ -198,11 +198,11 @@ extension PlayerViewController {
             if (popver != nil) {
                 popver!.permittedArrowDirections = UIPopoverArrowDirection.left
             }
-            MGKeyWindow?.rootViewController?.present(activity, animated: true, completion: nil)
+            MGHelpTools.getKeyWindow()?.rootViewController?.present(activity, animated: true, completion: nil)
             
             activity.completionWithItemsHandler = { (type, completed, result, err)  in
                 if completed {
-                    MGKeyWindow?.rootViewController?.showHint(hint: "成功")
+                    MGHelpTools.getKeyWindow()?.rootViewController?.showHint(hint: "成功")
                 }
                 activity.completionWithItemsHandler = nil
             }

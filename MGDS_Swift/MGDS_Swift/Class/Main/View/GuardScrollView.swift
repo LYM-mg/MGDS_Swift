@@ -25,8 +25,13 @@ class GuardScrollView: UIView {
         let pageControl = UIPageControl()
         pageControl.mg_center = CGPoint(x: MGScreenW*0.5, y: MGScreenH-44)
         pageControl.numberOfPages = 5
-        pageControl.setValue(UIImage(named: "current"), forKey: "_currentPageImage")
-        pageControl.setValue(UIImage(named: "other"), forKey: "_pageImage")
+        if #available(iOS 14, *) {
+            pageControl.preferredIndicatorImage = UIImage(named: "other")
+            pageControl.setIndicatorImage(UIImage(named: "current"), forPage: 0)
+        } else {
+            pageControl.setValue(UIImage(named: "current"), forKey: "_currentPageImage")
+            pageControl.setValue(UIImage(named: "other"), forKey: "_pageImage")
+        }
         return pageControl
     }()
     
@@ -82,5 +87,11 @@ extension GuardScrollView: UIScrollViewDelegate {
         
         // 2.计算pageControl的currentIndex
         pageControl.currentPage = Int(offsetX / scrollView.bounds.width) % (5)
+        
+        if #available(iOS 14, *) {
+            pageControl.setIndicatorImage(UIImage(named: "current"), forPage: pageControl.currentPage)
+        }
+        
     }
+    
 }

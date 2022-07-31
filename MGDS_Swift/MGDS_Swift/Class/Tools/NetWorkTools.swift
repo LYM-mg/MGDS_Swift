@@ -258,9 +258,25 @@ enum NetworkStatuses {
 extension NetWorkTools {
      /// 获取网络状态
      class func getNetworkStates() -> NetworkStatuses? {
-        guard let object1 = UIApplication.shared.value(forKey: "statusBar") as? NSObject else { return nil }
-        guard let object2 = object1.value(forKey: "foregroundView") as? UIView else { return nil }
-        let subviews = object2.subviews
+         return nil
+         var foregroundView: UIView? = nil
+         if #available(iOS 13.0, *) {
+             #if swift(>=5.0)
+             if let statusBarManager = UIApplication.shared.keyWindow?.windowScene?.statusBarManager,
+                 let localStatusBar = statusBarManager.perform(Selector(("createLocalStatusBar")))?.takeRetainedValue()
+                     as? UIView,
+                 let statusBar = localStatusBar.perform(Selector(("statusBar")))?.takeRetainedValue() as? UIView,
+                 let _statusBar = statusBar.value(forKey: "_statusBar") as? UIView {
+                 foregroundView = _statusBar.value(forKey: "foregroundView") as? UIView
+             }
+             #endif
+         } else {
+             // Fallback on earlier versions
+            let object1 = UIApplication.shared.value(forKey: "statusBar")
+             foregroundView = (object1 as? AnyObject)?.value(forKey: "foregroundView") as? UIView
+         }
+        guard let foregroundView1 = foregroundView else { return nil }
+        let subviews = foregroundView1.subviews
 
         var status = NetworkStatuses.NetworkStatusNone
         

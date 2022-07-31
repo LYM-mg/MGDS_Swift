@@ -228,8 +228,12 @@ typedef enum{
 - (void)setPageImage:(UIImage *)pageImage andCurrentImage:(UIImage *)currentImage {
     if (!pageImage || !currentImage) return;
     self.pageImageSize = pageImage.size;
-    [self.pageControl setValue:currentImage forKey:@"_currentPageImage"];
-    [self.pageControl setValue:pageImage forKey:@"_pageImage"];
+    if (@available(iOS 14.0, *)) {
+        
+    }else {
+        [self.pageControl setValue:currentImage forKey:@"_currentPageImage"];
+        [self.pageControl setValue:pageImage forKey:@"_pageImage"];
+    }
 }
 
 #pragma mark 设置pageControl的指示器颜色

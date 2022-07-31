@@ -116,6 +116,24 @@ extension LoginViewController {
                 }else{
                     self.showHint(hint: "登录失败")
                 }
+                let user1 = User()
+                let iconArr = ["https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2950591917,2354666181&fm=117&gp=0.jpg",
+                               "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=785610095,2402278722&fm=117&gp=0.jpg",
+                               "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2523342981,456767842&fm=117&gp=0.jpg",
+                               "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2414892350,1335458424&fm=117&gp=0.jpg",
+                               "http://img4.imgtn.bdimg.com/it/u=3150227654,1407185070&fm=23&gp=0.jpg",
+                               "http://img1.imgtn.bdimg.com/it/u=4229711263,3512784892&fm=23&gp=0.jpg",
+                               "http://img2.imgtn.bdimg.com/it/u=1600397295,882101291&fm=23&gp=0.jpg",
+                               "http://img1.imgtn.bdimg.com/it/u=2724666881,1693626036&fm=23&gp=0.jpg",
+                               "http://img0.imgtn.bdimg.com/it/u=845085609,3840359293&fm=23&gp=0.jpg",
+                               "http://img4.imgtn.bdimg.com/it/u=1405137322,3395236384&fm=23&gp=0.jpg",
+                               "http://img1.imgtn.bdimg.com/it/u=4088129600,4034692539&fm=23&gp=0.jpg",
+                               "http://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E5%A4%B4%E5%83%8F&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&cs=1887792679,709769868&os=1882039900,1253656006&simid=4271764292,655119390&pn=14&rn=1&di=153173665370&ln=3968&fr=&fmq=1390280702008_R&fm=&ic=0&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&oriquery=%E5%A4%B4%E5%83%8F&objurl=http%3A%2F%2Fwww.zbjdyw.com%2Fqqwebhimgs%2Fuploads%2Fbd24351977.jpg&rpstart=0&rpnum=0&adpicid=0"]
+                user1.nickName = "MG"
+                user1.password = "123"
+                user1.headImage = iconArr[Int(arc4random_uniform(13))]
+                SaveTools.mg_Archiver(user1, path:  MGUserPath)
+                self.turnToMainTabBarViewController()
             }
             self.hideHud()
         }
@@ -202,10 +220,10 @@ extension LoginViewController {
     
     fileprivate func turnToMainTabBarViewController() {
         MGNotificationCenter.post(name: NSNotification.Name(KChange3DTouchNotification), object: nil)
-        MGKeyWindow?.rootViewController = MainTabBarViewController()
+        MGHelpTools.getKeyWindow()?.rootViewController = MainTabBarViewController()
         let transition = CATransition()
         transition.type = CATransitionType.reveal
         transition.duration = 1.5
-        MGKeyWindow?.layer.add(transition, forKey: nil)
+        MGHelpTools.getKeyWindow()?.layer.add(transition, forKey: nil)
     }
 }

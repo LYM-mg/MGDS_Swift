@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let isfirst = SaveTools.mg_getLocalData(key: "isFirstOpen") as? String
         if (isfirst?.isEmpty == nil) { // 安装后第一次启用APP  引导页
-            UIApplication.shared.isStatusBarHidden = true
+//            UIApplication.shared.isStatusBarHidden = true
             showAppGurdView()
         }else {
             if user != nil {                

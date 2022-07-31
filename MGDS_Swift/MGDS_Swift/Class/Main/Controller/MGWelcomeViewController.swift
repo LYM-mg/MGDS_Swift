@@ -68,6 +68,7 @@ extension MGWelcomeViewController {
         UIView.animate(withDuration: 1.0) {
             player.view.alpha = 1.0
             player.prepareToPlay()
+            player.play()
         }
     }
     
@@ -91,7 +92,15 @@ extension MGWelcomeViewController {
     @objc func enterMainAction(_ btn: UIButton) {
         player = nil
         let user = SaveTools.mg_UnArchiver(path: MGUserPath) as? User   // 获取用户数据
-        MGKeyWindow?.rootViewController =  (user == nil) ? UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() : MainTabBarViewController()
+        if (user == nil) {
+            MGHelpTools.getKeyWindow()?.rootViewController = nil
+            MGHelpTools.getKeyWindow()?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+            MGHelpTools.getKeyWindow()?.makeKeyAndVisible()
+        }else {
+            MGHelpTools.getKeyWindow()?.rootViewController = nil
+            MGHelpTools.getKeyWindow()?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+//            MGHelpTools.getKeyWindow()?.rootViewController = MainTabBarViewController()
+        }
     }
 }
 

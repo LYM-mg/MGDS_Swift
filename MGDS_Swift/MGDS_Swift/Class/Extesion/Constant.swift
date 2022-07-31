@@ -52,8 +52,7 @@ let MGSearchMusicHistorySearchArray = "MGSearchMusicHistorySearchArray"
 let KAppDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
 // iOS在当前屏幕获取第一响应
-let MGKeyWindow = UIApplication.shared.keyWindow
-let MGFirstResponder = MGKeyWindow?.perform(Selector(("firstResponder")))
+let MGFirstResponder = MGHelpTools.getKeyWindow()?.perform(Selector(("firstResponder")))
 
 
 // MARK:- 通知

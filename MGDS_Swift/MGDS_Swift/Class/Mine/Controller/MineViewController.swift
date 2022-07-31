@@ -144,12 +144,12 @@ extension MineViewController {
             }
 
             MGNotificationCenter.post(name: NSNotification.Name(KChange3DTouchNotification), object: nil)
-            MGKeyWindow?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+            MGHelpTools.getKeyWindow()?.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
             let transAnimation = CATransition()
             transAnimation.type = CATransitionType.push
             transAnimation.subtype = CATransitionSubtype.fromLeft
             transAnimation.duration = 0.5
-            MGKeyWindow?.layer.add(transAnimation, forKey: nil)
+            MGHelpTools.getKeyWindow()?.layer.add(transAnimation, forKey: nil)
         }
         alertController.addAction(cancelAction)
         alertController.addAction(OKAction)

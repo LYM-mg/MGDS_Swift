@@ -21,7 +21,8 @@ class FindAnchorCell: UICollectionViewCell {
             
             onlineLabel.text = "\(anchor.focus)人观看"
             nickNameLabel.text = anchor.name
-            iconImageView.kf.setImage(with: URL(string: anchor.pic51), placeholder : UIImage(named: "10"))
+            guard let imageUrlStr = anchor.pic51 else { return }
+            iconImageView.kf.setImage(with: URL(string: imageUrlStr), placeholder : UIImage(named: "10"))
             liveImageView.isHidden = anchor.live == 0
         }
     }

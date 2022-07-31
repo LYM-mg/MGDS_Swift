@@ -209,17 +209,17 @@ extension MGPlayerViewController {
             if (popver != nil) {
                 popver!.permittedArrowDirections = UIPopoverArrowDirection.left
             }
-            MGKeyWindow?.rootViewController?.present(activity, animated: true, completion: nil)
+            MGHelpTools.getKeyWindow()?.rootViewController?.present(activity, animated: true, completion: nil)
             
             activity.completionWithItemsHandler = { (type, completed, result, err)  in
                 if completed {
-                    MGKeyWindow?.rootViewController?.showHint(hint: "成功")
+                    MGHelpTools.getKeyWindow()?.rootViewController?.showHint(hint: "成功")
                 }
                 activity.completionWithItemsHandler = nil
             }
         }
         let favAction = UIPreviewAction(title: "收藏", style: .default) { (action, controller) in
-            MGKeyWindow?.rootViewController?.showHint(hint: "收藏!")
+            MGHelpTools.getKeyWindow()?.rootViewController?.showHint(hint: "收藏!")
             MGNotificationCenter.post(name: NSNotification.Name(KSelectedFavouriteAnchorNotification), object: nil, userInfo: ["model": self.live])
         }
         return [shareAction,favAction]
